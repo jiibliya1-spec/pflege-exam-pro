@@ -11,7 +11,7 @@ import { TYPE_LABELS, ALL_TYPES } from "@/lib/exam";
 import type { ChoiceOption, ExtractionStatus, Question, QuestionType } from "@/lib/types";
 import type { QuestionPatch } from "@/lib/userState";
 import { Badge, Button, Card, Dialog, EmptyState, Field, Input, Notice, PageHeader, Select, Spinner, Textarea, cn } from "./ui";
-import { loadPageTexts, pageImage } from "./Source";
+import { loadPageTexts } from "./Source";
 import { useToast } from "./Toast";
 
 type Filter = "review" | "approved" | "rejected" | "ok" | "all";
@@ -145,14 +145,13 @@ function Editor({ q }: { q: Question }) {
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
         <Card className="space-y-3 p-3">
           <div className="flex items-center justify-between text-sm">
-            <span className="font-semibold">Quelle: PDF-Seite {q.source.pdfPage}</span>
+            <span className="font-semibold">Quelle: Seite {q.source.pdfPage}</span>
             <Link className="text-teal hover:underline" href={`/source/?page=${q.source.pdfPage}`}>Vollansicht</Link>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={pageImage(q.source.pdfPage)} alt={`Scan Seite ${q.source.pdfPage}`} className="max-h-[70vh] w-full rounded-lg object-contain" />
+          <p className="text-xs text-muted">Vergleichen Sie die Aufgabe und die Musterlösung unten mit dem Quelltext der Seite (rechts) bzw. mit Ihrem Buch.</p>
         </Card>
         <Card className="space-y-3">
-          <h2 className="font-semibold">Seiten-OCR (Vergleich)</h2>
+          <h2 className="font-semibold">Quelltext der Seite (Vergleich)</h2>
           <pre className="max-h-[60vh] overflow-auto whitespace-pre-wrap font-sans text-sm">{pageText || "—"}</pre>
         </Card>
       </div>
@@ -268,8 +267,8 @@ function AddDialog({ open, onClose, onCreated }: { open: boolean; onClose: () =>
       text: text.trim(),
       originalText: text.trim(),
       ...(pts ? { points: pts } : {}),
-      source: { pdfPage: pg, printedPage: pg + (bank.bank?.report.printedPageOffset ?? 5) },
-      extraction: { status: "approved", confidence: 100, notes: ["Manuell im Admin-Bereich ergänzt – nicht aus OCR."] },
+      source: { pdfPage: pg },
+      extraction: { status: "approved", confidence: 100, notes: ["Manuell im Admin-Bereich ergänzt – nicht aus dem Buchtext importiert."] },
       manual: true,
       tags: [c.title],
     };

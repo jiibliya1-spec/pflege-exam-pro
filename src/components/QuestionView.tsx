@@ -6,15 +6,17 @@ import type { CaseStudy, ChoiceOption, Question, SessionAnswer } from "@/lib/typ
 import { TYPE_LABELS } from "@/lib/exam";
 import { isChoice, maxPoints, type GradeResult } from "@/lib/grading";
 import { Badge, Notice, Textarea, cn } from "./ui";
+import { RichText } from "./RichText";
 
 export function QuestionMeta({ q, showSource = true }: { q: Question; showSource?: boolean }) {
   return (
     <div className="flex flex-wrap items-center gap-2 text-xs">
-      <Badge tone="navy">Aufgabe {q.label}</Badge>
+      <Badge tone="navy">{q.label === "0" ? "Fallanalyse" : `Aufgabe ${q.label}`}</Badge>
       <Badge>{TYPE_LABELS[q.type]}</Badge>
-      {q.points ? <Badge tone="teal">{String(q.points).replace(".", ",")} P.</Badge> : <Badge tone="neutral">Punkte nicht erkannt</Badge>}
+      {q.points ? <Badge tone="teal">{String(q.points).replace(".", ",")} P.</Badge> : q.caseId?.startsWith("m") ? null : <Badge tone="neutral">Punkte nicht erkannt</Badge>}
       {q.ab && <Badge tone="neutral">AB {q.ab}</Badge>}
-      {q.extraction.status === "review" && <Badge tone="warn">OCR prüfen</Badge>}
+      {q.kb && <Badge tone="neutral">Kompetenzbereich {q.kb}</Badge>}
+      {q.extraction.status === "review" && <Badge tone="warn">Text prüfen</Badge>}
       {q.extraction.status === "approved" && <Badge tone="ok">geprüft</Badge>}
       {q.manual && <Badge tone="neutral">manuell ergänzt</Badge>}
       {showSource && (
@@ -34,10 +36,10 @@ export function QuestionText({ q }: { q: Question }) {
       {q.stem && (
         <div className="rounded-xl bg-surface2 p-3 text-sm">
           <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">Aufgabe (Kontext)</p>
-          <p className="prose-de">{q.stem}</p>
+          <RichText text={q.stem} />
         </div>
       )}
-      <p className="prose-de text-base font-medium">{q.text}</p>
+      <RichText text={q.text} className="text-base font-medium" />
     </div>
   );
 }
@@ -51,8 +53,30 @@ export function CaseNarrative({ c, compact }: { c: CaseStudy; compact?: boolean 
           <FileText className="h-3.5 w-3.5" aria-hidden /> Seite {c.source.pdfPage}
         </Link>
       </div>
-      {c.narrative ? <p className="prose-de text-sm">{c.narrative}</p> : <Notice>Die Fallsituation konnte nicht per OCR extrahiert werden. Bitte die Quellseite öffnen.</Notice>}
-      {c.extraction.status === "review" && <p className="mt-2 text-xs text-warn">OCR-Text wurde zur Prüfung markiert und kann Fehler enthalten.</p>}
+      {(c.setting || c.themes) && (
+        <p className="mb-2 text-xs text-muted">
+          {c.setting && (
+            <>
+              <span className="font-semibold">Setting:</span> {c.setting}
+            </>
+          )}
+          {c.setting && c.themes && " · "}
+          {c.themes && (
+            <>
+              <span className="font-semibold">Themenschwerpunkte:</span> {c.themes}
+            </>
+          )}
+        </p>
+      )}
+      {c.narrative ? <RichText text={c.narrative} className="text-sm" /> : <Notice>Die Fallsituation konnte nicht extrahiert werden. Bitte die Quellseite öffnen.</Notice>}
+      {c.footnote && <p className="mt-2 text-xs text-muted">{c.footnote}</p>}
+      {!compact && c.preparation && (
+        <details className="mt-3 rounded-lg border border-line bg-surface p-3 text-sm">
+          <summary className="cursor-pointer font-medium">Vorbereitung &amp; Schwerpunkte</summary>
+          <RichText text={c.preparation} className="mt-2 text-sm" />
+        </details>
+      )}
+      {c.extraction.status === "review" && <p className="mt-2 text-xs text-warn">Hinweis: Dieser Fall wurde zur Prüfung markiert – der Text kann Fehler enthalten.</p>}
     </section>
   );
 }
@@ -146,18 +170,26 @@ export function ModelAnswerBox({ q, caseSolutionPages }: { q: Question; caseSolu
       <div className="mb-2 flex flex-wrap items-center gap-2">
         <BookMarked className="h-4 w-4 text-teal" aria-hidden />
         <span className="font-semibold">Musterlösung (Erwartungshorizont)</span>
-        {verified ? <Badge tone="ok">verifiziert</Badge> : hasText ? <Badge tone="warn">OCR · nicht verifiziert</Badge> : <Badge>nicht extrahiert</Badge>}
+        {verified ? <Badge tone="ok">verifiziert</Badge> : hasText ? <Badge tone="warn">nicht verifiziert</Badge> : <Badge>nicht extrahiert</Badge>}
       </div>
       {hasText ? (
-        <p className="prose-de">{ma!.text}</p>
+        <RichText text={ma!.text} />
       ) : (
-        <p className="text-muted">Für diese Aufgabe konnte keine Musterlösung zugeordnet werden. Öffnen Sie die Lösungsseiten im Buch, um selbst zu vergleichen.</p>
+        <div className="text-muted">
+          <p>Für diese Aufgabe konnte im Quelltext keine Musterlösung eindeutig zugeordnet werden.</p>
+          {q.extraction.notes?.filter((n) => n.startsWith("Musterlösung")).map((n) => (
+            <p key={n} className="mt-1 text-xs">
+              {n}
+            </p>
+          ))}
+        </div>
       )}
-      {!verified && hasText && <p className="mt-2 text-xs text-muted">Dieser Text stammt aus automatischer Texterkennung und wurde noch nicht gegen die Buchseite geprüft. Im Zweifel gilt die Buchseite.</p>}
+      {ma?.sharedWith && ma.sharedWith.length > 0 && <p className="mt-2 text-xs text-muted">Diese Musterlösung gilt im Buch gemeinsam für die Aufgaben {ma.sharedWith.join(", ")}.</p>}
+      {!verified && hasText && <p className="mt-2 text-xs text-muted">Dieser Text wurde automatisch aus dem Buchtext zugeordnet und noch nicht gegen die Buchseite geprüft. Im Zweifel gilt das Buch.</p>}
       <div className="mt-2 flex flex-wrap gap-3 text-xs">
         {ma?.sourcePage && (
           <Link className="text-teal hover:underline" href={`/source/?page=${ma.sourcePage}`}>
-            Lösung auf PDF-Seite {ma.sourcePage}
+            Lösung im Quelltext, Seite {ma.sourcePage}
           </Link>
         )}
         {caseSolutionPages && (

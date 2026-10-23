@@ -1,5 +1,6 @@
 "use client";
 
+import { RichText } from "./RichText";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -16,7 +17,7 @@ export function Chapters() {
   const bank = useBank();
   const { state } = useStore();
   const router = useRouter();
-  const [texts, setTexts] = useState<{ pdfPage: number; printedPage: number; text: string; meanConfidence: number }[]>([]);
+  const [texts, setTexts] = useState<{ pdfPage: number; printedPage?: number; text: string; meanConfidence: number }[]>([]);
   useEffect(() => {
     void loadPageTexts().then(setTexts);
   }, []);
@@ -44,7 +45,7 @@ export function Chapters() {
 
   return (
     <>
-      <PageHeader title="Kapitel" subtitle="Struktur des Buches laut Inhaltsverzeichnis. Lesetext ist OCR-Originaltext der Buchseiten." crumbs={[{ label: "Start", href: "/" }, { label: "Kapitel" }]} />
+      <PageHeader title="Kapitel" subtitle="Struktur des Buches laut Inhaltsverzeichnis. Lesetext ist der bereinigte Originaltext der Buchseiten." crumbs={[{ label: "Start", href: "/" }, { label: "Kapitel" }]} />
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[18rem_1fr]">
         <nav aria-label="Kapitelverzeichnis" className="space-y-3">
           {roots.map((r) => (
@@ -73,7 +74,7 @@ export function Chapters() {
                   {selected.number} {selected.title}
                 </h2>
                 <p className="text-sm text-muted">
-                  Buch S. {selected.source.printedPage} · PDF-Seiten {selected.source.pdfPage}–{endPage}
+                  Buch S. {selected.source.printedPage} · Seiten {selected.source.pdfPage}–{endPage}
                 </p>
               </div>
               <div className="flex gap-2">
@@ -123,21 +124,21 @@ export function Chapters() {
 
           <Card>
             <h3 className="mb-3 flex items-center gap-2 font-semibold">
-              <BookOpen className="h-4 w-4 text-teal" aria-hidden /> Originaltext (OCR)
+              <BookOpen className="h-4 w-4 text-teal" aria-hidden /> Originaltext
             </h3>
             {readingPages.length === 0 ? (
-              <p className="text-sm text-muted">Für dieses Kapitel liegt kein separater Lesetext vor{texts.length === 0 ? " (OCR-Text nicht geladen)" : ""}. Öffnen Sie die Originalseite.</p>
+              <p className="text-sm text-muted">Für dieses Kapitel liegt kein separater Lesetext vor{texts.length === 0 ? " (Text nicht geladen)" : ""}. Öffnen Sie die Originalseite.</p>
             ) : (
               <div className="space-y-6">
                 {readingPages.map((p) => (
                   <section key={p.pdfPage}>
                     <p className="mb-1 flex items-center gap-2 text-xs text-muted">
                       <Link className="text-teal hover:underline" href={`/source/?page=${p.pdfPage}`}>
-                        PDF-Seite {p.pdfPage} · Buch S. {p.printedPage}
+                        Seite {p.pdfPage}{p.printedPage ? ` · Buch S. ${p.printedPage}` : ""}
                       </Link>
-                      {p.meanConfidence < 70 && <Badge tone="warn">OCR unsicher</Badge>}
+                      {p.meanConfidence < 70 && <Badge tone="warn">Text unsicher</Badge>}
                     </p>
-                    <p className="prose-de text-sm">{p.text}</p>
+                    <RichText text={p.text} className="text-sm" />
                   </section>
                 ))}
               </div>
