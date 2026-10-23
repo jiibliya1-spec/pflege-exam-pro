@@ -1,0 +1,92 @@
+import { Fragment } from "react";
+import { cn } from "./ui";
+
+/**
+ * Stellt bereinigten Buchtext dar: Absätze, Aufzählungen ("•", "–") und Tabellenblöcke
+ * ("⟦Tabelle⟧ … ⟦/Tabelle⟧" bzw. "[Tabelle: …]"). Der Text selbst wird nie verändert.
+ */
+function Lines({ lines }: { lines: string[] }) {
+  const out: React.ReactNode[] = [];
+  let list: { sub: boolean; text: string }[] = [];
+  const flush = () => {
+    if (!list.length) return;
+    out.push(
+      <ul key={`ul${out.length}`} className="my-1.5 space-y-1">
+        {list.map((li, i) => (
+          <li key={i} className={cn("relative pl-4 before:absolute before:left-0 before:content-['•']", li.sub && "ml-4 before:content-['–']")}>
+            {li.text}
+          </li>
+        ))}
+      </ul>
+    );
+    list = [];
+  };
+  let para: string[] = [];
+  const flushPara = () => {
+    if (!para.length) return;
+    out.push(
+      <p key={`p${out.length}`} className="my-1.5">
+        {para.join(" ")}
+      </p>
+    );
+    para = [];
+  };
+  for (const raw of lines) {
+    const ln = raw.trim();
+    if (!ln) {
+      flush();
+      flushPara();
+      continue;
+    }
+    const b = /^[•]\s*(.*)$/.exec(ln);
+    const s = /^[–-]\s+(.*)$/.exec(ln);
+    if (b) {
+      flushPara();
+      list.push({ sub: false, text: b[1] });
+    } else if (s && list.length) {
+      list.push({ sub: true, text: s[1] });
+    } else if (s) {
+      flushPara();
+      list.push({ sub: true, text: s[1] });
+    } else if (list.length) {
+      list[list.length - 1].text += " " + ln; // Folgezeile einer Aufzählung
+    } else {
+      para.push(ln);
+    }
+  }
+  flush();
+  flushPara();
+  return <>{out}</>;
+}
+
+export function RichText({ text, className }: { text: string; className?: string }) {
+  const parts = text.split(/(⟦Tabelle⟧[\s\S]*?⟦\/Tabelle⟧|\[Tabelle:[\s\S]*?\])/g);
+  return (
+    <div className={cn("prose-de", className)}>
+      {parts.map((part, i) => {
+        if (part.startsWith("⟦Tabelle⟧")) {
+          const inner = part.replace("⟦Tabelle⟧", "").replace("⟦/Tabelle⟧", "").trim();
+          return (
+            <div key={i} className="my-2 rounded-lg border border-line bg-surface2 p-3 text-[0.95em]">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">Tabelle (aus dem Buch)</p>
+              <Lines lines={inner.split("\n")} />
+            </div>
+          );
+        }
+        if (part.startsWith("[Tabelle:")) {
+          return (
+            <div key={i} className="my-2 rounded-lg border border-line bg-surface2 p-3 text-[0.95em]">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">Tabelle (aus dem Buch)</p>
+              <p>{part.replace(/^\[Tabelle:\s*/, "").replace(/\]$/, "")}</p>
+            </div>
+          );
+        }
+        return (
+          <Fragment key={i}>
+            <Lines lines={part.split("\n")} />
+          </Fragment>
+        );
+      })}
+    </div>
+  );
+}

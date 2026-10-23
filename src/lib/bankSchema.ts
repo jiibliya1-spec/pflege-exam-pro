@@ -12,6 +12,7 @@ const modelAnswer = z.object({
   status: z.enum(["verified", "unverified", "unavailable"]),
   correctOptionIds: z.array(z.string()).optional(),
   sourcePage: z.number().int().optional(),
+  sharedWith: z.array(z.string()).optional(),
 });
 
 export const questionSchema = z.object({
@@ -33,6 +34,7 @@ export const questionSchema = z.object({
   explanation: z.string().optional(),
   source,
   extraction,
+  kb: z.string().optional(),
   tableRows: z.number().int().optional(),
   tableColumns: z.array(z.string()).optional(),
   tags: z.array(z.string()),
