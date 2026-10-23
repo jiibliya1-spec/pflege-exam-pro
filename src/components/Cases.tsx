@@ -21,7 +21,7 @@ export function CaseList() {
     return (
       <>
         <PageHeader title="Fallbeispiele" />
-        <EmptyState icon={<Stethoscope className="h-6 w-6" />} title="Noch keine Fallbeispiele importiert">Nach dem PDF-Import erscheinen hier die Fälle des Buches.</EmptyState>
+        <EmptyState icon={<Stethoscope className="h-6 w-6" />} title="Noch keine Fallbeispiele importiert">Nach dem Import erscheinen hier die Fälle des Buches.</EmptyState>
       </>
     );
   const groups = bank.chapters.filter((ch) => bank.cases.some((c) => c.chapterId === ch.id));
@@ -47,7 +47,7 @@ export function CaseList() {
                         {c.extraction.status === "review" && <Badge tone="warn">prüfen</Badge>}
                       </div>
                       <p className="mt-1 text-xs text-muted">
-                        {qs.length} Aufgaben{c.totalPoints ? ` · ${String(c.totalPoints).replace(".", ",")} P. erkannt` : ""} · Buch S. {c.source.printedPage}
+                        {qs.length} Aufgaben{c.totalPoints ? ` · ${String(c.totalPoints).replace(".", ",")} P. erkannt` : ""} · Buch S. {c.source.printedPage ?? c.source.pdfPage}
                       </p>
                       <Progress value={qs.length ? (done / qs.length) * 100 : 0} label={`${c.title}: Fortschritt`} className="mt-3" />
                       <p className="mt-1 text-xs text-muted">
@@ -105,7 +105,7 @@ export function CaseView() {
     <>
       <PageHeader
         title={c.title}
-        subtitle={`${chapter ? `${chapter.number} ${chapter.title} · ` : ""}Buch S. ${c.source.printedPage} · PDF-Seiten ${c.source.pdfPage}–${c.source.endPdfPage ?? c.source.pdfPage}`}
+        subtitle={`${chapter ? `${chapter.number} ${chapter.title} · ` : ""}Buch S. ${c.source.printedPage ?? c.source.pdfPage} · Seiten ${c.source.pdfPage}–${c.source.endPdfPage ?? c.source.pdfPage}`}
         crumbs={[{ label: "Fallbeispiele", href: "/cases/" }, { label: c.title }]}
         actions={
           <>
