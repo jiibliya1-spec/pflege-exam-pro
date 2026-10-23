@@ -40,6 +40,11 @@ export function QuestionText({ q }: { q: Question }) {
         </div>
       )}
       <RichText text={q.text} className="text-base font-medium" />
+      {q.placeholder && (
+        <p className="rounded-lg border border-amber-400/50 bg-amber-50 p-2 text-xs text-amber-900 dark:bg-amber-950/30 dark:text-amber-200">
+          Der Aufgabentext fehlt im Quelltext des Buches. Die Aufgabe ist nur aus der Auswertungstabelle bekannt, bitte die Originalseite prüfen.
+        </p>
+      )}
     </div>
   );
 }
