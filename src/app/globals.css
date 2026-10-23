@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef3f8;
+  --border: #d9e2ec;
+  --fg: #0f2238;
+  --muted: #52667d;
+  --navy: #0b2a4a;
+  --navy-2: #123a63;
+  --teal: #0b8f8f;
+  --teal-2: #0fa3a3;
+  --teal-soft: #dff5f4;
+  --ok: #17803d;
+  --ok-soft: #e1f5e8;
+  --bad: #b42318;
+  --bad-soft: #fde8e6;
+  --warn: #9a5b00;
+  --warn-soft: #fff1d6;
+  --ring: #0fa3a3;
+  --font-scale: 1;
+}
+
+.dark {
+  --bg: #0a1524;
+  --surface: #11233a;
+  --surface-2: #17304d;
+  --border: #25405f;
+  --fg: #e8eef6;
+  --muted: #9db2c8;
+  --navy: #0a1524;
+  --navy-2: #123a63;
+  --teal: #2cc4c0;
+  --teal-2: #3ed3cf;
+  --teal-soft: #11383d;
+  --ok: #5fd08a;
+  --ok-soft: #12351f;
+  --bad: #ff8a80;
+  --bad-soft: #3d1a17;
+  --warn: #ffc15c;
+  --warn-soft: #3a2a0c;
+  --ring: #3ed3cf;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface2: var(--surface-2);
+  --color-line: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-navy: var(--navy);
+  --color-navy2: var(--navy-2);
+  --color-teal: var(--teal);
+  --color-teal2: var(--teal-2);
+  --color-tealsoft: var(--teal-soft);
+  --color-ok: var(--ok);
+  --color-oksoft: var(--ok-soft);
+  --color-bad: var(--bad);
+  --color-badsoft: var(--bad-soft);
+  --color-warn: var(--warn);
+  --color-warnsoft: var(--warn-soft);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Naskh Arabic", sans-serif;
+}
+
+html {
+  font-size: calc(16px * var(--font-scale));
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+[dir="rtl"] { text-align: right; }
+
+.no-motion *, .no-motion *::before, .no-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* Lesbarer Fließtext (Fallsituationen, OCR-Text) */
+.prose-de {
+  max-width: 72ch;
+  line-height: 1.7;
+  hyphens: auto;
+  white-space: pre-line;
+}
+
+dialog::backdrop { background: rgba(8, 20, 36, 0.55); }
+dialog { color: var(--fg); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.fade-up { animation: fadeUp 0.25s ease both; }
+
+@media print { .no-print { display: none !important; } }
+
+/* OCR-Texte können sehr lange Zeichenketten (Linien, Punktreihen) enthalten – nie die Seite verbreitern. */
+main p, main pre, main li, main h1, main h2, main h3, main td, main th, main label, main button {
+  overflow-wrap: anywhere;
+}
