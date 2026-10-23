@@ -74,7 +74,7 @@ export function Chapters() {
                   {selected.number} {selected.title}
                 </h2>
                 <p className="text-sm text-muted">
-                  Buch S. {selected.source.printedPage} · Seiten {selected.source.pdfPage}–{endPage}
+                  Buch S. {selected.source.printedPage ?? selected.source.pdfPage} · Seiten {selected.source.pdfPage}–{endPage}
                 </p>
               </div>
               <div className="flex gap-2">
