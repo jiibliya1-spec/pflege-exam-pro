@@ -67,7 +67,7 @@ export function QuestionDetail() {
               </ul>
             )}
             <p className="text-xs text-muted">
-              OCR-Konfidenz {Math.round(q.extraction.confidence)} % · <Link className="text-teal hover:underline" href={`/admin/review/?id=${q.id}`}>Im Admin-Bereich prüfen/korrigieren</Link>
+              Textqualität {Math.round(q.extraction.confidence)} % · <Link className="text-teal hover:underline" href={`/admin/review/?id=${q.id}`}>Im Admin-Bereich prüfen/korrigieren</Link>
             </p>
           </Card>
           <ModelAnswerBox q={q} caseSolutionPages={c?.sections?.solutions} />

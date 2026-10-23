@@ -61,3 +61,48 @@ describe("Einstellungen / Nutzerdaten", () => {
     expect(sanitizeState("x").state).toEqual(emptyState());
   });
 });
+
+describe("Verknüpfung Fälle ↔ Aufgaben ↔ Musterlösungen (ausgelieferte Fragenbank)", () => {
+  const p = "public/data/bank.json";
+  const load = () => (existsSync(p) ? parseBank(JSON.parse(readFileSync(p, "utf8"))).bank : null);
+  it("jeder Fall hat Aufgaben, Fallsituation und eindeutige Aufgabennummern", () => {
+    const bank = load();
+    if (!bank) return;
+    expect(bank.cases.length).toBeGreaterThanOrEqual(30);
+    for (const c of bank.cases) {
+      const qs = bank.questions.filter((q) => q.caseId === c.id);
+      expect(qs.length, `${c.id} ohne Aufgaben`).toBeGreaterThan(3);
+      expect(c.narrative.length, `${c.id} ohne Fallsituation`).toBeGreaterThan(300);
+      const labels = qs.map((q) => q.label);
+      expect(new Set(labels).size, `${c.id}: doppelte Aufgabennummern`).toBe(labels.length);
+    }
+  });
+  it("Musterlösungen sind nie verifiziert und fehlende sind als unavailable mit Hinweis markiert", () => {
+    const bank = load();
+    if (!bank) return;
+    let withAnswer = 0;
+    for (const q of bank.questions) {
+      const ma = q.modelAnswer;
+      expect(ma, q.id).toBeDefined();
+      if (ma!.text.trim()) {
+        withAnswer++;
+        expect(ma!.status).toBe("unverified");
+      } else {
+        expect(ma!.status).toBe("unavailable");
+        expect(q.extraction.status).toBe("review");
+        expect((q.extraction.notes ?? []).length).toBeGreaterThan(0);
+      }
+      for (const other of ma!.sharedWith ?? []) expect(bank.questions.some((x) => x.caseId === q.caseId && x.label === other), `${q.id} sharedWith ${other}`).toBe(true);
+    }
+    expect(withAnswer / bank.questions.length).toBeGreaterThan(0.8);
+  });
+  it("mündliche Fälle enthalten Fallanalyse (0) und Kompetenzbereiche", () => {
+    const bank = load();
+    if (!bank) return;
+    for (const c of bank.cases.filter((x) => x.kind === "oral")) {
+      const qs = bank.questions.filter((q) => q.caseId === c.id);
+      expect(qs.some((q) => q.label === "0"), c.id).toBe(true);
+      expect(qs.filter((q) => q.kb).length, c.id).toBeGreaterThanOrEqual(4);
+    }
+  });
+});

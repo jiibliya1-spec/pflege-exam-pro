@@ -1,5 +1,6 @@
 "use client";
 
+import { RichText } from "./RichText";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Layers, RotateCw } from "lucide-react";
@@ -11,7 +12,7 @@ import { Badge, Button, Card, EmptyState, Field, Notice, PageHeader, Progress, S
 import { QuestionMeta } from "./QuestionView";
 
 /**
- * Karteikarten: Vorderseite = Original-Aufgabentext, Rückseite = Original-Musterlösung (OCR).
+ * Karteikarten: Vorderseite = Original-Aufgabentext, Rückseite = Original-Musterlösung.
  * Es werden keine Zusammenfassungen oder neuen Inhalte generiert.
  */
 export function Flashcards() {
@@ -53,7 +54,7 @@ export function Flashcards() {
 
   return (
     <>
-      <PageHeader title="Karteikarten" subtitle="Vorderseite: Originalaufgabe · Rückseite: Musterlösung aus dem Buch (OCR). Es werden keine eigenen Zusammenfassungen erzeugt." crumbs={[{ label: "Start", href: "/" }, { label: "Karteikarten" }]} />
+      <PageHeader title="Karteikarten" subtitle="Vorderseite: Originalaufgabe · Rückseite: Musterlösung aus dem Buch. Es werden keine eigenen Zusammenfassungen erzeugt." crumbs={[{ label: "Start", href: "/" }, { label: "Karteikarten" }]} />
       <div className="mb-4 max-w-sm">
         <Field label="Stapel" htmlFor="deck">
           <Select id="deck" value={deck} onChange={(e) => { setDeck(e.target.value); setI(0); setFlipped(false); }}>
@@ -88,9 +89,9 @@ export function Flashcards() {
               <div>
                 <div className="mb-2 flex items-center gap-2">
                   <span className="font-semibold">Musterlösung</span>
-                  {card.modelAnswer?.status === "verified" ? <Badge tone="ok">verifiziert</Badge> : <Badge tone="warn">OCR · nicht verifiziert</Badge>}
+                  {card.modelAnswer?.status === "verified" ? <Badge tone="ok">verifiziert</Badge> : <Badge tone="warn">nicht verifiziert</Badge>}
                 </div>
-                <p className="prose-de text-sm">{card.modelAnswer?.text}</p>
+                <RichText text={card.modelAnswer?.text ?? ""} className="text-sm" />
                 <p className="mt-3 text-xs text-muted">
                   Quelle:{" "}
                   <Link className="text-teal hover:underline" href={`/source/?page=${card.modelAnswer?.sourcePage ?? card.source.pdfPage}`}>
