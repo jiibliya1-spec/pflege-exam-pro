@@ -1,10 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
+import { RegisterSW } from "@/components/RegisterSW";
+import { BASE_PATH } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: { default: "Pflege Exam Pro", template: "%s · Pflege Exam Pro" },
   description: "Prüfungsvorbereitung Pflegefachfrau / Pflegefachmann – Fallbeispiele, Aufgaben und Auswertung.",
+  applicationName: "Pflege Exam Pro",
+  manifest: `${BASE_PATH}/manifest.webmanifest`,
+  icons: { icon: `${BASE_PATH}/icons/icon-192.png`, apple: `${BASE_PATH}/icons/apple-touch-icon.png` },
+  appleWebApp: { capable: true, title: "Pflege Exam", statusBarStyle: "default" },
+  formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = {
@@ -26,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen">
         <Providers>{children}</Providers>
+        <RegisterSW />
       </body>
     </html>
   );
