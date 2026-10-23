@@ -43,6 +43,8 @@ export interface ModelAnswer {
   correctOptionIds?: string[];
   /** PDF-Seite, auf der die Lösung steht */
   sourcePage?: number;
+  /** Aufgaben, die sich im Buch dieselbe Musterlösung teilen (Überschrift ohne eigenen Text) */
+  sharedWith?: string[];
 }
 
 export interface SourceRef {
@@ -83,6 +85,8 @@ export interface Question {
   };
   /** true, wenn manuell im Admin-Bereich ergänzt (nicht aus OCR) */
   manual?: boolean;
+  /** Kompetenzbereich (mündliche Fälle): "III" | "IV" | "V" */
+  kb?: string;
   /** Anzahl vorgegebener Tabellenzeilen bei type "table" */
   tableRows?: number;
   tableColumns?: string[];
@@ -99,6 +103,18 @@ export interface CaseStudy {
   order: number;
   source: SourceRef & { endPdfPage?: number };
   totalPoints?: number | null;
+  /** "written" = schriftliche Prüfung, "oral" = mündliche Prüfung */
+  kind?: "written" | "oral";
+  /** Themenschwerpunkte (schriftlich) */
+  themes?: string;
+  /** Setting (mündlich), z. B. "stationäre Akutpflege – Altersgruppe 19–59 Jahre" */
+  setting?: string;
+  /** Aufgabenstellung des Falls (schriftlich) */
+  instruction?: string;
+  /** Vorbereitungsaufgaben (mündlich) inkl. Schwerpunkte */
+  preparation?: string;
+  /** Fußnote(n) zur Fallsituation */
+  footnote?: string;
   /** PDF-Seitenbereiche der Abschnitte des Falls */
   sections?: { tasks: [number, number]; solutions?: [number, number | null]; evaluation?: number };
   /** Roh-OCR der Seite "Auswertung" (Notenschlüssel) */

@@ -4,13 +4,14 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
+import { RichText } from "./RichText";
 import { asset } from "@/lib/asset";
 import { useBank } from "@/lib/bank";
 import { Badge, Button, Card, Field, Input, PageHeader } from "./ui";
 
 interface PageText {
   pdfPage: number;
-  printedPage: number;
+  printedPage?: number;
   meanConfidence: number;
   text: string;
 }
@@ -31,22 +32,15 @@ export function loadPageTexts(): Promise<PageText[]> {
   return pagesCache;
 }
 
-export function pageImage(pdfPage: number) {
-  return asset(`/source/pages/p${String(pdfPage).padStart(3, "0")}.jpg`);
-}
-
 export function SourceViewer({ embedded }: { embedded?: boolean }) {
   const sp = useSearchParams();
   const router = useRouter();
   const bank = useBank();
-  const total = bank.bank?.report?.pagesInPdf ?? 333;
+  const total = bank.bank?.report?.pagesInPdf ?? 379;
   const page = Math.min(total, Math.max(1, Number(sp.get("page")) || 1));
   const [zoom, setZoom] = useState(1);
   const [texts, setTexts] = useState<PageText[]>([]);
   const [jump, setJump] = useState("");
-  const [errPage, setErrPage] = useState<number | null>(null);
-  const imgError = errPage === page;
-  const offset = bank.bank?.report?.printedPageOffset ?? 5;
 
   useEffect(() => {
     void loadPageTexts().then(setTexts);
@@ -74,9 +68,9 @@ export function SourceViewer({ embedded }: { embedded?: boolean }) {
     <>
       {!embedded && (
         <PageHeader
-          title="Originalseiten (PDF)"
-          subtitle="Scan des Buches „Pflegias Prüfungstraining“ – zum Vergleichen und Prüfen der OCR-Texte."
-          crumbs={[{ label: "Start", href: "/" }, { label: "Quelle (PDF)" }]}
+          title="Quelltext (Buch)"
+          subtitle="Bereinigter Buchtext, Seite für Seite – zum Vergleichen und Prüfen der Fragen und Musterlösungen."
+          crumbs={[{ label: "Start", href: "/" }, { label: "Quelltext" }]}
         />
       )}
       <div className="mb-4 flex flex-wrap items-end gap-3">
@@ -92,7 +86,7 @@ export function SourceViewer({ embedded }: { embedded?: boolean }) {
             setJump("");
           }}
         >
-          <Field label={`PDF-Seite (1–${total})`} htmlFor="jump">
+          <Field label={`Seite (1–${total})`} htmlFor="jump">
             <Input id="jump" inputMode="numeric" className="w-28" placeholder={String(page)} value={jump} onChange={(e) => setJump(e.target.value.replace(/\D/g, ""))} />
           </Field>
           <Button type="submit" variant="secondary">
@@ -113,49 +107,39 @@ export function SourceViewer({ embedded }: { embedded?: boolean }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] [&>*]:min-w-0">
-        <Card className="overflow-auto p-2">
-          {imgError ? (
-            <p className="p-8 text-center text-sm text-muted">Seitenbild konnte nicht geladen werden (public/source/pages/p{String(page).padStart(3, "0")}.jpg).</p>
-          ) : (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={pageImage(page)} alt={`Scan der PDF-Seite ${page}`} onError={() => setErrPage(page)} style={{ width: `${zoom * 100}%`, maxWidth: "none" }} className="mx-auto h-auto" />
+      <div className="min-w-0 space-y-4">
+        <Card>
+          <div className="flex flex-wrap items-center gap-2">
+            <h2 className="font-semibold">
+              Seite {page}
+              {text?.printedPage ? ` · Buch S. ${text.printedPage}` : ""}
+            </h2>
+            {info && <Badge tone={info.status === "ok" ? "ok" : "warn"}>{info.status === "ok" ? "Text ok" : info.status === "low-confidence" ? "Text unsicher" : info.status === "empty" ? "wenig Text" : "nicht verarbeitet"}</Badge>}
+            {info && <Badge>{Math.round(info.meanConfidence)} % Textqualität</Badge>}
+          </div>
+          {caseHere && (
+            <p className="mt-2 text-sm">
+              Fall:{" "}
+              <Link className="text-teal hover:underline" href={`/cases/view/?id=${caseHere.id}`}>
+                {caseHere.title}
+              </Link>
+            </p>
+          )}
+          {related.length > 0 && (
+            <p className="mt-2 flex flex-wrap items-center gap-1.5 text-sm">
+              Aufgaben auf dieser Seite:
+              {related.map((q) => (
+                <Link key={q.id} className="rounded border border-line px-1.5 text-teal hover:bg-surface2" href={`/question/?id=${q.id}`}>
+                  {q.label}
+                </Link>
+              ))}
+            </p>
           )}
         </Card>
-        <div className="min-w-0 space-y-4">
-          <Card>
-            <div className="flex flex-wrap items-center gap-2">
-              <h2 className="font-semibold">
-                PDF-Seite {page} · Buch S. {page + offset}
-              </h2>
-              {info && <Badge tone={info.status === "ok" ? "ok" : "warn"}>{info.status === "ok" ? "OCR ok" : info.status === "low-confidence" ? "OCR unsicher" : info.status === "empty" ? "wenig Text" : "nicht verarbeitet"}</Badge>}
-              {info && <Badge>{Math.round(info.meanConfidence)} % Konfidenz</Badge>}
-            </div>
-            {caseHere && (
-              <p className="mt-2 text-sm">
-                Fall:{" "}
-                <Link className="text-teal hover:underline" href={`/cases/view/?id=${caseHere.id}`}>
-                  {caseHere.title}
-                </Link>
-              </p>
-            )}
-            {related.length > 0 && (
-              <p className="mt-2 flex flex-wrap items-center gap-1.5 text-sm">
-                Aufgaben auf dieser Seite:
-                {related.map((q) => (
-                  <Link key={q.id} className="rounded border border-line px-1.5 text-teal hover:bg-surface2" href={`/question/?id=${q.id}`}>
-                    {q.label}
-                  </Link>
-                ))}
-              </p>
-            )}
-          </Card>
-          <Card>
-            <h2 className="mb-2 font-semibold">OCR-Text dieser Seite</h2>
-            {text ? <pre className="max-h-[60vh] max-w-full overflow-auto whitespace-pre-wrap break-words font-sans text-sm leading-relaxed">{text.text || "(kein Text erkannt)"}</pre> : <p className="text-sm text-muted">OCR-Text nicht verfügbar.</p>}
-            <p className="mt-2 text-xs text-muted">Automatisch erkannter Text – kann Fehler enthalten. Maßgeblich ist das Seitenbild.</p>
-          </Card>
-        </div>
+        <Card style={{ fontSize: `${zoom}rem` }}>
+          {text ? <RichText text={text.text || "(kein Text)"} className="max-w-3xl leading-relaxed" /> : <p className="text-sm text-muted">Quelltext nicht verfügbar.</p>}
+          <p className="mt-3 text-xs text-muted">Bereinigter Buchtext (nur formale Korrekturen). Seiten ab 198 stammen aus einer schwächeren Textebene und können Erkennungsfehler enthalten – im Zweifel gilt das gedruckte Buch.</p>
+        </Card>
       </div>
     </>
   );
