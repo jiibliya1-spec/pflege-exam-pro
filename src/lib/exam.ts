@@ -90,6 +90,7 @@ export function eligibleQuestions(
   const types = new Set(config.questionTypes);
   return all
     .filter((q) => q.extraction.status !== "rejected")
+    .filter((q) => !q.placeholder) // Aufgabentext fehlt im Quelltext → nicht abfragbar
     .filter((q) => types.has(q.type))
     .filter((q) => {
       switch (config.source) {

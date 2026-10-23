@@ -27,6 +27,7 @@ export const questionSchema = z.object({
   stem: z.string().optional(),
   manual: z.boolean().optional(),
   originalText: z.string(),
+  placeholder: z.boolean().optional(),
   options: z.array(z.object({ id: z.string(), text: z.string() })).optional(),
   points: z.number().positive().optional(),
   ab: z.enum(["I", "II", "III"]).optional(),

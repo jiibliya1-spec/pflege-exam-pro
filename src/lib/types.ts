@@ -70,6 +70,8 @@ export interface Question {
   stem?: string;
   /** Ursprünglicher OCR-Text, damit Korrekturen vergleichbar bleiben */
   originalText: string;
+  /** true: Aufgabentext fehlt im Quelltext, nur aus der Auswertungstabelle bekannt */
+  placeholder?: boolean;
   options?: ChoiceOption[];
   /** Erreichbare Punkte laut Buch, falls angegeben */
   points?: number;
