@@ -4,6 +4,11 @@
  * Anordnungen, Dosierungen und Hausstandards des Betriebs gehen immer vor.
  */
 import { KRANK_PLUS } from "./lessonsPlusKrank";
+import { MODELLE_LESSONS } from "./lessonsModelle";
+import { RECHT_LESSONS } from "./lessonsRecht";
+import { BUCH_KRANK_1 } from "./lessonsBuchKrank1";
+import { BUCH_KRANK_2 } from "./lessonsBuchKrank2";
+import { BUCH_PFLEGE } from "./lessonsBuchPflege";
 import { AUSBILDUNG_PLUS } from "./lessonsPlusAusbildung";
 import { NEW_LESSONS_1 } from "./lessonsNew1";
 import { NEW_LESSONS_2 } from "./lessonsNew2";
@@ -42,6 +47,9 @@ export const AREAS: Record<LessonGroup, { id: string; label: string; emoji: stri
     { id: "notfall", label: "Notfälle", emoji: "🚨" },
     { id: "haut", label: "Haut und Wunden", emoji: "🩹" },
     { id: "schmerz", label: "Schmerz und Palliativ", emoji: "🕊️" },
+    { id: "blut", label: "Blut und Immunsystem", emoji: "🩸" },
+    { id: "sinne", label: "Augen und Ohren", emoji: "👁️" },
+    { id: "geschlecht", label: "Geschlechtsorgane", emoji: "🌸" },
   ],
   ausbildung: [
     { id: "start", label: "Ausbildung und Prüfung", emoji: "🎓" },
@@ -52,6 +60,12 @@ export const AREAS: Record<LessonGroup, { id: string; label: string; emoji: stri
     { id: "ethik", label: "Ethik und Beruf", emoji: "🧭" },
     { id: "gesundheit", label: "Gesundheit der Pflegenden", emoji: "💪" },
     { id: "system", label: "Gesundheitswesen", emoji: "🏛️" },
+    { id: "modelle", label: "Pflegemodelle und Theorien", emoji: "🧩" },
+    { id: "mensch", label: "Mensch, Team und Kommunikation", emoji: "🧑‍🤝‍🧑" },
+    { id: "technik", label: "Pflegetechniken", emoji: "💉" },
+    { id: "lebensphasen", label: "Lebensphasen", emoji: "🌱" },
+    { id: "therapie", label: "Therapie und besondere Situationen", emoji: "🏥" },
+    { id: "konzepte", label: "Pflegekonzepte", emoji: "🤲" },
   ],
 };
 
@@ -392,7 +406,7 @@ function withPlus(l: Lesson): Lesson {
   return { ...l, blocks: [...l.blocks, ...add] };
 }
 
-const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2];
+const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2, ...MODELLE_LESSONS, ...RECHT_LESSONS, ...BUCH_KRANK_1, ...BUCH_KRANK_2, ...BUCH_PFLEGE];
 
 /** Sortiert nach Gruppe und Reihenfolge der Bereiche, damit Weiter/Zurück sinnvoll ist. */
 export const LESSONS: Lesson[] = (["krank", "ausbildung"] as LessonGroup[]).flatMap((g) =>
