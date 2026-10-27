@@ -14,7 +14,7 @@ import { isChoice, summarize, gradeQuestion } from "@/lib/grading";
 import { formatDuration } from "@/lib/stats";
 import { nextSrs } from "@/lib/srs";
 import { Badge, Button, Card, EmptyState, LinkButton, Notice, PageHeader, Progress, Spinner, cn } from "./ui";
-import { GradeBadge, ModelAnswerBox, QuestionMeta, QuestionText, SelfAssess } from "./QuestionView";
+import { GradeBadge, ModelAnswerBox, QuestionMeta, QuestionText, SelfAssess, questionTable } from "./QuestionView";
 import type { SessionAnswer } from "@/lib/types";
 
 export function QuizResults() {
@@ -193,8 +193,16 @@ export function QuizResults() {
                 <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">Ihre Antwort</p>
                 {isChoice(q) ? (
                   <p>{(a?.selectedOptionIds ?? []).map((id) => q.options?.find((o) => o.id === id)?.text ?? id).join("; ") || <em className="text-muted">keine Antwort</em>}</p>
+                ) : a?.tableCells?.some((c) => c.trim()) ? (
+                    <ul className="space-y-1 text-sm">
+                      {Array.from({ length: Math.ceil(a.tableCells.length / Math.max(1, questionTable(q)?.headers.length ?? 1)) }, (_, r) => {
+                        const n = Math.max(1, questionTable(q)?.headers.length ?? 1);
+                        const row = a.tableCells!.slice(r * n, r * n + n).filter((c) => c.trim());
+                        return row.length ? <li key={r}>{r + 1}. {row.join(" | ")}</li> : null;
+                      })}
+                    </ul>
                 ) : (
-                  <p className="prose-de">{a?.text?.trim() || <em className="text-muted">keine Antwort</em>}</p>
+                    <p className="prose-de">{a?.text?.trim() || <em className="text-muted">keine Antwort</em>}</p>
                 )}
               </div>
               {(session.config.showExplanations === "end" || session.config.showExplanations === "instant" || finished) && <ModelAnswerBox q={q} caseSolutionPages={caseOf?.sections?.solutions} />}

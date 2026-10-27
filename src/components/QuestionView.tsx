@@ -7,6 +7,8 @@ import { TYPE_LABELS } from "@/lib/exam";
 import { isChoice, maxPoints, type GradeResult } from "@/lib/grading";
 import { Badge, Notice, Textarea, cn } from "./ui";
 import { RichText } from "./RichText";
+import { TableInput } from "./TableView";
+import { parseQuestionTable, type QuestionTable } from "@/lib/tables";
 
 export function QuestionMeta({ q, showSource = true }: { q: Question; showSource?: boolean }) {
   return (
@@ -30,7 +32,7 @@ export function QuestionMeta({ q, showSource = true }: { q: Question; showSource
   );
 }
 
-export function QuestionText({ q }: { q: Question }) {
+export function QuestionText({ q, hideTable }: { q: Question; hideTable?: boolean }) {
   return (
     <div className="space-y-3">
       {q.stem && (
@@ -39,7 +41,7 @@ export function QuestionText({ q }: { q: Question }) {
           <RichText text={q.stem} />
         </div>
       )}
-      <RichText text={q.text} className="text-base font-medium" />
+      <RichText text={q.text} className="text-base font-medium" hideTables={hideTable} />
       {q.placeholder && (
         <p className="rounded-lg border border-amber-400/50 bg-amber-50 p-2 text-xs text-amber-900 dark:bg-amber-950/30 dark:text-amber-200">
           Der Aufgabentext fehlt im Quelltext des Buches. Die Aufgabe ist nur aus der Auswertungstabelle bekannt, bitte die Originalseite prüfen.
@@ -139,7 +141,19 @@ export function ChoiceInput({
   );
 }
 
-export function FreeTextInput({ q, answer, onChange, locked }: { q: Question; answer?: SessionAnswer; onChange: (text: string) => void; locked?: boolean }) {
+/** Erste sauber erkennbare Tabelle der Aufgabe (nur bei Tabellen-Aufgaben). */
+export function questionTable(q: Question): QuestionTable | null {
+  if (q.type !== "table") return null;
+  for (const m of q.text.matchAll(/\[Tabelle:([\s\S]*?)\]/g)) {
+    const t = parseQuestionTable(m[1]);
+    if (t) return t;
+  }
+  return null;
+}
+
+export function FreeTextInput({ q, answer, onChange, onCells, locked }: { q: Question; answer?: SessionAnswer; onChange: (text: string) => void; onCells?: (cells: string[]) => void; locked?: boolean }) {
+  const table = onCells ? questionTable(q) : null;
+  if (table && onCells) return <TableInput q={q} t={table} cells={answer?.tableCells ?? []} onChange={onCells} locked={locked} />;
   const hint =
     q.type === "table"
       ? "Tragen Sie Ihre Antwort tabellarisch oder zeilenweise ein (z. B. „Pflegeproblem – Ressource – ATL“ je Zeile)."

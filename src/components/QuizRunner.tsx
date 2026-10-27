@@ -13,7 +13,7 @@ import { nextSrs } from "@/lib/srs";
 import { playTone } from "@/lib/sound";
 import { formatDuration } from "@/lib/stats";
 import { Badge, Button, Card, ConfirmDialog, EmptyState, Notice, Progress, Spinner, Textarea, cn } from "./ui";
-import { CaseNarrative, ChoiceInput, FreeTextInput, GradeBadge, ModelAnswerBox, QuestionMeta, QuestionText, SelfAssess } from "./QuestionView";
+import { CaseNarrative, ChoiceInput, FreeTextInput, GradeBadge, ModelAnswerBox, QuestionMeta, QuestionText, SelfAssess, questionTable } from "./QuestionView";
 
 function fmtClock(ms: number) {
   const s = Math.max(0, Math.ceil(ms / 1000));
@@ -261,7 +261,7 @@ export function QuizRunner() {
               </div>
             </div>
 
-            <QuestionText q={q} />
+            <QuestionText q={q} hideTable={!!questionTable(q)} />
 
             {perQExpired && <Notice tone="warn">Die Zeit für diese Frage ist abgelaufen. Sie können zur nächsten Frage wechseln.</Notice>}
 
@@ -270,7 +270,7 @@ export function QuizRunner() {
             ) : isChoice(q) ? (
               <Notice>Für diese Aufgabe wurden keine Antwortoptionen extrahiert. Bitte die Quellseite prüfen.</Notice>
             ) : (
-              <FreeTextInput q={q} answer={ans} onChange={(text) => setAnswer({ text })} locked={locked || perQExpired} />
+              <FreeTextInput q={q} answer={ans} onChange={(text) => setAnswer({ text })} onCells={(cells) => setAnswer({ tableCells: cells })} locked={locked || perQExpired} />
             )}
 
             {instant && !ans.submitted && (

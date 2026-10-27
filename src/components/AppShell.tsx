@@ -150,23 +150,23 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       <div className="flex min-w-0 flex-1 flex-col">
         {/* Topbar */}
-        <div className="no-print sticky top-0 z-30 flex items-center gap-2 border-b border-line bg-surface/90 px-4 py-2.5 backdrop-blur md:px-8">
+        <div className="no-print sticky top-0 z-30 flex items-center gap-2 border-b border-line bg-surface/90 px-4 pb-2.5 pt-[calc(0.625rem+env(safe-area-inset-top))] backdrop-blur md:px-8">
           <button className="rounded-lg p-2 hover:bg-surface2 md:hidden" aria-label="Menü öffnen" onClick={() => setMenuOpen(true)}>
             <Menu className="h-5 w-5" />
           </button>
-          <Link href="/" className="font-bold md:hidden">
+          <Link href="/" className="whitespace-nowrap font-bold md:hidden">
             Pflege Exam Pro
           </Link>
           <button
             onClick={() => setSearchOpen(true)}
-            className="ml-auto flex h-10 w-full max-w-md items-center gap-2 rounded-xl border border-line bg-surface px-3 text-sm text-muted hover:border-teal md:ml-0"
+            className="ml-auto flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm text-muted hover:border-teal sm:w-full sm:max-w-md sm:justify-start sm:px-3 md:ml-0"
             aria-label="Globale Suche öffnen"
           >
             <Search className="h-4 w-4" aria-hidden />
-            <span className="flex-1 text-left">Fragen, Fälle, Seiten suchen …</span>
+            <span className="hidden flex-1 text-left sm:inline">Fragen, Fälle, Seiten suchen …</span>
             <kbd className="hidden rounded border border-line px-1.5 text-xs sm:inline">Strg K</kbd>
           </button>
-          <button className="ml-auto rounded-lg p-2 hover:bg-surface2" aria-label={dark ? "Helles Design" : "Dunkles Design"} onClick={toggleTheme}>
+          <button className="rounded-lg p-2 hover:bg-surface2 sm:ml-auto" aria-label={dark ? "Helles Design" : "Dunkles Design"} onClick={toggleTheme}>
             {dark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </button>
         </div>
@@ -192,17 +192,17 @@ export function AppShell({ children }: { children: ReactNode }) {
       </div>
 
       {/* Mobile: untere Leiste */}
-      <nav aria-label="Schnellnavigation" className="no-print fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t border-line bg-surface md:hidden">
+      <nav aria-label="Schnellnavigation" className="no-print pb-safe fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t border-line bg-surface/95 shadow-[0_-4px_16px_rgba(11,42,74,0.08)] backdrop-blur md:hidden">
         {NAV.filter((n) => n.mobile).map((n) => {
           const active = isActive(pathname, n.href);
           return (
-            <Link key={n.href} href={n.href} aria-current={active ? "page" : undefined} className={cn("flex flex-col items-center gap-0.5 py-2 text-[11px]", active ? "text-teal" : "text-muted")}>
+            <Link key={n.href} href={n.href} aria-current={active ? "page" : undefined} className={cn("flex min-h-14 flex-col items-center justify-center gap-0.5 py-2 text-[11px] font-medium", active ? "text-teal" : "text-muted")}>
               {n.icon}
               {n.de.split(" ")[0]}
             </Link>
           );
         })}
-        <button onClick={() => setMenuOpen(true)} className="flex flex-col items-center gap-0.5 py-2 text-[11px] text-muted">
+        <button onClick={() => setMenuOpen(true)} className="flex min-h-14 flex-col items-center justify-center gap-0.5 py-2 text-[11px] font-medium text-muted">
           <Menu className="h-5 w-5" />
           Mehr
         </button>

@@ -53,7 +53,7 @@ export function hasVerifiedKey(q: Question): boolean {
 export function isAnswered(q: Question, a: SessionAnswer | undefined): boolean {
   if (!a) return false;
   if (isChoice(q)) return (a.selectedOptionIds?.length ?? 0) > 0;
-  if (q.type === "table") return (a.tableCells ?? []).some((c) => c.trim().length > 0);
+  if (q.type === "table" && (a.tableCells ?? []).some((c) => c.trim().length > 0)) return true;
   return (a.text ?? "").trim().length > 0;
 }
 

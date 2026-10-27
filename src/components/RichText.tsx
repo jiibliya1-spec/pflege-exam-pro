@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 import { cn } from "./ui";
+import { parseAnswerTable, parseQuestionTable } from "@/lib/tables";
+import { AnswerTableView, QuestionTableView } from "./TableView";
 
 /**
  * Stellt bereinigten Buchtext dar: Absätze, Aufzählungen ("•", "–") und Tabellenblöcke
@@ -59,13 +61,15 @@ function Lines({ lines }: { lines: string[] }) {
   return <>{out}</>;
 }
 
-export function RichText({ text, className }: { text: string; className?: string }) {
+export function RichText({ text, className, hideTables }: { text: string; className?: string; hideTables?: boolean }) {
   const parts = text.split(/(⟦Tabelle⟧[\s\S]*?⟦\/Tabelle⟧|\[Tabelle:[\s\S]*?\])/g);
   return (
     <div className={cn("prose-de", className)}>
       {parts.map((part, i) => {
         if (part.startsWith("⟦Tabelle⟧")) {
           const inner = part.replace("⟦Tabelle⟧", "").replace("⟦/Tabelle⟧", "").trim();
+          const parsed = parseAnswerTable(inner);
+          if (parsed) return <AnswerTableView key={i} t={parsed} />;
           return (
             <div key={i} className="my-2 rounded-lg border border-line bg-surface2 p-3 text-[0.95em]">
               <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">Tabelle (aus dem Buch)</p>
@@ -74,6 +78,8 @@ export function RichText({ text, className }: { text: string; className?: string
           );
         }
         if (part.startsWith("[Tabelle:")) {
+          const qt = parseQuestionTable(part.replace(/^\[Tabelle:\s*/, "").replace(/\]$/, ""));
+          if (qt) return hideTables ? null : <QuestionTableView key={i} t={qt} />;
           return (
             <div key={i} className="my-2 rounded-lg border border-line bg-surface2 p-3 text-[0.95em]">
               <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">Tabelle (aus dem Buch)</p>

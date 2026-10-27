@@ -69,9 +69,21 @@
 html {
   font-size: calc(16px * var(--font-scale));
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  touch-action: manipulation; /* kein Doppeltipp-Zoom */
+  overscroll-behavior-y: none;
 }
 
+/* iOS zoomt in Felder mit weniger als 16px hinein – das verhindern wir. */
+input, select, textarea { font-size: max(16px, 1em); }
+button, a, label, summary { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+img, svg { max-width: 100%; }
+
 body {
+  overflow-x: hidden;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
@@ -118,3 +130,13 @@ dialog { color: var(--fg); }
 main p, main pre, main li, main h1, main h2, main h3, main td, main th, main label, main button {
   overflow-wrap: anywhere;
 }
+
+/* Mobile: Navigation und Inhalt über Home-Indikator / Notch hinaus */
+.pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+@media (max-width: 767px) {
+  main { padding-bottom: calc(7rem + env(safe-area-inset-bottom)) !important; }
+  .prose-de { font-size: 1rem; line-height: 1.65; }
+}
+/* Tabellen im Fließtext nie breiter als der Bildschirm */
+.prose-de table { max-width: 100%; }
+.prose-de td, .prose-de th { hyphens: auto; }
