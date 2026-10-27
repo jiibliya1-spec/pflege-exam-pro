@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { BookMarked, CheckCircle2, FileText, Languages, XCircle } from "lucide-react";
+import { BookMarked, CheckCircle2, Languages, XCircle } from "lucide-react";
 import { LANGS, useLang, useT } from "@/lib/i18n";
 import type { CaseStudy, ChoiceOption, Question, SessionAnswer } from "@/lib/types";
 import { TYPE_LABELS } from "@/lib/exam";
@@ -11,24 +10,12 @@ import { RichText } from "./RichText";
 import { TableInput } from "./TableView";
 import { parseQuestionTable, type QuestionTable } from "@/lib/tables";
 
-export function QuestionMeta({ q, showSource = true }: { q: Question; showSource?: boolean }) {
+export function QuestionMeta({ q }: { q: Question; showSource?: boolean }) {
   return (
     <div className="flex flex-wrap items-center gap-2 text-xs">
       <Badge tone="navy">{q.label === "0" ? "Fallanalyse" : `Aufgabe ${q.label}`}</Badge>
       <Badge>{TYPE_LABELS[q.type]}</Badge>
-      {q.points ? <Badge tone="teal">{String(q.points).replace(".", ",")} P.</Badge> : q.caseId?.startsWith("m") ? null : <Badge tone="neutral">Punkte nicht erkannt</Badge>}
-      {q.ab && <Badge tone="neutral">AB {q.ab}</Badge>}
-      {q.kb && <Badge tone="neutral">Kompetenzbereich {q.kb}</Badge>}
-      {q.extraction.status === "review" && <Badge tone="warn">Text prüfen</Badge>}
-      {q.extraction.status === "approved" && <Badge tone="ok">geprüft</Badge>}
-      {q.manual && <Badge tone="neutral">manuell ergänzt</Badge>}
-      {showSource && (
-        <Link href={`/source/?page=${q.source.pdfPage}`} className="inline-flex items-center gap-1 text-teal hover:underline" title="Quellseite im PDF öffnen">
-          <FileText className="h-3.5 w-3.5" aria-hidden />
-          PDF-Seite {q.source.pdfPage}
-          {q.source.printedPage ? ` (Buch S. ${q.source.printedPage})` : ""}
-        </Link>
-      )}
+      {q.points ? <Badge tone="teal">{String(q.points).replace(".", ",")} P.</Badge> : null}
     </div>
   );
 }
@@ -43,11 +30,6 @@ export function QuestionText({ q, hideTable }: { q: Question; hideTable?: boolea
         </div>
       )}
       <RichText text={q.text} className="text-base font-medium" hideTables={hideTable} />
-      {q.placeholder && (
-        <p className="rounded-lg border border-amber-400/50 bg-amber-50 p-2 text-xs text-amber-900 dark:bg-amber-950/30 dark:text-amber-200">
-          Der Aufgabentext fehlt im Quelltext des Buches. Die Aufgabe ist nur aus der Auswertungstabelle bekannt, bitte die Originalseite prüfen.
-        </p>
-      )}
     </div>
   );
 }
@@ -70,9 +52,6 @@ export function CaseNarrative({ c, compact }: { c: CaseStudy; compact?: boolean 
     <section aria-label={`Fallsituation ${c.title}`} className={cn("rounded-2xl border border-line bg-surface2 p-4", compact && "max-h-[70vh] overflow-y-auto")}>
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
         <h3 className="font-semibold">{c.title}</h3>
-        <Link href={`/source/?page=${c.source.pdfPage}`} className="inline-flex items-center gap-1 text-xs text-teal hover:underline">
-          <FileText className="h-3.5 w-3.5" aria-hidden /> Seite {c.source.pdfPage}
-        </Link>
       </div>
       {(c.setting || c.themes) && (
         <p className="mb-2 text-xs text-muted">
@@ -102,7 +81,6 @@ export function CaseNarrative({ c, compact }: { c: CaseStudy; compact?: boolean 
           <RichText text={c.preparation} className="mt-2 text-sm" />
         </details>
       )}
-      {c.extraction.status === "review" && <p className="mt-2 text-xs text-warn">Hinweis: Dieser Fall wurde zur Prüfung markiert – der Text kann Fehler enthalten.</p>}
     </section>
   );
 }
@@ -199,43 +177,16 @@ export function FreeTextInput({ q, answer, onChange, onCells, locked }: { q: Que
 }
 
 /** Zeigt Musterlösung bzw. verifizierten Schlüssel – nie als "offiziell" bezeichnet, wenn nicht verifiziert. */
-export function ModelAnswerBox({ q, caseSolutionPages }: { q: Question; caseSolutionPages?: [number, number | null] }) {
+export function ModelAnswerBox({ q }: { q: Question; caseSolutionPages?: [number, number | null] }) {
   const ma = q.modelAnswer;
-  const verified = ma?.status === "verified";
   const hasText = !!ma?.text?.trim();
   return (
-    <div className="rounded-xl border border-line bg-surface p-4 text-sm">
-      <div className="mb-2 flex flex-wrap items-center gap-2">
+    <div className="rounded-xl border border-teal/30 bg-tealsoft p-4 text-sm">
+      <div className="mb-2 flex items-center gap-2">
         <BookMarked className="h-4 w-4 text-teal" aria-hidden />
-        <span className="font-semibold">Musterlösung (Erwartungshorizont)</span>
-        {verified ? <Badge tone="ok">verifiziert</Badge> : hasText ? <Badge tone="warn">nicht verifiziert</Badge> : <Badge>nicht extrahiert</Badge>}
+        <span className="font-semibold">Musterlösung</span>
       </div>
-      {hasText ? (
-        <RichText text={ma!.text} />
-      ) : (
-        <div className="text-muted">
-          <p>Für diese Aufgabe konnte im Quelltext keine Musterlösung eindeutig zugeordnet werden.</p>
-          {q.extraction.notes?.filter((n) => n.startsWith("Musterlösung")).map((n) => (
-            <p key={n} className="mt-1 text-xs">
-              {n}
-            </p>
-          ))}
-        </div>
-      )}
-      {ma?.sharedWith && ma.sharedWith.length > 0 && <p className="mt-2 text-xs text-muted">Diese Musterlösung gilt im Buch gemeinsam für die Aufgaben {ma.sharedWith.join(", ")}.</p>}
-      {!verified && hasText && <p className="mt-2 text-xs text-muted">Dieser Text wurde automatisch aus dem Buchtext zugeordnet und noch nicht gegen die Buchseite geprüft. Im Zweifel gilt das Buch.</p>}
-      <div className="mt-2 flex flex-wrap gap-3 text-xs">
-        {ma?.sourcePage && (
-          <Link className="text-teal hover:underline" href={`/source/?page=${ma.sourcePage}`}>
-            Lösung im Quelltext, Seite {ma.sourcePage}
-          </Link>
-        )}
-        {caseSolutionPages && (
-          <Link className="text-teal hover:underline" href={`/source/?page=${caseSolutionPages[0]}`}>
-            Lösungsseiten des Falls (ab PDF-Seite {caseSolutionPages[0]})
-          </Link>
-        )}
-      </div>
+      {hasText && <RichText text={ma!.text} />}
       {q.explanation && <p className="prose-de mt-3 border-t border-line pt-3">{q.explanation}</p>}
     </div>
   );

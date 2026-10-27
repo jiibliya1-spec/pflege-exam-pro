@@ -40,6 +40,8 @@ const T: Record<string, Row> = {
   "nav.source": ["Quelle (PDF)", "المصدر", "Source (PDF)", "Source (PDF)", "Kaynak (PDF)"],
   "nav.admin": ["Import & Qualität", "الاستيراد والمراجعة", "Import & quality", "Import et qualité", "İçe aktarma ve kalite"],
   "nav.settings": ["Einstellungen", "الإعدادات", "Settings", "Réglages", "Ayarlar"],
+  "nav.learn": ["Lernen", "دروس", "Learn", "Apprendre", "Öğren"],
+  "nav.short.learn": ["Lernen", "دروس", "Learn", "Apprendre", "Öğren"],
   "nav.more": ["Mehr", "المزيد", "More", "Plus", "Daha fazla"],
   "nav.short.library": ["Fragen", "الأسئلة", "Questions", "Questions", "Sorular"],
   "nav.short.cases": ["Fälle", "الحالات", "Cases", "Cas", "Vakalar"],

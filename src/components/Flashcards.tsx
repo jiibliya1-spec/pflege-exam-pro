@@ -1,14 +1,13 @@
 "use client";
 
 import { RichText } from "./RichText";
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Layers, RotateCw } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { useBank } from "@/lib/bank";
 import { useUserContext } from "@/lib/hooks";
 import { nextSrs } from "@/lib/srs";
-import { Badge, Button, Card, EmptyState, Field, Notice, PageHeader, Progress, Select, Spinner } from "./ui";
+import { Button, Card, EmptyState, Field, Notice, PageHeader, Progress, Select, Spinner } from "./ui";
 import { QuestionMeta } from "./QuestionView";
 
 /**
@@ -89,15 +88,8 @@ export function Flashcards() {
               <div>
                 <div className="mb-2 flex items-center gap-2">
                   <span className="font-semibold">Musterlösung</span>
-                  {card.modelAnswer?.status === "verified" ? <Badge tone="ok">verifiziert</Badge> : <Badge tone="warn">nicht verifiziert</Badge>}
                 </div>
                 <RichText text={card.modelAnswer?.text ?? ""} className="text-sm" />
-                <p className="mt-3 text-xs text-muted">
-                  Quelle:{" "}
-                  <Link className="text-teal hover:underline" href={`/source/?page=${card.modelAnswer?.sourcePage ?? card.source.pdfPage}`}>
-                    PDF-Seite {card.modelAnswer?.sourcePage ?? card.source.pdfPage}
-                  </Link>
-                </p>
               </div>
             )}
           </Card>

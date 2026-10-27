@@ -6,19 +6,15 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
   BarChart3,
   BookOpen,
-  Bookmark,
   ClipboardCheck,
-  FileText,
   Layers,
   LayoutDashboard,
-  Library,
   Menu,
   Moon,
   PlayCircle,
   RotateCcw,
   Search,
   Settings,
-  ShieldCheck,
   Stethoscope,
   Sun,
   X,
@@ -39,16 +35,12 @@ interface NavItem {
 
 export const NAV: NavItem[] = [
   { href: "/", key: "nav.dashboard", de: "Dashboard", ar: "لوحة التحكم", icon: <LayoutDashboard className="h-5 w-5" />, mobile: true },
-  { href: "/library/", key: "nav.library", de: "Fragenbank", ar: "بنك الأسئلة", icon: <Library className="h-5 w-5" />, mobile: true },
+  { href: "/learn/", key: "nav.learn", de: "Lernen", ar: "دروس", icon: <BookOpen className="h-5 w-5" />, mobile: true },
   { href: "/cases/", key: "nav.cases", de: "Fallbeispiele", ar: "الحالات السريرية", icon: <Stethoscope className="h-5 w-5" />, mobile: true },
   { href: "/quiz/setup/", key: "nav.quiz", de: "Quiz & Prüfung", ar: "اختبار وامتحان", icon: <PlayCircle className="h-5 w-5" />, mobile: true },
-  { href: "/chapters/", key: "nav.chapters", de: "Kapitel", ar: "الفصول", icon: <BookOpen className="h-5 w-5" /> },
   { href: "/flashcards/", key: "nav.flashcards", de: "Karteikarten", ar: "البطاقات التعليمية", icon: <Layers className="h-5 w-5" /> },
   { href: "/mistakes/", key: "nav.mistakes", de: "Fehler", ar: "أخطائي", icon: <RotateCcw className="h-5 w-5" /> },
-  { href: "/bookmarks/", key: "nav.bookmarks", de: "Lesezeichen", ar: "المحفوظات", icon: <Bookmark className="h-5 w-5" /> },
   { href: "/progress/", key: "nav.progress", de: "Fortschritt", ar: "التقدّم", icon: <BarChart3 className="h-5 w-5" /> },
-  { href: "/source/", key: "nav.source", de: "Quelle (PDF)", ar: "المصدر", icon: <FileText className="h-5 w-5" /> },
-  { href: "/admin/", key: "nav.admin", de: "Import & Qualität", ar: "الاستيراد والمراجعة", icon: <ShieldCheck className="h-5 w-5" /> },
   { href: "/settings/", key: "nav.settings", de: "Einstellungen", ar: "الإعدادات", icon: <Settings className="h-5 w-5" /> },
 ];
 
@@ -233,7 +225,7 @@ function GlobalSearch({ open, onClose }: { open: boolean; onClose: () => void })
 }
 
 function SearchBody({ onClose }: { onClose: () => void }) {
-  const { questions, cases, chapters, status } = useBank();
+  const { questions, cases, status } = useBank();
   const router = useRouter();
   const [q, setQ] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -247,10 +239,6 @@ function SearchBody({ onClose }: { onClose: () => void }) {
     const term = q.trim().toLowerCase();
     if (term.length < 2) return null;
     const pages = NAV.filter((n) => n.de.toLowerCase().includes(term)).map((n) => ({ kind: "Seite", title: n.de, href: n.href }));
-    const ch = chapters
-      .filter((c) => `${c.number} ${c.title}`.toLowerCase().includes(term))
-      .slice(0, 5)
-      .map((c) => ({ kind: "Kapitel", title: `${c.number} ${c.title}`, href: `/chapters/?id=${c.id}` }));
     const cs = cases
       .filter((c) => c.title.toLowerCase().includes(term) || c.narrative.toLowerCase().includes(term))
       .slice(0, 5)
@@ -259,9 +247,8 @@ function SearchBody({ onClose }: { onClose: () => void }) {
       .filter((x) => x.text.toLowerCase().includes(term) || (x.stem ?? "").toLowerCase().includes(term))
       .slice(0, 12)
       .map((x) => ({ kind: `Frage ${x.label}`, title: x.text.replace(/\s+/g, " ").slice(0, 110), href: `/question/?id=${x.id}` }));
-    const pg = /^\d{1,3}$/.test(term) ? [{ kind: "Quelle", title: `PDF-Seite ${term} öffnen`, href: `/source/?page=${term}` }] : [];
-    return [...pages, ...pg, ...ch, ...cs, ...qs];
-  }, [q, questions, cases, chapters]);
+    return [...pages, ...cs, ...qs];
+  }, [q, questions, cases]);
 
   return (
     <>
@@ -269,7 +256,7 @@ function SearchBody({ onClose }: { onClose: () => void }) {
         ref={inputRef}
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Suchbegriff oder PDF-Seitenzahl …"
+        placeholder="Suchbegriff …"
         aria-label="Suchbegriff"
         onKeyDown={(e) => {
           if (e.key === "Enter" && results && results[0]) {
@@ -280,7 +267,7 @@ function SearchBody({ onClose }: { onClose: () => void }) {
       />
       <div className="mt-3 max-h-[50vh] overflow-y-auto">
         {status === "loading" && <p className="py-4 text-sm text-muted">Fragenbank wird geladen …</p>}
-        {results === null && <p className="py-4 text-sm text-muted">Mindestens 2 Zeichen eingeben. Gesucht wird in Fragen, Fallbeispielen, Kapiteln und Seiten der App.</p>}
+        {results === null && <p className="py-4 text-sm text-muted">Mindestens 2 Zeichen eingeben. Gesucht wird in Fragen und Fallbeispielen.</p>}
         {results && results.length === 0 && <p className="py-4 text-sm text-muted">Keine Treffer.</p>}
         <ul>
           {results?.map((r, i) => (

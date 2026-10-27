@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
-import { FileText, PlayCircle, Stethoscope } from "lucide-react";
+import { PlayCircle, Stethoscope } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { useBank } from "@/lib/bank";
 import { latestAttempts } from "@/lib/stats";
-import { Card, EmptyState, LinkButton, Notice, PageHeader, Progress, Spinner, cn } from "./ui";
+import { Card, EmptyState, LinkButton, PageHeader, Progress, Spinner, cn } from "./ui";
 import { CaseNarrative, GradeBadge, ModelAnswerBox, QuestionMeta, QuestionText } from "./QuestionView";
 import { gradeQuestion } from "@/lib/grading";
 import { CaseScene, PlaceBadge } from "./CaseScene";
@@ -64,11 +64,6 @@ export function CaseList() {
           </div>
         </section>
       ))}
-      {bank.bank?.report.notes.some((n) => n.startsWith("Im PDF fehlen")) && (
-        <Notice tone="warn" title="Nicht im PDF enthalten">
-          {bank.bank?.report.notes.find((n) => n.startsWith("Im PDF fehlen"))?.replace("Im PDF fehlen laut Inhaltsverzeichnis: ", "Laut Inhaltsverzeichnis fehlen: ")}
-        </Notice>
-      )}
     </>
   );
 }
@@ -96,7 +91,6 @@ export function CaseView() {
   const latest = latestAttempts(state.attempts);
   const results = qs.filter((q) => latest.has(q.id)).map((q) => gradeQuestion(q, undefined));
   void results;
-  const chapter = bank.chapterById.get(c.chapterId);
   const summary = summarize(
     qs
       .filter((q) => latest.has(q.id))
@@ -110,30 +104,15 @@ export function CaseView() {
     <>
       <PageHeader
         title={c.title}
-        subtitle={`${chapter ? `${chapter.number} ${chapter.title} · ` : ""}Buch S. ${c.source.printedPage ?? c.source.pdfPage} · Seiten ${c.source.pdfPage}–${c.source.endPdfPage ?? c.source.pdfPage}`}
         crumbs={[{ label: "Fallbeispiele", href: "/cases/" }, { label: c.title }]}
         actions={
           <>
-            <LinkButton variant="secondary" href={`/source/?page=${c.source.pdfPage}`}>
-              <FileText className="h-4 w-4" aria-hidden /> Originalseiten
-            </LinkButton>
             <LinkButton href={`/quiz/setup/?case=${c.id}`}>
               <PlayCircle className="h-4 w-4" aria-hidden /> Fall bearbeiten
             </LinkButton>
           </>
         }
       />
-      {c.extraction.notes && c.extraction.notes.length > 0 && (
-        <div className="mb-4">
-          <Notice tone="warn" title="Hinweise zur Extraktion">
-            <ul className="list-disc pl-5">
-              {c.extraction.notes.map((n, k) => (
-                <li key={k}>{n}</li>
-              ))}
-            </ul>
-          </Notice>
-        </div>
-      )}
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div className="lg:sticky lg:top-20 lg:self-start">
           <CaseScene caseId={c.id} />
@@ -148,28 +127,11 @@ export function CaseView() {
             <dl className="mt-2 grid grid-cols-2 gap-1 text-muted">
               <dt>Aufgaben</dt>
               <dd className="text-fg">{qs.length}</dd>
-              <dt>Punkte (erkannt)</dt>
-              <dd className="text-fg">{c.totalPoints ? String(c.totalPoints).replace(".", ",") : "–"}</dd>
               <dt>Bearbeitet</dt>
               <dd className="text-fg">{qs.filter((q) => latest.has(q.id)).length} / {qs.length}</dd>
               <dt>Bisherige Quote</dt>
               <dd className="text-fg">{summary.percent === null ? "–" : `${String(summary.percent).replace(".", ",")} %`}</dd>
             </dl>
-            {c.sections?.solutions && (
-              <p className="mt-3 text-xs">
-                <Link className="text-teal hover:underline" href={`/source/?page=${c.sections.solutions[0]}`}>
-                  Erwartungshorizont im Buch (ab PDF-Seite {c.sections.solutions[0]})
-                </Link>
-                {c.sections.evaluation && (
-                  <>
-                    {" · "}
-                    <Link className="text-teal hover:underline" href={`/source/?page=${c.sections.evaluation}`}>
-                      Notenschlüssel
-                    </Link>
-                  </>
-                )}
-              </p>
-            )}
           </Card>
         </div>
         <div className="space-y-4">

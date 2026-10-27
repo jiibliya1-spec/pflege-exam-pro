@@ -118,7 +118,7 @@ function SetupInner() {
 
   return (
     <>
-      <PageHeader title="Quiz & Prüfung" subtitle="Stellen Sie Ihre Sitzung zusammen. Alle Einstellungen bleiben genau so, wie Sie sie wählen." crumbs={[{ label: "Start", href: "/" }, { label: "Quiz & Prüfung" }]} />
+      <PageHeader title="Quiz & Prüfung" />
 
       {state.activeSessionId && state.sessions[state.activeSessionId] && (
         <Notice tone="teal" title="Unfertige Sitzung vorhanden">
@@ -128,7 +128,40 @@ function SetupInner() {
         </Notice>
       )}
 
-      <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_20rem]">
+      <Card className="mt-5 space-y-4">
+        {cfg.source !== "all" && cfg.title && <p className="text-sm font-medium text-teal">{cfg.title}</p>}
+        <div className="grid grid-cols-2 gap-2">
+          {([["practice", "📝", "Üben", "mit Feedback"], ["mock", "⏱️", "Probeprüfung", "mit Zeitlimit"]] as const).map(([id, em, label, sub]) => (
+            <button key={id} onClick={() => chooseMode(id)} aria-pressed={cfg.mode === id} className={cn("rounded-2xl border p-4 text-left transition-colors", cfg.mode === id ? "border-teal bg-tealsoft" : "border-line hover:bg-surface2")}>
+              <span className="text-2xl" aria-hidden>{em}</span>
+              <span className="mt-1 block font-semibold">{label}</span>
+              <span className="text-xs text-muted">{sub}</span>
+            </button>
+          ))}
+        </div>
+        <div>
+          <p className="mb-2 text-sm font-medium">Anzahl Fragen</p>
+          <div className="flex flex-wrap gap-2">
+            {[10, 20, 30, 50].map((n) => (
+              <button key={n} onClick={() => set("questionCount", Math.min(n, Math.max(1, eligible.length)))} aria-pressed={cfg.questionCount === Math.min(n, Math.max(1, eligible.length))} className={cn("min-h-11 min-w-14 rounded-full border px-4 text-sm font-medium", cfg.questionCount === Math.min(n, Math.max(1, eligible.length)) ? "border-teal bg-tealsoft" : "border-line")}>
+                {n}
+              </button>
+            ))}
+          </div>
+        </div>
+        <Button size="lg" className="w-full" onClick={start} disabled={issues.length > 0 || eligible.length === 0}>
+          <PlayCircle className="h-5 w-5" aria-hidden /> Starten
+        </Button>
+        {error && (
+          <div role="alert" className="rounded-xl bg-badsoft p-3 text-sm text-bad">
+            {error.errors.map((e, i) => <p key={i}>{e}</p>)}
+          </div>
+        )}
+      </Card>
+
+      <details className="mt-5 rounded-2xl border border-line bg-surface">
+        <summary className="flex min-h-12 cursor-pointer items-center px-4 font-medium">Erweiterte Einstellungen</summary>
+      <div className="grid gap-5 p-4 lg:grid-cols-[1fr_20rem]">
         <div className="space-y-5">
           <Card>
             <h2 className="mb-3 font-semibold">1 · Modus</h2>
@@ -289,6 +322,7 @@ function SetupInner() {
           </Card>
         </aside>
       </div>
+      </details>
     </>
   );
 }

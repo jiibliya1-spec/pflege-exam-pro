@@ -10,7 +10,7 @@ import { useBank } from "@/lib/bank";
 import { newId, useUserContext } from "@/lib/hooks";
 import { chapterStats, formatDuration, latestAttempts, overallStats, weakestTopics } from "@/lib/stats";
 import { defaultConfig, eligibleQuestions, sessionFromIds } from "@/lib/exam";
-import { Badge, Button, EmptyState, LinkButton, Notice, PageHeader, Progress, Spinner, StatCard } from "./ui";
+import { Badge, Button, EmptyState, LinkButton, PageHeader, Progress, Spinner, StatCard } from "./ui";
 import { useT } from "@/lib/i18n";
 
 export function Dashboard() {
@@ -38,7 +38,6 @@ export function Dashboard() {
       </>
     );
 
-  const report = bank.bank!.report;
   const active = state.activeSessionId ? state.sessions[state.activeSessionId] : undefined;
   const hasData = state.attempts.length > 0;
   const mistakes = [...latest.values()].filter((a) => a.correct === false).sort((a, b) => b.at - a.at).slice(0, 5);
@@ -118,12 +117,6 @@ export function Dashboard() {
           <span aria-hidden className="text-muted transition-transform group-open:rotate-180">⌄</span>
         </summary>
         <div className="space-y-5 border-t border-line p-4">
-          {report.coverageVerified === false && (
-            <Notice tone="warn" title="Importstatus">
-              {report.pagesProcessed} von {report.pagesInPdf} PDF-Seiten per OCR verarbeitet · {report.questions} Aufgaben aus {report.cases} Fallbeispielen erkannt · {report.questionsVerified} Musterlösungen verifiziert.{" "}
-              <Link className="underline" href="/admin/">Details</Link>
-            </Notice>
-          )}
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
             <StatCard icon={<ListChecks className="h-5 w-5" />} label="Aufgaben" value={stats.total} hint={`${stats.remaining} offen`} />
             <StatCard icon={<Clock className="h-5 w-5" />} label="Lernzeit" value={stats.studyTimeMs ? formatDuration(stats.studyTimeMs) : "–"} />

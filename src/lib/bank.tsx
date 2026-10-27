@@ -6,6 +6,7 @@ import { parseBank } from "./bankSchema";
 import { asset } from "./asset";
 import { useStore } from "./store";
 import { applyPatch } from "./applyPatch";
+import { isLearnerVisible, visibleCaseIds } from "./reliable";
 
 export interface BankContext {
   status: "loading" | "ready" | "empty" | "error";
@@ -53,7 +54,11 @@ export function BankProvider({ children }: { children: ReactNode }) {
     const known = new Set(base.map((q) => q.id));
     // Manuell ergänzte Aufgaben hinter die Original-Aufgaben desselben Falls einsortieren (nur Reihenfolge, keine Inhaltsänderung)
     const manual = Object.values(state.manual).filter((q) => !known.has(q.id));
-    const questions = [...base, ...manual].map((q) => applyPatch(q, state.overrides[q.id])).sort((a, b) => a.order - b.order);
+    const patched = [...base, ...manual].map((q) => applyPatch(q, state.overrides[q.id])).sort((a, b) => a.order - b.order);
+    // Lernende sehen nur verlässliche Inhalte (siehe reliable.ts); die Rohdaten bleiben unverändert.
+    const okCases = visibleCaseIds(patched);
+    const questions = patched.filter((q) => isLearnerVisible(q) && (!q.caseId || okCases.has(q.caseId)));
+    const cases = (bank?.cases ?? []).filter((c) => okCases.has(c.id));
     return {
       status: raw.status,
       error: raw.error,
@@ -62,8 +67,8 @@ export function BankProvider({ children }: { children: ReactNode }) {
       byId: new Map(questions.map((q) => [q.id, q])),
       chapters: bank?.chapters ?? [],
       chapterById: new Map((bank?.chapters ?? []).map((c) => [c.id, c])),
-      cases: bank?.cases ?? [],
-      caseById: new Map((bank?.cases ?? []).map((c) => [c.id, c])),
+      cases,
+      caseById: new Map(cases.map((c) => [c.id, c])),
       skipped: raw.res?.skipped ?? [],
       duplicates: raw.res?.duplicates ?? [],
     };

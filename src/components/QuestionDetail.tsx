@@ -59,16 +59,6 @@ export function QuestionDetail() {
           <Card className="space-y-4">
             <QuestionMeta q={q} />
             <QuestionText q={q} />
-            {q.extraction.notes && q.extraction.notes.length > 0 && (
-              <ul className="list-disc rounded-xl bg-warnsoft p-3 pl-7 text-xs text-warn">
-                {q.extraction.notes.map((n, i) => (
-                  <li key={i}>{n}</li>
-                ))}
-              </ul>
-            )}
-            <p className="text-xs text-muted">
-              Textqualität {Math.round(q.extraction.confidence)} % · <Link className="text-teal hover:underline" href={`/admin/review/?id=${q.id}`}>Im Admin-Bereich prüfen/korrigieren</Link>
-            </p>
           </Card>
           <ModelAnswerBox q={q} caseSolutionPages={c?.sections?.solutions} />
           <Card>

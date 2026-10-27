@@ -27,3 +27,17 @@ describe("Wörterbuch", () => {
     for (const l of ["de", "ar", "en", "fr", "tr"] as const) expect(translate(l, "nav.dashboard")).not.toBe("nav.dashboard");
   });
 });
+
+import { AREAS, LESSONS } from "@/data/lessons";
+describe("Lernbibliothek", () => {
+  it("jede Lektion hat Bereich, arabische Zusammenfassung und Inhalt; IDs sind eindeutig", () => {
+    const ids = new Set(LESSONS.map((l) => l.id));
+    expect(ids.size).toBe(LESSONS.length);
+    for (const l of LESSONS) {
+      expect(AREAS[l.group].some((a) => a.id === l.area), l.id).toBe(true);
+      expect(l.ar.trim().length, l.id).toBeGreaterThan(10);
+      expect(l.blocks.length, l.id).toBeGreaterThanOrEqual(2);
+      for (const b of l.blocks) expect(b.li.length, `${l.id} ${b.h}`).toBeGreaterThan(0);
+    }
+  });
+});
