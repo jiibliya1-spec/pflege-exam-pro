@@ -12,6 +12,8 @@ import { BUCH_PFLEGE } from "./lessonsBuchPflege";
 import { AUSBILDUNG_PLUS } from "./lessonsPlusAusbildung";
 import { NEW_LESSONS_1 } from "./lessonsNew1";
 import { NEW_LESSONS_2 } from "./lessonsNew2";
+import { EXTRA } from "./lessonsExtra";
+import type { Diagram } from "./diagram";
 
 export type LessonGroup = "krank" | "ausbildung";
 
@@ -25,54 +27,56 @@ export interface Lesson {
   /** Organsystem bzw. Themenbereich */
   area: string;
   title: string;
-  emoji: string;
+  icon: string;
   /** Kurze Zusammenfassung auf Arabisch */
   ar: string;
   blocks: LessonBlock[];
+  /** Ein bis zwei Lern-Diagramme (Ablauf, Vergleich, Stufen ...) */
+  diagrams?: Diagram[];
 }
 
 const B = (h: string, ...li: string[]): LessonBlock => ({ h, li });
 
-export const AREAS: Record<LessonGroup, { id: string; label: string; emoji: string }[]> = {
+export const AREAS: Record<LessonGroup, { id: string; label: string; icon: string }[]> = {
   krank: [
-    { id: "herz", label: "Herz und Kreislauf", emoji: "❤️" },
-    { id: "atmung", label: "Atmung", emoji: "🫁" },
-    { id: "stoffwechsel", label: "Stoffwechsel", emoji: "🩸" },
-    { id: "nerven", label: "Nerven und Gehirn", emoji: "🧠" },
-    { id: "bewegung", label: "Bewegungsapparat", emoji: "🦴" },
-    { id: "verdauung", label: "Verdauung und Leber", emoji: "🍽️" },
-    { id: "niere", label: "Niere und Harnwege", emoji: "💧" },
-    { id: "psyche", label: "Psyche", emoji: "💭" },
-    { id: "infektion", label: "Infektionen", emoji: "🦠" },
-    { id: "notfall", label: "Notfälle", emoji: "🚨" },
-    { id: "haut", label: "Haut und Wunden", emoji: "🩹" },
-    { id: "schmerz", label: "Schmerz und Palliativ", emoji: "🕊️" },
-    { id: "blut", label: "Blut und Immunsystem", emoji: "🩸" },
-    { id: "sinne", label: "Augen und Ohren", emoji: "👁️" },
-    { id: "geschlecht", label: "Geschlechtsorgane", emoji: "🌸" },
+    { id: "herz", label: "Herz und Kreislauf", icon: "Heart" },
+    { id: "atmung", label: "Atmung", icon: "Wind" },
+    { id: "stoffwechsel", label: "Stoffwechsel", icon: "Droplet" },
+    { id: "nerven", label: "Nerven und Gehirn", icon: "Brain" },
+    { id: "bewegung", label: "Bewegungsapparat", icon: "Bone" },
+    { id: "verdauung", label: "Verdauung und Leber", icon: "Utensils" },
+    { id: "niere", label: "Niere und Harnwege", icon: "Droplets" },
+    { id: "psyche", label: "Psyche", icon: "CloudRain" },
+    { id: "infektion", label: "Infektionen", icon: "Bug" },
+    { id: "notfall", label: "Notfälle", icon: "Siren" },
+    { id: "haut", label: "Haut und Wunden", icon: "Bandage" },
+    { id: "schmerz", label: "Schmerz und Palliativ", icon: "Feather" },
+    { id: "blut", label: "Blut und Immunsystem", icon: "Droplet" },
+    { id: "sinne", label: "Augen und Ohren", icon: "Eye" },
+    { id: "geschlecht", label: "Geschlechtsorgane", icon: "Flower2" },
   ],
   ausbildung: [
-    { id: "start", label: "Ausbildung und Prüfung", emoji: "🎓" },
-    { id: "pflege", label: "Pflegen und Vorbeugen", emoji: "🛏️" },
-    { id: "kommunikation", label: "Kommunikation", emoji: "💬" },
-    { id: "recht", label: "Recht und Verantwortung", emoji: "⚖️" },
-    { id: "qualitaet", label: "Qualität und Standards", emoji: "📊" },
-    { id: "ethik", label: "Ethik und Beruf", emoji: "🧭" },
-    { id: "gesundheit", label: "Gesundheit der Pflegenden", emoji: "💪" },
-    { id: "system", label: "Gesundheitswesen", emoji: "🏛️" },
-    { id: "modelle", label: "Pflegemodelle und Theorien", emoji: "🧩" },
-    { id: "mensch", label: "Mensch, Team und Kommunikation", emoji: "🧑‍🤝‍🧑" },
-    { id: "technik", label: "Pflegetechniken", emoji: "💉" },
-    { id: "lebensphasen", label: "Lebensphasen", emoji: "🌱" },
-    { id: "therapie", label: "Therapie und besondere Situationen", emoji: "🏥" },
-    { id: "konzepte", label: "Pflegekonzepte", emoji: "🤲" },
+    { id: "start", label: "Ausbildung und Prüfung", icon: "GraduationCap" },
+    { id: "pflege", label: "Pflegen und Vorbeugen", icon: "BedDouble" },
+    { id: "kommunikation", label: "Kommunikation", icon: "MessageCircle" },
+    { id: "recht", label: "Recht und Verantwortung", icon: "Scale" },
+    { id: "qualitaet", label: "Qualität und Standards", icon: "ChartBar" },
+    { id: "ethik", label: "Ethik und Beruf", icon: "Compass" },
+    { id: "gesundheit", label: "Gesundheit der Pflegenden", icon: "Dumbbell" },
+    { id: "system", label: "Gesundheitswesen", icon: "Landmark" },
+    { id: "modelle", label: "Pflegemodelle und Theorien", icon: "Puzzle" },
+    { id: "mensch", label: "Mensch, Team und Kommunikation", icon: "Users" },
+    { id: "technik", label: "Pflegetechniken", icon: "Syringe" },
+    { id: "lebensphasen", label: "Lebensphasen", icon: "Sprout" },
+    { id: "therapie", label: "Therapie und besondere Situationen", icon: "Hospital" },
+    { id: "konzepte", label: "Pflegekonzepte", icon: "HandHelping" },
   ],
 };
 
 const BASE_LESSONS: Lesson[] = [
   // ───────── Krankheitslehre ─────────
   {
-    id: "hypertonie", group: "krank", area: "herz", title: "Bluthochdruck (Hypertonie)", emoji: "🩺",
+    id: "hypertonie", group: "krank", area: "herz", title: "Bluthochdruck (Hypertonie)", icon: "Stethoscope",
     ar: "ارتفاع ضغط الدم: غالباً بدون أعراض لكنه يرفع خطر السكتة والنوبة القلبية. التمريض: قياس منتظم، الأدوية، تقليل الملح.",
     blocks: [
       B("Was ist das?", "Der Blutdruck ist dauerhaft zu hoch: ab 140/90 mmHg bei wiederholten Messungen.", "Oft gibt es lange keine Beschwerden. Deshalb wird die Krankheit leicht übersehen."),
@@ -82,7 +86,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "herzinsuffizienz", group: "krank", area: "herz", title: "Herzschwäche (Herzinsuffizienz)", emoji: "❤️",
+    id: "herzinsuffizienz", group: "krank", area: "herz", title: "Herzschwäche (Herzinsuffizienz)", icon: "Heart",
     ar: "قصور القلب: القلب لا يضخ بشكل كافٍ. أعراض: ضيق نفس، وذمات، زيادة وزن. التمريض: وزن يومي، جدول السوائل، رفع الجزء العلوي.",
     blocks: [
       B("Was ist das?", "Das Herz pumpt nicht genug Blut. Der Körper wird schlechter versorgt und Wasser staut sich."),
@@ -91,7 +95,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "herzinfarkt", group: "krank", area: "herz", title: "Herzinfarkt", emoji: "🚑",
+    id: "herzinfarkt", group: "krank", area: "herz", title: "Herzinfarkt", icon: "Ambulance",
     ar: "النوبة القلبية: انسداد شريان تاجي. ألم صدر وتعرق وخوف. إسعاف 112 فوراً، رفع الجزء العلوي، عدم ترك المريض وحده.",
     blocks: [
       B("Was ist das?", "Ein Herzkranzgefäß ist verschlossen. Ein Teil des Herzmuskels bekommt kein Blut mehr und stirbt ab."),
@@ -100,7 +104,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "pavk", group: "krank", area: "herz", title: "Durchblutungsstörung der Beine (pAVK)", emoji: "🦵",
+    id: "pavk", group: "krank", area: "herz", title: "Durchblutungsstörung der Beine (pAVK)", icon: "Footprints",
     ar: "مرض الشرايين الطرفية: ألم الساق عند المشي. الرعاية: فحص القدمين، لا تدفئة بالقوة، الإقلاع عن التدخين.",
     blocks: [
       B("Was ist das?", "Die Arterien der Beine sind verengt (meist durch Arteriosklerose). Die Muskeln bekommen zu wenig Blut.", "Risiken: Rauchen, Diabetes, Bluthochdruck, hohe Blutfette."),
@@ -109,7 +113,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "thrombose", group: "krank", area: "herz", title: "Thrombose und Lungenembolie", emoji: "🩸",
+    id: "thrombose", group: "krank", area: "herz", title: "Thrombose und Lungenembolie", icon: "Droplet",
     ar: "الجلطة الوريدية: تورم وألم في ساق واحدة. الخطر: انصمام رئوي. لا تدلّك الساق، بلّغ الطبيب. الوقاية: حركة وجوارب ضاغطة.",
     blocks: [
       B("Was ist das?", "Ein Blutgerinnsel verstopft eine tiefe Beinvene.", "Löst es sich, kann es in die Lunge wandern: Lungenembolie."),
@@ -120,7 +124,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "asthma", group: "krank", area: "atmung", title: "Asthma bronchiale", emoji: "🫁",
+    id: "asthma", group: "krank", area: "atmung", title: "Asthma bronchiale", icon: "Wind",
     ar: "الربو: التهاب مزمن في الشعب الهوائية بنوبات ضيق نفس وصفير. أثناء النوبة: الهدوء، وضعية جلوس، بخاخ الطوارئ حسب التعليمات.",
     blocks: [
       B("Was ist das?", "Die Atemwege sind chronisch entzündet und reagieren überempfindlich. Es kommt zu Anfällen mit Atemnot."),
@@ -130,7 +134,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "copd", group: "krank", area: "atmung", title: "COPD", emoji: "🚬",
+    id: "copd", group: "krank", area: "atmung", title: "COPD", icon: "Cigarette",
     ar: "الانسداد الرئوي المزمن غالباً بسبب التدخين: سعال وبلغم وضيق نفس. التمريض: تنفس بشفاه مضمومة، تطعيم، أكسجين حسب الأمر الطبي فقط.",
     blocks: [
       B("Was ist das?", "Chronische Verengung der Atemwege, meist durch Rauchen. Sie ist nicht heilbar, aber behandelbar."),
@@ -139,7 +143,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "pneumonie", group: "krank", area: "atmung", title: "Lungenentzündung (Pneumonie)", emoji: "🌡️",
+    id: "pneumonie", group: "krank", area: "atmung", title: "Lungenentzündung (Pneumonie)", icon: "Thermometer",
     ar: "التهاب رئوي: حرارة وسعال وضيق نفس، خطر أكبر عند المسنين والمرضى طريحي الفراش. الوقاية: تحريك وتمارين تنفس وعناية بالفم.",
     blocks: [
       B("Was ist das?", "Entzündung des Lungengewebes, meist durch Bakterien oder Viren."),
@@ -149,7 +153,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "diabetes", group: "krank", area: "stoffwechsel", title: "Diabetes mellitus", emoji: "🩸",
+    id: "diabetes", group: "krank", area: "stoffwechsel", title: "Diabetes mellitus", icon: "Droplet",
     ar: "السكري: النوع 1 نقص إنسولين، النوع 2 مقاومة إنسولين. الرعاية: قياس السكر، فحص القدمين، تثقيف، التعرف على الهبوط.",
     blocks: [
       B("Was ist das?", "Der Blutzucker ist zu hoch.", "Typ 1: Die Bauchspeicheldrüse stellt kein Insulin mehr her (meist jung, Insulin ist nötig).", "Typ 2: Der Körper reagiert schlecht auf Insulin (meist später, oft mit Übergewicht)."),
@@ -159,7 +163,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "hypoglykaemie", group: "krank", area: "stoffwechsel", title: "Unterzuckerung (Hypoglykämie)", emoji: "🍬",
+    id: "hypoglykaemie", group: "krank", area: "stoffwechsel", title: "Unterzuckerung (Hypoglykämie)", icon: "Candy",
     ar: "هبوط السكر (أقل من 70 mg/dl): رجفة وتعرق وتشوش. واعٍ: سكر سريع ثم قياس بعد 15 دقيقة. فاقد الوعي: لا شيء بالفم، وضعية جانبية، إسعاف.",
     blocks: [
       B("Was ist das?", "Der Blutzucker ist zu niedrig, meist unter 70 mg/dl (3,9 mmol/l). Das ist ein Notfall."),
@@ -169,7 +173,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "schlaganfall", group: "krank", area: "nerven", title: "Schlaganfall", emoji: "⚡",
+    id: "schlaganfall", group: "krank", area: "nerven", title: "Schlaganfall", icon: "Zap",
     ar: "السكتة الدماغية: كل دقيقة مهمة. علامات FAST: الوجه، الذراع، الكلام، الوقت. اتصل بالإسعاف فوراً ولا تعطِ أكلاً أو شرباً قبل فحص البلع.",
     blocks: [
       B("Was ist das?", "Ein Teil des Gehirns bekommt zu wenig Blut (meist durch ein Gerinnsel) oder es blutet. Jede Minute zählt."),
@@ -179,7 +183,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "parkinson", group: "krank", area: "nerven", title: "Parkinson", emoji: "🧩",
+    id: "parkinson", group: "krank", area: "nerven", title: "Parkinson", icon: "Puzzle",
     ar: "باركنسون: نقص الدوبامين، رعشة وتيبّس وبطء حركة. الأدوية يجب في وقتها بالضبط. الوقاية من السقوط.",
     blocks: [
       B("Was ist das?", "Im Gehirn fehlt der Botenstoff Dopamin. Die Bewegungen werden langsam und steif."),
@@ -188,7 +192,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "ms", group: "krank", area: "nerven", title: "Multiple Sklerose (MS)", emoji: "🌀",
+    id: "ms", group: "krank", area: "nerven", title: "Multiple Sklerose (MS)", icon: "Orbit",
     ar: "التصلب المتعدد: التهاب مزمن في الجهاز العصبي بنوبات. أعراض: اضطراب رؤية وشلل وتشنج وإرهاق. الحرارة قد تزيد الأعراض.",
     blocks: [
       B("Was ist das?", "Entzündliche Erkrankung von Gehirn und Rückenmark. Sie verläuft oft in Schüben."),
@@ -197,7 +201,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "epilepsie", group: "krank", area: "nerven", title: "Epilepsie und Krampfanfall", emoji: "⚡",
+    id: "epilepsie", group: "krank", area: "nerven", title: "Epilepsie und Krampfanfall", icon: "Zap",
     ar: "الصرع: نوبات تشنج متكررة. أثناء النوبة: حماية من الإصابة، لا شيء في الفم، لا تثبيت، سجل المدة. بعدها وضعية جانبية.",
     blocks: [
       B("Was ist das?", "Das Gehirn entlädt sich plötzlich und es kommt zu wiederkehrenden Anfällen."),
@@ -207,7 +211,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "demenz", group: "krank", area: "nerven", title: "Demenz (z. B. Alzheimer)", emoji: "🧓",
+    id: "demenz", group: "krank", area: "nerven", title: "Demenz (z. B. Alzheimer)", icon: "User",
     ar: "الخرف: تراجع الذاكرة والتوجه. الرعاية: روتين ثابت، لغة بسيطة، التقدير (Validation)، عدم التصحيح بقسوة، أمان.",
     blocks: [
       B("Was ist das?", "Das Gedächtnis, das Denken und die Orientierung lassen langsam nach. Die häufigste Form ist Alzheimer."),
@@ -216,7 +220,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "rheuma", group: "krank", area: "bewegung", title: "Rheumatoide Arthritis", emoji: "🖐️",
+    id: "rheuma", group: "krank", area: "bewegung", title: "Rheumatoide Arthritis", icon: "Hand",
     ar: "الروماتويد: التهاب مزمن في المفاصل، تيبّس صباحي طويل. الرعاية: حماية المفاصل، حركة لطيفة، وسائل مساعدة.",
     blocks: [
       B("Was ist das?", "Chronische Entzündung der Gelenke, oft beidseitig (Finger, Hände, Füße)."),
@@ -225,7 +229,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "osteoporose", group: "krank", area: "bewegung", title: "Osteoporose", emoji: "🦴",
+    id: "osteoporose", group: "krank", area: "bewegung", title: "Osteoporose", icon: "Bone",
     ar: "هشاشة العظام: العظام ضعيفة وتنكسر بسهولة. الوقاية: كالسيوم وفيتامين D وحركة ومنع السقوط.",
     blocks: [
       B("Was ist das?", "Die Knochen verlieren an Masse und brechen leichter, z. B. Wirbel, Oberschenkelhals, Handgelenk."),
@@ -234,7 +238,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "crohn", group: "krank", area: "verdauung", title: "Morbus Crohn", emoji: "🌀",
+    id: "crohn", group: "krank", area: "verdauung", title: "Morbus Crohn", icon: "Orbit",
     ar: "داء كرون: التهاب مزمن في الجهاز الهضمي بنوبات. أعراض: ألم بطن وإسهال ونقص وزن. الرعاية: التغذية، العناية بالجلد والستوما.",
     blocks: [
       B("Was ist das?", "Chronische Entzündung im Verdauungstrakt, verläuft in Schüben. Sie kann den ganzen Darm betreffen."),
@@ -243,7 +247,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "leberzirrhose", group: "krank", area: "verdauung", title: "Leberzirrhose", emoji: "🍺",
+    id: "leberzirrhose", group: "krank", area: "verdauung", title: "Leberzirrhose", icon: "Beer",
     ar: "تشمع الكبد: تلف دائم للكبد (كحول، التهاب كبد). علامات: استسقاء، اصفرار، نزيف. الرعاية: وزن ومحيط البطن، مراقبة الوعي، النزيف.",
     blocks: [
       B("Was ist das?", "Die Leber wird bindegewebig umgebaut und arbeitet schlechter. Ursachen sind z. B. Alkohol oder Hepatitis."),
@@ -252,7 +256,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "harnweg", group: "krank", area: "niere", title: "Harnwegsinfektion", emoji: "💧",
+    id: "harnweg", group: "krank", area: "niere", title: "Harnwegsinfektion", icon: "Droplets",
     ar: "التهاب المسالك البولية: حرقة وتكرار تبول. عند المسنين قد يظهر كارتباك فقط. الرعاية: شرب كافٍ ونظافة وعناية بالقسطرة.",
     blocks: [
       B("Was ist das?", "Entzündung von Blase oder Harnwegen, oft durch Bakterien."),
@@ -261,7 +265,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "niereninsuff", group: "krank", area: "niere", title: "Niereninsuffizienz", emoji: "🫘",
+    id: "niereninsuff", group: "krank", area: "niere", title: "Niereninsuffizienz", icon: "Bean",
     ar: "قصور الكلى: الكلية لا تُرشّح جيداً. أعراض: وذمات وقلة بول وحكة. الرعاية: جدول السوائل، الوزن، حماية ذراع الغسيل الكلوي.",
     blocks: [
       B("Was ist das?", "Die Nieren filtern das Blut nicht mehr ausreichend. Es gibt eine akute und eine chronische Form."),
@@ -270,7 +274,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "depression", group: "krank", area: "psyche", title: "Depression", emoji: "☁️",
+    id: "depression", group: "krank", area: "psyche", title: "Depression", icon: "Cloud",
     ar: "الاكتئاب: حزن وفقدان اهتمام وطاقة. الرعاية: الإصغاء، روتين يومي، لا تقل \"اجمع نفسك\". عند أفكار انتحار أخبر الفريق والطبيب فوراً.",
     blocks: [
       B("Was ist das?", "Eine ernste Erkrankung. Traurigkeit, Interessenverlust und Antriebslosigkeit halten über Wochen an."),
@@ -279,7 +283,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "mrsa", group: "krank", area: "infektion", title: "MRSA", emoji: "🧼",
+    id: "mrsa", group: "krank", area: "infektion", title: "MRSA", icon: "Sparkles",
     ar: "MRSA جرثومة مقاومة للمضادات الحيوية تنتقل باليدين. الحماية: تعقيم اليدين، معطف وقفازات، عزل حسب خطة المؤسسة، ومع ذلك اهتمام إنساني.",
     blocks: [
       B("Was ist das?", "Ein Keim (Staphylococcus aureus), gegen den viele Antibiotika nicht wirken. Er wird vor allem über die Hände übertragen."),
@@ -290,7 +294,7 @@ const BASE_LESSONS: Lesson[] = [
 
   // ───────── Ausbildung ─────────
   {
-    id: "ausbildung", group: "ausbildung", area: "start", title: "Die Ausbildung im Überblick", emoji: "🎓",
+    id: "ausbildung", group: "ausbildung", area: "start", title: "Die Ausbildung im Überblick", icon: "GraduationCap",
     ar: "التكوين: ثلاث سنوات (مدرسة وتدريب عملي) ينتهي بامتحان. الكفاءات مقسّمة إلى خمسة مجالات (I–V).",
     blocks: [
       B("Dauer und Aufbau", "Die generalistische Pflegeausbildung dauert 3 Jahre (Vollzeit).", "Sie besteht aus Unterricht in der Pflegeschule und praktischer Ausbildung in verschiedenen Einsatzorten.", "Mindestens 2100 Stunden Unterricht und 2500 Stunden praktische Ausbildung."),
@@ -299,7 +303,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "pruefung", group: "ausbildung", area: "start", title: "Prüfungsaufgaben richtig lösen", emoji: "✍️",
+    id: "pruefung", group: "ausbildung", area: "start", title: "Prüfungsaufgaben richtig lösen", icon: "PenLine",
     ar: "كيف تجيب في الامتحان: افهم فعل المهمة (اذكر، صِف، اشرح، علّل، قيّم)، وأجب على الحالة المعطاة وليس كلاماً عاماً.",
     blocks: [
       B("Operatoren: Was verlangt die Aufgabe?", "Nennen: kurz aufzählen, ohne Erklärung.", "Beschreiben: Sachverhalte in eigenen Worten darstellen.", "Erläutern: erklären und mit Beispielen deutlich machen.", "Begründen: Ursachen oder Argumente für eine Aussage angeben.", "Entwickeln: aus den Informationen eine Lösung oder einen Plan ableiten.", "Beurteilen: eine begründete Stellungnahme abgeben."),
@@ -308,7 +312,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "pflegeprozess", group: "ausbildung", area: "pflege", title: "Der Pflegeprozess", emoji: "🔄",
+    id: "pflegeprozess", group: "ausbildung", area: "pflege", title: "Der Pflegeprozess", icon: "RefreshCw",
     ar: "عملية التمريض دورة: جمع المعلومات، تحديد المشكلات، تحديد الأهداف، التخطيط والتنفيذ، ثم التقييم.",
     blocks: [
       B("Die Schritte", "1. Informationen sammeln (Anamnese, Beobachtung, Gespräch)", "2. Probleme und Ressourcen erkennen (Pflegediagnose)", "3. Ziele gemeinsam mit dem Menschen festlegen", "4. Maßnahmen planen und durchführen", "5. Wirkung überprüfen (Evaluation) und anpassen"),
@@ -316,7 +320,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "vitalzeichen", group: "ausbildung", area: "pflege", title: "Vitalzeichen und Normwerte", emoji: "🌡️",
+    id: "vitalzeichen", group: "ausbildung", area: "pflege", title: "Vitalzeichen und Normwerte", icon: "Thermometer",
     ar: "العلامات الحيوية: النبض، ضغط الدم، الحرارة، التنفس، تشبع الأكسجين. الأرقام تقريبية، والمرجع تعليمات المؤسسة.",
     blocks: [
       B("Richtwerte beim gesunden Erwachsenen (in Ruhe)", "Puls: etwa 60 bis 80 pro Minute (60 bis 100 gilt als normal).", "Blutdruck: unter 140/90 mmHg.", "Atmung: etwa 12 bis 18 Atemzüge pro Minute.", "Körpertemperatur: etwa 36 bis 37,4 °C.", "Sauerstoffsättigung: etwa 95 bis 100 %.", "Blutzucker nüchtern: etwa 70 bis 100 mg/dl."),
@@ -324,7 +328,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "prophylaxen", group: "ausbildung", area: "pflege", title: "Prophylaxen im Überblick", emoji: "🛡️",
+    id: "prophylaxen", group: "ausbildung", area: "pflege", title: "Prophylaxen im Überblick", icon: "ShieldCheck",
     ar: "الوقاية: قرح الضغط، السقوط، الجلطة، الالتهاب الرئوي، التقفّع، الجفاف، الاستنشاق. الأساس: ملاحظة المخاطر مبكراً وتحريك المريض.",
     blocks: [
       B("Dekubitus (Druckgeschwür)", "Risiko erkennen (z. B. bettlägerig, wenig Bewegung, feuchte Haut).", "Druck entlasten: Positionswechsel nach Plan, Hilfsmittel nutzen.", "Haut beobachten, trocken und sauber halten, gut ernähren."),
@@ -336,7 +340,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "hygiene", group: "ausbildung", area: "pflege", title: "Hygiene und Händedesinfektion", emoji: "🧴",
+    id: "hygiene", group: "ausbildung", area: "pflege", title: "Hygiene und Händedesinfektion", icon: "Pipette",
     ar: "النظافة: تعقيم اليدين أهم وسيلة لمنع العدوى. اللحظات الخمس: قبل ملامسة المريض، قبل الإجراء المعقم، بعد التعرض لسوائل، بعد المريض، بعد محيطه.",
     blocks: [
       B("Warum?", "Die Hände sind der wichtigste Übertragungsweg für Keime. Händedesinfektion schützt Patienten und Personal."),
@@ -345,7 +349,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "sbar", group: "ausbildung", area: "kommunikation", title: "Übergabe mit SBAR", emoji: "📋",
+    id: "sbar", group: "ausbildung", area: "kommunikation", title: "Übergabe mit SBAR", icon: "ClipboardList",
     ar: "نموذج SBAR لتسليم المعلومات: الوضع، الخلفية، التقييم، التوصية. قصير وواضح وبالترتيب.",
     blocks: [
       B("Die vier Teile", "S – Situation: Worum geht es gerade? Wer ist der Patient?", "B – Background: Wichtige Vorgeschichte und Diagnosen", "A – Assessment: Meine Einschätzung, z. B. Vitalzeichen und was auffällt", "R – Recommendation: Was brauche ich oder was schlage ich vor?"),
@@ -354,7 +358,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "kommunikation", group: "ausbildung", area: "kommunikation", title: "Gespräche mit Patienten und Angehörigen", emoji: "💬",
+    id: "kommunikation", group: "ausbildung", area: "kommunikation", title: "Gespräche mit Patienten und Angehörigen", icon: "MessageCircle",
     ar: "التواصل: الإصغاء، أسئلة مفتوحة، لغة بسيطة، التعاطف. مع الأقارب: الاحترام مع حدود السرّ المهني.",
     blocks: [
       B("Grundhaltung", "Respekt, Zeit nehmen, Blickkontakt, ruhige Sprache.", "Aktiv zuhören und Gefühle ernst nehmen."),
@@ -363,7 +367,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "delegation", group: "ausbildung", area: "recht", title: "Delegation und Remonstration", emoji: "⚖️",
+    id: "delegation", group: "ausbildung", area: "recht", title: "Delegation und Remonstration", icon: "Scale",
     ar: "التفويض: من يعطي المهمة مسؤول عن اختيار الشخص المناسب، ومن ينفذها مسؤول عن تنفيذها. وإن رأيت خطراً فعليك الاعتراض (Remonstration).",
     blocks: [
       B("Delegation", "Eine Aufgabe wird an eine andere Person übertragen.", "Anordnungsverantwortung: Wer delegiert, prüft, ob die Person dafür geeignet ist.", "Übernahmeverantwortung (Durchführungsverantwortung): Wer die Aufgabe übernimmt, muss sie kompetent und richtig ausführen."),
@@ -372,7 +376,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "recht", group: "ausbildung", area: "recht", title: "Schweigepflicht, Einwilligung, Selbstbestimmung", emoji: "🔒",
+    id: "recht", group: "ausbildung", area: "recht", title: "Schweigepflicht, Einwilligung, Selbstbestimmung", icon: "Lock",
     ar: "السرّ المهني والموافقة وتقرير المصير: لا تُعطِ معلومات دون إذن، واطلب موافقة المريض، واحترم قراره حتى لو خالفك.",
     blocks: [
       B("Schweigepflicht", "Alles, was du über Patienten erfährst, ist vertraulich: Diagnose, Familie, Lebensumstände.", "Sie gilt auch nach Dienstende und gegenüber Freunden und oft gegenüber Angehörigen."),
@@ -381,7 +385,7 @@ const BASE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "vorbehalt", group: "ausbildung", area: "recht", title: "Vorbehaltene Tätigkeiten", emoji: "📌",
+    id: "vorbehalt", group: "ausbildung", area: "recht", title: "Vorbehaltene Tätigkeiten", icon: "Pin",
     ar: "مهام محجوزة قانونياً للممرض المؤهل: تقدير الحاجة للرعاية، تنظيم عملية التمريض، وضمان جودتها. لا تُفوَّض.",
     blocks: [
       B("Was ist das?", "Das Pflegeberufegesetz (PflBG) reserviert bestimmte Aufgaben für Pflegefachpersonen. Andere dürfen sie nicht übernehmen."),
@@ -406,7 +410,26 @@ function withPlus(l: Lesson): Lesson {
   return { ...l, blocks: [...l.blocks, ...add] };
 }
 
-const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2, ...MODELLE_LESSONS, ...RECHT_LESSONS, ...BUCH_KRANK_1, ...BUCH_KRANK_2, ...BUCH_PFLEGE];
+/** Hängt Vertiefungs-Abschnitte und Diagramme aus lessonsExtra an (Überschriften bleiben eindeutig). */
+function withExtra(l: Lesson): Lesson {
+  const x = EXTRA[l.id];
+  if (!x) return l;
+  const seen = new Set(l.blocks.map((b) => b.h));
+  const add = (x.b ?? []).map((b) => {
+    let h = b.h;
+    while (seen.has(h)) h += " (2)";
+    seen.add(h);
+    return { ...b, h };
+  });
+  return { ...l, blocks: [...l.blocks, ...add], diagrams: x.d ?? l.diagrams };
+}
+
+/** Doppelte Kurzfassungen, deren Inhalt in den ausführlichen Lektionen steckt. */
+const DROP = new Set(["b-hygiene", "b-prophylaxen", "b-beobachtung-vital"]);
+
+const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2, ...MODELLE_LESSONS, ...RECHT_LESSONS, ...BUCH_KRANK_1, ...BUCH_KRANK_2, ...BUCH_PFLEGE]
+  .filter((l) => !DROP.has(l.id))
+  .map(withExtra);
 
 /** Sortiert nach Gruppe und Reihenfolge der Bereiche, damit Weiter/Zurück sinnvoll ist. */
 export const LESSONS: Lesson[] = (["krank", "ausbildung"] as LessonGroup[]).flatMap((g) =>

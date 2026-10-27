@@ -12,6 +12,7 @@ import { CaseNarrative, GradeBadge, ModelAnswerBox, QuestionMeta, QuestionText }
 import { gradeQuestion } from "@/lib/grading";
 import { CaseScene, PlaceBadge } from "./CaseScene";
 import { useT } from "@/lib/i18n";
+import { Icon } from "./Icon";
 import { summarize } from "@/lib/grading";
 
 export function CaseList() {
@@ -49,7 +50,7 @@ export function CaseList() {
                           <h3 className="font-semibold leading-snug">{c.title}</h3>
                           <p className="mt-0.5 text-xs text-muted">
                             {qs.length} {t("cases.tasks")}
-                            {c.extraction.status === "review" ? " · ⚠️" : ""}
+                            {c.extraction.status === "review" ? " · !" : ""}
                           </p>
                         </div>
                       </div>
@@ -117,7 +118,7 @@ export function CaseView() {
         <div className="lg:sticky lg:top-20 lg:self-start">
           <CaseScene caseId={c.id} />
           <details className="mt-4 rounded-2xl border border-line bg-surface">
-            <summary className="flex min-h-12 cursor-pointer items-center px-4 font-medium">📖 {t("scene.original")}</summary>
+            <summary className="flex min-h-12 cursor-pointer items-center px-4 font-medium"><Icon name="BookOpen" className="me-2 h-4 w-4" /> {t("scene.original")}</summary>
             <div className="p-2">
               <CaseNarrative c={c} compact />
             </div>

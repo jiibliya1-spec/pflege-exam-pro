@@ -11,7 +11,7 @@ const B = (h: string, ...li: string[]): LessonBlock => ({ h, li });
 export const BUCH_PFLEGE: Lesson[] = [
   // ───────── Mensch und Team ─────────
   {
-    id: "b-entwicklung", group: "ausbildung", area: "mensch", title: "Entwicklungspsychologie, Persönlichkeit und Bedürfnisse", emoji: "🌱",
+    id: "b-entwicklung", group: "ausbildung", area: "mensch", title: "Entwicklungspsychologie, Persönlichkeit und Bedürfnisse", icon: "Sprout",
     ar: "نظريات النمو: فرويد (مراحل نفسية جنسية)، إريكسون (أزمة في كل مرحلة)، بياجيه (نمو معرفي)، هافيغهورست (مهام نمائية)، سكينر وباندورا (التعلم). الشخصية: العوامل الخمسة الكبرى. ماسلو: هرم الحاجات من الفسيولوجية إلى تحقيق الذات.",
     blocks: [
       B("Warum wichtig?", "Pflegende begleiten Menschen aller Lebensphasen. Wer weiß, welche Aufgaben und Krisen zu einem Alter gehören, versteht das Verhalten besser und pflegt passender."),
@@ -21,7 +21,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-kommunikation", group: "ausbildung", area: "mensch", title: "Kommunikation: Watzlawick, Schulz von Thun, Rogers", emoji: "🗣️",
+    id: "b-kommunikation", group: "ausbildung", area: "mensch", title: "Kommunikation: Watzlawick, Schulz von Thun, Rogers", icon: "Megaphone",
     ar: "التواصل: قواعد واتزلافيك الخمس (لا يمكن ألا نتواصل، مستوى المحتوى والعلاقة، ...). نموذج شولتس فون تون: لكل رسالة 4 جوانب (المضمون، العلاقة، الكشف عن الذات، الطلب). روجرز: التعاطف، القبول غير المشروط، الصدق. الاستماع النشط.",
     blocks: [
       B("Watzlawick: 5 Axiome", "Man kann nicht nicht kommunizieren (auch Schweigen sendet eine Botschaft).", "Jede Mitteilung hat einen Inhalts- und einen Beziehungsaspekt; der Beziehungsaspekt bestimmt, wie der Inhalt verstanden wird.", "Kommunikation wird durch die Deutung von Ursache und Wirkung gegliedert (Interpunktion). Das führt oft zu Streit.", "Menschen nutzen digitale (Worte) und analoge Kommunikation (Mimik, Gestik, Tonfall).", "Kommunikation ist symmetrisch (gleichwertig) oder komplementär (ungleich, z. B. Pflegekraft und Patient)."),
@@ -31,7 +31,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-team", group: "ausbildung", area: "mensch", title: "Team, Rollen, Pflegebeziehung und Stress", emoji: "🤝",
+    id: "b-team", group: "ausbildung", area: "mensch", title: "Team, Rollen, Pflegebeziehung und Stress", icon: "Handshake",
     ar: "الفريق يمر بمراحل: تكوين، عاصفة، تنظيم، أداء (Forming, Storming, Norming, Performing). العلاقة المهنية تحتاج قرباً مع مسافة. الإجهاد: عامل مجهد، تقييم، استجابة؛ استراتيجيات التعامل: حل المشكلة أو تنظيم الانفعال.",
     blocks: [
       B("Teamentwicklung", "Forming: Kennenlernen, Orientierung.", "Storming: Rollen und Macht werden ausgehandelt, Konflikte.", "Norming: Regeln und Zusammenhalt entstehen.", "Performing: Das Team arbeitet leistungsstark.", "Rollen im Team: Aufgabe, Position und Erwartungen klären, Konflikte offen ansprechen."),
@@ -42,7 +42,7 @@ export const BUCH_PFLEGE: Lesson[] = [
 
   // ───────── Gesundheitswesen ─────────
   {
-    id: "b-sozialsystem", group: "ausbildung", area: "system", title: "Sozialsystem, Pflegeorganisation und DRG", emoji: "🏛️",
+    id: "b-sozialsystem", group: "ausbildung", area: "system", title: "Sozialsystem, Pflegeorganisation und DRG", icon: "Landmark",
     ar: "نظام التأمينات الاجتماعية 5 أعمدة: صحة، تقاعد، بطالة، حوادث، رعاية. أشكال تنظيم التمريض: وظيفية، بحسب القسم، بحسب المسؤول (Bezugspflege)، Primary Nursing. الدفع بالمجموعات التشخيصية DRG.",
     blocks: [
       B("Fünf Säulen der Sozialversicherung", "Krankenversicherung (SGB V), Rentenversicherung, Arbeitslosenversicherung, Unfallversicherung, Pflegeversicherung (SGB XI). Teilhabe und Rehabilitation: SGB IX."),
@@ -53,7 +53,7 @@ export const BUCH_PFLEGE: Lesson[] = [
 
   // ───────── Pflegen und Vorbeugen ─────────
   {
-    id: "b-beobachtung-vital", group: "ausbildung", area: "pflege", title: "Beobachten und Vitalzeichen (Normwerte)", emoji: "🌡️",
+    id: "b-beobachtung-vital", group: "ausbildung", area: "pflege", title: "Beobachten und Vitalzeichen (Normwerte)", icon: "Thermometer",
     ar: "الملاحظة بالحواس الخمس. القيم الطبيعية للبالغين: النبض 60 إلى 100 بالدقيقة، التنفس 14 إلى 16، الحرارة المركزية نحو 37، ضغط الدم المثالي نحو 120 على 80. نبض غير منتظم: عدّ دقيقة كاملة. تنفس بطيء وسطحي: خطر تخدير CO2.",
     blocks: [
       B("Beobachten", "Systematisch mit allen Sinnen: sehen, hören, riechen, fühlen. Das Beobachtete beschreiben, nicht deuten, und dokumentieren."),
@@ -65,7 +65,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-hygiene", group: "ausbildung", area: "pflege", title: "Hygiene und Infektionsschutz", emoji: "🧼",
+    id: "b-hygiene", group: "ausbildung", area: "pflege", title: "Hygiene und Infektionsschutz", icon: "Sparkles",
     ar: "الصحة والوقاية من العدوى: طرق الانتقال (تماس، قطيرات، هواء، دم)، النظافة اليدوية أهم إجراء (5 لحظات)، التعقيم والتطهير، العزل، الملابس الواقية، التعامل الآمن مع الإبر.",
     blocks: [
       B("Übertragungswege", "Kontakt (direkt oder über Gegenstände), Tröpfchen, Luft (Aerosole), Blut und Körperflüssigkeiten, Lebensmittel."),
@@ -74,7 +74,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-koerperpflege", group: "ausbildung", area: "pflege", title: "Körperpflege, Waschungen, Mobilisation und Schlaf", emoji: "🛁",
+    id: "b-koerperpflege", group: "ausbildung", area: "pflege", title: "Körperpflege, Waschungen, Mobilisation und Schlaf", icon: "Bath",
     ar: "العناية بالجسم: غسل مهدئ (بطيء، بالاتجاه مع نمو الشعر، ماء دافئ) مقابل غسل منشط (عكس اتجاه الشعر، ماء بارد أولاً). التحريك المبكر، ترتيب السرير، النوم.",
     blocks: [
       B("Körperpflege", "Selbstständigkeit fördern, Intimsphäre wahren, Hautzustand beobachten, auf Wassertemperatur und Zeit achten."),
@@ -84,7 +84,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-ernaehrung-ausscheidung", group: "ausbildung", area: "pflege", title: "Ernährung, Flüssigkeit, Bilanz und Ausscheidung", emoji: "💧",
+    id: "b-ernaehrung-ausscheidung", group: "ausbildung", area: "pflege", title: "Ernährung, Flüssigkeit, Bilanz und Ausscheidung", icon: "Droplets",
     ar: "التغذية والسوائل: قاعدة EDEKA (حساسية، حمية، قيود، مرض، حساسيات). الحاجة للسوائل نحو 35 مل لكل كغ. ميزان السوائل: الدخل مقابل الخرج، مع التعرق غير المحسوس نحو 900 مل. مراقبة البراز والبول والقيء.",
     blocks: [
       B("EDEKA-Regel (vor dem Essen prüfen)", "Empfindlichkeiten und Unverträglichkeiten, Diät, Einschränkungen bei der Nahrungsaufnahme, Krankheitsbedingte Kost, Allergien."),
@@ -94,7 +94,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-prophylaxen", group: "ausbildung", area: "pflege", title: "Prophylaxen im Überblick", emoji: "🛡️",
+    id: "b-prophylaxen", group: "ausbildung", area: "pflege", title: "Prophylaxen im Überblick", icon: "ShieldCheck",
     ar: "الوقاية: قرحة الضغط، ذات الرئة، الخثار، السقوط، التقلص، الجفاف، الالتهاب. اتبع المخاطر الفردية، التحريك المبكر، التنفس، الجوارب الضاغطة بأمر الطبيب.",
     blocks: [
       B("Grundsatz", "Risiko erkennen (Assessment), individuell planen, durchführen, Wirkung kontrollieren und dokumentieren."),
@@ -104,7 +104,7 @@ export const BUCH_PFLEGE: Lesson[] = [
 
   // ───────── Pflegetechniken ─────────
   {
-    id: "b-katheter-injektion", group: "ausbildung", area: "technik", title: "Katheter, Injektion und die 6-R-Regel", emoji: "💉",
+    id: "b-katheter-injektion", group: "ausbildung", area: "technik", title: "Katheter, Injektion und die 6-R-Regel", icon: "Syringe",
     ar: "القسطرة البولية بتعقيم شديد (خطر عدوى). الحقن: قاعدة 6 R (المريض الصحيح، الدواء، الجرعة، الطريقة، الوقت، التوثيق). مواقع الحقن: تحت الجلد، عضل، وريد، جلد. تحقق قبل الإعطاء.",
     blocks: [
       B("6-R-Regel", "Richtiger Patient, richtiges Medikament, richtige Dosis, richtige Applikationsart, richtiger Zeitpunkt, richtige Dokumentation. Dreimal prüfen: beim Richten, vor der Gabe, danach."),
@@ -113,7 +113,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-zugaenge-infusion", group: "ausbildung", area: "technik", title: "Gefäßzugänge, Infusion und Transfusion", emoji: "🩸",
+    id: "b-zugaenge-infusion", group: "ausbildung", area: "technik", title: "Gefäßzugänge, Infusion und Transfusion", icon: "Droplet",
     ar: "المدخل الوريدي: محيطي أو مركزي. التسريب: تحقق من السائل، الجرعة، السرعة. نقل الدم: فحص الهوية والفصيلة، اختبار بجانب السرير، مراقبة 30 دقيقة الأولى، أخبر الطبيب عند حمى أو قشعريرة أو ضيق نفس.",
     blocks: [
       B("Zugänge", "Peripherer Venenkatheter (Venenverweilkanüle), zentraler Venenkatheter (ZVK), Port.", "Eintrittsstelle beobachten (Rötung, Schwellung, Schmerz = Phlebitis oder Infektion), steril verbinden, Dokumentation."),
@@ -122,7 +122,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-sonden-drainagen", group: "ausbildung", area: "technik", title: "Sonden, Drainagen, Punktion und Biopsie", emoji: "🧪",
+    id: "b-sonden-drainagen", group: "ausbildung", area: "technik", title: "Sonden, Drainagen, Punktion und Biopsie", icon: "TestTube",
     ar: "الأنابيب: أنبوب أنفي معدي، PEG، تغذية بالأنبوب (التحقق من الموضع قبل البدء، رفع الجذع). المصارف: مراقبة الكمية واللون. البزل والخزعة: تحضير وموافقة ومراقبة بعدها.",
     blocks: [
       B("Magensonde und PEG", "Lage der Sonde vor jeder Nutzung kontrollieren (nach Hausstandard). Oberkörper hoch lagern. Nach Gabe mit Wasser spülen. Medikamente einzeln geben.", "Bei PEG: Verbandwechsel und Hautbeobachtung, Sonde mobilisieren."),
@@ -131,7 +131,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-stoma-einlauf-atem", group: "ausbildung", area: "technik", title: "Stoma, Einlauf, Atemtechniken und Tracheostoma", emoji: "🫁",
+    id: "b-stoma-einlauf-atem", group: "ausbildung", area: "technik", title: "Stoma, Einlauf, Atemtechniken und Tracheostoma", icon: "Wind",
     ar: "الفغر (Stoma): مراقبة لون وإفراز، العناية بالجلد حوله. الحقنة الشرجية: وضع الاستلقاء على اليسار. أساليب التنفس: شفة مضمومة، تنفس بطني. فغر القصبة: شفط معقم، ترطيب، لا تترك المريض وحده.",
     blocks: [
       B("Stoma", "Rosige, feuchte Schleimhaut ist normal. Blass, blau oder dunkel kann auf Durchblutungsstörung hinweisen. Haut um das Stoma schützen, Versorgung anpassen, Ernährungsberatung."),
@@ -141,7 +141,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-wunde-verband", group: "ausbildung", area: "technik", title: "Wundversorgung und Verbände", emoji: "🩹",
+    id: "b-wunde-verband", group: "ausbildung", area: "technik", title: "Wundversorgung und Verbände", icon: "Bandage",
     ar: "الجرح: أنواع (حاد، مزمن)، مراحل الشفاء (التنظيف، الحبيبات، التبشر). تغيير الضماد بتقنية معقمة. علامات العدوى: احمرار، تورم، حرارة، ألم، إفراز. لا تعالج الجرح المزمن دون تقييم السبب.",
     blocks: [
       B("Wundarten und Heilung", "Akut (OP, Verletzung) oder chronisch (Dekubitus, Ulcus cruris, diabetischer Fuß).", "Phasen: Reinigung (Exsudation), Granulation (Aufbau), Epithelisierung (Abschluss)."),
@@ -152,7 +152,7 @@ export const BUCH_PFLEGE: Lesson[] = [
 
   // ───────── Lebensphasen ─────────
   {
-    id: "b-schwangerschaft", group: "ausbildung", area: "lebensphasen", title: "Schwangerschaft, Geburt, Wochenbett und Präeklampsie", emoji: "🤰",
+    id: "b-schwangerschaft", group: "ausbildung", area: "lebensphasen", title: "Schwangerschaft, Geburt, Wochenbett und Präeklampsie", icon: "Baby",
     ar: "الحمل والولادة والنفاس. تسمم الحمل (Präeklampsie): ضغط مرتفع وبروتين في البول، خطر التشنج (Eklampsie) ومتلازمة HELLP. الأعراض: صداع، رؤية غير واضحة، ألم أعلى البطن. تحتاج مراقبة دقيقة ونقلاً عاجلاً.",
     blocks: [
       B("Schwangerschaft", "Etwa 40 Wochen. Vorsorge, Folsäure, Ernährung, Verzicht auf Alkohol und Nikotin."),
@@ -161,7 +161,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-kind-alter", group: "ausbildung", area: "lebensphasen", title: "Kind im Krankenhaus, alte Menschen und Menschen mit Behinderung", emoji: "🧒",
+    id: "b-kind-alter", group: "ausbildung", area: "lebensphasen", title: "Kind im Krankenhaus, alte Menschen und Menschen mit Behinderung", icon: "UserRound",
     ar: "طفل في المستشفى: وجود الأهل، لعب، شرح مناسب للعمر. كبار السن: أدوية متعددة، سقوط، خرف، تعدد الأمراض. إعاقة ذهنية: لغة بسيطة، تعزيز الاستقلال. الرعاية المنزلية: مشاركة الأقارب وإرشادهم.",
     blocks: [
       B("Kinder", "Angst vor Trennung und Schmerz, Eltern einbeziehen (Rooming-in), kindgerecht erklären, Spielen als Ressource.", "Vitalwerte altersabhängig: Säuglinge atmen deutlich schneller (40 bis 50 pro Minute) als Erwachsene."),
@@ -173,7 +173,7 @@ export const BUCH_PFLEGE: Lesson[] = [
 
   // ───────── Therapie und besondere Situationen ─────────
   {
-    id: "b-medikamente", group: "ausbildung", area: "therapie", title: "Medikamente, Antikoagulation und Lyse", emoji: "💊",
+    id: "b-medikamente", group: "ausbildung", area: "therapie", title: "Medikamente, Antikoagulation und Lyse", icon: "Pill",
     ar: "الأدوية: قاعدة 6 R، التخزين، التفاعلات والآثار الجانبية. مميعات الدم (هيبارين، مضادات الفيتامين K): مراقبة النزيف، لا حقن عضلية. التحليل (Lyse): فقط تحت مراقبة طبية.",
     blocks: [
       B("Umgang mit Medikamenten", "6-R-Regel, Verfalldatum, Lagerung, Dokumentation. Nebenwirkungen und Wechselwirkungen beobachten. Pflegende stellen nicht ohne Anordnung, ändern keine Dosis."),
@@ -182,7 +182,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-wickel-fieber", group: "ausbildung", area: "therapie", title: "Wickel, Fieber und perioperative Pflege", emoji: "🔥",
+    id: "b-wickel-fieber", group: "ausbildung", area: "therapie", title: "Wickel, Fieber und perioperative Pflege", icon: "Flame",
     ar: "اللفائف: حارة أو باردة حسب الهدف، تحقق من الراحة. الحمى: قياس، سوائل، تبريد برفق بأمر الطبيب. الرعاية حول العملية: قبلها (تحضير، صيام)، أثناءها، بعدها (مراقبة العلامات الحيوية، ألم، جرح).",
     blocks: [
       B("Wickel und Auflagen", "Wärme oder Kälte je nach Ziel. Hautzustand und Wohlbefinden prüfen, Verbrühungen und Erfrierungen vermeiden, Kontraindikationen beachten."),
@@ -191,7 +191,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-chronisch-onko", group: "ausbildung", area: "therapie", title: "Chronische Krankheit, Onkologie, Intensiv, Brand und Transplantation", emoji: "🏥",
+    id: "b-chronisch-onko", group: "ausbildung", area: "therapie", title: "Chronische Krankheit, Onkologie, Intensiv, Brand und Transplantation", icon: "Hospital",
     ar: "المرض المزمن: التكيف، التثقيف. الأورام: التعامل مع آثار العلاج (غثيان، سقوط الشعر، التهاب الفم)، الدعم النفسي. العناية المركزة: مراقبة دقيقة. الحروق: قاعدة التسعات. زرع الأعضاء: كبت المناعة وخطر العدوى.",
     blocks: [
       B("Chronisch krank und multimorbid", "Dauerhafte Anpassung nötig. Selbstmanagement fördern, Schulung, Beratung, Rückfälle und Krisen erkennen."),
@@ -202,7 +202,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-sterben", group: "ausbildung", area: "therapie", title: "Sterbebegleitung: Phasen, Finalphase und Todeszeichen", emoji: "🕯️",
+    id: "b-sterben", group: "ausbildung", area: "therapie", title: "Sterbebegleitung: Phasen, Finalphase und Todeszeichen", icon: "Flame",
     ar: "مرافقة المحتضر: مرحلة الاحتضار (أسابيع إلى أشهر) ثم المرحلة النهائية (أيام). مراحل كوبلر-روس الخمس: الإنكار، الغضب، المساومة، الاكتئاب، القبول. السمع يبقى طويلاً. علامات الموت غير المؤكدة ثم المؤكدة.",
     blocks: [
       B("Zwei Phasen", "Terminalphase: letzte Wochen bis Monate. Finalphase: letzte Tage bis Stunden."),
@@ -213,7 +213,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-kultursensibel", group: "ausbildung", area: "therapie", title: "Kultursensible Pflege", emoji: "🌍",
+    id: "b-kultursensibel", group: "ausbildung", area: "therapie", title: "Kultursensible Pflege", icon: "Globe",
     ar: "التمريض الحساس ثقافياً: احترام الدين والعادات (الغذاء، النظافة، الجنس، الصلاة)، مترجمون مؤهلون وليس الأقارب غالباً، سؤال المريض بدل التخمين، تجنب التنميط.",
     blocks: [
       B("Grundhaltung", "Offenheit und Respekt. Jeder Mensch ist individuell; Herkunft erklärt nie alles. Nachfragen statt annehmen."),
@@ -223,7 +223,7 @@ export const BUCH_PFLEGE: Lesson[] = [
 
   // ───────── Konzepte ─────────
   {
-    id: "b-anleiten-beraten", group: "ausbildung", area: "konzepte", title: "Anleiten, Beraten und Schulen", emoji: "🎯",
+    id: "b-anleiten-beraten", group: "ausbildung", area: "konzepte", title: "Anleiten, Beraten und Schulen", icon: "Target",
     ar: "التوجيه والاستشارة والتدريب: تحديد الحاجة، أهداف واقعية، شرح بسيط، عرض عملي ثم تطبيق المريض ثم تقييم. الاستشارة تحترم قرار المريض. التدريب لمجموعة.",
     blocks: [
       B("Anleiten", "Schritte: Bedarf klären, Ziel vereinbaren, vormachen, gemeinsam üben, selbst durchführen lassen, Rückmeldung geben und Wirkung prüfen."),
@@ -232,7 +232,7 @@ export const BUCH_PFLEGE: Lesson[] = [
     ],
   },
   {
-    id: "b-kinaesthetik-basal-bobath", group: "ausbildung", area: "konzepte", title: "Kinästhetik, Basale Stimulation und Bobath", emoji: "🤲",
+    id: "b-kinaesthetik-basal-bobath", group: "ausbildung", area: "konzepte", title: "Kinästhetik, Basale Stimulation und Bobath", icon: "HandHelping",
     ar: "مفاهيم التمريض: الكينستيتيك (حركة طبيعية، تقليل الجهد)، التحفيز القاعدي (إدراك الجسم والبيئة لدى المرضى ذوي الإدراك المحدود)، بوباث (تحفيز الجانب المصاب لدى مرضى السكتة).",
     blocks: [
       B("Kinästhetik", "Bewegung gemeinsam gestalten, sodass der Mensch seine eigene Bewegung wahrnimmt und mithilft. Schont Rücken der Pflegenden und fördert die Selbstständigkeit."),

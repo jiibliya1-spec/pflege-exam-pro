@@ -9,7 +9,7 @@ const B = (h: string, ...li: string[]): LessonBlock => ({ h, li });
 
 export const MODELLE_LESSONS: Lesson[] = [
   {
-    id: "pflegewissenschaft", group: "ausbildung", area: "modelle", title: "Pflegewissenschaft, Forschung und EBN", emoji: "🔬",
+    id: "pflegewissenschaft", group: "ausbildung", area: "modelle", title: "Pflegewissenschaft, Forschung und EBN", icon: "Microscope",
     ar: "علم التمريض: نظرية، بحث، تعليم. البحث الكمي (أرقام، استنباط) والنوعي (مجموعات صغيرة، استقراء). معايير الجودة: الموضوعية، الثبات، الصدق. التمريض المبني على الأدلة (EBN) في 6 خطوات.",
     blocks: [
       B("Ziel und Säulen", "Die Pflegewissenschaft will Fragen und Probleme aus dem Pflegealltag lösen.", "Sie steht auf drei Säulen: Theorie, Forschung und Lehre."),
@@ -21,7 +21,7 @@ export const MODELLE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "theorien-grundlagen", group: "ausbildung", area: "modelle", title: "Pflegetheorien: Überblick und Reichweite", emoji: "🧩",
+    id: "theorien-grundlagen", group: "ausbildung", area: "modelle", title: "Pflegetheorien: Überblick und Reichweite", icon: "Puzzle",
     ar: "النظريات التمريضية: كبيرة المدى (مجردة)، متوسطة المدى (نماذج)، صغيرة المدى (مفاهيم عملية). ثلاث مدارس: نظريات الحاجات، التفاعل، النتائج.",
     blocks: [
       B("Theorie, Modell, Konzept", "Theorie: logisch verknüpfte Aussagen, die erklären, was Pflege ist (z. B. Orem).", "Modell: vereinfachte Abbildung einer Theorie. Es macht Aussagen zu Mensch, Gesundheit und Krankheit, Pflege und Umwelt.", "Konzept: kleinster Baustein mit Teilzielen und verbindlichen Maßnahmen. Empirische Konzepte sind messbar (Schmerz, Mobilität), abstrakte nicht (Lebensqualität)."),
@@ -32,7 +32,7 @@ export const MODELLE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "orem", group: "ausbildung", area: "modelle", title: "Orem: Selbstpflegedefizit-Theorie", emoji: "🛠️",
+    id: "orem", group: "ausbildung", area: "modelle", title: "Orem: Selbstpflegedefizit-Theorie", icon: "Wrench",
     ar: "نظرية أوريم: ثلاث نظريات فرعية: الرعاية الذاتية، عجز الرعاية الذاتية، نظام التمريض. عندما تفوق الحاجة القدرة يحدث العجز فيتدخل الممرض: تعويض كامل، جزئي، أو دعم وتعليم.",
     blocks: [
       B("Drei Teiltheorien", "Theorie der Selbstpflege.", "Theorie des Selbstpflegedefizits.", "Theorie des Pflegesystems."),
@@ -43,7 +43,7 @@ export const MODELLE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "roper-logan-tierney", group: "ausbildung", area: "modelle", title: "Roper-Logan-Tierney: Lebensaktivitäten", emoji: "🔄",
+    id: "roper-logan-tierney", group: "ausbildung", area: "modelle", title: "Roper-Logan-Tierney: Lebensaktivitäten", icon: "RefreshCw",
     ar: "نموذج روبر ولوغان وتيرني: 12 نشاطاً حياتياً (LA)، مدى الحياة، الاعتماد/الاستقلال، 5 عوامل مؤثرة، الفردية. هدف الرعاية: أقل تغيير ممكن في أسلوب حياة الشخص.",
     blocks: [
       B("Modell des Lebens: fünf Konzepte", "12 Lebensaktivitäten (LA), Lebensspanne, Abhängigkeits-Unabhängigkeits-Kontinuum, Einflussfaktoren, Individualität im Leben."),
@@ -53,7 +53,7 @@ export const MODELLE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "krohwinkel", group: "ausbildung", area: "modelle", title: "Krohwinkel: Fördernde Prozesspflege und ABEDL", emoji: "🌟",
+    id: "krohwinkel", group: "ausbildung", area: "modelle", title: "Krohwinkel: Fördernde Prozesspflege und ABEDL", icon: "Sparkles",
     ar: "نموذج كروهفينكل (رعاية العملية المعززة): 13 نشاطاً (ABEDL)، الاهتمام يشمل المحتاج وأقاربه، الهدف: الاستقلال والرفاه. التواصل المعزز بالاحترام والتعاطف.",
     blocks: [
       B("Grundlagen", "Entwickelt aus einer Studie zur Pflege von Menschen mit Schlaganfall im Akutkrankenhaus.", "Eingesetzt in Altenhilfe, ambulanter Pflege, Akutpflege und Behindertenhilfe."),
@@ -63,7 +63,7 @@ export const MODELLE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "peplau", group: "ausbildung", area: "modelle", title: "Peplau: Beziehung zwischen Pflegeperson und Patient", emoji: "🤝",
+    id: "peplau", group: "ausbildung", area: "modelle", title: "Peplau: Beziehung zwischen Pflegeperson und Patient", icon: "Handshake",
     ar: "نظرية بيبلاو في العلاقات بين الأشخاص: أربع مراحل: التوجيه، التعرف، الاستخدام، الانفصال. الممرض يتقمص أدواراً (مرشد، معلم، مصدر معلومات) بأسلوب ديمقراطي. مناسبة للطب النفسي.",
     blocks: [
       B("Kernidee", "Die Beziehung zwischen Pflegeperson und Patient beeinflusst die Genesung. Peplau fragt, wie diese Beziehung aussehen soll.", "Besonders passend für die psychiatrische Pflege, aber überall anwendbar."),
@@ -72,7 +72,7 @@ export const MODELLE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "corbin-strauss", group: "ausbildung", area: "modelle", title: "Corbin und Strauss: Krankheitsverlaufskurve", emoji: "📈",
+    id: "corbin-strauss", group: "ausbildung", area: "modelle", title: "Corbin und Strauss: Krankheitsverlaufskurve", icon: "TrendingUp",
     ar: "نموذج منحنى مسار المرض المزمن (Trajekt): 9 مراحل من ما قبل المرض إلى الاحتضار. كل منحنى فردي. التركيز على مجهود المواجهة (Bewältigungsarbeit) للمريض وأقاربه.",
     blocks: [
       B("Grundidee", "Chronische Krankheit ist wie eine Schiffsreise: Es gibt einen Plan, aber die Route kann abweichen.", "Im Mittelpunkt stehen Auswirkungen auf Betroffene und Bezugspersonen, nicht nur der Krankheitsverlauf.", "Bewältigungsarbeit: Alle Anstrengungen von Betroffenen, Angehörigen und Fachleuten gehören zum Verlauf.", "Theorie mittlerer Reichweite, wichtiger werdend durch mehr chronisch Kranke."),
@@ -81,7 +81,7 @@ export const MODELLE_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "friedemann-leininger", group: "ausbildung", area: "modelle", title: "Friedemann (Familie) und Leininger (Kultur)", emoji: "🌍",
+    id: "friedemann-leininger", group: "ausbildung", area: "modelle", title: "Friedemann (Familie) und Leininger (Kultur)", icon: "Globe",
     ar: "فريدمان: التمريض الموجه للعائلة والبيئة (توازن النظام: الاستقرار، النمو، التنظيم، الروحانية). ليننغر: الرعاية الثقافية الخاصة، نظامان للرعاية (شعبي ومهني) وثلاثة قرارات: الحفظ، التكييف، التغيير.",
     blocks: [
       B("Friedemann: Familie und Umwelt", "Basiert auf der Systemtheorie: Mensch und Familie sind Systeme aus Subsystemen. Das Ganze ist mehr als die Summe der Teile.", "Verhalten (Prozessdimensionen): Systemerhaltung, Systemänderung, Kohärenz, Individuation.", "Ziele (Zieldimensionen): Stabilität, Wachstum, Regulation/Kontrolle, Spiritualität.", "Ein ausgewogenes System zeigt sich am Wohlbefinden der Familienmitglieder.", "Pflege betrachtet Gesundheit aus Sicht des Einzelnen und der Familie."),

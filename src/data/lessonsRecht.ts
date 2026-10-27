@@ -10,7 +10,7 @@ const B = (h: string, ...li: string[]): LessonBlock => ({ h, li });
 
 export const RECHT_LESSONS: Lesson[] = [
   {
-    id: "grundgesetz-arbeitsrecht", group: "ausbildung", area: "recht", title: "Grundgesetz und Arbeitsrecht", emoji: "🏛️",
+    id: "grundgesetz-arbeitsrecht", group: "ausbildung", area: "recht", title: "Grundgesetz und Arbeitsrecht", icon: "Landmark",
     ar: "القانون الأساسي (GG) فوق كل القوانين ويحمي حقوق الإنسان والمواطن. قانون العمل: فترة تجربة حتى 6 أشهر، إجازة 20 يوماً على الأقل (أسبوع 5 أيام)، الإنهاء كتابياً، حماية خاصة للمتدربين والحوامل. قانون حماية الشباب العاملين لمن هم دون 18.",
     blocks: [
       B("Grundgesetz (GG)", "Steht über allen anderen Gesetzen von Bund und Ländern und ist durch die Ewigkeitsklausel geschützt.", "Es enthält Menschenrechte (z. B. Schutz der Menschenwürde, freie Entfaltung der Persönlichkeit, Glaubens- und Meinungsfreiheit) und Bürgerrechte (z. B. Wahlrecht, Versammlungsfreiheit, freie Berufswahl)."),
@@ -21,7 +21,7 @@ export const RECHT_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "weisung-haftung", group: "ausbildung", area: "recht", title: "Weisungsrecht, Delegation und Haftung im Alltag", emoji: "⚖️",
+    id: "weisung-haftung", group: "ausbildung", area: "recht", title: "Weisungsrecht, Delegation und Haftung im Alltag", icon: "Scale",
     ar: "حق التوجيه عند صاحب العمل ويمكنه نقله. يجب فحص كل توجيه مهنياً. التفويض: عام، حالة بحالة، غير قابل للتفويض. مسؤولية الأمر ومسؤولية التنفيذ. حق الرفض (Remonstration) لكن الإنقاذ واجب. السرية المهنية §203 StGB. التدخل الطبي إصابة جسدية إلا بموافقة. ترك المساعدة جريمة §323c.",
     blocks: [
       B("Weisungsrecht", "Der Arbeitgeber darf Anweisungen geben und das Recht an Führungskräfte, Ärzte oder Vorgesetzte weitergeben.", "Pflegende prüfen jede Weisung fachlich. Bei Unsicherheit nachfragen. Strafbare oder fachlich falsche Maßnahmen dürfen nicht ausgeführt werden – man haftet sonst persönlich."),
@@ -34,7 +34,7 @@ export const RECHT_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "freiheit-betreuung", group: "ausbildung", area: "recht", title: "Freiheitsentziehung, Betreuung, Patientenverfügung und Sterbehilfe", emoji: "🔓",
+    id: "freiheit-betreuung", group: "ausbildung", area: "recht", title: "Freiheitsentziehung, Betreuung, Patientenverfügung und Sterbehilfe", icon: "LockOpen",
     ar: "الإجراءات المقيدة للحرية (FEM) مسموحة فقط للخطر على النفس أو الغير وبعد فشل البدائل. الإيواء والتثبيت: أمر طبي مكتوب وقاضٍ. الوصاية ليست حجراً. التوكيل الوقائي ووصية المريض ملزمة. القتل الرحيم الفعال ممنوع، السلبي وغير المباشر مسموح بشروط.",
     blocks: [
       B("Freiheitsbeschränkung und Freiheitsentziehung", "Beschränkung: Jemand wird gegen seinen Willen gehindert, einen Ort aufzusuchen oder dort zu bleiben. Entziehung ist die schwerste Form: Bewegungsfreiheit ist in jede Richtung aufgehoben.", "Mit Einwilligung ist die Maßnahme unproblematisch. Fehlt die Einwilligungsfähigkeit, entscheidet der Betreuer oder die Erziehungsberechtigten.", "Zulässig nur bei Eigen- oder Fremdgefährdung, wenn sie dem Wohl dient und alle Alternativen erfolglos waren."),
@@ -46,7 +46,7 @@ export const RECHT_LESSONS: Lesson[] = [
     ],
   },
   {
-    id: "spezialgesetze", group: "ausbildung", area: "recht", title: "Spezielle Gesetze im Pflegebereich", emoji: "📚",
+    id: "spezialgesetze", group: "ausbildung", area: "recht", title: "Spezielle Gesetze im Pflegebereich", icon: "Library",
     ar: "قوانين خاصة: قانون الأدوية (AMG)، قانون المنتجات الطبية، قانون الحماية من العدوى (IfSG)، قانون زراعة الأعضاء (TPG). المخالفات قد تُعاقب.",
     blocks: [
       B("Arzneimittelgesetz (AMG)", "Regelt eine ordnungsgemäße und sichere Arzneimittelversorgung. Verstöße können mit Freiheitsstrafe geahndet werden."),

@@ -12,6 +12,7 @@ import { chapterStats, formatDuration, latestAttempts, overallStats, weakestTopi
 import { defaultConfig, eligibleQuestions, sessionFromIds } from "@/lib/exam";
 import { Badge, Button, EmptyState, LinkButton, PageHeader, Progress, Spinner, StatCard } from "./ui";
 import { useT } from "@/lib/i18n";
+import { Icon } from "./Icon";
 
 export function Dashboard() {
   const { state, dispatch, flush } = useStore();
@@ -79,7 +80,7 @@ export function Dashboard() {
       <section className="scene-hero relative overflow-hidden rounded-3xl p-5 text-white shadow-md sm:p-7" style={{ background: "linear-gradient(135deg, #0f766e 0%, #14b8a6 60%, #38bdf8 100%)" }}>
         <div className="flex items-center gap-4">
           <div className="min-w-0 flex-1">
-            <p className="text-sm opacity-90">{hasData ? t("dash.hello") : t("dash.hello.new")} 👋</p>
+            <p className="text-sm opacity-90">{hasData ? t("dash.hello") : t("dash.hello.new")}</p>
             <h1 className="mt-1 text-2xl font-bold leading-tight sm:text-3xl">Pflege Exam Pro</h1>
             <button onClick={continueLearning} className="mt-4 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-base font-semibold text-teal-800 shadow-sm transition-transform active:scale-95">
               <PlayCircle className="h-5 w-5" aria-hidden /> {active ? t("dash.resume") : t("dash.continue")}
@@ -99,16 +100,16 @@ export function Dashboard() {
       </section>
 
       <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <Tile emoji="🩺" color="#0f766e" title={t("dash.tile.cases")} sub={t("dash.tile.cases.sub")} onClick={() => router.push("/cases/")} />
-        <Tile emoji="⚡" color="#7c3aed" title={t("dash.tile.quiz")} sub={t("dash.tile.quiz.sub")} onClick={() => launch(shuffleIds(bank.questions.map((q) => q.id)).slice(0, 10), "Schnellquiz")} />
-        <Tile emoji="⏱️" color="#c2410c" title={t("dash.tile.mock")} sub={t("dash.tile.mock.sub")} onClick={() => router.push("/quiz/setup/?preset=mock")} />
-        <Tile emoji="🔁" color="#be185d" title={dueCount ? `${dueCount} ${t("dash.tile.due")}` : t("dash.tile.mistakes")} sub={t("dash.tile.mistakes.sub")} onClick={() => router.push(dueCount ? "/quiz/setup/?preset=due" : "/quiz/setup/?preset=mistakes")} />
+        <Tile icon="Stethoscope" color="#0f766e" title={t("dash.tile.cases")} sub={t("dash.tile.cases.sub")} onClick={() => router.push("/cases/")} />
+        <Tile icon="Zap" color="#7c3aed" title={t("dash.tile.quiz")} sub={t("dash.tile.quiz.sub")} onClick={() => launch(shuffleIds(bank.questions.map((q) => q.id)).slice(0, 10), "Schnellquiz")} />
+        <Tile icon="Timer" color="#c2410c" title={t("dash.tile.mock")} sub={t("dash.tile.mock.sub")} onClick={() => router.push("/quiz/setup/?preset=mock")} />
+        <Tile icon="RefreshCw" color="#be185d" title={dueCount ? `${dueCount} ${t("dash.tile.due")}` : t("dash.tile.mistakes")} sub={t("dash.tile.mistakes.sub")} onClick={() => router.push(dueCount ? "/quiz/setup/?preset=due" : "/quiz/setup/?preset=mistakes")} />
       </div>
 
       <div className="mt-4 grid grid-cols-3 gap-3">
         <MiniStat value={stats.answered} label={t("dash.stat.done")} />
         <MiniStat value={stats.accuracy === null ? "–" : `${Math.round(stats.accuracy)} %`} label={t("dash.stat.accuracy")} />
-        <MiniStat value={stats.streakDays ? `🔥 ${stats.streakDays}` : "–"} label={t("dash.stat.streak")} />
+        <MiniStat value={stats.streakDays ? `${stats.streakDays} d` : "–"} label={t("dash.stat.streak")} />
       </div>
 
       <details className="group mt-6 rounded-2xl border border-line bg-surface">
@@ -208,7 +209,7 @@ export function Dashboard() {
               )}
             </div>
           </div>
-          <Button variant="ghost" size="sm" onClick={randomCase}>🎲 Zufälliges Fallbeispiel</Button>
+          <Button variant="ghost" size="sm" onClick={randomCase}><Icon name="Dices" className="h-4 w-4" /> Zufälliges Fallbeispiel</Button>
         </div>
       </details>
     </>
@@ -224,10 +225,10 @@ function shuffleIds(ids: string[]) {
   return a;
 }
 
-function Tile({ emoji, color, title, sub, onClick }: { emoji: string; color: string; title: string; sub: string; onClick: () => void }) {
+function Tile({ icon, color, title, sub, onClick }: { icon: string; color: string; title: string; sub: string; onClick: () => void }) {
   return (
     <button onClick={onClick} className="flex min-h-[7.5rem] flex-col items-start justify-between rounded-2xl border border-line bg-surface p-4 text-start shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[.98]">
-      <span aria-hidden className="flex h-11 w-11 items-center justify-center rounded-xl text-2xl text-white" style={{ background: color }}>{emoji}</span>
+      <span aria-hidden className="flex h-11 w-11 items-center justify-center rounded-xl text-white" style={{ background: color }}><Icon name={icon} className="h-6 w-6" /></span>
       <span>
         <span className="block font-semibold leading-tight">{title}</span>
         <span className="mt-0.5 block text-xs text-muted">{sub}</span>

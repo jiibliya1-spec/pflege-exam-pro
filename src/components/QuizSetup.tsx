@@ -8,6 +8,7 @@ import { useBank } from "@/lib/bank";
 import { useUserContext, newId } from "@/lib/hooks";
 import { ALL_TYPES, TYPE_LABELS, buildSession, chapterDescendantsFn, defaultConfig, eligibleQuestions, validateConfig } from "@/lib/exam";
 import type { ExamConfig, ExamMode, QuestionSource, QuestionType } from "@/lib/types";
+import { Icon } from "./Icon";
 import { Button, Card, EmptyState, Field, Input, Notice, PageHeader, Select, Spinner, Toggle, cn } from "./ui";
 
 const MODES: { id: ExamMode; label: string; hint: string }[] = [
@@ -131,9 +132,9 @@ function SetupInner() {
       <Card className="mt-5 space-y-4">
         {cfg.source !== "all" && cfg.title && <p className="text-sm font-medium text-teal">{cfg.title}</p>}
         <div className="grid grid-cols-2 gap-2">
-          {([["practice", "📝", "Üben", "mit Feedback"], ["mock", "⏱️", "Probeprüfung", "mit Zeitlimit"]] as const).map(([id, em, label, sub]) => (
+          {([["practice", "NotebookPen", "Üben", "mit Feedback"], ["mock", "Timer", "Probeprüfung", "mit Zeitlimit"]] as const).map(([id, em, label, sub]) => (
             <button key={id} onClick={() => chooseMode(id)} aria-pressed={cfg.mode === id} className={cn("rounded-2xl border p-4 text-left transition-colors", cfg.mode === id ? "border-teal bg-tealsoft" : "border-line hover:bg-surface2")}>
-              <span className="text-2xl" aria-hidden>{em}</span>
+              <Icon name={em} className="h-6 w-6 text-teal" />
               <span className="mt-1 block font-semibold">{label}</span>
               <span className="text-xs text-muted">{sub}</span>
             </button>

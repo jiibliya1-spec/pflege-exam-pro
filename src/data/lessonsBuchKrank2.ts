@@ -11,7 +11,7 @@ const B = (h: string, ...li: string[]): LessonBlock => ({ h, li });
 export const BUCH_KRANK_2: Lesson[] = [
   // ───────── Blut und Immunsystem ─────────
   {
-    id: "anaemie", group: "krank", area: "blut", title: "Anämie (Blutarmut)", emoji: "🩸",
+    id: "anaemie", group: "krank", area: "blut", title: "Anämie (Blutarmut)", icon: "Droplet",
     ar: "فقر الدم: انخفاض الهيموغلوبين أو الهيماتوكريت عن الطبيعي. غالباً نزيف أو نقص حديد. أعراض: شحوب، تسرع القلب، هبوط ضغط، دوار. التحليل: MCV وMCH تحدد النوع. التمريض: انتبه لعلامات النزيف الهضمي.",
     blocks: [
       B("Definition", "Hämoglobin oder Hämatokrit liegen unter der Norm."),
@@ -22,7 +22,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "leukaemie-lymphom", group: "krank", area: "blut", title: "Leukämie und Lymphome", emoji: "🎗️",
+    id: "leukaemie-lymphom", group: "krank", area: "blut", title: "Leukämie und Lymphome", icon: "Ribbon",
     ar: "اللوكيميا: سرطان نخاع العظم مع تكاثر خلايا بيضاء غير ناضجة، حاد (أشد) أو مزمن. اللمفوما: ورم الخلايا اللمفاوية، عقد متضخمة قاسية غير مؤلمة. العلاج: كيماوي، إشعاع، زرع. أعراض B: حمى، تعرق ليلي، فقدان وزن.",
     blocks: [
       B("Einordnung", "Leukämie: Krebs einer Stammzelle im Knochenmark (Blutkrebs).", "Malignes Lymphom: Krebs der Lymphozyten im lymphatischen Gewebe (Lymphdrüsenkrebs).", "Myelodysplastisches Syndrom (MDS): Vorstufe einer Leukämie."),
@@ -32,7 +32,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "hiv", group: "krank", area: "blut", title: "HIV-Infektion und AIDS", emoji: "🎀",
+    id: "hiv", group: "krank", area: "blut", title: "HIV-Infektion und AIDS", icon: "Ribbon",
     ar: "فيروس HIV يصيب الخلايا التائية ويضعف المناعة. ينتقل عبر الدم والجنس والولادة، ولا ينتقل بالمصافحة أو التقبيل. بعد التعرض: وقاية ما بعد التعرض (PEP) بسرعة. العلاج المضاد للفيروسات (ART) يعطي عمراً شبه طبيعي.",
     blocks: [
       B("Übertragung", "Blut-zu-Blut-Kontakt, Sexualverkehr, Nadelstichverletzung, Geburt.", "Küssen, Händeschütteln und einfache Berührung sind ungefährlich."),
@@ -42,7 +42,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "autoimmun-allergie", group: "krank", area: "blut", title: "Autoimmunerkrankungen und Allergien", emoji: "🤧",
+    id: "autoimmun-allergie", group: "krank", area: "blut", title: "Autoimmunerkrankungen und Allergien", icon: "Wind",
     ar: "المناعة الذاتية: الجسم يهاجم نفسه (هاشيموتو، سكري النوع 1، فقر الدم الخبيث؛ أو جهازية: روماتويد، ذئبة). الحساسية: نوع I الأشيع، هستامين، قد يصل لصدمة تأقية. أفضل حماية: تجنب المثير.",
     blocks: [
       B("Autoimmunerkrankungen", "Das Immunsystem richtet sich gegen den eigenen Körper.", "Organspezifisch: Hashimoto-Thyreoiditis, Diabetes Typ 1 (Zerstörung der Beta-Zellen), perniziöse Anämie (Antikörper gegen den Intrinsic Factor, Vitamin-B12-Mangel).", "Systemisch: rheumatoide Arthritis, Kollagenosen wie systemischer Lupus (SLE), Vaskulitiden."),
@@ -52,7 +52,7 @@ export const BUCH_KRANK_2: Lesson[] = [
 
   // ───────── Nerven ─────────
   {
-    id: "sht", group: "krank", area: "nerven", title: "Schädel-Hirn-Trauma (SHT) und Hirntumor", emoji: "🪖",
+    id: "sht", group: "krank", area: "nerven", title: "Schädel-Hirn-Trauma (SHT) und Hirntumor", icon: "HardHat",
     ar: "إصابة الدماغ: تُصنف بمقياس غلاسكو للغيبوبة (خفيفة، متوسطة، شديدة). أعراض: اضطراب وعي، فقدان ذاكرة، صداع، قيء. خطر: وذمة وارتفاع ضغط الدماغ. المراقبة 24 ساعة على الأقل. سائل من الأنف أو الأذن قد يكون سائلاً دماغياً شوكياً.",
     blocks: [
       B("SHT", "Einteilung nach Glasgow Coma Scale: leicht, mittelschwer, schwer.", "Symptome: Bewusstseinsstörung, Erinnerungslücke, Kopfschmerzen, Schwindel, Übelkeit, Erbrechen, neurologische Ausfälle.", "Gefahr: Hirnschwellung und Hirndruck. Mindestens 24 Stunden überwachen.", "Diagnostik: Anamnese, CT, Untersuchung. Flüssigkeit aus Nase oder Ohren kann Liquor sein, sofort melden."),
@@ -61,7 +61,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "zns-entzuendung", group: "krank", area: "nerven", title: "Entzündungen des Nervensystems: Meningitis, Enzephalitis, FSME, Borreliose", emoji: "🧠",
+    id: "zns-entzuendung", group: "krank", area: "nerven", title: "Entzündungen des Nervensystems: Meningitis, Enzephalitis, FSME, Borreliose", icon: "Brain",
     ar: "التهاب السحايا (غالباً أشد إذا كان بكتيرياً)، التهاب الدماغ (غالباً فيروسي؛ الهربس قاتل جداً)، FSME (فيروس القراد، يوجد لقاح)، بوريليا (بكتيريا القراد، لا لقاح، علاج بالمضاد). ومرض التصلب المتعدد (MS) مناعي ذاتي.",
     blocks: [
       B("Meningitis", "Meist infektiöse Entzündung von Hirn- und Rückenmarkshäuten. Bakterielle Formen verlaufen meist schwerer als virale.", "Gefürchtet bei Kindern: Meningokokken-Sepsis (Waterhouse-Friderichsen-Syndrom)."),
@@ -71,7 +71,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "huntington-als", group: "krank", area: "nerven", title: "Chorea Huntington und ALS", emoji: "🌀",
+    id: "huntington-als", group: "krank", area: "nerven", title: "Chorea Huntington und ALS", icon: "Orbit",
     ar: "هنتنغتون: وراثي، حركات لا إرادية زائدة ثم خرف؛ 50% احتمال انتقاله للأبناء، وحاجة سعرات أعلى. ALS: تنكس الخلايا العصبية الحركية، ضعف وشلل، صعوبة بلع وكلام، السبب الأشيع للوفاة شلل عضلات التنفس؛ الإدراك محفوظ.",
     blocks: [
       B("Chorea Huntington", "Vererbter Gendefekt, hemmende Nervenzellen gehen zugrunde. Folge: plötzliche, unwillkürliche Bewegungen (zu viel Bewegung), später Demenz und schwere Schluckstörung mit Kachexie.", "Kinder Betroffener erkranken mit 50 % Wahrscheinlichkeit: genetische Beratung auch für die Familienplanung.", "Nicht heilbar. Neuroleptika oder Dopaminantagonisten lindern. Pflege: ausreichend Kalorien, weil die Bewegung viel Energie verbraucht."),
@@ -79,7 +79,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "querschnitt", group: "krank", area: "nerven", title: "Querschnittsyndrom", emoji: "♿",
+    id: "querschnitt", group: "krank", area: "nerven", title: "Querschnittsyndrom", icon: "Accessibility",
     ar: "متلازمة الشلل النصفي: تضرر الحبل الشوكي مع فقدان وظائف ما تحته. غالباً حادث. في المرحلة الحادة: مراقبة الضغط والنبض (خطر هبوط ضغط وتوقف). الوقاية: رئة، قرحة، جلطة، تقلص، إمساك. تطبيق مفاهيم بوباث والتحفيز القاعدي.",
     blocks: [
       B("Was ist das?", "Das Rückenmark ist im Querschnitt geschädigt, die Funktionen darunter fallen aus. Häufigste Ursache: Unfall. Symptome hängen von Art, Ort und Ausmaß ab."),
@@ -88,7 +88,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "kopfschmerz-nerven", group: "krank", area: "nerven", title: "Kopfschmerzen, Karpaltunnel und Guillain-Barré", emoji: "🤕",
+    id: "kopfschmerz-nerven", group: "krank", area: "nerven", title: "Kopfschmerzen, Karpaltunnel und Guillain-Barré", icon: "Bandage",
     ar: "أنواع الصداع: توتري، شقيقة (جانب واحد، غثيان، حساسية للضوء والصوت)، ألم العصب مثلث التوائم. متلازمة النفق الرسغي: ضغط العصب المتوسط. غيلان باريه: شلل صاعد مناعي قد يصل للتنفس، غالباً يتحسن.",
     blocks: [
       B("Kopf- und Gesichtsschmerzen", "Spannungskopfschmerz: mittlere Stärke, keine neurologischen Begleitzeichen.", "Migräne: meist einseitige Attacken, Übelkeit, Erbrechen, Licht- und Lärmempfindlichkeit.", "Trigeminusneuralgie: einseitiger, attackenartiger, starker Gesichtsschmerz."),
@@ -97,7 +97,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "anlagestoerung-nerven", group: "krank", area: "nerven", title: "Neuralrohrdefekt und infantile Zerebralparese", emoji: "👶",
+    id: "anlagestoerung-nerven", group: "krank", area: "nerven", title: "Neuralrohrdefekt und infantile Zerebralparese", icon: "Baby",
     ar: "عيوب الأنبوب العصبي: تشوهات النخاع والدماغ (الوقاية: حمض الفوليك في بداية الحمل). الشلل الدماغي الطفولي: تلف دماغي حول الولادة مع عجز حركي وربما إعاقة ذهنية. راقب علامات ارتفاع ضغط الدماغ (استسقاء).",
     blocks: [
       B("Neuralrohrdefekte", "Fehlbildungen von Rückenmark und Gehirn mit unklarer Ursache. Folgen z. B. Lähmungen.", "Vorbeugung: Folsäure in der Frühschwangerschaft."),
@@ -108,7 +108,7 @@ export const BUCH_KRANK_2: Lesson[] = [
 
   // ───────── Bewegungsapparat ─────────
   {
-    id: "bewegungssystem-pflege", group: "krank", area: "bewegung", title: "Bewegungssystem: Pflegeschwerpunkte", emoji: "🦴",
+    id: "bewegungssystem-pflege", group: "krank", area: "bewegung", title: "Bewegungssystem: Pflegeschwerpunkte", icon: "Bone",
     ar: "أمراض الجهاز الحركي: رضية (التواء، خلع، كسر، بتر)، تقويمية (فصال، هشاشة)، روماتيزمية (التهاب مفاصل، بختريف). التمريض: تخفيف الألم، تشجيع الحركة، وقاية، مراقبة DMS بعد العملية.",
     blocks: [
       B("Einteilung", "Traumatologisch: Distorsion, Luxation, Fraktur, Amputation.", "Orthopädisch: Arthrose, Osteoporose.", "Rheumatisch: rheumatoide Arthritis, Morbus Bechterew."),
@@ -116,7 +116,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "bandscheibe", group: "krank", area: "bewegung", title: "Bandscheibenvorfall und Spinalkanalstenose", emoji: "🔙",
+    id: "bandscheibe", group: "krank", area: "bewegung", title: "Bandscheibenvorfall und Spinalkanalstenose", icon: "ArrowLeft",
     ar: "الانزلاق الغضروفي: ضغط نسيج القرص على الأعصاب. ألم ظهر وربما شلل أو خدر. خطر: متلازمة ذيل الفرس (خدر «سروال الركوب») = عملية فورية. 90% يعالج بدون جراحة. تضيق القناة الشوكية: ألم يخف بالانحناء للأمام.",
     blocks: [
       B("Bandscheibenvorfall", "Bandscheibengewebe drückt im Wirbelkanal auf Nerven. Formen: Protrusion, Prolaps, Sequester.", "Symptome: Rückenschmerz, evtl. Ausfälle, Schonhaltung.", "Komplikationen: Cauda-Syndrom und Konus-Syndrom (lebensgefährlich, sofort operieren; „Reithosenanästhesie“ an der Oberschenkelinnenseite), Wurzeltod bei dauerhaftem Funktionsausfall.", "Diagnostik: Reflexe, Lasègue-Test, MRT."),
@@ -128,7 +128,7 @@ export const BUCH_KRANK_2: Lesson[] = [
 
   // ───────── Sinnesorgane ─────────
   {
-    id: "auge", group: "krank", area: "sinne", title: "Augenerkrankungen", emoji: "👁️",
+    id: "auge", group: "krank", area: "sinne", title: "Augenerkrankungen", icon: "Eye",
     ar: "أمراض العين: التهاب الملتحمة، المياه البيضاء (عتامة العدسة)، الزرق (ضغط العين)، التنكس البقعي. عند ضعف البصر: اشرح كثيراً، وقاية من السقوط، نظافة اليدين عند وضع القطرات.",
     blocks: [
       B("Wichtige Krankheiten", "Konjunktivitis: Bindehautentzündung (infektiös, chemisch oder allergisch). Therapie Augentropfen und Augenpflege. Bei Hornhautentzündung (Keratitis) besteht Erblindungsgefahr.", "Katarakt (grauer Star): Trübung der Linse, oft altersbedingt.", "Glaukom (grüner Star): erhöhter Augeninnendruck, der Sehnerv wird geschädigt, Erblindungsgefahr.", "Altersbedingte Makuladegeneration: Zerstörung der Lichtsinneszellen."),
@@ -136,7 +136,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "ohr", group: "krank", area: "sinne", title: "Ohrerkrankungen und Hörstörungen", emoji: "👂",
+    id: "ohr", group: "krank", area: "sinne", title: "Ohrerkrankungen und Hörstörungen", icon: "Ear",
     ar: "أمراض الأذن: التهاب الأذن الوسطى (شائع عند الصغار)، ورم كوليستيتومي، طنين. أسباب ضعف السمع: شمع، صمم مفاجئ، ضوضاء، سن. التواصل: وجه لوجه، كلمات واضحة، لمس. تحذير عند غسل الأذن: دوار.",
     blocks: [
       B("Aufbau", "Außenohr, Mittelohr (Gehörknöchelchen, Ohrtrompete), Innenohr (Hörschnecke und Gleichgewichtsorgan)."),
@@ -147,7 +147,7 @@ export const BUCH_KRANK_2: Lesson[] = [
 
   // ───────── Haut ─────────
   {
-    id: "hauterkrankungen", group: "krank", area: "haut", title: "Hauterkrankungen und Juckreiz", emoji: "🧴",
+    id: "hauterkrankungen", group: "krank", area: "haut", title: "Hauterkrankungen und Juckreiz", icon: "Pipette",
     ar: "أمراض الجلد: مزمنة (صدفية، أكزيما أتوبية)، معدية (التهاب جريبات، فطور) أو خبيثة (باسالي). الحكة والألم أشيع الأعراض. بدائل الحك: الضغط بالأظافر، الطرق، كرة تدليك، التبريد، أدوية.",
     blocks: [
       B("Ursachen", "Chronisch: Psoriasis, Neurodermitis. Infektiös: Follikulitis, Candidose. Bösartig: z. B. Basaliom."),
@@ -158,7 +158,7 @@ export const BUCH_KRANK_2: Lesson[] = [
 
   // ───────── Geschlechtsorgane ─────────
   {
-    id: "frauen-organe", group: "krank", area: "geschlecht", title: "Wichtige Erkrankungen der weiblichen Geschlechtsorgane", emoji: "🌸",
+    id: "frauen-organe", group: "krank", area: "geschlecht", title: "Wichtige Erkrankungen der weiblichen Geschlechtsorgane", icon: "Flower2",
     ar: "أمراض الجهاز التناسلي الأنثوي: سرطان الثدي (كتلة صلبة غير متحركة؛ بعد الاستئصال: الوقاية من الوذمة اللمفية)، سرطان عنق الرحم (لقاح HPV)، سرطان بطانة الرحم، بطانة الرحم المهاجرة، هبوط الرحم.",
     blocks: [
       B("Mammakarzinom (Brustkrebs)", "Erste Zeichen: derbe, wenig verschiebbare Verhärtung, Hautveränderungen, Asymmetrie.", "Therapie: möglichst brusterhaltende OP, ggf. Lymphknotenentfernung, Chemo und Bestrahlung.", "Pflege nach Mastektomie: Lymphödem vermeiden (Arm hochlagern, keine Blutdruckmessung oder Spritzen am Operationsarm), Kontrakturenprophylaxe, psychosoziale Unterstützung."),
@@ -169,7 +169,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "maenner-organe", group: "krank", area: "geschlecht", title: "Wichtige Erkrankungen der männlichen Geschlechtsorgane", emoji: "🔷",
+    id: "maenner-organe", group: "krank", area: "geschlecht", title: "Wichtige Erkrankungen der männlichen Geschlechtsorgane", icon: "Diamond",
     ar: "أمراض الجهاز التناسلي الذكري: التهاب البروستاتا، تضخم البروستاتا الحميد (TUR-P)، سرطان البروستاتا (استئصال جذري)، ورم الخصية (عقدة غير مؤلمة)، التواء الخصية = طوارئ، ضيق القلفة.",
     blocks: [
       B("Prostatitis", "Symptome: Schmerzen beim Wasserlassen, Blut im Urin, unvollständige Entleerung, Schmerzen, Fieber. Pflege: weicher Stuhl, Bettruhe, evtl. Wärme."),
@@ -179,7 +179,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "sti", group: "krank", area: "geschlecht", title: "Sexuell übertragbare Krankheiten", emoji: "🛡️",
+    id: "sti", group: "krank", area: "geschlecht", title: "Sexuell übertragbare Krankheiten", icon: "ShieldCheck",
     ar: "الأمراض المنقولة جنسياً: السيلان (الكلاميديا، الهربس التناسلي، التهاب الكبد B وC، HIV أيضاً). السيلان: إفراز قيحي وألم بول، قد يسبب عقماً. تشخيص بمسحة ومضاد حيوي.",
     blocks: [
       B("Zu den STI zählen", "Gonorrhö, Chlamydien, Herpes genitalis, Hepatitis B und C, HIV."),
@@ -189,7 +189,7 @@ export const BUCH_KRANK_2: Lesson[] = [
 
   // ───────── Psyche ─────────
   {
-    id: "schizophrenie", group: "krank", area: "psyche", title: "Schizophrenie", emoji: "🌪️",
+    id: "schizophrenie", group: "krank", area: "psyche", title: "Schizophrenie", icon: "Tornado",
     ar: "الفصام: اضطراب يؤثر على التفكير والإدراك والمشاعر. أعراض إيجابية (هذيان، هلوسة، اضطراب الأنا) وسلبية (فتور، فقدان دافع). العلاج: مضادات الذهان والعلاج النفسي التثقيفي. لا تناقش الهذيان ولا تقل إنه خطأ. خطر انتحار مرتفع.",
     blocks: [
       B("Was ist das?", "Psychische Störung mit Wahn, Halluzinationen, Wahrnehmungs- und Denkstörungen und Ich-Störungen. Etwa 1 % der Bevölkerung. Beginn meist zwischen 15 und 35 Jahren."),
@@ -200,7 +200,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "affektive-stoerung", group: "krank", area: "psyche", title: "Affektive Störungen: Depression, Manie, bipolar", emoji: "🎭",
+    id: "affektive-stoerung", group: "krank", area: "psyche", title: "Affektive Störungen: Depression, Manie, bipolar", icon: "Drama",
     ar: "الاضطرابات العاطفية: اكتئاب (حزن، فقدان اهتمام، قلة دافع)، هوس (نشاط زائد وفرح مبالغ)، ثنائي القطب (مزيج). العلاج: مضادات اكتئاب وعلاج نفسي. انتبه لأي إشارة انتحار. لا تدع المريض يجمع الأدوية.",
     blocks: [
       B("Formen", "Depression: Niedergeschlagenheit, Interessenverlust, verminderter Antrieb, Rückzug, Angst.", "Manie: gesteigerter Antrieb, übertriebene Fröhlichkeit, Überaktivität.", "Bipolare affektive Störung: Wechsel beider Phasen."),
@@ -210,7 +210,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "alkohol-sucht", group: "krank", area: "psyche", title: "Alkoholabhängigkeit und Entzug", emoji: "🍷",
+    id: "alkohol-sucht", group: "krank", area: "psyche", title: "Alkoholabhängigkeit und Entzug", icon: "Wine",
     ar: "الإدمان على الكحول: العلاج بثلاث خطوات: سحب السموم (Entgiftung)، الفطام (Entwöhnung)، التأهيل. في الانسحاب راقب الأعراض؛ الهذيان الارتعاشي (Delir) يحتاج إبلاغ الطبيب فوراً.",
     blocks: [
       B("Drei Therapieschritte", "Entgiftung (Entzug), Entwöhnung, Rehabilitation."),
@@ -218,7 +218,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "essstoerungen", group: "krank", area: "psyche", title: "Essstörungen: Anorexie und Bulimie", emoji: "🍽️",
+    id: "essstoerungen", group: "krank", area: "psyche", title: "Essstörungen: Anorexie und Bulimie", icon: "Utensils",
     ar: "اضطرابات الأكل: فقدان الشهية العصبي (تشويه صورة الجسم وخوف من زيادة الوزن، عدم إدراك المرض) والنهام (نوبات أكل ثم إجراءات تعويضية كالقيء). التمريض: علاقة مهنية، مرافقة الوجبات، مراقبة الوزن، ضم الأهل.",
     blocks: [
       B("Anorexia nervosa", "Seelisch bedingte Essstörung mit verzerrter Selbstwahrnehmung (fühlt sich trotz Abmagerung zu dick), großer Angst vor Gewichtszunahme und fehlender Krankheitseinsicht.", "Folgen: Osteoporose, Nierenfunktionsstörung, Unfruchtbarkeit, zerstörter Zahnschmelz.", "Betrifft vor allem Mädchen in der Pubertät. Die Kontrolle über das Essen soll das Gefühl der Unzulänglichkeit ausgleichen."),
@@ -228,7 +228,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "delir", group: "krank", area: "psyche", title: "Delir (akute Verwirrtheit)", emoji: "😵‍💫",
+    id: "delir", group: "krank", area: "psyche", title: "Delir (akute Verwirrtheit)", icon: "Orbit",
     ar: "الهذيان: حالة ارتباك حادة مع اضطراب الوعي والإدراك (تشوش، هلوسة، قلق، قلب إيقاع النوم). أسباب: سكتة، نقص سوائل، هبوط سكر، حمى، انسحاب الكحول، نقل لمكان جديد. العلاج: السبب، وتمريض مرجعي وروتين وسوائل.",
     blocks: [
       B("Ursachen", "Schädel-Hirn-Trauma, Schlaganfall, Flüssigkeitsmangel, Unterzuckerung, hohes Fieber, Alkoholentzug, Umzug in eine Pflegeeinrichtung oder Verlust der gewohnten Umgebung. Nach Operationen: postoperatives Delir."),
@@ -238,7 +238,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "belastung-angst", group: "krank", area: "psyche", title: "Belastungsstörungen, Angst und Zwang", emoji: "😰",
+    id: "belastung-angst", group: "krank", area: "psyche", title: "Belastungsstörungen, Angst und Zwang", icon: "CloudRain",
     ar: "اضطرابات الضغط (حادة، تكيفية، PTSD: ذكريات مفاجئة وفزع وانسحاب)، القلق (مرتبط بموقف أو لا، معمّم، نوبات هلع)، الوسواس القهري. التمريض: علاقة ثقة، عدم التقليل من الهلع، تقليل المثيرات، تنفس عميق، خطة طوارئ.",
     blocks: [
       B("Akute Belastungsreaktion", "Tritt kurz nach einem traumatischen Ereignis auf (Tod, Gewalt, Unfall), schnell wechselnde Symptome."),
@@ -250,7 +250,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "psych-pflege", group: "krank", area: "psyche", title: "Psychiatrische Pflege: Beziehung und herausfordernde Situationen", emoji: "🧭",
+    id: "psych-pflege", group: "krank", area: "psyche", title: "Psychiatrische Pflege: Beziehung und herausfordernde Situationen", icon: "Compass",
     ar: "التمريض النفسي: ملاحظة موضوعية وذاتية وبمقاييس، علاقة مهنية مع الحفاظ على المسافة، إشراف على الدواء، التعامل مع العدوانية بالهدوء وخفض التصعيد، لا تترك مريضاً انتحارياً وحده، واطلب مساعدة الزملاء.",
     blocks: [
       B("Beobachtung und Beziehung", "Beobachtung objektiv und subjektiv, gestützt auf Assessments.", "Professionelle Beziehung: empathische Nähe, aber Distanz wahren."),
@@ -261,7 +261,7 @@ export const BUCH_KRANK_2: Lesson[] = [
 
   // ───────── Infektionen ─────────
   {
-    id: "kinderkrankheiten", group: "krank", area: "infektion", title: "Masern, Mumps, Röteln, Windpocken, Gürtelrose", emoji: "🔴",
+    id: "kinderkrankheiten", group: "krank", area: "infektion", title: "Masern, Mumps, Röteln, Windpocken, Gürtelrose", icon: "CircleDot",
     ar: "عدوى فيروسية شديدة العدوى ومبلَّغ عنها، غالباً بالطفولة: الحصبة (طفح متدامج، بقع كوبليك)، الحصبة الألمانية (بقع منفصلة)، الجديري (حويصلات بمراحل مختلفة «سماء مرصعة بالنجوم»)، النكاف (تورم الغدة النكفية)، الحزام الناري (عودة الفيروس).",
     blocks: [
       B("Allgemein", "Hochansteckende, meldepflichtige Virusinfekte, meistens im Kindesalter (außer Herpes zoster). Vorbeugung durch Impfung nach STIKO-Empfehlung."),
@@ -271,7 +271,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "clostridien", group: "krank", area: "infektion", title: "Clostridien: Tetanus und C. difficile", emoji: "🧫",
+    id: "clostridien", group: "krank", area: "infektion", title: "Clostridien: Tetanus und C. difficile", icon: "Microscope",
     ar: "المطثيات: بكتيريا لاهوائية تسبب التيتانوس، الغرغرينا الغازية، التسمم الوشيقي، والتهاب القولون بـ C. difficile (بعد المضادات الحيوية). التيتانوس: ابتسامة ساخرة، قفل الفك. تأكد من لقاح التيتانوس لكل جرح.",
     blocks: [
       B("Gemeinsames", "Clostridien sind Anaerobier: Sie wachsen ohne Sauerstoff (Erde, tiefe Wunden, Konserven, Darm). Sie bilden gefährliche Toxine. Voll ausgeprägte Krankheitsbilder sind lebensbedrohlich und werden intensivmedizinisch überwacht.", "Erkrankungen: Botulismus, Gasbrand, Tetanus, C.-difficile-Kolitis."),
@@ -280,7 +280,7 @@ export const BUCH_KRANK_2: Lesson[] = [
     ],
   },
   {
-    id: "legionellen-salmonellen", group: "krank", area: "infektion", title: "Legionellose und Salmonellose", emoji: "🥚",
+    id: "legionellen-salmonellen", group: "krank", area: "infektion", title: "Legionellose und Salmonellose", icon: "Egg",
     ar: "الفيلقية: تُبلَّغ، تنتج عن استنشاق رذاذ ملوث، تصيب الجهاز التنفسي، علاجها بمضاد حيوي. السالمونيلا: تُبلَّغ، عدوى فموية بطعام ملوث، حمى وإسهال وقيء؛ سوائل وإلكتروليتات ونظافة وعزل عند اللزوم.",
     blocks: [
       B("Legionellose", "Meldepflichtig. Erreger Legionella pneumophila. Ansteckung durch Einatmen erregerhaltiger Tröpfchen (z. B. aus Wassersystemen).", "Erkältungsähnliche Symptome oder Pneumonie. Therapie: Antibiotika. Pflege bei Fieber."),

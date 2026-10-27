@@ -9,7 +9,7 @@ const B = (h: string, ...li: string[]): LessonBlock => ({ h, li });
 export const NEW_LESSONS_1: Lesson[] = [
   // ───────── Krankheitslehre: Notfälle ─────────
   {
-    id: "reanimation", group: "krank", area: "notfall", title: "Reanimation (Basismaßnahmen)", emoji: "🫀",
+    id: "reanimation", group: "krank", area: "notfall", title: "Reanimation (Basismaßnahmen)", icon: "HeartPulse",
     ar: "الإنعاش القلبي الرئوي للبالغين: تحقق من الوعي والتنفس (حتى 10 ثوانٍ)، اتصل بالإسعاف 112، اضغط على منتصف الصدر 100–120 مرة/دقيقة وعمق 5–6 سم، 30 ضغطة ثم 2 تنفستين، واستخدم جهاز AED فوراً.",
     blocks: [
       B("Erkennen", "Ansprechen und vorsichtig an den Schultern rütteln. Keine Reaktion: Atmung prüfen.", "Kopf überstrecken, Kinn anheben, bis zu 10 Sekunden sehen, hören, fühlen.", "Keine normale Atmung (oder nur Schnappatmung): Das ist ein Herz-Kreislauf-Stillstand."),
@@ -20,7 +20,7 @@ export const NEW_LESSONS_1: Lesson[] = [
     ],
   },
   {
-    id: "schock", group: "krank", area: "notfall", title: "Schock", emoji: "⚠️",
+    id: "schock", group: "krank", area: "notfall", title: "Schock", icon: "TriangleAlert",
     ar: "الصدمة: عدم كفاية تروية الأعضاء. العلامات: نبض سريع وضغط منخفض وجلد شاحب بارد ومتعرق وقلق. مؤشر الصدمة = النبض ÷ الضغط الانقباضي (أكثر من 1 خطر). اتصل بالإسعاف وراقب العلامات الحيوية.",
     blocks: [
       B("Was ist ein Schock?", "Die Organe bekommen zu wenig Blut und Sauerstoff. Das ist lebensbedrohlich."),
@@ -30,7 +30,7 @@ export const NEW_LESSONS_1: Lesson[] = [
     ],
   },
   {
-    id: "sepsis", group: "krank", area: "notfall", title: "Sepsis (Blutvergiftung)", emoji: "🦠",
+    id: "sepsis", group: "krank", area: "notfall", title: "Sepsis (Blutvergiftung)", icon: "Bug",
     ar: "الإنتان: استجابة جسم خطيرة لعدوى. علامات: حمى أو انخفاض حرارة، تسارع نبض وتنفس، هبوط ضغط، ارتباك. حالة طوارئ، بلّغ فوراً.",
     blocks: [
       B("Was ist das?", "Eine Infektion führt zu einer gefährlichen Reaktion des ganzen Körpers. Organe können versagen."),
@@ -40,7 +40,7 @@ export const NEW_LESSONS_1: Lesson[] = [
     ],
   },
   {
-    id: "verlegung", group: "krank", area: "notfall", title: "Verschlucken und Atemwegsverlegung", emoji: "😮‍💨",
+    id: "verlegung", group: "krank", area: "notfall", title: "Verschlucken und Atemwegsverlegung", icon: "Wind",
     ar: "الاختناق بجسم غريب: إذا كان السعال فعّالاً شجّعه. إذا لم يفلح: 5 ضربات بين لوحي الكتف ثم 5 ضغطات هايمليخ. إذا فقد الوعي ابدأ الإنعاش.",
     blocks: [
       B("Zeichen", "Plötzlich Husten, Würgen, Luftnot, die Hände greifen zum Hals", "Der Mensch kann nicht mehr sprechen, die Lippen werden bläulich."),
@@ -53,7 +53,7 @@ export const NEW_LESSONS_1: Lesson[] = [
 
   // ───────── Krankheitslehre: Wunden und Haut ─────────
   {
-    id: "wunden", group: "krank", area: "haut", title: "Wunden und Wundversorgung", emoji: "🩹",
+    id: "wunden", group: "krank", area: "haut", title: "Wunden und Wundversorgung", icon: "Bandage",
     ar: "الجروح: ثلاث مراحل شفاء (التنظيف، التكوين، التغطية بالبشرة). المراقبة: الموقع والحجم وقاع الجرح والحواف والإفرازات وما حول الجرح. التضميد بتقنية معقمة وتوثيق دقيق.",
     blocks: [
       B("Arten", "Akute Wunden: z. B. Schnitt, Operationswunde, Verbrennung.", "Chronische Wunden: heilen nach etwa 8 Wochen nicht (z. B. Dekubitus, Ulcus cruris, diabetischer Fuß)."),
@@ -66,7 +66,7 @@ export const NEW_LESSONS_1: Lesson[] = [
     ],
   },
   {
-    id: "ulcus", group: "krank", area: "haut", title: "Offenes Bein (Ulcus cruris)", emoji: "🦵",
+    id: "ulcus", group: "krank", area: "haut", title: "Offenes Bein (Ulcus cruris)", icon: "Footprints",
     ar: "قرحة الساق: الوريدية في الجزء الداخلي قرب الكاحل مع تورم، والشريانية على الأصابع والكعب مع ألم وبرودة. العلاج يختلف: الضغط (الربط) مناسب للوريدية فقط بعد التأكد من الشرايين.",
     blocks: [
       B("Zwei häufige Formen", "Venös (Venenschwäche): Wunde meist am Innenknöchel, Beine geschwollen, braune Hautverfärbung, Schmerz bessert sich beim Hochlegen.", "Arteriell (pAVK): Wunde an Zehen, Fersen oder Fußrand, sehr schmerzhaft, Fuß blass und kalt, Schmerz bessert sich beim Tieflagern."),
@@ -77,7 +77,7 @@ export const NEW_LESSONS_1: Lesson[] = [
 
   // ───────── Krankheitslehre: Schmerz und Palliativ ─────────
   {
-    id: "schmerz", group: "krank", area: "schmerz", title: "Schmerz erfassen und lindern", emoji: "😣",
+    id: "schmerz", group: "krank", area: "schmerz", title: "Schmerz erfassen und lindern", icon: "Frown",
     ar: "الألم هو ما يقوله المريض. استخدم مقياس 0–10 (NRS). عند من لا يتكلم (خرف) استخدم مقاييس ملاحظة. العلاج: خطوات منظمة منظمة الصحة (WHO) مع إجراءات غير دوائية. مع الأفيونات: وقاية من الإمساك.",
     blocks: [
       B("Schmerz erfassen", "Schmerz ist das, was der Mensch sagt. Immer erfragen: Wo? Wie (stechend, brennend, dumpf)? Wie stark? Wann? Was verbessert oder verschlechtert?", "Skalen: numerisch (0 bis 10), visuell (Linie) oder Gesichter.", "Bei Menschen, die nicht sprechen können (z. B. schwere Demenz): Beobachtungsskalen wie BESD nutzen (Gesicht, Atmung, Körpersprache, Laute)."),
@@ -88,7 +88,7 @@ export const NEW_LESSONS_1: Lesson[] = [
     ],
   },
   {
-    id: "palliativ", group: "krank", area: "schmerz", title: "Palliativpflege und Sterbebegleitung", emoji: "🕊️",
+    id: "palliativ", group: "krank", area: "schmerz", title: "Palliativpflege und Sterbebegleitung", icon: "Feather",
     ar: "الرعاية التلطيفية: هدفها جودة الحياة وتخفيف الأعراض (ألم، ضيق نفس، قلق) واحترام إرادة المريض. الحضور والاستماع مهمان. الطبيب وحده يثبت الوفاة.",
     blocks: [
       B("Ziel von Palliative Care", "Lebensqualität verbessern, wenn eine Krankheit nicht mehr heilbar ist.", "Körperliche, seelische, soziale und spirituelle Bedürfnisse zusammen betrachten.", "Angehörige einbeziehen und begleiten."),
@@ -103,7 +103,7 @@ export const NEW_LESSONS_1: Lesson[] = [
 
   // ───────── Ausbildung: Pflegetechniken ─────────
   {
-    id: "medikamente", group: "ausbildung", area: "pflege", title: "Medikamente sicher geben", emoji: "💊",
+    id: "medikamente", group: "ausbildung", area: "pflege", title: "Medikamente sicher geben", icon: "Pill",
     ar: "إعطاء الدواء بأمان: قاعدة الـ 10 R (المريض الصحيح، الدواء، الجرعة، الطريقة، الوقت، التوثيق...)، تحقق ثلاث مرات، وأمر طبي كامل. لا تسحق الأدوية ممتدة المفعول. أبلغ عن الأخطاء.",
     blocks: [
       B("Ärztliche Anordnung", "Pflichtangaben: Name der Person, Arzneimittel, Darreichungsform, Art der Anwendung, Dosierung, Zeitpunkt und Unterschrift der Ärztin oder des Arztes.", "Bei Bedarfsmedikation zusätzlich: wann sie gegeben werden darf (Anlass), Einzeldosis und Höchstmenge pro Tag.", "Fehlende oder unklare Angaben: nachfragen, nichts erraten."),
@@ -114,7 +114,7 @@ export const NEW_LESSONS_1: Lesson[] = [
     ],
   },
   {
-    id: "absaugen", group: "ausbildung", area: "pflege", title: "Tracheostoma und endotracheales Absaugen", emoji: "🫁",
+    id: "absaugen", group: "ausbildung", area: "pflege", title: "Tracheostoma und endotracheales Absaugen", icon: "Wind",
     ar: "فغر القصبة والشفط: الحجم والنظافة. كل مرة قسطرة معقمة جديدة، ادخلها دون شفط، مدة الشفط حتى 15 ثانية، راقب النبض واللون، وانتبه لخطر العدوى والإصابة.",
     blocks: [
       B("Was ist ein Tracheostoma?", "Eine Öffnung am Hals führt direkt in die Luftröhre. Meist liegt eine Trachealkanüle darin. Die Luft läuft an Nase und Mund vorbei: Sie wird nicht angewärmt und befeuchtet."),
@@ -126,7 +126,7 @@ export const NEW_LESSONS_1: Lesson[] = [
     ],
   },
   {
-    id: "ernaehrung", group: "ausbildung", area: "pflege", title: "Ernährung, Trinken und Sondenkost", emoji: "🍲",
+    id: "ernaehrung", group: "ausbildung", area: "pflege", title: "Ernährung, Trinken und Sondenkost", icon: "Soup",
     ar: "التغذية: افحص خطر سوء التغذية (فقدان وزن، BMI)، شجع على الأكل والشرب بوضعية جلوس مستقيمة، وانتبه لصعوبة البلع. التغذية عبر PEG: وضعية مرتفعة، أدوية منفصلة، نظافة مكان الأنبوب.",
     blocks: [
       B("Mangelernährung erkennen", "Gewichtsverlust (z. B. mehr als 5 % in einem Monat oder 10 % in sechs Monaten), niedriger BMI (unter etwa 18,5), wenig Appetit, Kauprobleme.", "Screening-Bögen (z. B. MNA bei älteren Menschen) helfen. Der Expertenstandard „Ernährungsmanagement“ beschreibt das Vorgehen."),
@@ -137,7 +137,7 @@ export const NEW_LESSONS_1: Lesson[] = [
     ],
   },
   {
-    id: "ausscheidung", group: "ausbildung", area: "pflege", title: "Ausscheidung, Inkontinenz und Stoma", emoji: "🚽",
+    id: "ausscheidung", group: "ausbildung", area: "pflege", title: "Ausscheidung, Inkontinenz und Stoma", icon: "Toilet",
     ar: "الإخراج: أنواع سلس البول (إجهادي، إلحاحي، فيضي، انعكاسي). الوقاية من الإمساك. العناية بالستوما والجلد. احترم الخصوصية.",
     blocks: [
       B("Formen der Harninkontinenz", "Belastungsinkontinenz: Urin geht beim Husten, Lachen, Heben verloren.", "Dranginkontinenz: plötzlicher starker Harndrang, schafft es nicht rechtzeitig.", "Überlaufinkontinenz: Blase füllt sich zu stark, Tropfen fließen ab.", "Reflexinkontinenz: Entleerung ohne Gefühl, z. B. bei Rückenmarkschäden.", "Funktionelle Inkontinenz: Toilette nicht erreichbar oder nicht gefunden."),
@@ -148,7 +148,7 @@ export const NEW_LESSONS_1: Lesson[] = [
     ],
   },
   {
-    id: "mobilisation", group: "ausbildung", area: "pflege", title: "Mobilisation und rückengerechtes Arbeiten", emoji: "🧍",
+    id: "mobilisation", group: "ausbildung", area: "pflege", title: "Mobilisation und rückengerechtes Arbeiten", icon: "PersonStanding",
     ar: "التحريك: شجع الاستقلالية، استخدم وسائل مساعدة، اشرح الخطوات. للتمريض: اعمل بظهر سليم، قرّب الحمل، وسّع القاعدة، استخدم الأجهزة. الوقاية من التقفّع والسقوط.",
     blocks: [
       B("Ziele", "Selbstständigkeit erhalten oder fördern, Komplikationen verhindern (Kontraktur, Dekubitus, Thrombose, Pneumonie), Lebensqualität verbessern.", "Der Expertenstandard „Erhaltung und Förderung der Mobilität“ beschreibt das Vorgehen."),

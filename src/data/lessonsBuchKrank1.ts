@@ -11,7 +11,7 @@ const B = (h: string, ...li: string[]): LessonBlock => ({ h, li });
 export const BUCH_KRANK_1: Lesson[] = [
   // ───────── Herz und Kreislauf ─────────
   {
-    id: "khk", group: "krank", area: "herz", title: "Koronare Herzkrankheit (KHK) und Angina pectoris", emoji: "❤️‍🔥",
+    id: "khk", group: "krank", area: "herz", title: "Koronare Herzkrankheit (KHK) und Angina pectoris", icon: "HeartPulse",
     ar: "مرض الشريان التاجي: تضيق الشرايين بسبب تصلبها. العَرَض الأساسي: الذبحة الصدرية (ألم وضيق في الصدر). مستقرة (عند الجهد) أو غير مستقرة (في الراحة، خطر الجلطة). الفحص الأدق: قسطرة الشرايين التاجية.",
     blocks: [
       B("Was ist das?", "Die Herzkranzgefäße sind durch Arteriosklerose verengt. Der Herzmuskel bekommt zu wenig Sauerstoff.", "Je nachdem, wie viele der 3 großen Gefäße betroffen sind: 1-, 2- oder 3-Gefäß-Erkrankung."),
@@ -23,7 +23,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "herzrhythmus", group: "krank", area: "herz", title: "Herzrhythmusstörungen", emoji: "💓",
+    id: "herzrhythmus", group: "krank", area: "herz", title: "Herzrhythmusstörungen", icon: "Activity",
     ar: "اضطرابات نظم القلب: خلل في تكوين أو توصيل النبض. التحليل بحسب التردد والانتظام (نبض + تخطيط). العلاج: أدوية أو جهاز تنظيم النبض. التمريض: مراقبة العلامات الحيوية والوقاية من السقوط.",
     blocks: [
       B("Was steckt dahinter?", "Das Reizbildungs- oder Reizleitungssystem des Herzens arbeitet gestört.", "Beschrieben werden Frequenz (zu schnell oder zu langsam) und Rhythmus (regelmäßig oder unregelmäßig)."),
@@ -33,7 +33,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "herz-entzuendung", group: "krank", area: "herz", title: "Entzündungen des Herzens (Endokarditis, Myokarditis, Perikarditis)", emoji: "🔥",
+    id: "herz-entzuendung", group: "krank", area: "herz", title: "Entzündungen des Herzens (Endokarditis, Myokarditis, Perikarditis)", icon: "Flame",
     ar: "التهابات القلب: التهاب البطانة والصمامات (غالباً بالعقديات)، التهاب عضلة القلب والتهاب غشاء التامور (غالباً فيروسي). العلاج بالمضادات الحيوية للأولى، وأعراضي للأخريين.",
     blocks: [
       B("Endokarditis (Herzinnenhaut und Klappen)", "Ursache oft Streptokokken. Symptome: Abgeschlagenheit, hohes Fieber, Luftnot, Schlaganfallrisiko durch septische Embolien, Petechien (z. B. an den Fingern), Blut und Eiweiß im Urin.", "Diagnostik: Blutkulturen und Herzultraschall durch die Speiseröhre (TEE).", "Therapie: Antibiotika. Folgen: bleibende Klappenschäden, Herzinsuffizienz."),
@@ -42,7 +42,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "hypotonie", group: "krank", area: "herz", title: "Niedriger Blutdruck (Hypotonie)", emoji: "⬇️",
+    id: "hypotonie", group: "krank", area: "herz", title: "Niedriger Blutdruck (Hypotonie)", icon: "TrendingDown",
     ar: "انخفاض الضغط: الانقباضي أقل من 100 ملم زئبق. أعراض: دوار، ميل للإغماء، برودة، إرهاق. الأولي: رياضة، سوائل، دش متناوب. الثانوي: علاج السبب (جرعة زائدة، نقص حجم، هرمونات، قلب).",
     blocks: [
       B("Definition", "Systolischer Blutdruck unter 100 mmHg. Kurzzeitig niedrige Werte nennt man Hypotonus; bei Dauer oder Wiederholung ist es eine chronische Hypotonie."),
@@ -52,7 +52,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "arterienverschluss", group: "krank", area: "herz", title: "Akuter Arterienverschluss", emoji: "🦵",
+    id: "arterienverschluss", group: "krank", area: "herz", title: "Akuter Arterienverschluss", icon: "Footprints",
     ar: "انسداد شرياني حاد: أشيع طوارئ الأوعية. غالباً بجلطة منتقلة (80%). في الأطراف: قاعدة 6P (ألم، غياب النبض، تنميل، شحوب، شلل، صدمة). الوقت = نسيج. ضع الطرف في وضع منخفض ولا تحقن فيه.",
     blocks: [
       B("Was ist das?", "Ein Blutgefäß wird plötzlich verschlossen. Im Bereich der Gefäße ist das der häufigste Notfall. Je nach Ort: Gehirn = Schlaganfall, Herzkranzgefäß = Herzinfarkt, Lunge = Lungenembolie."),
@@ -63,7 +63,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "aneurysma", group: "krank", area: "herz", title: "Aneurysma und Aortendissektion", emoji: "🎈",
+    id: "aneurysma", group: "krank", area: "herz", title: "Aneurysma und Aortendissektion", icon: "Circle",
     ar: "أم الدم (Aneurysma): توسع موضعي في جدار الشريان. كاذب (ورم دموي بعد وخز)، حقيقي (كل الطبقات، خطر الانفجار، غالباً الأبهر)، متسلخ (تمزق البطانة وتكون مجرى ثانٍ، مهدد للحياة).",
     blocks: [
       B("Drei Formen", "Falsches Aneurysma (A. spurium): kleiner Wanddefekt, z. B. nach Punktion beim Herzkatheter. Es bildet sich ein Bluterguss um das Gefäß, geht oft von selbst zurück.", "Echtes Aneurysma: Ausstülpung aller drei Wandschichten, oft an der Aorta (Brust oder Bauch). Hauptrisiko: Arteriosklerose. Es kann platzen und wird ab einer bestimmten Größe operiert.", "Aneurysma dissecans (Dissektion): Einriss der Innenschicht, zweites Lumen zwischen den Wandschichten. Kann platzen, lebensgefährlich."),
@@ -73,7 +73,7 @@ export const BUCH_KRANK_1: Lesson[] = [
 
   // ───────── Atmung ─────────
   {
-    id: "lungenembolie", group: "krank", area: "atmung", title: "Lungenembolie", emoji: "🫁",
+    id: "lungenembolie", group: "krank", area: "atmung", title: "Lungenembolie", icon: "Wind",
     ar: "الانسداد الرئوي: انسداد شريان رئوي بجلطة من الأوردة العميقة غالباً. ضيق نفس مفاجئ، ألم صدر عند الشهيق، تسرع القلب، هبوط الضغط. طوارئ: استدعاء الطبيب، وضع الجلوس، أكسجين، مراقبة.",
     blocks: [
       B("Ursache", "Meist ein Gerinnsel aus einer tiefen Beinvenenthrombose, das mit dem Blut in die Lunge wandert.", "Risikofaktoren: Immobilität (Bettruhe, langes Sitzen, Gips), Gerinnungsstörungen, Venenerkrankungen, Hormonpräparate zur Verhütung.", "Besonders gefährdet: Krebspatienten und Menschen nach großer Operation."),
@@ -84,7 +84,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "lungenoedem", group: "krank", area: "atmung", title: "Lungenödem", emoji: "💧",
+    id: "lungenoedem", group: "krank", area: "atmung", title: "Lungenödem", icon: "Droplets",
     ar: "وذمة الرئة: تجمع سوائل في الرئة وخلل تبادل الغازات، غالباً بسبب فشل القلب. أعراض: ضيق نفس شديد، أصوات فقاعية، ازرقاق، خوف. التمريض: وضع جلوس مع تدلي الساقين (Herzbettlage) وأكسجين.",
     blocks: [
       B("Was ist das?", "Flüssigkeit sammelt sich in der Lunge, der Gasaustausch ist gestört. Meist wegen Herzschwäche (kardiales Lungenödem)."),
@@ -94,7 +94,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "tbc", group: "krank", area: "atmung", title: "Tuberkulose (Tbc)", emoji: "🦠",
+    id: "tbc", group: "krank", area: "atmung", title: "Tuberkulose (Tbc)", icon: "Bug",
     ar: "السل: عدوى مزمنة تُبلّغ عنها السلطات، تنتقل عبر الرذاذ وتصيب عضواً أو أكثر. في السل المفتوح يجب عزل المريض.",
     blocks: [
       B("Steckbrief", "Chronische Infektionskrankheit, die ein oder mehrere Organe befällt (meist Lunge).", "Übertragung über Tröpfchen. Meldepflichtig.", "Bei offener Tbc muss der Patient isoliert werden; Personal trägt geeignete Atemschutzmaske (nach Hausstandard)."),
@@ -102,7 +102,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "bronchialkarzinom", group: "krank", area: "atmung", title: "Bronchialkarzinom (Lungenkrebs)", emoji: "🚬",
+    id: "bronchialkarzinom", group: "krank", area: "atmung", title: "Bronchialkarzinom (Lungenkrebs)", icon: "Cigarette",
     ar: "سرطان القصبات: ورم خبيث من الخلايا الظهارية للقصبات والحويصلات. التمريض: الوقاية من المضاعفات (الالتهاب الرئوي، الجلطات) والدعم النفسي والألم.",
     blocks: [
       B("Definition", "Bösartiger Tumor, der von den Zellen der Bronchien und Lungenbläschen ausgeht. Rauchen ist der wichtigste Risikofaktor."),
@@ -110,7 +110,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "mukoviszidose", group: "krank", area: "atmung", title: "Mukoviszidose", emoji: "🧬",
+    id: "mukoviszidose", group: "krank", area: "atmung", title: "Mukoviszidose", icon: "Dna",
     ar: "التليف الكيسي: مرض استقلابي وراثي، خلل قنوات الكلوريد يسبب مخاطاً لزجاً خاصة في الرئة والبنكرياس. لا علاج سببي. يحتاج المريض لتحريك المفرزات والوقاية من العدوى لساعات يومياً.",
     blocks: [
       B("Was ist das?", "Angeborene, vererbte Stoffwechselerkrankung. Veränderte Chloridkanäle führen zu zähem Sekret. Besonders betroffen: Lunge und Bauchspeicheldrüse."),
@@ -118,7 +118,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "atemwegsmedikamente", group: "krank", area: "atmung", title: "Wichtige Medikamentengruppen bei Atemwegserkrankungen", emoji: "💊",
+    id: "atemwegsmedikamente", group: "krank", area: "atmung", title: "Wichtige Medikamentengruppen bei Atemwegserkrankungen", icon: "Pill",
     ar: "مجموعات أدوية الجهاز التنفسي: موسعات القصبات، الكورتيزون (مضاد التهاب)، مقشعات (تذيب المخاط)، مثبطات السعال، أدوية ضد العدوى حسب الميكروب.",
     blocks: [
       B("Fünf Gruppen", "Bronchodilatatoren: entspannen die Bronchialmuskulatur und erweitern die Atemwege.", "Glukokortikoide: wirken entzündungshemmend und dämpfen das Immunsystem.", "Expektoranzien: lösen und verflüssigen Schleim (mukolytisch, sekretolytisch).", "Antitussiva: dämpfen den Hustenreflex.", "Antiinfektiva: nach Erreger (Antibiotika, Virostatika, Antimykotika)."),
@@ -128,7 +128,7 @@ export const BUCH_KRANK_1: Lesson[] = [
 
   // ───────── Verdauung ─────────
   {
-    id: "ileus", group: "krank", area: "verdauung", title: "Ileus (Darmverschluss)", emoji: "🚧",
+    id: "ileus", group: "krank", area: "verdauung", title: "Ileus (Darmverschluss)", icon: "Construction",
     ar: "الانسداد المعوي: ميكانيكي (عائق: ورم، التصاقات، فتق) أو شللي (حركة الأمعاء متوقفة). أعراض: لا براز، ألم بطن، قيء، بطن منتفخ. مضاعفات: صدمة نقص الحجم، التهاب البريتوان، قيء برازي، انثقاب. الحقن الشرجية ممنوعة في الميكانيكي.",
     blocks: [
       B("Zwei Formen", "Mechanischer Ileus: Das Darmlumen ist verlegt, z. B. durch Tumor, Verwachsungen oder Hernie. Muss operiert werden. Einläufe sind verboten.", "Paralytischer Ileus: Die Darmbewegung ist gelähmt, z. B. bei Entzündungen im Bauch, nach Operationen oder durch Opiate. Peristaltik wird durch Einläufe und Medikamente angeregt."),
@@ -139,7 +139,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "akutes-abdomen", group: "krank", area: "verdauung", title: "Akutes Abdomen", emoji: "🚨",
+    id: "akutes-abdomen", group: "krank", area: "verdauung", title: "Akutes Abdomen", icon: "Siren",
     ar: "البطن الحاد: حالة مهددة للحياة: ألم بطن مفاجئ شديد، تصلب جدار البطن، أعراض صدمة. أسبابه التهابات (زائدة، مرارة، بنكرياس)، انثقاب، حصى، انسداد، نقص تروية الأمعاء.",
     blocks: [
       B("Definition", "Lebensbedrohliches Krankheitsbild mit plötzlichen heftigen Bauchschmerzen, Abwehrspannung der Bauchdecke und oft Schocksymptomen."),
@@ -149,7 +149,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "divertikel", group: "krank", area: "verdauung", title: "Divertikulose und Divertikulitis", emoji: "🔵",
+    id: "divertikel", group: "krank", area: "verdauung", title: "Divertikulose und Divertikulitis", icon: "CircleDot",
     ar: "الرتوج: الانتفاخات الجدارية في القولون (Divertikulose) غالباً بلا أعراض؛ وإذا التهبت (Divertikulitis) تحتاج علاجاً بالمضادات فوراً. مضاعفات: انثقاب، نزيف، خراج. بطن «صلب كالخشب» علامة خطر.",
     blocks: [
       B("Divertikulose", "Die Darmwand buchtet sich nach außen aus. Meist keine Beschwerden.", "Ballaststoffreiche Kost und Bewegung bremsen das Fortschreiten."),
@@ -157,7 +157,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "darmkrebs", group: "krank", area: "verdauung", title: "Kolorektales Karzinom (Darmkrebs)", emoji: "🎗️",
+    id: "darmkrebs", group: "krank", area: "verdauung", title: "Kolorektales Karzinom (Darmkrebs)", icon: "Ribbon",
     ar: "سرطان القولون والمستقيم: ثاني أشيع سبب وفاة بالسرطان. الفحص: اختبار دم خفي في البراز سنوياً من 50 سنة وتنظير القولون كل 10 سنوات. العلاج: جراحة (غالباً مع فغر)، تمريض قبل وبعد العملية.",
     blocks: [
       B("Risikofaktoren", "Chronisch-entzündliche Darmerkrankung, genetische Faktoren, fett- und fleischreiche Ernährung, Alter (90 % sind über 50)."),
@@ -168,7 +168,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "hepatitis", group: "krank", area: "verdauung", title: "Hepatitis (Leberentzündung)", emoji: "🟡",
+    id: "hepatitis", group: "krank", area: "verdauung", title: "Hepatitis (Leberentzündung)", icon: "CircleDot",
     ar: "التهاب الكبد: A (فموي-برازي، يشفى)، B وC (دم لدم، قد يتحول لمزمن). لقاح ضد A وB للعاملين بالصحة. علامات: يرقان، براز طيني، ألم أعلى البطن اليمين.",
     blocks: [
       B("Ursachen", "Meist Viren. Hepatitis A: fäkal-oral, heilt folgenlos aus, wird nicht chronisch.", "Hepatitis B: Blut-zu-Blut-Kontakt, etwa 90 % heilen aus, ca. 10 % werden chronisch.", "Hepatitis C: u. a. Blut-zu-Blut-Kontakt, die Mehrzahl (50 bis 85 %) verläuft chronisch.", "Nicht infektiös: Gifte (Alkohol, Medikamente), Fettleber, Stoffwechselkrankheiten, Autoimmunhepatitis."),
@@ -178,7 +178,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "galle", group: "krank", area: "verdauung", title: "Gallenblase und Gallenwege", emoji: "🟢",
+    id: "galle", group: "krank", area: "verdauung", title: "Gallenblase und Gallenwege", icon: "CircleDot",
     ar: "أمراض المرارة والقنوات: غالباً بسبب الحصى. حصى المرارة، التهابها، حصى القناة، التهاب القنوات. أعراض: مغص، يرقان انسدادي، غثيان. العلاج: ERCP أو استئصال المرارة بالمنظار ومضادات حيوية.",
     blocks: [
       B("Begriffe", "Cholezystolithiasis: Steine in der Gallenblase.", "Cholezystitis: Gallenblasenentzündung.", "Choledocholithiasis: Steine im Gallengang.", "Cholangitis: Entzündung der Gallenwege.", "Ein Stein am Pankreasgang kann eine Pankreatitis auslösen."),
@@ -187,7 +187,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "pankreatitis", group: "krank", area: "verdauung", title: "Pankreatitis (Entzündung der Bauchspeicheldrüse)", emoji: "🥐",
+    id: "pankreatitis", group: "krank", area: "verdauung", title: "Pankreatitis (Entzündung der Bauchspeicheldrüse)", icon: "Croissant",
     ar: "التهاب البنكرياس: الحاد غالباً من حصى القناة، والمزمن من الكحول. ألم حزامي في أعلى البطن، بطن «مطاطي»، قيء. الحاد قد يحتاج عناية مركزة. المضاعفة: قصور البنكرياس والسكري.",
     blocks: [
       B("Ursachen", "Akut: Gallengangstein mit Verschlussikterus (ca. 55 %), chronischer Alkohol (ca. 35 %), Medikamente, Viren, nach ERCP.", "Chronisch: v. a. Alkohol (ca. 80 %)."),
@@ -196,7 +196,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "hernie", group: "krank", area: "verdauung", title: "Bauchwandhernien (Leistenbruch)", emoji: "🧱",
+    id: "hernie", group: "krank", area: "verdauung", title: "Bauchwandhernien (Leistenbruch)", icon: "BrickWall",
     ar: "الفتق: بروز الصفاق عبر ثغرة في عضلات البطن. أشيعه الفتق الإربي. الأسباب: إمساك مزمن، رفع ثقيل، سمنة. مضاعفة: الاحتباس (Inkarzeration). العلاج جراحي.",
     blocks: [
       B("Was ist das?", "Das Bauchfell stülpt sich sackartig durch eine Lücke in der Bauchmuskulatur nach außen. Im Bruchsack kann auch Darm liegen. Häufigste Form: Leistenhernie."),
@@ -207,7 +207,7 @@ export const BUCH_KRANK_1: Lesson[] = [
 
   // ───────── Niere ─────────
   {
-    id: "glomerulonephritis", group: "krank", area: "niere", title: "Glomerulonephritis", emoji: "🫘",
+    id: "glomerulonephritis", group: "krank", area: "niere", title: "Glomerulonephritis", icon: "Bean",
     ar: "التهاب كبيبات الكلى: سبب شائع لفشل الكلى. علامات: دم في البول، وذمات، ارتفاع ضغط (متلازمة نفريتية)؛ وبروتين >3 غ/يوم (نفروتية). التمريض: الوزن، كمية الشرب، البول، الجلد.",
     blocks: [
       B("Was ist das?", "Entzündung der Nierenkörperchen. Häufige Ursache einer späteren Niereninsuffizienz."),
@@ -216,7 +216,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "dialyse", group: "krank", area: "niere", title: "Dialyse (Nierenersatztherapie)", emoji: "🩸",
+    id: "dialyse", group: "krank", area: "niere", title: "Dialyse (Nierenersatztherapie)", icon: "Droplet",
     ar: "غسيل الكلى: يزيل اليوريا والكرياتينين والماء عبر غشاء شبه منفذ. غسيل دموي (الأشيع، 3 مرات/أسبوع 4–6 ساعات، بحاجة لوصلة شريانية وريدية Shunt أو قسطرة) أو بريتوني. لا تضغط ولا تقس الضغط على ذراع الشنت.",
     blocks: [
       B("Wann?", "Anurie beim akuten Nierenversagen, drohende Urämie, Elektrolytentgleisung oder Azidose, Überwässerung mit Lungenödem."),
@@ -226,7 +226,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "saeure-basen", group: "krank", area: "niere", title: "Säure-Basen-Haushalt", emoji: "⚗️",
+    id: "saeure-basen", group: "krank", area: "niere", title: "Säure-Basen-Haushalt", icon: "FlaskConical",
     ar: "توازن الحمض والقاعدة: الحماض pH أقل من 7.37، القلاء أكثر من 7.43. تنفسي أو استقلابي. في القلاء التنفسي: تهدئة المريض وإعادة استنشاق الهواء الزفير.",
     blocks: [
       B("Grenzwerte", "Normal: arterieller pH 7,37 bis 7,43.", "Azidose: pH unter 7,37. Alkalose: pH über 7,43."),
@@ -237,7 +237,7 @@ export const BUCH_KRANK_1: Lesson[] = [
 
   // ───────── Stoffwechsel und Hormone ─────────
   {
-    id: "schilddruese", group: "krank", area: "stoffwechsel", title: "Schilddrüse: Unterfunktion, Überfunktion, Struma", emoji: "🦋",
+    id: "schilddruese", group: "krank", area: "stoffwechsel", title: "Schilddrüse: Unterfunktion, Überfunktion, Struma", icon: "Bird",
     ar: "الغدة الدرقية: القصور (يتجمد، يتعب، إمساك، بطء القلب، جلد جاف) = «على نار هادئة». فرط النشاط (خفقان، تسرع، تعرق، قلق). التضخم غالباً لنقص اليود. بعد استئصال: احذر بحة الصوت، تكزز، صرير.",
     blocks: [
       B("Hypothyreose = Sparflamme", "Mangel an Schilddrüsenhormon. Häufigste Ursache: Hashimoto-Thyreoiditis (Autoimmun). Auch nach OP oder bei Überbehandlung.", "Symptome: Kälteempfindlichkeit, Müdigkeit, Konzentrationsprobleme, Verstopfung, Bradykardie, Hypotonie, trockene Haut, brüchige Haare, schwere Zunge.", "Therapie: L-Thyroxin, regelmäßige TSH-Kontrolle.", "Pflege: Wärme (zweite Decke), Hautpflege, Obstipationsprophylaxe, Zeit lassen. Tabletten eine halbe Stunde vor dem Frühstück mit Wasser, nicht mit Kaffee."),
@@ -247,7 +247,7 @@ export const BUCH_KRANK_1: Lesson[] = [
     ],
   },
   {
-    id: "lipide-adipositas", group: "krank", area: "stoffwechsel", title: "Fettstoffwechsel, Adipositas und Gicht", emoji: "⚖️",
+    id: "lipide-adipositas", group: "krank", area: "stoffwechsel", title: "Fettstoffwechsel, Adipositas und Gicht", icon: "Scale",
     ar: "HDL «الحميد» يحمي، LDL «الضار» يرسّب الكوليسترول. السمنة: BMI فوق 30؛ المتلازمة الاستقلابية (ضغط + دهون + سكري) تضاعف خطر الجلطة والسكتة. النقرس: ارتفاع حمض اليوريك والنوبات.",
     blocks: [
       B("HDL und LDL", "HDL („hab dich lieb“): transportiert Fett in die Leber und schützt vor Arteriosklerose.", "LDL: Risikofaktor für Arteriosklerose.", "Hypercholesterinämie: zu viel LDL. Primär genetisch (oft früh Infarkt), sekundär durch fettreiche Kost, Alkohol, Übergewicht."),

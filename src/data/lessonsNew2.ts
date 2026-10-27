@@ -9,7 +9,7 @@ const B = (h: string, ...li: string[]): LessonBlock => ({ h, li });
 export const NEW_LESSONS_2: Lesson[] = [
   // ───────── Qualität und Standards ─────────
   {
-    id: "qualitaet", group: "ausbildung", area: "qualitaet", title: "Pflegequalität und Qualitätsmanagement", emoji: "📊",
+    id: "qualitaet", group: "ausbildung", area: "qualitaet", title: "Pflegequalität und Qualitätsmanagement", icon: "ChartBar",
     ar: "جودة الرعاية: بنية، عملية، نتيجة (دونابيديان). مستويات فيشتر وماير 0–3. دورة PDCA. الإبلاغ عن الأخطاء (CIRS) ونظم الإدارة (ISO 9001، EFQM، KTQ). ملزمة قانونياً (§135a SGB V).",
     blocks: [
       B("Drei Dimensionen nach Donabedian", "Strukturqualität: Rahmen, z. B. genug qualifiziertes Personal, Räume, Hilfsmittel, Fortbildung.", "Prozessqualität: Abläufe, z. B. Standards, Pflegeplanung, Dokumentation.", "Ergebnisqualität: Was kommt heraus? Z. B. Zufriedenheit, Sturzrate, Dekubitusrate, Erreichen der Pflegeziele."),
@@ -20,7 +20,7 @@ export const NEW_LESSONS_2: Lesson[] = [
     ],
   },
   {
-    id: "expertenstandards", group: "ausbildung", area: "qualitaet", title: "Expertenstandards und Evidence-Based Nursing", emoji: "📚",
+    id: "expertenstandards", group: "ausbildung", area: "qualitaet", title: "Expertenstandards und Evidence-Based Nursing", icon: "Library",
     ar: "معايير الخبراء (DNQP) مبنية على الأدلة، وتوجه الرعاية في مواضيع مثل القرح والسقوط والألم. التمريض المبني على الأدلة يجمع بين العلم والخبرة ورغبة المريض.",
     blocks: [
       B("Was sind Expertenstandards?", "Sie werden vom Deutschen Netzwerk für Qualitätsentwicklung in der Pflege (DNQP) entwickelt.", "Sie beruhen auf aktueller Forschung und Praxiserfahrung und gelten als anerkannte Maßstäbe der Berufsgruppe.", "Sie sind für Einrichtungen verbindlich anzuwenden, ambulant und stationär."),
@@ -31,7 +31,7 @@ export const NEW_LESSONS_2: Lesson[] = [
     ],
   },
   {
-    id: "entlassung", group: "ausbildung", area: "qualitaet", title: "Entlassungsmanagement", emoji: "🏠",
+    id: "entlassung", group: "ausbildung", area: "qualitaet", title: "Entlassungsmanagement", icon: "House",
     ar: "إدارة الخروج من المستشفى: تقييم مبكر خلال 24 ساعة، خطة، تنسيق مع الرعاية المنزلية وطلب درجة الرعاية، ومتابعة لتجنب تأثير الباب الدوار (إعادة الدخول).",
     blocks: [
       B("Warum?", "Nach dem Krankenhaus darf es keine Versorgungslücke geben. Sonst droht der „Drehtüreffekt“: Der Mensch kommt kurz danach wieder ins Krankenhaus.", "Der Expertenstandard „Entlassungsmanagement in der Pflege“ regelt das Vorgehen."),
@@ -43,7 +43,7 @@ export const NEW_LESSONS_2: Lesson[] = [
 
   // ───────── Ethik und Beruf ─────────
   {
-    id: "ethik", group: "ausbildung", area: "ethik", title: "Ethik: Prinzipien und Dilemmata", emoji: "🧭",
+    id: "ethik", group: "ausbildung", area: "ethik", title: "Ethik: Prinzipien und Dilemmata", icon: "Compass",
     ar: "الأخلاقيات: أربعة مبادئ (بيوشامب وتشيلدرس): الاستقلالية، عدم الإضرار، الإحسان، العدالة. المعضلة الأخلاقية: خياران متعارضان. استخدم نماذج التفكير المنظمة.",
     blocks: [
       B("Vier Prinzipien nach Beauchamp und Childress", "Autonomie (Selbstbestimmung): Der Mensch entscheidet selbst über sich, wenn er einwilligungsfähig ist.", "Schadensvermeidung: keinen Schaden zufügen und Schaden abwenden.", "Fürsorge: das Wohl des Menschen fördern.", "Gerechtigkeit: faire, nachvollziehbare Verteilung von Zeit und Mitteln."),
@@ -54,7 +54,7 @@ export const NEW_LESSONS_2: Lesson[] = [
     ],
   },
   {
-    id: "pflegecharta", group: "ausbildung", area: "ethik", title: "Pflege-Charta: Rechte pflegebedürftiger Menschen", emoji: "📜",
+    id: "pflegecharta", group: "ausbildung", area: "ethik", title: "Pflege-Charta: Rechte pflegebedürftiger Menschen", icon: "ScrollText",
     ar: "ميثاق حقوق المحتاجين للرعاية: ثمانية مواد: تقرير المصير، السلامة، الخصوصية، الرعاية المؤهلة، المعلومات، التقدير والتواصل، الدين والثقافة، الموت بكرامة.",
     blocks: [
       B("Was ist die Pflege-Charta?", "Eine Sammlung der Rechte hilfe- und pflegebedürftiger Menschen in acht Artikeln. Sie ist kein Gesetz, bündelt aber Rechte aus Grundgesetz und Gesetzen."),
@@ -63,7 +63,7 @@ export const NEW_LESSONS_2: Lesson[] = [
     ],
   },
   {
-    id: "berufsentwicklung", group: "ausbildung", area: "ethik", title: "Beruf, Kompetenzen und lebenslanges Lernen", emoji: "🌱",
+    id: "berufsentwicklung", group: "ausbildung", area: "ethik", title: "Beruf, Kompetenzen und lebenslanges Lernen", icon: "Sprout",
     ar: "الكفاءات: معرفية، منهجية، اجتماعية، شخصية. بينر: خمس مراحل من المبتدئ إلى الخبير. التفكير الانعكاسي (كورتاغن). التمثيل المهني: نقابات، اتحادات، غرف التمريض.",
     blocks: [
       B("Handlungskompetenz", "Fachkompetenz: Wissen und Können.", "Methodenkompetenz: Arbeit planen, Probleme lösen.", "Sozialkompetenz: kommunizieren, im Team arbeiten.", "Personalkompetenz: sich selbst reflektieren und Verantwortung übernehmen."),
@@ -76,7 +76,7 @@ export const NEW_LESSONS_2: Lesson[] = [
 
   // ───────── Gesundheit der Pflegenden ─────────
   {
-    id: "stress", group: "ausbildung", area: "gesundheit", title: "Stress, Resilienz und Entlastung", emoji: "🧘",
+    id: "stress", group: "ausbildung", area: "gesundheit", title: "Stress, Resilienz und Entlastung", icon: "PersonStanding",
     ar: "الضغط النفسي: نموذج لازاروس (تقييم أولي وثانوي) وسيلي (إنذار، مقاومة، إنهاك). الصلابة النفسية (Kohärenzgefühl). الحلول: إشراف، استشارة الزملاء، استرخاء، توازن العمل والحياة.",
     blocks: [
       B("Stressmodelle", "Lazarus: Stress entsteht aus der Bewertung. Primär: Ist das bedrohlich? Sekundär: Habe ich Mittel zur Bewältigung? Danach Neubewertung.", "Selye: Alarmphase, Widerstandsphase, Erschöpfungsphase."),
@@ -87,7 +87,7 @@ export const NEW_LESSONS_2: Lesson[] = [
     ],
   },
   {
-    id: "arbeitsschutz", group: "ausbildung", area: "gesundheit", title: "Arbeitszeit und Arbeitsschutz", emoji: "🕒",
+    id: "arbeitsschutz", group: "ausbildung", area: "gesundheit", title: "Arbeitszeit und Arbeitsschutz", icon: "Clock",
     ar: "ساعات العمل: 8 ساعات يومياً (حتى 10 بشروط)، استراحة 30 دقيقة بعد 6 ساعات و45 بعد 9 ساعات، راحة 11 ساعة بين الورديتين، 15 أحداً حرة سنوياً. جدول الدوام ملزم والتعديل في حالة الطوارئ فقط.",
     blocks: [
       B("Arbeitszeitgesetz (Überblick)", "Werktägliche Arbeitszeit bis 8 Stunden. Sie darf auf bis zu 10 Stunden verlängert werden, wenn im Durchschnitt innerhalb von sechs Monaten 8 Stunden nicht überschritten werden.", "Pausen: ab mehr als 6 Stunden 30 Minuten, ab mehr als 9 Stunden 45 Minuten. Pausenblöcke mindestens 15 Minuten.", "Ruhezeit zwischen zwei Diensten: mindestens 11 Stunden.", "Sonntage und Feiertage: Ersatzruhetag innerhalb von zwei Wochen. Mindestens 15 Sonntage im Jahr sind frei."),
@@ -99,7 +99,7 @@ export const NEW_LESSONS_2: Lesson[] = [
 
   // ───────── Gesundheitswesen und Sozialrecht ─────────
   {
-    id: "pflegeversicherung", group: "ausbildung", area: "system", title: "Pflegeversicherung und Pflegegrade", emoji: "🏛️",
+    id: "pflegeversicherung", group: "ausbildung", area: "system", title: "Pflegeversicherung und Pflegegrade", icon: "Landmark",
     ar: "تأمين الرعاية (SGB XI): خمس درجات رعاية حسب مدى الاستقلالية (ست وحدات تقييم). تُمنح بعد تقييم المركز الطبي MD. خدمات: مال رعاية، رعاية عينية، رعاية نهارية، رعاية قصيرة، رعاية بديلة. الرعاية المنزلية العلاجية تحت SGB V.",
     blocks: [
       B("Grundlagen", "Soziale Pflegeversicherung (SGB XI): Teilleistungsversicherung. Sie deckt einen Teil der Kosten, den Rest zahlt die Person oder das Sozialamt.", "Antrag bei der Pflegekasse. Der Medizinische Dienst (bei Privatversicherten Medicproof) begutachtet."),
@@ -110,7 +110,7 @@ export const NEW_LESSONS_2: Lesson[] = [
     ],
   },
   {
-    id: "teamarbeit", group: "ausbildung", area: "system", title: "Intra- und interprofessionelle Zusammenarbeit", emoji: "🤝",
+    id: "teamarbeit", group: "ausbildung", area: "system", title: "Intra- und interprofessionelle Zusammenarbeit", icon: "Handshake",
     ar: "التعاون داخل المهنة الواحدة (تمريض بمؤهلات مختلفة) وبين المهن (أطباء، معالجون، اجتماعيون). ميزته: رؤية أشمل. تحديه: وقت واتصال وحدود صلاحيات.",
     blocks: [
       B("Begriffe", "Intraprofessionell: innerhalb einer Berufsgruppe (Pflegefachpersonen, Pflegehilfskräfte, Auszubildende).", "Interprofessionell: verschiedene Berufsgruppen (Ärztinnen, Therapeuten, Sozialdienst, Psychologie, Hauswirtschaft)."),
@@ -120,7 +120,7 @@ export const NEW_LESSONS_2: Lesson[] = [
     ],
   },
   {
-    id: "kinder", group: "ausbildung", area: "recht", title: "Kinder und Jugendliche: Recht und Pflege", emoji: "🧒",
+    id: "kinder", group: "ausbildung", area: "recht", title: "Kinder und Jugendliche: Recht und Pflege", icon: "UserRound",
     ar: "الأطفال والمراهقون: الوالدان يمارسان الرعاية القانونية لمصلحة الطفل، وللطفل حق في أن يُسمع رأيه (اتفاقية حقوق الطفل المادة 12). عند الاشتباه بخطر على الطفل بلّغ الفريق. اشرح للطفل حسب عمره.",
     blocks: [
       B("Elterliche Sorge", "Eltern üben die Sorge gemeinsam und zum Wohl des Kindes aus (§ 1627 BGB). Bei Streit sollen sie sich einigen.", "Für Behandlung brauchen Ärztinnen in der Regel die Einwilligung der Sorgeberechtigten, zusätzlich wird die Meinung des Kindes nach Reife einbezogen."),
