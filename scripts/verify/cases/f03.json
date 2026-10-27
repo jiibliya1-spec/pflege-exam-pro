@@ -1,0 +1,136 @@
+{
+ "case": "f03",
+ "total": 72,
+ "pages": {
+  "q": [
+   55,
+   57
+  ],
+  "a": [
+   58,
+   64
+  ]
+ },
+ "narr": [
+  [
+   "geheim halt.",
+   "geheim hält."
+  ],
+  [
+   "Max zöger, doch",
+   "Max zögert, doch"
+  ],
+  [
+   "bedränn gen",
+   "bedrängen"
+  ],
+  [
+   "nach, Abnehmtipps\".",
+   "nach „Abnehmtipps“."
+  ],
+  [
+   "beschämt auf „Max,",
+   "beschämt auf. „Max,"
+  ],
+  [
+   "Schock. Du musst lernen",
+   "Schock. „Du musst lernen"
+  ],
+  [
+   "ent- 10 gegen",
+   "entgegen"
+  ],
+  [
+   "BZgA- Informationsbroschüren",
+   "BZgA-Informationsbroschüren"
+  ],
+  [
+   "\n\n15 Drei Tage später",
+   "\n\nDrei Tage später"
+  ]
+ ],
+ "stems": {
+  "1": "Max Obermaier leidet an Diabetes mellitus Typ 1 und hat eine Bulimie entwickelt (Gesamtpunkte: 13).",
+  "2": "Pflegefachmann Linus Dahlmann betreut Max Obermaier seit seiner Aufnahme auf der diabetologischen Station im Frühdienst (Gesamtpunkte: 22).",
+  "3": "Das Motto von Pflegefachmann Linus Dahlmann lautet: „Mehr Zeit am Bett als am PC. Pflege heißt Zuwendung, nicht Standardsätze tippen und Häkchen setzen“ (Gesamtpunkte: 8).",
+  "4": "Max' Eltern beschweren sich darüber, dass sie nicht über den aktuellen Zustand ihres Sohnes informiert wurden, sondern zufällig davon erfahren müssen (Gesamtpunkte: 13).",
+  "5": "In der Fallsituation kommunizieren verschiedene Personen mit Max Obermaier bzw. werden aus seinem Lebensumfeld erwähnt (Gesamtpunkte: 16)."
+ },
+ "q": {
+  "1a": {
+   "p": 4,
+   "t": "Definieren Sie die Krankheitsbilder Diabetes mellitus Typ 1 und Bulimie (4 P.).",
+   "a": "Diabetes mellitus Typ 1 ist …\n• eine chronische Stoffwechselerkrankung, bei der der Blutzucker aufgrund mangelnder Insulinproduktion in der Bauchspeicheldrüse erhöht ist. Betroffene müssen regelmäßig den Blutzucker kontrollieren und sich Insulin spritzen.\n\nBulimie ist …\n• eine psychische Erkrankung/Essstörung (auch: Ess-Brech-Sucht). Betroffene leiden unter Essanfällen und führen danach u. a. Erbrechen absichtlich zur Gewichtsreduktion herbei (z. B. durch Auslösen des Würgereizes, Einnahme von abführenden Medikamenten).\n\nHINWEIS: Je Definition 2 P."
+  },
+  "1b": {
+   "p": 4,
+   "t": "Erklären Sie, wie es zur Hypoglykämie und Stoffwechselentgleisung bei Max kommen konnte (4 P.).",
+   "a": "Ursachen der Hypoglykämie und Stoffwechselentgleisung in der Fallsituation:\n• Überdosierung von Insulin: Max hat evtl. zu viel Insulin gespritzt und nicht durch eine angemessene Zufuhr an Kohlenhydraten ausgeglichen.\n• körperliche Anstrengungen: Das Schwimmtraining erhöht den Glukosebedarf der Muskulatur. Wenn dieser Bedarf nicht durch die Aufnahme von Kohlenhydraten gedeckt wird, kann es zur Hypoglykämie kommen.\n• Durch die Essstörung (Bulimie) können die Kohlenhydrate aus der Nahrung nicht vollständig aufgenommen werden. Das zuvor gespritzte Insulin wirkt jedoch weiter, was zu einer Hypoglykämie führen kann.\n• Unregelmäßige Nahrungsaufnahmen können dazu führen, dass das Insulin im Körper nicht optimal wirken kann. Wenn Max nicht ausreichend oder zu unregelmäßigen Zeiten isst, steht das Insulin im Ungleichgewicht zur vorhandenen Glukose, was zur Hypoglykämie führen kann."
+  },
+  "1c": {
+   "p": 5,
+   "t": "Leiten Sie fünf mögliche Ursachen für die Entwicklung der Bulimie von Max aus der Fallsituation ab (5 P.).",
+   "a": "Mögliche Ursachen der Bulimie von Max Obermaier sind:\n• Unzufriedenheit mit dem eigenen Körper aufgrund der Gewichtszunahme/Heißhungerattacken (vermutlich durch Insulingaben nach Diagnosestellung als häufiges Phänomen bei Diabetes mellitus Typ 1)\n• Körperbildstörung, Veränderung der Körperwahrnehmung und des Körperbewusstseins im Rahmen der Pubertät (Max war 16 Jahre, als Diabetes durch seinen Kinderarzt bei ihm diagnostiziert wurde)\n• Vertrauen in falsche Informationen/Vorbilder/Schönheitsideale in sozialen Medien (Max suchte nach „Abnehmtipps“ in sozialen Medien)\n• Stress und hoher eigener bzw. fremder Leistungsdruck (hohes Lernpensum an der Uni, zog für sein Studium extra in WG; Schwimmtraining mit Erfolgsdruck durch ehrgeizigen Trainer und anstehende Wettkämpfe)\n• Überforderung und fehlende Copingstrategien (Bewältigung) im Umgang mit seinem Diabetes mellitus Typ 1 (Annahme der Krankheit als lebenslangen Begleiter fiel Max schwer)\n\nHINWEIS: Weitere Antworten: Angst vor Ablehnung/fehlender Anerkennung/Zugehörigkeit oder mangelndes Selbstwertgefühl, evtl. Scham (Max scheint nicht über seine Probleme zu sprechen, er hält die Bulimie vor seinen Eltern und auch vor Freunden geheim)."
+  },
+  "2a": {
+   "p": 8,
+   "t": "Ermitteln Sie aus der Fallsituation vier Pflegeprobleme sowie passende Ressourcen von Max, auf die Herr Dahlmann bei der Versorgung eingehen sollte, und tragen Sie diese in der Tabelle ein (8 P.).",
+   "a": "Pflegeprobleme (je 1 P.) und Ressourcen (je 1 P.):\n\n1. Max gefährdet für eine erneute Hypoglykämie/Stoffwechselentgleisung aufgrund der Blutzuckerschwankungen/Bulimie.\n   Ressourcen: Max zeigt sich gesprächsbereit. Er hat Vertrauen zu Pflegefachmann Linus Dahlmann.\n2. Max ist gefährdet für eine Mangelernährung aufgrund der Bulimie.\n   Ressourcen: Max zeigt sich gesprächsbereit. Er hat Vertrauen zu Pflegefachmann Linus Dahlmann.\n3. Max hat eine Körperbildstörung aufgrund seines Diabetes mellitus Typ 1 entwickelt.\n   Ressourcen: Max zeigt sich gesprächsbereit. Er hat Vertrauen zu Pflegefachmann Linus Dahlmann.\n4. Max fühlt sich überfordert und kann sich möglicherweise nicht entspannen aufgrund von Leistungsdruck an der Uni/beim Schwimmsport bzw. durch Therapiedruck der Eltern.\n   Ressourcen: Max zeigt sich gesprächsbereit. Er hat Vertrauen zu Pflegefachmann Linus Dahlmann.\n5. Max zeigt eine fehlende Krankheitseinsicht, er lehnt die Therapie seiner Bulimie ab („Mir geht es doch wieder gut!“).\n   Ressourcen: Max zeigt sich gesprächsbereit (mit Psychologin, Stationsärztin, Pflegefachmann Linus Dahlmann). Er liest ggf. BZgA-Informationsbroschüren (liegen auf seinem Nachttisch). Er hat ggf. ein unterstützendes soziales Netzwerk (Eltern, Freunde, Schwimmverein). Er möchte ggf. schnell wieder Schwimmen oder Studium nachgehen.\n\nHINWEIS: Vier Pflegeprobleme mit Ressourcen und ATL-Zuordnung sind ausreichend."
+  },
+  "2b": {
+   "p": 4,
+   "t": "Ordnen Sie in der Tabelle jedem Pflegeproblem eine passende Aktivität des täglichen Lebens (ATL) zu (4 P.).",
+   "a": "ATL (je 1 P.), den Pflegeproblemen der Reihe nach zugeordnet:\n1. Max gefährdet für eine erneute Hypoglykämie/Stoffwechselentgleisung: Essen und trinken; Für Sicherheit sorgen\n2. Max ist gefährdet für eine Mangelernährung: Essen und trinken\n3. Max hat eine Körperbildstörung: Sich als Mann fühlen\n4. Max fühlt sich überfordert und kann sich möglicherweise nicht entspannen: Sinn finden; Sich beschäftigen\n5. Max zeigt eine fehlende Krankheitseinsicht: Sinn finden"
+  },
+  "2c": {
+   "p": 10,
+   "t": "Nennen Sie fünf Informationen, die Sie als Pflegefachkraft zur Einschätzung der aktuellen Pflegesituation von Max Obermaier erheben würden (5 P.), und begründen Sie, warum diese Informationen für Ihr weiteres Pflegehandeln wichtig sind (5 P.).",
+   "a": "Informationen (je 1 P.) und Begründung (je 1 P.):\n• aktueller Ernährungszustand (u. a. Körpergröße, Körpergewicht, BMI) – um das Risiko einer Mangelernährung einzuschätzen\n• vergangene und aktuelle Ernährungsgewohnheiten: Was isst er wann und wie viel? Wie regelmäßig nimmt er Mahlzeiten ein? Wie häufig hat er Heißhungerattacken/Essanfälle? – Dadurch kann das Risiko für eine Mangelernährung und erneute Stoffwechselentgleisung eingeschätzt und Ernährungsformen, Insulingaben können angepasst werden.\n• Umgang mit absichtlichem Erbrechen: Wie häufig übergibt sich Max (z. B. mehrmals oder einmal täglich, wöchentlich)? Wann übergibt er sich (z. B. direkt nach dem Essen)? – Dies hat Einfluss auf seinen Blutzuckerspiegel, die Insulingaben und ebenso auf seine Mund-/Zahngesundheit (Reflux der Magensäure).\n• Umgang mit Diabetes mellitus Typ 1/BZ-Kontrollen und Insulingaben: Kontrolliert er regelmäßig seinen Blutzucker? Passt er sein Insulin den Mahlzeiten oder seinem Sport an? Spritzt er nach einem festen Insulinschema? – Dadurch kann eingeschätzt werden, wie gut Max' Diabetes eingestellt ist und welche Risiken bestehen.\n• psychisches Befinden: Wie ging es Max vor dem Zusammenbruch in der Schwimmhalle? Wie geht es ihm jetzt? Hat sich Max ggf. absichtlich zu viel Insulin gespritzt (möglicher Suizidversuch)? – Max' psychisches Befinden hat großen Einfluss auf den Therapieerfolg und seine Compliance.\n\nHINWEIS: Eine weitere mögliche Antwort betrifft das Unterstützungsnetzwerk bzw. das Verhältnis zu Freunden und Familie: Welche Rolle spielen diese Menschen für ihn? Das kann helfen, positive und negative Einflüsse auf ihn und seine Pflege/Therapie einzuschätzen und den psychologischen Bedarf zu ermitteln."
+  },
+  "3a": {
+   "p": 3,
+   "t": "Nehmen Sie Stellung zu dieser Aussage in Bezug auf die zu leistende Pflegedokumentation im Rahmen der Pflegequalitätssicherung (3 P.).",
+   "a": "Stellungnahme zum Motto von Pflegefachmann Linus Dahlmann:\n• Ich stimme dem Motto nur bedingt zu, denn Pflegequalität bedeutet nicht nur physische und psychische/emotionale Zuwendung zum zu pflegenden Menschen, sondern auch eine kontinuierliche, sichere und dokumentierte Versorgung.\n• Es ist richtig, dass Pflegefachpersonen ausreichend Zeit mit dem zu pflegenden Menschen verbringen sollen. Die Versorgung, emotionale Unterstützung und das Aufbauen einer Pflegebeziehung sind zentrale Bestandteile des Pflegeberufs. Ein direkter Kontakt mit dem zu pflegenden Menschen kann oft mehr Informationen liefern als jeder geschriebene Pflegebericht.\n• Auf der anderen Seite ist die Pflegedokumentation unerlässlich für die Qualitätssicherung und die rechtliche Absicherung. Das „Häkchensetzen“ kann sicherstellen, dass wichtige Pflegemaßnahmen durchgeführt und keine Details übersehen werden."
+  },
+  "3b": {
+   "p": 5,
+   "t": "Erläutern Sie, inwiefern die Pflegedokumentation im Pflegeprozess von Bedeutung ist, und geben Sie zwei Beispiele dafür aus der Fallsituation (5 P.).",
+   "a": "Bedeutung der Pflegedokumentation im Pflegeprozess (je 1 P.):\n• Die Pflegedokumentation ist ein wichtiger und unverzichtbarer Teil in allen sechs Schritten des Pflegeprozesses, da sie zur Sicherung der Pflegequalität der zu pflegenden Menschen beiträgt.\n• Sie speichert/beinhaltet wichtige Informationen für alle am Pflegeprozess beteiligten Akteure, um Pflegebedarf und -maßnahmen sowie Verläufe, besondere Ereignisse und Beobachtungen transparent zu machen, nachzuvollziehen, durchzuführen und zu evaluieren.\n• Die Pflegedokumentation ist wichtig für eine haftungsrechtliche Absicherung und Beweislage im Fall eines Rechtsstreites.\n\nBeispiele aus der Fallsituation für die Bedeutung der Pflegedokumentation (je 1 P.):\n• Pflegefachmann Linus Dahlmann (angestellt bei Zeitarbeitsfirma) unterstützt nur kurzfristig auf der diabetologischen Station. Um die Weiterversorgung von Max sicherzustellen, muss das Pflegestammteam seine bisherigen Pflegemaßnahmen (BZ-Kontrollen, Gespräche) und Beobachtungen (Erbrechen im Bad) sowie Absprachen mit Max, der Psychologin, der Stationsärztin nachvollziehen können.\n• Im Fall einer erneuten Zustandsverschlechterung von Max (Hypoglykämie mit Bewusstlosigkeit) müssen Max' Eltern informiert werden, deren Kontaktdaten sind Teil der Pflegedokumentation.\n• Max hat seine Bulimie bisher geheim gehalten und ist volljährig, er kann über eine Auskunftssperre zu seinem Gesundheitszustand gegenüber seinen Eltern entscheiden. Dieser Wunsch muss für alle transparent dokumentiert sein, um Fehlverhalten vorzubeugen.\n• Im Fall einer berechtigten Beschwerde von Max' Eltern könnte ggf. Einsicht in die Pflegedokumentation genommen werden. Max kann selbst auch Einsicht nehmen.\n\nHINWEIS: Es müssen nur zwei Beispiele benannt werden. Je Beispiel 1 P. Weitere mögliche Beispiele: Dokumentation der Blutzuckerwerte und ein Pflegeüberleitungsbogen, falls Max in einer Fachklinik weiterbehandelt wird."
+  },
+  "4a": {
+   "p": 3,
+   "t": "Bewerten Sie die Aussage von Max' Eltern: „Wir haben ein Recht darauf, zu wissen, wie es unserem Sohn geht und welche Behandlungen geplant sind!“ Stimmen Sie den Eltern zu (ja/nein)? Begründen Sie Ihre Einschätzung (3 P.).",
+   "a": "• Nein, ich stimme den Eltern nicht zu. Max ist volljährig und aktuell nicht in seinem Bewusstsein eingeschränkt oder in einem kritischen Zustand, in dem er nicht über sich selbst entscheiden kann. Er hat die Bulimie bisher geheim gehalten. Die Ärzte und auch das Pflegepersonal haben nicht das Recht, seine Eltern darüber zu informieren, wenn er dies nicht möchte (Verletzung der Schweigepflicht lt. § 203 StGB).\n• Ja, ich stimme den Eltern zu. Ich kann verstehen, dass sich Max' Eltern Sorgen machen. Doch es gibt rechtliche Vorgaben. Ein Recht darauf, informiert zu werden, haben die Eltern im Fall einer akuten Zustandsverschlechterung mit Bewusstlosigkeit (vgl. Max' Zusammenbruch in der Schwimmhalle) oder wenn Max dies ausdrücklich erlaubt/wünscht.\n\nHINWEIS: Hier sind zwei mögliche Antworten angegeben für zwei verschiedene Standpunkte. Eine richtig begründete Antwort genügt."
+  },
+  "4b": {
+   "p": 6,
+   "t": "Max' Eltern sind sehr aufgebracht. Empfehlen Sie sechs Maßnahmen, wie das Pflegepersonal reagieren und damit die Konfliktsituation entspannen kann (6 P.).",
+   "a": "Empfehlungen im Umgang mit Max' Eltern in der Konfliktsituation:\n• Sensibilität und Einfühlungsvermögen: Zeigen Sie Verständnis für die Besorgnis von Max' Eltern. Bieten Sie ein Gespräch in einem Raum/Rahmen an, in dem sie ungestört und in Ruhe sprechen können.\n• offene Kommunikation: Klären Sie Max' Eltern darüber auf, dass aufgrund der ärztlichen Schweigepflicht (§ 203 StGB) bestimmte Informationen über Max' Gesundheitszustand nicht ohne seine Einwilligung weitergegeben werden können. Erklären Sie, dass Sie den Datenschutz und die Wahrung der Privatsphäre von Max respektieren müssen.\n• Einbeziehung von Max: Bitten Sie die Eltern um Verständnis, dass Sie vorab erst mit Max besprechen müssen, in welchem Umfang und unter welchen Bedingungen er Informationen über seinen Gesundheitszustand an seine Eltern weitergegeben haben möchte.\n• Bereitstellung von allgemeinen Informationen: Bieten Sie Max' Eltern allgemeine Informationen, z. B. von der BZgA, über die Erkrankung ihres Sohnes und die damit verbundene Therapie an. Geben Sie die Möglichkeit, Fragen zu stellen, und erklären Sie ihnen die Bedeutung der Privatsphäre, Selbstständigkeit und Autonomie von Max.\n• Gespräche anbieten: Bieten Sie die Möglichkeit an, die behandelnde Ärztin/Psychologin für ein Beratungsgespräch/Familiengespräch zu fragen.\n• paraverbale Kommunikation: Achten Sie darauf, wie Sie mit den Eltern sprechen. Bleiben Sie ruhig, verständnisvoll und sachlich. Sprechen Sie in einer angenehmen Tonlage und Lautstärke.\n• nonverbale Kommunikation: Achten Sie auf die Körperhaltung, Mimik, Gestik, während Sie sprechen. Bleiben Sie darin offen, freundlich, zugewandt und auf Augenhöhe.\n• Kommunikationsförderer nutzen: Hören Sie aktiv zu, paraphrasieren/spiegeln Sie, sprechen Sie deutlich und adressatengerecht, stellen Sie Rückfragen, verwenden Sie Ich-Botschaften, schenken Sie Aufmerksamkeit und nehmen Sie die Sorgen ernst.\n• Kommunikationshemmer vermeiden: Vermeiden Sie vorschnelles Be-/Abwerten der Eltern sowie Vorurteile, Missverständnisse, Du/Sie-Botschaften, ablehnende Körperhaltungen.\n\nHINWEIS: Es reichen insgesamt sechs begründete Empfehlungen aus. Zu den einzelnen Punkten müssen nicht alle hier benannten Beispiele genannt sein, ein sinngemäßes Wiedergeben genügt."
+  },
+  "4c": {
+   "p": 4,
+   "t": "Nennen Sie vier Rechte, die Max laut Patientenrechtegesetz (BGB) hat (4 P.).",
+   "a": "Patientenrechte gemäß BGB:\n• fachgerechte Behandlung (§ 630a): Max hat mit Abschluss des Behandlungsvertrages das Recht auf eine fachgerechte Behandlung und Pflege nach dem aktuell geltenden Stand.\n• Information und Aufklärung (§ 630c–e): Max hat das Recht ärztlich aufgeklärt und informiert zu werden und sich eine Zweitmeinung einzuholen.\n• Einwilligung: Vor der Durchführung einer Behandlung/medizinischen Maßnahme, v. a. bei Eingriff in den Körper (z. B. Injektionen), muss Max' Erlaubnis/Zustimmung eingeholt werden.\n• Dokumentation der Aufklärung (§ 630h Abs. 2): Max hat das Recht, dass die Aufklärung dokumentiert wird (ist auf Pflege übertragbar).\n• Einsichtnahme in die Akte (§ 630g): Max darf auf Verlangen Einsicht in seine Patientenakte nehmen und Abschriften (Kopien) machen (zu seinen Kosten).\n\nHINWEIS: Weitere richtige Antworten siehe unter: www.patienten-rechte-gesetz.de/bgb-sgbv/. Das Nennen von vier Rechten ohne Paragrafen ist ausreichend für die Bepunktung."
+  },
+  "5a": {
+   "p": 6,
+   "t": "Nennen Sie drei Akteure aus der Fallsituation, die Einfluss auf Max' Autonomieerhalt und Entwicklungsförderung haben. Begründen Sie Ihre Auswahl (6 P.).",
+   "a": "Akteure (je 1 P.) und Begründung (je 1 P.):\n• Linus Dahlmann (Pflegefachmann):\n  – Max versteht sich gut mit ihm, hat Vertrauen und gesteht ihm Bulimie.\n  – Linus Dahlmann könnte ggf. durch sein Vertrauensverhältnis (tröstet ihn, hört ihm aufmerksam zu, bespricht weiteres Vorgehen) und durch Gespräche Max beeinflussen/bestärken, sich für eine Therapie zu entscheiden oder lernen, besser mit den Erkrankungen (D. m., Bulimie) umzugehen.\n• Psychologin:\n  – spricht mit Max und legt ihm Weiterbehandlung nahe\n  – Max kann mit ihr über seine Situation sprechen und sich Rat holen.\n• Stationsärztin:\n  – behandelt Max und weiß um seinen Zustand\n  – Max kann sich von ihr beraten lassen.\n\nHINWEIS: Weitere richtige Antworten mit entsprechender Begründung sind: Eltern, Freunde, Trainer."
+  },
+  "5b": {
+   "p": 2,
+   "t": "In der Beratung von Max kommen Informationsbroschüren der BZgA zum Einsatz. Schätzen Sie ein, ob dies geeignete Materialien dafür sind (2 P.).",
+   "a": "Einschätzung der BZgA-Informationsbroschüren:\n• Ja, diese Materialien sind sehr gut geeignet, weil sie von der Bundeszentrale für gesundheitliche Aufklärung (BZgA) stammen, die dafür steht, wissenschaftlich fundierte und zielgruppenorientierte Informationsmaterialien zu erstellen.\n• Die BZgA legt großen Wert darauf, dass ihre Inhalte aktuell, verständlich und für die jeweilige Zielgruppe relevant sind. Für Max, der von einer Essstörung betroffen ist, bieten diese Broschüren zuverlässige und leicht zugängliche Informationen, die ihm helfen können, seinen Zustand besser zu verstehen und die notwendigen Schritte zur Genesung zu ergreifen.\n• Die Aufklärungsmaterialien sind in einer Sprache verfasst, die komplexe medizinische und psychologische Themen für Laien verständlich macht. Die Materialien bieten somit ein Werkzeug in der Beratung von zu pflegenden Menschen.\n• Das ausgehändigte Material kann auch für die Angehörigen, wie in diesem Fall Max' Eltern, eine wichtige Ressource sein. Es bietet Orientierung und Unterstützung, um die Situation und die Herausforderungen besser zu verstehen und Max angemessen zu unterstützen.\n\nHINWEIS: Es gibt 2 P. für eine dieser hier begründeten positiven Einschätzungen."
+  },
+  "5c": {
+   "p": 2,
+   "t": "Zählen Sie zwei weitere Methoden oder Materialien auf, die bei einer Beratung von Max zum Einsatz kommen könnten (2 P.).",
+   "a": "Weitere geeignete Materialien/Methoden für eine Beratung von Max sind:\n• seriöse, fachlich gut aufbereitete Internetseiten/Aufklärungsvideos (Max nutzt digitale und soziale Medien)\n• Broschüren/Flyer zu den Krankheitsbildern, möglichen Therapien, Fachkliniken in Zusammenhang mit einem Gespräch, um ihn nicht zu überfordern (Max war evtl. mit der Fülle an Informationen im Erstgespräch mit der Psychologin überfordert, siehe Fall „Max geht das zu schnell …“)\n• Fachartikel/Fachbuchausschnitte zu seinen Erkrankungen und möglichen Komplikationen (Max studiert und ist evtl. sehr interessiert an dieser Art von Informationsmaterial)\n• kreative Materialien (Notizblock, bunte Karten, Stifte), die dazu dienen, dass Max aufschreiben kann, was er für Fragen/Sorgen/Ängste hat\n• digitale Diabetes-Apps zur Blutzuckerverwaltung (als Student der Elektrotechnik könnte er von digitalen Hilfsmitteln profitieren)\n• regelmäßig Tagebuch führen, damit Max mögliche Verhaltensmuster erkennt und sein eigenes Erleben, Verarbeiten und Deuten von Gefühlen und Reaktionen besser versteht\n• Entspannungs- und Stressbewältigungstechniken: Stress kann den Blutzuckerspiegel beeinflussen und Auslöser für das bulimische Verhalten sein, Max kann evtl. in der Beratung mehr über Meditationstechniken, Yoga oder Atemübungen erfahren.\n\nHINWEIS: Nur zwei Materialien/Methoden müssen benannt werden."
+  },
+  "5d": {
+   "p": 6,
+   "t": "Max werden unter anderem Selbsthilfegruppen empfohlen. Erläutern Sie drei Vorteile, die Selbsthilfegruppen für Max bieten (6 P.).",
+   "a": "Vorteile von Selbsthilfegruppen für Max:\n• Erfahrungsaustausch: Ähnlich Betroffene teilen ihre Erfahrungen. Max könnte getröstet und bestärkt werden. Der Erfahrungsaustausch kann dazu beitragen, dass er sich nicht allein fühlt. Neue soziale Netzwerke/Freundschaften können entstehen und somit sein Wohlbefinden steigern.\n• emotionale Unterstützung: Durch den Kontakt zu anderen Betroffenen kann Max seine Sorgen und Ängste teilen und von anderen lernen, besser mit Herausforderungen der Erkrankung umzugehen.\n• praktische Tipps: Selbsthilfegruppen können praktische Tipps bieten, z. B. bei der Beantragung von zusätzlichen Leistungen im Gesundheitssystem oder Gestaltung von Sport- und Freizeitaktivitäten. Max könnte konkrete Ansätze und Strategien angeboten bekommen, um mit den täglichen Herausforderungen und Stressfaktoren umzugehen, die zur Entwicklung seiner Bulimie beigetragen haben.\n\nHINWEIS: Eine weitere richtige Antwort: Wissen vermitteln: Selbsthilfegruppen können u. a. Zugang zu Informationen über die neuesten Forschungsergebnisse und Behandlungsmöglichkeiten bieten."
+  }
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "case": "f05",
+ "total": 92,
+ "pages": {
+  "q": [
+   77,
+   79
+  ],
+  "a": [
+   80,
+   85
+  ]
+ },
+ "narr": [
+  [
+   "Kleinstadt Erste",
+   "Kleinstadt. Erste"
+  ],
+  [
+   "Daumenin- Hand Stellung",
+   "Daumen-in-Hand-Stellung"
+  ],
+  [
+   "Greifen Beim",
+   "Greifen. Beim"
+  ],
+  [
+   "Elektro- 10 rollstuhls",
+   "Elektrorollstuhls"
+  ],
+  [
+   "Bewegungsfreiheit\n\nFrau Mazur",
+   "Bewegungsfreiheit.\n\nFrau Mazur"
+  ],
+  [
+   "IT- Betreuer",
+   "IT-Betreuer"
+  ],
+  [
+   "Wo- 15 che",
+   "Woche"
+  ],
+  [
+   "ver- 30 reisen",
+   "verreisen"
+  ],
+  [
+   "\n\n20 Pflegefachfrau",
+   "\n\nPflegefachfrau"
+  ],
+  [
+   "\n\n25 Heute ist",
+   "\n\nHeute ist"
+  ],
+  [
+   "Tisch 35 gebracht",
+   "Tisch gebracht"
+  ]
+ ],
+ "stems": {
+  "1": "Als Pflegefachfrau Anna Oblaski zum ersten Mal bei Frau Mazur war, stand das Phänomen Schmerz im Vordergrund der professionellen pflegerischen Versorgung. Im Rahmen der Informationssammlung führte sie zunächst gemeinsam mit Frau Mazur eine Schmerzeinschätzung durch (Gesamtpunkte: 33).",
+  "2": "Wegen der Bewegungseinschränkungen gibt es für Frau Mazur und ihre Familie zahlreiche Herausforderungen im Alltag (Gesamtpunkte: 33).",
+  "3": "Frau Mazur hat der Pflegefachfrau Anna Oblaski von ihrem Wunsch erzählt, dass ihr Mann und ihre Tochter gemeinsam eine Reise ohne sie antreten. Vorausgesetzt, die Pflege für sie ist in dieser Zeit organisiert. Sie hat auch erzählt, dass sie in ihrer Selbsthilfegruppe dazu ermutigt wurde, ihre Idee umzusetzen (Gesamtpunkte: 14).",
+  "4": "Die Pflegefachfrau Anna Oblaski ist heute erst zum zweiten Mal bei Familie Mazur. Um eine professionelle und positive Pflegebeziehung zu Frau Mazur aufzubauen, sollte sie ihr mit Empathie, Wertschätzung, Achtsamkeit und Kongruenz begegnen (Gesamtpunkte: 12)."
+ },
+ "q": {
+  "1a": {
+   "p": 18,
+   "t": "Geben Sie die sechs Schritte des Pflegeprozesses nach Fiechter & Meier an und notieren Sie in der rechten Spalte der Tabelle, was jeder Schritt bezogen auf das Phänomen des Schmerzes von Frau Mazur bedeutet. Schreiben Sie in ganzen Sätzen (18 P.).",
+   "a": "Schritte im Pflegeprozess nach Fiechter & Meier (je 1 P.) und Bedeutung, bezogen auf das Phänomen Schmerz von Frau Mazur (je 2 P.):\n\n1. Informationssammlung: In diesem Schritt werden alle wichtigen Informationen rund um das Thema Schmerz (und weitere Aspekte) gesammelt, z. B. durch Screening, Assessment, Gespräch mit Frau Mazur oder Arztberichte.\n2. Erkennen von Problemen und Ressourcen: Hier wird das Problem Schmerz benannt und ggf. konkretisiert, z. B. in Form einer Pflegediagnose. Zusätzlich werden Ressourcen benannt, die Frau Mazur bei der Bewältigung der Schmerzsituation helfen können.\n3. Festlegen der Pflegeziele: Gemeinsam mit Frau Mazur werden Pflegeziele (u. a. die Schmerzreduktion) benannt, die Frau Mazur im Rahmen der Pflege erreichen möchte.\n4. Planen der Pflegemaßnahmen: Es werden Maßnahmen (z. B. der nicht-medikamentösen Schmerztherapie) geplant, die dazu beitragen können, die Pflegeziele von Frau Mazur zu erreichen.\n5. Durchführung der Pflegemaßnahmen: In diesem Schritt werden die geplanten Pflegemaßnahmen umgesetzt, z. B. werden schmerzlindernde Interventionen durchgeführt oder Frau Mazur wird angeleitet, diese durchzuführen.\n6. Beurteilung der Pflegemaßnahmen (Evaluation): Im Rahmen der Evaluation wird beurteilt, inwieweit die Pflegeziele erreicht werden konnten. Bei Frau Mazur wäre zu prüfen, ob eine Schmerzlinderung eingetreten ist.\n\nHINWEIS: Individuelle Antworten sind möglich, sofern der Bezug zum Phänomen Schmerz erhalten bleibt.\nINFO – SMART-Schema: S = spezifisch, M = messbar, A = attraktiv, R = realistisch, T = terminiert"
+  },
+  "1b": {
+   "p": 3,
+   "t": "Die Pflegefachfrau Anna Oblaski nutzte als Assessmentinstrument zur Schmerzeinschätzung die numerische Ratingskala (NRS). Im „Expertenstandard Schmerzmanagement in der Pflege“ wird die NRS als ein eindimensionales Instrument zur Selbsteinschätzung beschrieben. Geben Sie an, was mit der NRS gemessen wird (Ziel), und erklären Sie die Bedeutung der Begriffe „eindimensional“ und „Selbsteinschätzung“ im Zusammenhang mit der NRS (3 P.).\n\nZiel des Einsatzes der NRS (1 P.):\n\nBedeutung des Begriffs „eindimensional“, bezogen auf die NRS (1 P.):\n\nBedeutung des Begriffs „Selbsteinschätzung“, bezogen auf die NRS (1 P.):",
+   "a": "Ziel des Einsatzes der NRS:\n• Einschätzung der Schmerzintensität\n\nBedeutung des Begriffs „eindimensional“, bezogen auf die NRS:\n• Es wird nur eine Dimension/ein Kriterium des Schmerzerlebens, hier die Intensität, erhoben. Weitere Aspekte werden nicht berücksichtigt.\n\nBedeutung des Begriffs „Selbsteinschätzung“, bezogen auf die NRS:\n• Nur Frau Mazur selbst schätzt ihre Schmerzintensität ein. Die Beobachtung der Pflegenden wird nicht berücksichtigt."
+  },
+  "1c": {
+   "p": 6,
+   "t": "Nennen Sie sechs Fragen, die die Pflegefachfrau im Rahmen des Schmerzassessments stellen sollte, um das Phänomen Schmerz bei Frau Mazur umfassend einzuschätzen (6 P.).",
+   "a": "Fragen zur Schmerzeinschätzung:\n1. Wo haben Sie Schmerzen? (Schmerzlokalisation)\n2. Seit wann haben Sie Schmerzen? (Schmerzbeginn, zeitliche Dimension)\n3. Wie fühlt sich der Schmerz an? (Schmerzqualität)\n4. Gibt es Dinge oder Situationen, die den Schmerz lindern oder verstärken? (lindernde oder verstärkende Faktoren)\n5. Wie wurde Ihr Schmerz bisher behandelt bzw. was haben Sie unternommen, um den Schmerz zu lindern? (bisherige Behandlung)\n6. Wie wirkt sich Ihr Schmerz auf Ihren Alltag aus? (Auswirkung des Schmerzes auf körperliche und geistige Funktionsfähigkeit)\n7. Gibt es neben der Spastik weitere Symptome, die begleitend zu Ihrem Schmerz auftreten? (z. B. Taubheit, veränderte Sensitivität, Übelkeit)\n8. Wie wirkt sich der Schmerz auf Ihre Stimmungslage aus?\n\nHINWEIS: Sechs Fragen genügen. Diese Aufgabe könnte für den AB III auch so lauten: „Stellen Sie begründet dar, weshalb der Einsatz der numerischen Ratingskala allein für eine umfassende Schmerzeinschätzung nicht hinreichend ist.“"
+  },
+  "1d": {
+   "p": 6,
+   "t": "Leiten Sie drei mögliche Folgen der chronischen Schmerzsituation für Frau Mazur ab (6 P.).",
+   "a": "Folgen des chronischen Schmerzes für Frau Mazur:\n1. Verstärkung der Spastik\n2. Schonhaltung und weitere Verringerung der Eigenaktivität/Mobilität\n3. Beeinträchtigung der Lebensqualität\n4. Zunahme des Hilfe-/Unterstützungsbedarfs\n5. Gefahr von Schlafstörungen\n6. negative Auswirkungen auf die individuelle Stimmungslage (z. B. Gereiztheit) bis hin zur depressiven Verstimmung\n\nHINWEIS: Drei Folgen genügen. Weitere nachvollziehbare Antworten sind möglich."
+  },
+  "2a": {
+   "p": 12,
+   "t": "Stellen Sie aufgrund der Falldarstellung eine Pflegediagnose für Frau Mazur für den Bereich „Körperpflege“ nach dem Ihnen bekannten PESR-Schema und erklären Sie die Bedeutung der Buchstaben P, E, S, R für die Pflegediagnostik (12 P.).",
+   "a": "Bedeutung der Buchstaben (je 1 P.) und Pflegediagnose aus dem Bereich Körperpflege für Frau Mazur (je 2 P.):\n• P: Problem – Selbstfürsorgedefizit bei der Körperwaschung\n• E: Einflussfaktoren/Ursache – Spastik in allen Extremitäten mit stark eingeschränktem Bewegungsradius der Arme und einer Daumen-in-Hand-Stellung der Hände, Schmerzen\n• S: Symptome – kann sich die Arme, den Rücken, den Intimbereich und die Beine nicht selbstständig waschen\n• R: Ressourcen – kann sich das Gesicht und den vorderen Oberkörper selbstständig waschen"
+  },
+  "2b": {
+   "p": 12,
+   "t": "Setzen Sie sich mit der Frage auseinander, welche Herausforderungen sich für den Ehemann und die Tochter aus der Pflegesituation von Frau Mazur ergeben, und stellen Sie anhand von sechs Aspekten dar, wie die beiden Angehörigen die Situation möglicherweise erleben. Schreiben Sie in ganzen Sätzen (12 P.).",
+   "a": "Pavel Mazur und Nina Mazur erleben die Situation möglicherweise so (je Aspekt 2 P.):\n• Pavel Mazur übernahm die Pflege seiner Frau bis vor einer Woche alleine. Christine Mazur hat den Pflegegrad 4, sodass eine erhebliche Pflegebedürftigkeit besteht. Herr Mazur verfügt über keine Pflegeexpertise. Daher ist die Pflege seiner Frau für ihn vermutlich eine große Herausforderung.\n• Die tägliche Pflege ist sicherlich körperlich anstrengend. Denn im Fall ist beschrieben, dass Frau Mazur in sehr vielen Bereichen Hilfe benötigt, z. B. bei der Mobilität, der Körperpflege, teils bei der Nahrungsaufnahme und nachts beim Positionswechsel im Bett.\n• Psychisch herausfordernd ist die Situation, da Herr Mazur hautnah miterlebt, dass seine Frau Schmerzen hat und die Symptomatik aufgrund des primär progredienten Verlaufs stetig zunimmt.\n• Außerdem ist er rund um die Uhr für seine Frau da, er arbeitet im Homeoffice, um für sie verfügbar zu sein. Deshalb könnte er die Situation als belastend und traurig erleben.\n• Hinzu kommt, dass er viele organisatorische Dinge alleine meistern muss (z. B. das Abholen der Tochter vom Fußballtraining) und dass er eigene Wünsche (z. B. Freizeitinteressen oder Urlaub) wahrscheinlich oft zurückstellt.\n• Nina Mazur ist erst 10 Jahre alt. Doch für sie ist es normal, dass ihre Mutter chronisch krank ist. Sie weiß, dass ihre Mutter nicht alles machen kann, was sie möchte.\n• Trotzdem nimmt sie wahr, dass die Mütter ihrer Freundinnen ganz andere Dinge mit ihren Kindern unternehmen können. Vielleicht entsteht bei ihr manchmal ein Gefühl von Neid oder Wehmut.\n• Sie muss wahrscheinlich früh Verantwortung übernehmen, teils für sich selbst, teils aber auch, um ihre Mutter zu unterstützen und ihr im Alltag zu helfen. Das ist für ein Kind eine schwierige Situation.\n• Auch mit dem Vater kann sie nicht so viele Dinge außer Haus (z. B. Ausflüge) nicht oft oder nicht so lange unternehmen, da er sich um seine Frau kümmern muss. Vielleicht entsteht das Gefühl, zu kurz zu kommen und immer zurückstecken zu müssen.\n• Zudem wird sie evtl. mitbekommen, dass ihre Eltern oft traurig und bedrückt sind, was sie möglicherweise belastet.\n\nHINWEIS: Nur sechs dieser Aspekte/Herausforderungen müssen begründet aufgeführt werden, dafür je 2 P."
+  },
+  "2c": {
+   "p": 9,
+   "t": "Der bestellte Elektrorollstuhl sowie technische Assistenzsysteme können die Selbstständigkeit von Frau Mazur im Alltag erhöhen. Geben Sie drei Beispiele für technische Assistenzsysteme und erklären Sie, auf welche Weise diese Frau Mazur bei der Alltagsgestaltung helfen könnten (9 P.).",
+   "a": "Assistenzsystem (je 1 P.) und Erklärung des Nutzens für die Alltagsgestaltung von Frau Mazur (je 2 P.):\n1. Sprachsteuerung für Lichtschalter, Türöffner, E-Geräte (Smarthome): Frau Mazur könnte Alltagstätigkeiten wie das Anschalten des Lichtes wieder selbst durchführen, was ihr aktuell aufgrund der Bewegungseinschränkung kaum möglich ist.\n2. Service-Roboter: können Reinigungsarbeiten übernehmen oder z. B. Gegenstände/Getränke transportieren und Frau Mazur so unterstützen.\n3. PC/Tablet mit Sprachsteuerung: Aufgrund der Spastik in den Armen/Händen hat Frau Mazur vermutlich Schwierigkeiten, Befehle/Texte in ihren PC über eine Tastatur einzugeben. Eine Sprachsteuerung erlaubt ihr z. B. das Surfen im Internet, Verfassen von E-Mails oder den Austausch in Foren.\n\nHINWEIS: Gut begründete alternative Antworten sind möglich."
+  },
+  "3a": {
+   "p": 8,
+   "t": "Stellen Sie anhand von vier Aspekten dar, inwieweit der Austausch innerhalb einer Selbsthilfegruppe eine Ressource für Frau Mazur im Umgang mit ihrer Erkrankung sein kann. Schreiben Sie in ganzen Sätzen (8 P.).",
+   "a": "Austausch in einer Selbsthilfegruppe als Ressource:\n• Der Austausch in einer Selbsthilfegruppe kann für Frau Mazur eine wertvolle Ressource sein, weil sie dort auf Menschen trifft, die alle gemeinsam haben, dass sie von MS betroffen sind.\n• Sie macht die Erfahrung, dass sie mit ihren Sorgen/Problemen nicht alleine ist. Sie stößt dort zum einen auf Verständnis für ihre Situation und ihre Probleme und kann zum anderen Rat, Unterstützung und Motivation erfahren.\n• Menschen mit chronischen Erkrankungen werden im Laufe der Jahre häufig zu Experten für den eigenen Krankheitsverlauf und können diese Expertise in einer Selbsthilfegruppe an andere Menschen weitergeben. Diese Erfahrung steigert das Selbstwirksamkeitserleben.\n• Es fällt Frau Mazur evtl. leichter, mit Menschen, die Ähnliches erleben wie sie, offen über ihre Erfahrungen/Ängste zu sprechen als mit Angehörigen, Ärztinnen und Ärzten oder Pflegefachpersonen.\n\nHINWEIS: Vier Aspekte werden erwartet, weitere Inhalte sind jedoch möglich."
+  },
+  "3b": {
+   "p": 6,
+   "t": "Frau Oblaski hat Frau Mazur angeboten, die Familie zu den grundsätzlichen Möglichkeiten zu beraten, wie die Pflege von Frau Mazur während des Urlaubs von ihrem Mann und ihrer Tochter gewährleistet werden kann. Geben Sie zwei Möglichkeiten an und erklären Sie diese (6 P.).",
+   "a": "Möglichkeit, die Pflege zu gewährleisten (je 1 P.) und Erklärung (je 2 P.):\n1. Verhinderungspflege: Der Ehemann übernimmt den Großteil der Pflege von Frau Mazur. Ist er verhindert (hier aufgrund von Urlaub), übernimmt die Pflegekasse die Kosten für eine Verhinderungspflege. Professionell Pflegende (oder informell Pflegende, z. B. die Mutter) übernehmen dann die Pflege im häuslichen Umfeld. Möglich wäre aber auch ein Pflegehotel.\n2. Kurzzeitpflege: Auch hier wird bei Abwesenheit von pflegenden Angehörigen die Pflege durch professionell Pflegende sichergestellt und erfolgt in stationären Pflegeeinrichtungen.\n3. Rehaklinik: Es wäre zu prüfen, ob Frau Mazur eine stationäre Rehabilitationsmaßnahme in Anspruch nehmen könnte. Hier wäre sie in einer Rehaklinik betreut und würde zudem gesundheitlich selbst von dem Aufenthalt profitieren.\n\nHINWEIS: Es müssen nur zwei Möglichkeiten mit Erklärung aufgeführt werden."
+  },
+  "4": {
+   "p": 12,
+   "t": "Erörtern Sie, weshalb die oben genannten Grundhaltungen zum Aufbau einer positiven Pflegebeziehung zwischen Frau Oblaski und Frau Mazur beitragen können. Schreiben Sie in ganzen Sätzen (12 P.).",
+   "a": "Grundhaltungen in einer Pflegebeziehung:\n• Die vier genannten Grundhaltungen führen dazu, das Vertrauen von Frau Mazur in Frau Oblaski aufzubauen. Vertrauen ist eine Grundvoraussetzung für eine positive Pflegebeziehung (4 P.).\n• Wenn Frau Oblaski empathisch ist, versucht sie, sich in die Situation von Frau Mazur hineinzuversetzen und wird die Bedürfnisse der Klientin eher verstehen (2 P.).\n• Wertschätzung führt dazu, dass sich Frau Mazur ernst genommen und respektiert fühlt (2 P.).\n• Wenn Frau Oblaski achtsam ist, dann bleibt sie voll und ganz in der Pflegesituation und lässt sich nicht durch andere Dinge ablenken. Dies gibt Frau Mazur das Gefühl, dass sie als Mensch mit ihren Bedürfnissen im Mittelpunkt steht (2 P.).\n• Kongruenz bedeutet, dass Frau Oblaski in der Kommunikation authentisch ist und sich nicht verstellt. Frau Mazur wird sich vermutlich nur jemandem gegenüber öffnen, von dem sie das Gefühl hat, dass er ihr authentisch begegnet und ihr nichts vorspielt (2 P.).\n\nHINWEIS: Für die übergeordnete Begründung gibt es 4 P., für jeden weiteren Aspekt 2 P. Gut begründete alternative Antworten sind möglich."
+  }
+ }
+}

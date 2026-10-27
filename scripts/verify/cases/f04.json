@@ -1,0 +1,143 @@
+{
+ "case": "f04",
+ "total": 95,
+ "pages": {
+  "q": [
+   67,
+   69
+  ],
+  "a": [
+   70,
+   75
+  ]
+ },
+ "narr": [
+  [
+   "Pädiatrieinsatz",
+   "Pädiatrieeinsatz"
+  ],
+  [
+   "punktlich",
+   "pünktlich"
+  ],
+  [
+   "eingenaßst",
+   "eingenässt"
+  ],
+  [
+   "Schädelhintrauma",
+   "Schädelhirntrauma"
+  ],
+  [
+   "atopia",
+   "atopica"
+  ],
+  [
+   "Kinderund Jugend",
+   "Kinder- und Jugend"
+  ],
+  [
+   "zu 5 blättern",
+   "zu blättern"
+  ],
+  [
+   "auf. 10 Dort liest",
+   "auf. Dort liest"
+  ],
+  [
+   "\n\n15 Leon Kumpf",
+   "\n\nLeon Kumpf"
+  ],
+  [
+   "isoliert 25 und",
+   "isoliert und"
+  ],
+  [
+   "lediglich 30 den",
+   "lediglich den"
+  ],
+  [
+   "sagt 35 energisch",
+   "sagt energisch"
+  ]
+ ],
+ "stems": {
+  "1": "Die Erhebung einer Pflegeanamnese ist eine Methode zur Informationssammlung im Pflegeprozess (Gesamtpunkte: 18).",
+  "2": "In der Fallsituation werden verschiedene Pflegeprobleme von Emilia deutlich, die sich in Kategorien einteilen lassen (Gesamtpunkte: 14).",
+  "3": "Emilia leidet an Neurodermitis atopica (Gesamtpunkte: 22).",
+  "4": "Laura Sommerfeldt blättert vor Dienstbeginn unter anderem in den Akten und Berichten von Emilia Gerstenkorn (Gesamtpunkte: 28).",
+  "5": "In der Wohngruppe kommunizieren verschiedene Personen mit Emilia (Gesamtpunkte: 10)."
+ },
+ "q": {
+  "1a": {
+   "p": 9,
+   "t": "Nennen Sie drei wesentliche Inhalte der Pflegeanamnese, die für eine optimale Versorgung von Emilia wichtig sind (3 P.). Begründen Sie Ihre Auswahl anhand konkreter Beispiele aus dem Fall (6 P.).",
+   "a": "Je begründeter Kästchen-Antwort 3 P.\n\n• medizinische Anamnese/Epikrise: Hier werden Informationen über Emilias Vorerkrankungen erfasst, insbesondere das Schädelhirntrauma und die daraus resultierenden Beeinträchtigungen. Auch zusätzliche Erkrankungen werden notiert, wie die Neurodermitis und alle Informationen über eventuelle Komplikationen, Behandlungen und Medikationen.\n• psychosoziale Aspekte: Es ist wichtig, Emilia in ihrem sozialen Umfeld zu betrachten, einschließlich der familiären Situation (Verlust von Vater und Mutter und neue Wohnsituation). Die seelische Verfassung von Emilia sowie mögliche psychosoziale Belastungen haben Einfluss auf ihre physische und psychische Gesundheit.\n• aktuelle körperliche Symptome und Beeinträchtigungen: Hier werden Emilias aktuelle Beschwerden erfasst, wie ihre Kratzwunden und ihr ablehnendes Essverhalten. Auch ihre sensorische Wahrnehmung und eventuelle Schmerzen sollten berücksichtigt werden."
+  },
+  "1b": {
+   "p": 9,
+   "t": "Zählen Sie drei weitere Methoden zur Informationssammlung auf (3 P.) und begründen Sie, warum Sie diese als Pflegefachkraft bei Emilia anwenden würden (6 P.).",
+   "a": "Drei Methoden genügen. Je Nennung und Begründung der Methode 3 P.\n\n• Beobachtung: Durch genaue Beobachtung des Verhaltens und der Reaktionen von Emilia können wertvolle Informationen gewonnen werden, z. B. ihr Verhalten während der Pflegemaßnahmen, ihr Essverhalten und die Interaktion mit anderen Kindern in der Wohngruppe.\n• Befragung: Je nach den Fähigkeiten von Emilia können bestimmte Fragen gestellt werden, um ihre Wahrnehmung und Bedürfnisse besser zu verstehen. Hier sind jedoch Sensibilität und Einfühlungsvermögen gefragt, um Emilia nicht zu überfordern.\n• Dokumentenanalyse: Durch die Einsicht in vorhandene medizinische Berichte oder Berichte aus der Wohngruppe können weitere relevante Informationen über Emilia gesammelt werden. Dies kann z. B. helfen, therapeutische Maßnahmen nachzuvollziehen.\n• interdisziplinäre Zusammenarbeit: Durch den Austausch mit anderen Fachkräften (z. B. Fachärzten, Psychologen, Therapeuten) können ebenso wertvolle Informationen über Emilia gewonnen werden."
+  },
+  "2a": {
+   "p": 6,
+   "t": "Definieren Sie aktuelle, potenzielle und verdeckte Pflegeprobleme (6 P.).\n\naktuelle Pflegeprobleme (2 P.)\npotenzielle Pflegeprobleme (2 P.)\nverdeckte Pflegeprobleme (2 P.)",
+   "a": "• aktuelle Pflegeprobleme (2 P.): Diese Probleme sind bereits vorhanden und erfordern unmittelbare pflegerische Interventionen. Sie beeinflussen den aktuellen Gesundheitszustand und das Wohlbefinden des Pflegebedürftigen.\n• potenzielle Pflegeprobleme (2 P.): Diese Probleme können sich in Zukunft entwickeln, wenn keine präventiven Maßnahmen ergriffen werden. Sie basieren auf Risikofaktoren oder vorherigen Erfahrungen. Es braucht Überwachung und geeignete Interventionen, um sie zu verhindern.\n• verdeckte Pflegeprobleme (2 P.): Diese Probleme sind nicht offensichtlich oder werden möglicherweise nicht vom Pflegebedürftigen selbst erwähnt. Es braucht eine genaue Beobachtung, um diese zu erkennen. Sie können auf psychosozialen, kulturellen oder spirituellen Aspekten basieren."
+  },
+  "2b": {
+   "p": 8,
+   "t": "Identifizieren Sie vier aktuelle und vier potenzielle Pflegeprobleme von Emilia und erklären Sie, wie sie sich auf ihre Gesundheit und ihr Wohlbefinden auswirken können (8 P.). (je 1 P.)",
+   "a": "Aktuelle Pflegeprobleme von Emilia (je 1 P.):\n• Kratzwunden an Ellenbogen, Hals und Kniekehlen, die evtl. auch sehr schmerzhaft sind.\n• Unregelmäßiges Essverhalten, bei dem Emilia das Frühstück und Mittagessen verweigert und nur Orangensaft trinkt, was zu möglicher Mangelernährung führen kann.\n• Entwicklung und Denken sind verlangsamt, was zu Lernschwierigkeiten und möglichen Beeinträchtigungen in der Schule führen kann.\n• Emotionaler Stress und Trauma: Aufgrund ihrer Vorgeschichte und der aktuellen Situation erlebt Emilia emotionalen Stress und möglicherweise traumatische Reaktionen.\n\nPotenzielle Pflegeprobleme von Emilia (je 1 P.):\n• Verschlechterung der psychischen Gesundheit aufgrund der Trennung von den Eltern und mögliche emotionale Belastungen.\n• Verlust der Selbstständigkeit und Abhängigkeit von pflegerischen Maßnahmen aufgrund der Entwicklungseinschränkungen.\n• Unzureichende Schmerzbewältigung und -kontrolle aufgrund der eingeschränkten Kommunikationsfähigkeiten von Emilia.\n• Infektionsrisiko durch offene Wunden: Emilia hat Kratzwunden an Ellenbogen, Hals und Kniekehlen, die ein erhöhtes Infektionsrisiko darstellen. Es ist wichtig, die Wunden angemessen zu versorgen, sie zu reinigen, zu desinfizieren und regelmäßig zu überwachen, um Infektionen vorzubeugen.\n\nHINWEIS: Ein weiteres aktuelles oder potenzielles Problem je nach Begründung: soziale Isolation (Emilia zieht sich zurück, ihr fällt es schwer, sich in der Wohngruppe zu integrieren)."
+  },
+  "3a": {
+   "p": 4,
+   "t": "Erläutern Sie die Bedeutung einer regelmäßigen Hautinspektion bei Emilia (4 P.).",
+   "a": "Die regelmäßige Hautinspektion bei Emilia ist wichtig, da sie Folgendes ermöglicht (je 1 P.):\n• frühzeitige Erkennung von Hautveränderungen und Symptomen\n• Optimierung der Behandlung und Anpassung der Pflegemaßnahmen\n• Prävention von Hautinfektionen\n• Schulung und Aufklärung über Neurodermitis und Hautpflege"
+  },
+  "3b": {
+   "p": 6,
+   "t": "Nennen Sie drei Kriterien der Hautbeobachtung und geben Sie jeweils ein Beispiel (6 P.).",
+   "a": "Kriterien der Hautbeobachtung (je 1 P.) mit Beispiel (je 1 P.):\n• Hautfarbe: Rötung, Blässe, livide Verfärbung\n• Hautspannung (Turgor): stehende Hautfalten, Pergamenthaut, Ödeme\n• Schweiß (Sudor): übermäßige Schweißproduktion, Hauttrockenheit\n• Juckreiz (Pruritus): juckende Hautstellen, Kratzspuren\n• Effloreszenzen: Quaddeln, Flecken (Macula), Bläschen (Vesicula)\n\nHINWEIS: Drei Kriterien und je eines der Beispiele reichen."
+  },
+  "3c": {
+   "p": 4,
+   "t": "Beschreiben Sie vier Maßnahmen, mit denen Sie Emilia in den Prozess der Hautinspektion einbeziehen und dabei ihre Autonomie unterstützen können (4 P.).",
+   "a": "Einbeziehen von Emilia in die Hautpflege:\n• Emilia über den Zweck der Hautinspektion in altersgemäßer Sprache aufklären und ihre Zustimmung einholen\n• Emilia die Möglichkeit geben, ihre eigenen Beobachtungen und Beschwerden bezüglich ihrer Haut zu äußern/zeigen\n• Emilia ermutigen, bei der Inspektion ihrer Haut mitzuwirken und aktiv teilzunehmen\n• Emilia bei der Auswahl von Pflegeprodukten mitentscheiden lassen\n• Emilia für ihre Kooperation loben/belohnen und die Bedeutung der Hautpflege betonen\n• Emilia Schritt für Schritt anleiten und ihre Fragen beantworten\n• Diese Maßnahmen fördern Emilias Teilhabe an ihrer eigenen Pflege und stärken ihr Gefühl der Kontrolle und Autonomie.\n\nHINWEIS: Vier dieser Antworten genügen, je 1 P."
+  },
+  "3d": {
+   "p": 11,
+   "t": "Schildern Sie drei Symptome der Neurodermitis atopica bei Emilia und erklären Sie vier Pflegemaßnahmen, um ihren aktuellen Istzustand und ihr Wohlbefinden zu verbessern (11 P.).\n\nSymptome (3 P.):\nPflegemaßnahmen (8 P.):",
+   "a": "Symptome der Neurodermitis atopica bei Emilia (3 P., je 1 P.):\n• Juckreiz (Pruritus): Emilia hat stark juckende Ekzeme und Kratzwunden, vor allem in den Ellenbeugen, Kniekehlen und am Hals.\n• Rötungen und Entzündungen: Emilia hat gerötete Hautstellen und entzündete Ekzeme.\n• Trockenheit: Emilias Haut ist trocken und schuppig.\n• Ekzeme und Blasenbildung: Emilia hat Ekzeme an manchen Körperstellen.\n\nPflegemaßnahmen zur Verbesserung des Istzustandes und Wohlbefindens (8 P., je 2 P.):\n• Im akuten Schub wird die Haut durch Berührung schmerzempfindlich. Aus diesem Grund müssen Pflegetätigkeiten sehr vorsichtig ausgeführt werden, z. B. nach dem Duschen/Baden mit dem Handtuch abtupfen, nicht abreiben.\n• Um das Risiko einer Superinfektion zu minimieren, sollten die Fingernägel kurz gehalten werden, um eine Verletzung der Haut zu vermeiden.\n• Um ein nächtliches Kratzen zu vermeiden, können Kinder nachts einen Overall mit integrierten Fäustlingen tragen.\n• Pruritus kann durch Wärme verschlimmert werden. Emilia sollte in einem ungeheizten Zimmer unter einer dünnen Bettdecke schlafen.\n• Die Kleidung für Emilia sollte aus natürlichen Fasern (z. B. Baumwolle, Viskose, Seide, Leinen) oder atmungsaktiven Stoffen bestehen, um Hitze und Feuchtigkeit zu vermeiden. Sie sollte nicht zu eng sitzen, um mechanische Reizungen zu vermeiden.\n• Feuchtigkeitsspendende Lotionen anwenden. Diese helfen, die trockene und schuppige Haut zu pflegen und Feuchtigkeit einzuschließen.\n• Milde Reinigungsmittel nutzen. Diese minimieren Reizungen und tragen dazu bei, die natürliche Barrierefunktion der Haut zu erhalten.\n• Kühlung der Hautstellen, um Juckreiz zu reduzieren. Hinweis: Kühlung nicht direkt auf die Haut, damit keine Kapillarschädigung eintritt!\n\nHINWEIS: Drei Symptome sind ausreichend, dafür je 1 P. Für jede erklärte Pflegemaßnahme 2 P. Es müssen nur vier der hier aufgeführten Pflegemaßnahmen notiert sein.\nWeitere mögliche Antworten betreffen die Anwendung von Umschlägen, z. B. mit schwarzem Tee, oder auch die Möglichkeit, Juckreiz auf einen Gegenstand umzuleiten oder durch Ablenkung weiteres Kratzen zu verhindern."
+  },
+  "4a": {
+   "p": 9,
+   "t": "Nennen Sie drei zentrale Aufgaben der pflegerischen Dokumentation und erläutern Sie die Bedeutung für die Versorgungsqualität von Emilia (9 P.).",
+   "a": "Aufgaben der Pflegedokumentation (je 1 P.) und Bedeutung für die Versorgungsqualität von Emilia Gerstenkorn (je 2 P.):\n• Erfassung von Emilias Gesundheitszustand und Vitalparametern – Veränderungen können rechtzeitig erkannt werden, macht angemessenes Handeln möglich.\n• Erfassung von Pflegeinterventionen und -maßnahmen – macht den Verlauf der Pflege und den Erfolg der angewendeten Maßnahmen nachvollziehbar, z. B. die Anwendung einer Salbe.\n• Dokumentation von Kommunikation und Zusammenarbeit mit anderen Fachkräften – ermöglicht interdisziplinären Austausch und stellt die kontinuierliche Versorgung von Emilia sicher.\n\nHINWEIS: Weitere richtige Antwort: Dokumentation von Medikamentenangaben und -wirkungen, um eine korrekte und sichere Medikamentenverabreichung zu gewährleisten."
+  },
+  "4b": {
+   "p": 2,
+   "t": "Begründen Sie, warum es sinnvoll ist, vor Beginn einer pflegerischen Tätigkeit in die Unterlagen der zu pflegenden Personen zu schauen bzw. sich zu informieren (2 P.).",
+   "a": "Bedeutung des Sich-Informierens:\n• Der Einblick in die Unterlagen ermöglicht einen Überblick über Emilias Vorgeschichte, medizinische Diagnosen und Therapien. So kann die Pflege entsprechend angepasst und individuell auf Emilia abgestimmt werden.\n• Die Unterlagen enthalten wichtige Informationen zu Allergien, Einschränkungen, Vorlieben und Abneigungen von Emilia, um ihre Bedürfnisse besser zu verstehen und eine angemessene Pflege zu gewährleisten."
+  },
+  "4c": {
+   "p": 9,
+   "t": "Erläutern Sie die in der Tabelle aufgeführten Kriterien für einen qualitativen Pflegebericht in Bezug auf die Pflege von Emilia in der Wohngruppe (9 P.).",
+   "a": "Erläuterung (je 3 P.):\n• Objektivität der Angaben: basieren auf beobachtbaren Fakten und nicht auf subjektiven Interpretationen – für eine sachliche Darstellung von Emilias Zustand.\n• Dokumentation von Besonderheiten: ermöglichen ein frühzeitiges Erkennen von Problemen und eine gezielte Intervention, z. B. von Verhaltensveränderungen oder Schmerzen.\n• Datum, Uhrzeit, Handzeichen: dienen der eindeutigen Zuordnung und Nachverfolgung von Pflegemaßnahmen und gewährleisten eine lückenlose Dokumentation des Pflegeverlaufs und der Ansprechpersonen, um mehr zu erfahren."
+  },
+  "4d": {
+   "p": 8,
+   "t": "Begründen Sie vier weitere wichtige Informationsquellen (Gesetze, Verordnungen, ethische Leitlinien), die Laura als zukünftige Pflegefachfrau für die optimale Versorgung von Emilia kennen sollte (8 P.).",
+   "a": "Wichtige Informationsquellen in der Versorgung von Emilia (je 2 P.):\n• Bundeskinderschutzgesetz (BKiSchG): Regelt die Rechte und den Schutz von Kindern und Jugendlichen in Deutschland. Laura sollte sich mit den Bestimmungen dieses Gesetzes vertraut machen, insbesondere in Bezug auf die Meldepflicht von Kindeswohlgefährdung und die Zusammenarbeit mit dem Jugendamt, da Emilia aus einer schwierigen familiären Situation stammt.\n• UN-Kinderrechtskonvention: Enthält grundlegende Rechte, die für alle Kinder weltweit gelten. Laura sollte verstehen, wie diese Rechte Emilia schützen und welche Verpflichtungen sich daraus für die Pflegeeinrichtung und das Personal ergeben.\n• ICN-Ethikkodex für Pflegefachpersonen: Dieser definiert ethische Werte, Verantwortlichkeiten und berufliche Rechenschaftspflichten von Pflegefachpersonen. Laura sollte diesen kennen, um verantwortungsvoll und professionell zu pflegen.\n• Pflegekonzept und -richtlinien der Einrichtung: Jede Pflegeeinrichtung hat ihre eigenen Konzepte, Leitbilder und Richtlinien zur Pflegepraxis. Laura sollte diese sorgfältig studieren, um zu verstehen, wie die Pflege in der Einrichtung organisiert ist, welche Verfahren und Protokolle zu befolgen sind und wie die individuellen Bedürfnisse von pflegebedürftigen Kindern, wie Emilia, berücksichtigt werden."
+  },
+  "5a": {
+   "p": 6,
+   "t": "Bewerten Sie jeweils die Kommunikation von Ronald Hippe und Laura Sommerfeldt mit ihren möglichen Auswirkungen auf das Selbstwertgefühl, die Autonomie und Entwicklung von Emilia (6 P.).\n\nLaura Sommerfeldt (Pflegeauszubildende): „Hey, ich bin Laura. Ich war gestern schon hier. Erinnerst du dich? Hast du Lust, mit mir zu spielen?“\nRonald Hippe (Erzieher): „So, jetzt steht Emilia auf. Das kann doch keiner aushalten, du riechst wie ein Stinktier!“",
+   "a": "Bewertung der Kommunikation von Laura Sommerfeldt und Ronald Hippe:\n• Die Bemerkungen von Herrn Hippe und sein energisches Vorgehen sind abwertend und respektlos. Sie können Emilia das Gefühl geben, dass sie minderwertig ist und keine Kontrolle über ihre eigenen Bedürfnisse und Entscheidungen hat. Diese Art der Kommunikation beeinträchtigt negativ ihr Selbstwertgefühl und ihre selbstständige Entwicklung.\n• Laura Sommerfeldt kommuniziert einfühlsam und respektvoll mit Emilia. Sie stellt sich vor und schlägt spielerisch vor, Zeit miteinander zu verbringen. Dieser Ansatz kann Emilia das Gefühl von Sicherheit, Vertrauen und Wertschätzung geben. Das ist gut für ihr Selbstwertgefühl, ihre Autonomie und ihre Entwicklung.\n• Die Kommunikation hat einen erheblichen Einfluss auf die psychische und emotionale Entwicklung von Kindern. Ist sie einfühlsam, respektvoll und unterstützend, kann sie das Selbstwertgefühl stärken, die Autonomie und die gesunde Entwicklung fördern."
+  },
+  "5b": {
+   "p": 4,
+   "t": "Erklären Sie anhand von zwei konkreten Maßnahmen, wie es gelingen kann, eine positive Beziehung zu Emilia aufzubauen (4 P.).",
+   "a": "Maßnahmen für einen positiven Beziehungsaufbau zu Emilia (je 2 P.):\n• Spielen: Eine Möglichkeit, eine Beziehung zu Emilia aufzubauen, besteht darin, gemeinsam zu spielen. Laura kann Emilia fragen, ob sie Lust hat, mit ihr ein bestimmtes Spiel zu unternehmen, die Emilia interessiert. Indem sie Emilia auffordert, die Aktivität auszuwählen und aktiv daran teilzunehmen, kann eine positive und interaktive Beziehung aufgebaut werden.\n• Kreative Ausdrucksformen: Emilia kann Schwierigkeiten haben, ihre Gedanken und Gefühle sprachlich auszudrücken. Malen, Zeichnen oder Basteln können in solchen Fällen helfen. Laura kann Emilia Materialien geben und sie dazu ermutigen, ihre Emotionen kreativ auszudrücken. Durch diese gemeinsame Aktivität lässt sich eine Verbindung und Vertrauen aufgebaut werden.\n\nHINWEIS: Auch andere nachvollziehbare Maßnahmen können hier als richtig gewertet werden."
+  }
+ }
+}

@@ -1,0 +1,164 @@
+{
+ "case": "f01",
+ "total": 89,
+ "pages": {
+  "q": [
+   33,
+   35
+  ],
+  "a": [
+   36,
+   40
+  ]
+ },
+ "stems": {
+  "1": "Die Fallsituation beginnt mit einer Dienstübergabe für den Auszubildenden Artur Albrecht und seinen Praxisanleiter Tomasz Kowalski (Gesamtpunkte: 18).",
+  "2": "Pflegefachmann Tomasz Kowalski hat Sophie Schmidt vor zwei Tagen aufgenommen und gemäß den Schritten des Pflegeprozesses nach Fiechter & Meier eine Pflegeplanung erstellt (Gesamtpunkte: 18).",
+  "3": "Assessmentinstrumente werden im Pflegealltag häufig eingesetzt. Auch im Fall von Sophie Schmidt könnten diese eine Rolle spielen (Gesamtpunkte: 16).",
+  "4": "Aktives Zuhören ist eine Methode der Gesprächsführung, die auf den Grundhaltungen von Empathie, Akzeptanz und Echtheit basiert (Gesamtpunkte: 26).",
+  "5": "Sophie Schmidt ist traurig, weil sie denkt, dass sie nicht mehr Fußball spielen und ihr bisher gewohntes Leben weiterführen kann. Die Alltagsbewältigung und die Förderung der vorhandenen Ressourcen sind Hauptaufgaben der Pflege (Gesamtpunkte: 11)."
+ },
+ "q": {
+  "1a": {
+   "p": 2,
+   "t": "Eine Dienstübergabe kann nach dem SBAR-Schema durchgeführt werden. Es hilft, Informationen zu Pflegebedürftigen strukturiert aufzunehmen und sich dabei Notizen zu machen. Notieren Sie in der linken Spalte der Tabelle, wofür die Buchstaben dieses Schemas stehen (2 P.).",
+   "a": "SBAR-Schema (je 0,5 P.):\n• S = Situation\n• B = Background / Hintergrund\n• A = Assessment / Zustand\n• R = Recommendation / Empfehlung"
+  },
+  "1b": {
+   "p": 8,
+   "t": "Ermitteln Sie jeweils zwei Informationen von Sophie Schmidt aus der Fallsituation für die jeweiligen Items des SBAR-Schemas in der rechten Spalte der Tabelle (8 P.).",
+   "a": "Informationen über Sophie Schmidt (je 1 P.):\n\nS = Situation\n• ist auf der Erwachsenen-Station für Neurologie im Zimmer 13\n• liegt im Zweibettzimmer\n\nB = Background / Hintergrund\n• wurde vor zwei Tagen auf die Station aufgenommen, weil sie beim Fußballtraining zusammengebrochen war\n• ist 14 Jahre alt, mitten in der Pubertät\n• hat in letzter Zeit immer häufiger neurologische Symptome, wie Taubheitsgefühle im Gesicht, Kribbeln, Sprachstörung\n• klagt über Kopfschmerzen, die hämmernd und dröhnend sind\n• hat schlechten Allgemeinzustand, keine Flüssigkeitsaufnahme während der Migräneanfälle möglich\n• leidet an Übelkeit und Erbrechen\n\nA = Assessment / Zustand\n• Vitalzeichen sind stabil\n• hat mäßige bis starke Schmerzen in der Nacht\n• nächtliche Übelkeit und Erbrechen\n\nR = Recommendation / Empfehlung\n• Symptomkontrolle\n• Infusionstherapie und Schmerzmittelgabe\n\nHINWEIS: Für 1b gilt: Je Information 1 P. Es sollten zwei Informationen je Kriterium/Buchstabe genannt werden, um 8 P. zu bekommen.\nHINWEIS: Weitere Möglichkeiten im Bereich „R“ im Fall wären z. B. Schulung und Beratung in den akuten Phasen zu Ernährung, Sport, Alltag. Informationen über Selbsthilfegruppen und Unterstützungsangebote."
+  },
+  "1c": {
+   "p": 5,
+   "t": "Entwickeln Sie fünf Strategien für eine effektive Umsetzung des SBAR-Konzepts in einer Dienstübergabe im Pflegealltag (5 P.).",
+   "a": "Strategien zur Umsetzung des SBAR-Konzeptes:\n• möglichst standardisiert / strukturiert vorgehen\n• patientenzentriert bzw. bewohnerorientiert sprechen\n• Privatgespräche vermeiden\n• sachlich informieren, ohne ständige subjektive Abwertungen\n• während der Übergabe für Ruhe sorgen bzw. Störfaktoren beseitigen/reduzieren (z. B. mit Türschild für Besucher/Patienten: „Wir sind bei der Übergabe und gleich wieder für Sie da!“)\n• aktive Mitarbeit aller Beteiligten fördern und gutheißen\n• Zeit für Nachfragen und Notizen ermöglichen\n• kurz, prägnant und gut nachvollziehbar informieren\n\nHINWEIS: Fünf Antworten genügen."
+  },
+  "1d": {
+   "p": 3,
+   "t": "Bewerten Sie die folgende Aussage der Pflegefachkraft Ingrid Rust bei der Dienstübergabe vom Nachtdienst an Artur Albrecht und Tomasz Kowalski morgens im Frühdienst (3 P.).\n„Eigentlich gehört Sophie auf die Kinderstation, hier neben diesen desolaten, kranken Patienten ist sie falsch aufgehoben. Sophie befindet sich mitten in der Pubertät. Ihr könnt euch ungefähr vorstellen, wie sie so drauf ist.“\nBewertung (1 P.):\nBegründung (2 P.):",
+   "a": "Bewertung (1 P.):\n• Die Dienstübergabe war fachlich nicht korrekt und unprofessionell.\n\nBegründung (2 P.):\n• Informationen werden subjektiv und abwertend wiedergegeben und nicht sachlich, objektiv und strukturiert. Außerdem wird statt Fachsprache Umgangssprache verwendet. Ungenaue Aussagen werden getroffen: „Ihr könnt euch ja vorstellen, wie sie so drauf ist.“"
+  },
+  "2a": {
+   "p": 2,
+   "t": "Ein Schritt des Pflegeprozesses ist u. a. die Evaluation. Definieren Sie den Begriff Evaluation (2 P.).",
+   "a": "Definition Evaluation:\n• Evaluation bedeutet, die Wirksamkeit der Pflege zu beurteilen, Ergebnisse zu bewerten und die Pflegeplanung eventuell neu anzupassen."
+  },
+  "2b": {
+   "p": 4,
+   "t": "Entwerfen Sie vier Evaluationskriterien des Pflegeprozesses, die Sie überprüfen können. Formulieren Sie diese in Form von Fragen (4 P.).",
+   "a": "Evaluationskriterien:\n• Wurden die Pflegeziele im geplanten Zeitrahmen erreicht?\n• Waren die Pflegeinterventionen angemessen/passend ausgewählt?\n• Wie haben sich die Pflegemaßnahmen auf das Befinden des Menschen und seine Bereitschaft zur Zusammenarbeit ausgewirkt?\n• Konnten alle vorhandenen Ressourcen in vollem Umfang genutzt werden?\n• Welche Probleme sind neu aufgetreten?\n\nHINWEIS: Je Frage gibt es 1 P.; vier Fragen reichen für die volle Punktzahl."
+  },
+  "2c": {
+   "p": 2,
+   "t": "In der Tabelle werden zwei Pflegeprobleme von Sophie aufgeführt. Ermitteln Sie jeweils eine mögliche Ursache dafür und tragen Sie diese in die Tabelle ein (2 P.).\nPflegeproblem: Übelkeit und Erbrechen – Ursache:\nPflegeproblem: Flüssigkeitsmangel/Gefahr der Dehydratation – Ursache:",
+   "a": "Pflegeproblem: Übelkeit und Erbrechen\nUrsache:\n• Begleitsymptome der Migräne bei Sophie Schmidt\n\nPflegeproblem: Flüssigkeitsmangel/Gefahr der Dehydratation\nUrsache:\n• Sophie kann während der häufig andauernden Migräneanfälle keine Flüssigkeiten zu sich nehmen (3–4 Tage), leidet zeitweise an Übelkeit/Erbrechen"
+  },
+  "2d": {
+   "p": 10,
+   "t": "Leiten Sie zu jedem Pflegeproblem fünf konkrete Pflegemaßnahmen ab, die Artur Albrecht und Tomasz Kowalski bei Sophie Schmidt umsetzen sollten. Notieren Sie Ihre Antworten in der Tabelle (10 P.).\nPflegeproblem: Übelkeit und Erbrechen – Pflegemaßnahmen:\nPflegeproblem: Flüssigkeitsmangel/Gefahr der Dehydratation – Pflegemaßnahmen:",
+   "a": "Pflegeproblem: Übelkeit und Erbrechen\nPflegemaßnahmen:\n• Sophie trösten, beruhigen und während des Erbrechens nicht allein lassen\n• Oberkörper erhöht positionieren und vorbeugen lassen (Aspirationsprophylaxe)\n• Hilfsmittel, wie Nierenschalen, Zellstoff, Spuckbeutel griffbereit halten, aber möglichst außer Sichtweite platzieren\n• Bedarfsmedikamente nach ärztlicher Anordnung verabreichen (z. B. Antiemetika)\n• Erbrochenes schnell entsorgen\n• Mundpflege anbieten und/oder dabei unterstützen\n• Sophie Hände und Gesicht waschen lassen, evtl. die Stirn kühlen\n• Entspannungsmethoden wie Atemtherapie, Fantasiereisen oder Aromatherapie anbieten\nHINWEIS: Weitere Pflegemaßnahmen: Fenster öffnen und lüften; Sophie anbieten, über Kopfhörer Musik zu hören oder fernzusehen; starke Gerüche vermeiden, die Brechreiz auslösen: Essen außer Sichtweite; Parfümduft, Blumengeruch vermeiden\n\nPflegeproblem: Flüssigkeitsmangel/Gefahr der Dehydratation\nPflegemaßnahmen:\n• Lieblingsgetränke von Sophie anreichen\n• nicht zu heiße Getränke reichen\n• wasserreiche Speisen anbieten, z. B. Suppe, Melone, Gurke\n• gut gefüllte Trinkgefäße/Getränkeflaschen immer griffbereit stellen, auch nachts\n• an das Trinken immer wieder erinnern\n• Trinkmenge sinnvoll über den Tag verteilen\n• ggf. Infusionsgabe nach ärztlicher Anordnung\nHINWEIS: Weitere Pflegemaßnahmen: leere Trinkgefäße/Getränkeflasche zügig auffüllen, Trinkprotokoll anlegen"
+  },
+  "3a": {
+   "p": 4,
+   "t": "Beschreiben Sie die Funktion und die Ziele von Assessmentinstrumenten (4 P.).\nFunktion (2 P.):\nZiele (2 P.):",
+   "a": "Funktion (2 P.):\n• Assessmentinstrumente ermöglichen Pflegefachkräften, eine genaue Einschätzung der Situation von Pflegebedürftigen vorzunehmen – meist bezogen auf einen bestimmten Faktor.\n\nZiel (2 P.):\n• Ziel des Assessments ist, die für die Pflege relevanten Phänomene so zu strukturieren, dass Pflegeprobleme klar erfasst, Ziele geplant und Maßnahmen begründet ausgewählt werden können. Das Ergebnis wird oft als Zahl dargestellt (z. B. 0 oder 10). Die Ergebnisse lassen darauf schließen, was pflegerisch zu tun ist."
+  },
+  "3b": {
+   "p": 3,
+   "t": "Sophie Schmidt klagt über anhaltende Kopfschmerzen. Nennen Sie drei Assessmentinstrumente zur Schmerzerfassung (3 P.).",
+   "a": "Assessmentinstrumente zur Erfassung von Schmerzen (je 1 P.):\n• numerische Rangskala (NRS)\n• visuelle Analogskala (VAS)\n• verbale Ratingskala (VRS)\n\nHINWEIS: Eine weitere richtige Antwort: Wong-Baker-Gesichtsskala (Smiley-Skala)"
+  },
+  "3c": {
+   "p": 6,
+   "t": "Vergleichen Sie Ihre notierten Schmerz-Assessmentinstrumente anhand ihrer Merkmale in der Tabelle miteinander (6 P.).",
+   "a": "Merkmale (je 1 P.):\n\nnumerische Rangskala (NRS)\n• Skala von 0 (= kein Schmerz) bis 10 (= maximal stärkster vorstellbarer Schmerz), auf der die subjektiv empfundene Schmerzintensität zugeordnet wird\n• einfach zu bedienen\n\nvisuelle Analogskala (VAS)\n• 10 cm langes Schiebelineal, auch: Schmerzlineal\n• Lineal-Anfang = kein Schmerz; Lineal-Ende = stärkster vorstellbarer Schmerz; Schmerzempfinden wird je nach Ausmaß durch Verschieben eines Reglers eingestellt\n\nverbale Ratingskala (VRS)\n• Schmerzen werden in Wörtern ausgedrückt (keine Schmerzen, leichte Schmerzen, mäßige Schmerzen, starke Schmerzen, sehr starke Schmerzen)\n• einfach zu verstehen, aber bietet nur eine grobe Einteilung\n\nHINWEIS: Eine weitere richtige Antwort: Wong-Baker-Gesichtsskala (Smiley-Skala)"
+  },
+  "3d": {
+   "p": 3,
+   "t": "Entscheiden Sie, welches Schmerz-Assessmentinstrument am besten für Sophie Schmidt geeignet ist, und begründen Sie Ihre Wahl (3 P.).",
+   "a": "Assessmentinstrument:\n• Ich empfehle als Assessmentinstrument für Sophie die FACES-Skala.\n\nBegründung:\n• Die FACES-Skala ist eine visuelle Darstellung. Sie kann es Sophie erleichtern, den passenden Schmerzausdruck zu wählen. Es ist wichtig, ihre individuellen Fähigkeiten und Präferenzen zu berücksichtigen und gegebenenfalls mit ihr und dem behandelnden Team zu besprechen, welches Instrument am besten geeignet ist.\n• Aufgrund ihrer Beschreibung der Symptome und ihres Alters kann die FACES-Skala dabei helfen, den Schmerz bei Sophie zu bewerten. Sie berichtet von Migräneanfällen, die mit Übelkeit und Erbrechen einhergehen. Deshalb kann es für sie möglicherweise schwierig sein, eine numerische Bewertung abzugeben.\n\nHINWEIS: 1 P. für Assessmentinstrument, 2 P. für Begründung. Bei gut nachvollziehbarer Begründung können auch andere Schmerzassessmentinstrumente als richtig gewertet werden, z. B. VAS."
+  },
+  "4a": {
+   "p": 6,
+   "t": "Verdeutlichen Sie anhand von drei Verhaltensweisen, wie Sie als Pflegefachkraft diese Grundhaltungen in der Kommunikation mit Sophie Schmidt umsetzen können (6 P.).",
+   "a": "Kommunikationsfördernde Verhaltensweisen:\n• offene Fragen stellen: Sie laden ein, sich zu öffnen, z. B.: Was bereitet dir Kopfzerbrechen? Worüber denkst du nach? Was ist geschehen? Wie macht sich das bemerkbar? Geschlossene Fragen haben nur ein Ja oder Nein als Antwortmöglichkeit. Dabei kommt der oder die Befragte nicht in einen Gedanken- bzw. Redefluss.\n• Aufmerksamkeit und Verständnis signalisieren: über Mimik und Gestik, z. B. nicken, kurze Bestätigungen („ja“ oder „hmhm“)\n• paraphrasieren: wichtige Gefühle und Gedanken mit eigenen Worten wiedergeben/wiederholen.\n• verbalisieren: Gefühle des Gegenübers in Worte fassen (spiegeln), z. B.: „Ich habe den Eindruck, du bist enttäuscht und traurig darüber.“\n• Unklares klären: wenn etwas nicht verstanden wurde, die Person um Erklärung bitten oder rückversichern, ob man alles richtig verstanden hat, z. B. „Ich habe dich so verstanden …, ist das richtig?“\n\nHINWEIS: Drei gut erklärte Verhaltensweisen genügen. Je Verhaltensweise gibt es 2 P."
+  },
+  "4b": {
+   "p": 5,
+   "t": "Nennen Sie fünf Verhaltensweisen in der Gesprächsführung, die eher kommunikationshemmend bei Sophie wirken (5 P.).",
+   "a": "Kommunikationshemmende Verhaltensweisen:\n• Sophie unterbrechen, ihr widersprechen\n• ungefragt und zu Beginn des Gesprächs sofort Lösungen präsentieren, Ratschläge unterbreiten, bevormunden\n• verschlossene, abwehrende Körperhaltung einnehmen\n• wegblicken, Sophie nicht anschauen\n• während Sophie spricht, das Thema wechseln"
+  },
+  "4c": {
+   "p": 5,
+   "t": "Häufig sind Missverständnisse in der Kommunikation eine Ursache von Konflikten. Tragen Sie die fünf Schritte des Konfliktmanagements in die linke Spalte der Tabelle ein (5 P.).",
+   "a": "Fünf Schritte des Konfliktmanagements (je 1 P.):\n1. Eingeständnis, einen Konflikt zu haben\n2. Beschreibung der Konfliktsituation\n3. Konfliktsituation versachlichen\n4. Lösung aushandeln\n5. Umsetzen und Beibehalten"
+  },
+  "4d": {
+   "p": 10,
+   "t": "Wenden Sie die Schritte des Konfliktmanagements im Fall von Frau Uhlig und Sophie Schmidt an. Nutzen Sie für Ihre Antworten die rechte Tabellenspalte (10 P.).",
+   "a": "Konfliktmanagement zwischen Frau Uhlig und Sophie (je 2 P.):\n1. Zweibettzimmer, Konflikt zwischen Frau Uhlig und Sophie\n2. Frau Uhlig wird in der Nacht durch Sophie gestört (wegen Symptomen, Musik hören usw.).\n3. Frau Uhlig und Sophie haben unterschiedliche Bedürfnisse, wann sie Ruhe brauchen.\n4. Situationen freundlich benennen, Ruhezeiten ausmachen, klar kommunizieren\n5. Frau Uhlig und Sophie setzen die besprochenen Ruhezeiten und Verhaltensregeln um und respektieren gegenseitig die Bedürfnisse des anderen."
+  },
+  "5a": {
+   "p": 5,
+   "t": "Identifizieren Sie körperliche, innerliche, räumliche, soziale und ökonomische Ressourcen von Sophie (5 P.).",
+   "a": "• körperliche Ressourcen: Sophie kann sich größtenteils selbst versorgen.\n• innere Ressourcen: Sophie versteht Zusammenhänge, möchte wieder Fußball spielen.\n• räumliche Ressourcen: Sophie wohnt bei den Eltern/der Mutter.\n• soziale Ressourcen: Sophie hat viele Freunde.\n• ökonomische Ressourcen: Sophie ist krankenversichert."
+  },
+  "5b": {
+   "p": 6,
+   "t": "Nennen Sie sechs Unterstützungsmöglichkeiten für Sophie, die sie im Krankenhaus bzw. im Alltag in ihrer Entwicklung und Autonomie fördern und stärken können (6 P.).",
+   "a": "• individuelle Gewohnheiten von Sophie im (Pflege-)Alltag berücksichtigen (Eigenheiten, Vorlieben und Routinen respektieren)\n• Bezugspersonen mit einbeziehen (Freunde, Schulkameraden, Mannschaftsmitglieder, Trainerin, Familie) und über Migräne informieren\n• Möglichkeiten der Unterstützung aufzeigen (Pflegepersonal, Physiotherapeutin, Ergotherapeut, Kinder-/Jugendpsychologin usw.)\n• nach Hobbys fragen, über alltägliche Dinge sprechen und über Möglichkeiten, sich abzugrenzen\n• Eigenverantwortung und Selbstbewusstsein fördern durch Vermitteln von Selbsthilfegruppen, Aufzeigen von individuellen Lebensgestaltungen mit Migräne mithilfe von digitalen Medien, Verhalten beim akuten Migräneanfall\n• positive Einstellung und realistische Ziele vermitteln"
+  }
+ },
+ "narr": [
+  [
+   "Krankenhauses In der",
+   "Krankenhauses. In der"
+  ],
+  [
+   "Nachtdienst sagt „Eigentlich",
+   "Nachtdienst sagt: „Eigentlich"
+  ],
+  [
+   "desolaten“ Patienten",
+   "desolaten* Patienten"
+  ],
+  [
+   "Pubertät Ihr könnt",
+   "Pubertät. Ihr könnt"
+  ],
+  [
+   "Madchenfußball",
+   "Mädchenfußball"
+  ],
+  [
+   "bezeichn net",
+   "bezeichnet"
+  ],
+  [
+   "drohnend",
+   "dröhnend"
+  ],
+  [
+   "aufgeregt. Also",
+   "aufgeregt: „Also"
+  ],
+  [
+   "mich an. Tomasz",
+   "mich an.“ Tomasz"
+  ],
+  [
+   "mitgenommen auszieht",
+   "mitgenommen aussieht"
+  ],
+  [
+   "\n\n10 Sophie wurde",
+   "\n\nSophie wurde"
+  ],
+  [
+   "\n\n20 Sophie Schmidt liegt",
+   "\n\nSophie Schmidt liegt"
+  ]
+ ],
+ "narr_footnote": "* desolat: trostlos, traurig, deprimierend"
+}
