@@ -1,5 +1,6 @@
 "use client";
 
+import { LANGS, normalizeLang } from "@/lib/i18n";
 import { useRef, useState } from "react";
 import { Download, Upload } from "lucide-react";
 import { useStore } from "@/lib/store";
@@ -54,10 +55,13 @@ export function SettingsPage() {
               <option value="dark">Dunkel</option>
             </Select>
           </Field>
-          <Field label="Oberflächensprache" htmlFor="lang" hint="Optional arabische Beschriftungen in der Navigation. Die Prüfungsinhalte bleiben immer im deutschen Original.">
-            <Select id="lang" value={s.uiLanguage} onChange={(e) => set({ uiLanguage: e.target.value as Settings["uiLanguage"] })}>
-              <option value="de">Deutsch</option>
-              <option value="de-ar">Deutsch + العربية (Navigationshilfe)</option>
+          <Field label="Sprache / اللغة / Language" htmlFor="lang" hint="Die App, die Fallszenen und das Wörterbuch erscheinen in dieser Sprache. Die Prüfungsfragen bleiben im deutschen Original.">
+            <Select id="lang" value={normalizeLang(s.uiLanguage)} onChange={(e) => set({ uiLanguage: e.target.value as Settings["uiLanguage"] })}>
+              {LANGS.map((l) => (
+                <option key={l.id} value={l.id}>
+                  {l.label}
+                </option>
+              ))}
             </Select>
           </Field>
           <Field label="Sprache der Originalinhalte" htmlFor="content" hint="Die Aufgaben stammen aus einem deutschen Buch und werden nicht übersetzt oder verändert.">

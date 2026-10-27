@@ -4,19 +4,21 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { nowMs } from "@/lib/clock";
-import { Award, BookOpenCheck, Clock, Flame, ListChecks, PlayCircle, Target, TrendingUp, Zap, CheckCircle2, AlertTriangle, ClipboardList } from "lucide-react";
+import { Award, BookOpenCheck, Clock, ListChecks, PlayCircle, TrendingUp, AlertTriangle, ClipboardList } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { useBank } from "@/lib/bank";
 import { newId, useUserContext } from "@/lib/hooks";
 import { chapterStats, formatDuration, latestAttempts, overallStats, weakestTopics } from "@/lib/stats";
 import { defaultConfig, eligibleQuestions, sessionFromIds } from "@/lib/exam";
-import { Badge, Button, Card, EmptyState, LinkButton, Notice, PageHeader, Progress, Spinner, StatCard } from "./ui";
+import { Badge, Button, EmptyState, LinkButton, Notice, PageHeader, Progress, Spinner, StatCard } from "./ui";
+import { useT } from "@/lib/i18n";
 
 export function Dashboard() {
   const { state, dispatch, flush } = useStore();
   const bank = useBank();
   const ctx = useUserContext();
   const router = useRouter();
+  const t = useT();
   const [now] = useState(nowMs);
 
   const stats = useMemo(() => overallStats(bank.questions, state.attempts, state.log, now), [bank.questions, state.attempts, state.log, now]);
@@ -69,161 +71,153 @@ export function Dashboard() {
     launch(bank.questions.filter((q) => q.caseId === c.id).map((q) => q.id), c.title);
   }
 
+  const pct = Math.min(100, Math.round((stats.todayAnswered / goal) * 100));
+  const R = 34;
+  const C = 2 * Math.PI * R;
+
   return (
     <>
-      <PageHeader
-        title="Dashboard"
-        subtitle={hasData ? "Ihr Lernstand – berechnet aus Ihren gespeicherten Antworten." : "Schön, dass Sie da sind. Starten Sie mit einem Fallbeispiel oder einem kurzen Quiz."}
-        actions={
-          <Button size="lg" onClick={continueLearning}>
-            <PlayCircle className="h-5 w-5" aria-hidden /> {active ? "Sitzung fortsetzen" : "Weiterlernen"}
-          </Button>
-        }
-      />
-
-      {report.coverageVerified === false && (
-        <div className="mb-5">
-          <Notice tone="warn" title="Importstatus">
-            {report.pagesProcessed} von {report.pagesInPdf} PDF-Seiten per OCR verarbeitet · {report.questions} Aufgaben aus {report.cases} Fallbeispielen erkannt · {report.questionsVerified} Musterlösungen verifiziert. Die vollständige Abdeckung wurde <strong>nicht</strong> bestätigt.{" "}
-            <Link className="underline" href="/admin/">Details im Import-Bericht</Link>
-          </Notice>
-        </div>
-      )}
-
-      {!hasData && (
-        <Card className="mb-5 border-teal bg-tealsoft">
-          <h2 className="text-lg font-semibold">So starten Sie</h2>
-          <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm">
-            <li>Öffnen Sie ein <Link className="underline" href="/cases/">Fallbeispiel</Link> und lesen Sie die Originalsituation.</li>
-            <li>Bearbeiten Sie die Aufgaben unter <Link className="underline" href="/quiz/setup/">Quiz &amp; Prüfung</Link> – im Übungsmodus mit Sofort-Feedback.</li>
-            <li>Bewerten Sie offene Antworten selbst anhand der Musterlösung. Ihre Statistiken erscheinen hier automatisch.</li>
-          </ol>
-        </Card>
-      )}
-
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard icon={<ListChecks className="h-5 w-5" />} label="Importierte Aufgaben" value={stats.total} hint="aus dem Buch (OCR)" />
-        <StatCard icon={<CheckCircle2 className="h-5 w-5" />} label="Bearbeitet" value={stats.answered} hint={`${stats.remaining} offen`} />
-        <StatCard icon={<Target className="h-5 w-5" />} label="Trefferquote (Punkte)" value={stats.accuracy === null ? "–" : `${String(stats.accuracy).replace(".", ",")} %`} hint={stats.gradedAttempts ? `${stats.gradedAttempts} bewertete Antworten` : "noch keine bewerteten Antworten"} />
-        <StatCard icon={<Flame className="h-5 w-5" />} label="Lernserie" value={stats.streakDays ? `${stats.streakDays} Tag${stats.streakDays === 1 ? "" : "e"}` : "–"} hint={hasData ? `heute ${stats.todayAnswered} / Ziel ${goal}` : "beginnt mit der ersten Antwort"} />
-        <StatCard icon={<Clock className="h-5 w-5" />} label="Lernzeit" value={stats.studyTimeMs ? formatDuration(stats.studyTimeMs) : "–"} />
-        <StatCard icon={<BookOpenCheck className="h-5 w-5" />} label="Abgeschlossene Prüfungen" value={stats.completedExams} />
-        <StatCard icon={<Award className="h-5 w-5" />} label="Ø Prüfungsergebnis" value={stats.avgExamScore === null ? "–" : `${String(stats.avgExamScore).replace(".", ",")} %`} />
-        <StatCard icon={<Zap className="h-5 w-5" />} label="Fällige Wiederholungen" value={dueCount} hint="Leitner-System" />
-      </div>
-
-      {hasData && (
-        <Card className="mt-4">
-          <div className="flex items-center justify-between text-sm">
-            <span className="font-medium">Tagesziel</span>
-            <span className="tabular-nums text-muted">
-              {Math.min(stats.todayAnswered, goal)} / {goal} Aufgaben
-            </span>
+      <section className="scene-hero relative overflow-hidden rounded-3xl p-5 text-white shadow-md sm:p-7" style={{ background: "linear-gradient(135deg, #0f766e 0%, #14b8a6 60%, #38bdf8 100%)" }}>
+        <div className="flex items-center gap-4">
+          <div className="min-w-0 flex-1">
+            <p className="text-sm opacity-90">{hasData ? t("dash.hello") : t("dash.hello.new")} 👋</p>
+            <h1 className="mt-1 text-2xl font-bold leading-tight sm:text-3xl">Pflege Exam Pro</h1>
+            <button onClick={continueLearning} className="mt-4 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-base font-semibold text-teal-800 shadow-sm transition-transform active:scale-95">
+              <PlayCircle className="h-5 w-5" aria-hidden /> {active ? t("dash.resume") : t("dash.continue")}
+            </button>
           </div>
-          <Progress value={(stats.todayAnswered / goal) * 100} label="Tagesziel" className="mt-2" tone={stats.todayAnswered >= goal ? "ok" : "teal"} />
-        </Card>
-      )}
+          <div className="relative h-24 w-24 shrink-0" role="img" aria-label={`${t("dash.today")}: ${Math.min(stats.todayAnswered, goal)} ${t("dash.goalOf", goal)}`}>
+            <svg viewBox="0 0 80 80" className="h-full w-full -rotate-90">
+              <circle cx="40" cy="40" r={R} fill="none" stroke="rgba(255,255,255,.28)" strokeWidth="8" />
+              <circle cx="40" cy="40" r={R} fill="none" stroke="#fff" strokeWidth="8" strokeLinecap="round" strokeDasharray={C} strokeDashoffset={C * (1 - pct / 100)} style={{ transition: "stroke-dashoffset .8s ease" }} />
+            </svg>
+            <div className="absolute inset-0 flex flex-col items-center justify-center leading-tight">
+              <span className="text-xl font-bold tabular-nums">{Math.min(stats.todayAnswered, goal)}</span>
+              <span className="text-xs opacity-90">/ {goal}</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <h2 className="mb-3 mt-8 text-lg font-semibold">Schnellstart</h2>
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <QuickCard title="Quiz (10 Fragen)" text="Zufällige Aufgaben im Übungsmodus." onClick={() => launch(shuffleIds(bank.questions.map((q) => q.id)).slice(0, 10), "Schnellquiz")} />
-        <QuickCard title="Probeprüfung" text="Prüfungsnah mit Zeitlimit, Auswertung am Ende." onClick={() => router.push("/quiz/setup/?preset=mock")} />
-        <QuickCard title="Zufälliges Fallbeispiel" text="Ein kompletter Fall mit allen Aufgaben." onClick={randomCase} />
-        <QuickCard title={dueCount ? `${dueCount} fällige wiederholen` : "Fehler wiederholen"} text={dueCount ? "Nach Ihrem Wiederholungsplan." : "Ihre zuletzt falsch beantworteten Aufgaben."} onClick={() => router.push(dueCount ? "/quiz/setup/?preset=due" : "/quiz/setup/?preset=mistakes")} />
+      <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <Tile emoji="🩺" color="#0f766e" title={t("dash.tile.cases")} sub={t("dash.tile.cases.sub")} onClick={() => router.push("/cases/")} />
+        <Tile emoji="⚡" color="#7c3aed" title={t("dash.tile.quiz")} sub={t("dash.tile.quiz.sub")} onClick={() => launch(shuffleIds(bank.questions.map((q) => q.id)).slice(0, 10), "Schnellquiz")} />
+        <Tile emoji="⏱️" color="#c2410c" title={t("dash.tile.mock")} sub={t("dash.tile.mock.sub")} onClick={() => router.push("/quiz/setup/?preset=mock")} />
+        <Tile emoji="🔁" color="#be185d" title={dueCount ? `${dueCount} ${t("dash.tile.due")}` : t("dash.tile.mistakes")} sub={t("dash.tile.mistakes.sub")} onClick={() => router.push(dueCount ? "/quiz/setup/?preset=due" : "/quiz/setup/?preset=mistakes")} />
       </div>
 
-      <div className="mt-8 grid gap-5 lg:grid-cols-2">
-        <Card>
-          <h2 className="mb-1 flex items-center gap-2 font-semibold">
-            <AlertTriangle className="h-4 w-4 text-warn" aria-hidden /> Schwächste Themen
-          </h2>
-          <p className="mb-3 text-xs text-muted">App-generierte Empfehlung auf Basis Ihrer bewerteten Antworten (mind. 2 pro Kapitel).</p>
-          {weak.length === 0 ? (
-            <p className="text-sm text-muted">Noch nicht genug bewertete Antworten für eine Auswertung.</p>
-          ) : (
-            <ul className="space-y-3">
-              {weak.map((w) => (
-                <li key={w.chapterId}>
-                  <div className="flex justify-between text-sm">
-                    <Link className="hover:underline" href={`/library/?chapter=${w.chapterId}`}>{w.title}</Link>
-                    <span className="tabular-nums text-muted">{String(w.accuracy).replace(".", ",")} %</span>
-                  </div>
-                  <Progress value={w.accuracy ?? 0} tone="bad" label={w.title} className="mt-1" />
-                </li>
-              ))}
-            </ul>
+      <div className="mt-4 grid grid-cols-3 gap-3">
+        <MiniStat value={stats.answered} label={t("dash.stat.done")} />
+        <MiniStat value={stats.accuracy === null ? "–" : `${Math.round(stats.accuracy)} %`} label={t("dash.stat.accuracy")} />
+        <MiniStat value={stats.streakDays ? `🔥 ${stats.streakDays}` : "–"} label={t("dash.stat.streak")} />
+      </div>
+
+      <details className="group mt-6 rounded-2xl border border-line bg-surface">
+        <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between px-4 font-medium">
+          {t("dash.more")}
+          <span aria-hidden className="text-muted transition-transform group-open:rotate-180">⌄</span>
+        </summary>
+        <div className="space-y-5 border-t border-line p-4">
+          {report.coverageVerified === false && (
+            <Notice tone="warn" title="Importstatus">
+              {report.pagesProcessed} von {report.pagesInPdf} PDF-Seiten per OCR verarbeitet · {report.questions} Aufgaben aus {report.cases} Fallbeispielen erkannt · {report.questionsVerified} Musterlösungen verifiziert.{" "}
+              <Link className="underline" href="/admin/">Details</Link>
+            </Notice>
           )}
-        </Card>
-
-        <Card>
-          <h2 className="mb-3 flex items-center gap-2 font-semibold">
-            <TrendingUp className="h-4 w-4 text-teal" aria-hidden /> Fortschritt nach Kapitel
-          </h2>
-          <ul className="space-y-3">
-            {chStats.map((c) => (
-              <li key={c.chapterId}>
-                <div className="flex justify-between text-sm">
-                  <span>{c.title}</span>
-                  <span className="tabular-nums text-muted">
-                    {c.answered}/{c.total}
-                  </span>
-                </div>
-                <Progress value={(c.answered / c.total) * 100} label={c.title} className="mt-1" />
-              </li>
-            ))}
-          </ul>
-        </Card>
-
-        <Card>
-          <h2 className="mb-3 font-semibold">Letzte Lerneinheiten</h2>
-          {recent.length === 0 ? (
-            <p className="text-sm text-muted">Noch keine Sitzungen.</p>
-          ) : (
-            <ul className="divide-y divide-line text-sm">
-              {recent.map((l) => (
-                <li key={l.sessionId} className="flex items-center justify-between gap-3 py-2">
-                  <Link className="min-w-0 truncate hover:underline" href={`/quiz/results/?id=${l.sessionId}`}>{l.title}</Link>
-                  <span className="shrink-0 text-xs text-muted">
-                    {l.answered}/{l.total}
-                    {l.scorePercent !== null ? ` · ${String(l.scorePercent).replace(".", ",")} %` : ""}
-                    {!l.finishedAt && <Badge tone="warn" className="ml-2">offen</Badge>}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </Card>
-
-        <Card>
-          <h2 className="mb-3 font-semibold">Zuletzt falsch & Lesezeichen</h2>
-          {mistakes.length === 0 && bookmarked.length === 0 ? (
-            <p className="text-sm text-muted">Noch nichts vorhanden.</p>
-          ) : (
-            <ul className="space-y-2 text-sm">
-              {mistakes.map((a) => {
-                const q = bank.byId.get(a.questionId);
-                return q ? (
-                  <li key={a.id}>
-                    <Link className="flex gap-2 hover:underline" href={`/question/?id=${q.id}`}>
-                      <Badge tone="bad">Fehler</Badge>
-                      <span className="line-clamp-1">{q.text}</span>
-                    </Link>
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            <StatCard icon={<ListChecks className="h-5 w-5" />} label="Aufgaben" value={stats.total} hint={`${stats.remaining} offen`} />
+            <StatCard icon={<Clock className="h-5 w-5" />} label="Lernzeit" value={stats.studyTimeMs ? formatDuration(stats.studyTimeMs) : "–"} />
+            <StatCard icon={<BookOpenCheck className="h-5 w-5" />} label="Prüfungen" value={stats.completedExams} />
+            <StatCard icon={<Award className="h-5 w-5" />} label="Ø Prüfung" value={stats.avgExamScore === null ? "–" : `${String(stats.avgExamScore).replace(".", ",")} %`} />
+          </div>
+          <div className="grid gap-5 lg:grid-cols-2">
+            <div>
+              <h2 className="mb-2 flex items-center gap-2 text-sm font-semibold">
+                <AlertTriangle className="h-4 w-4 text-warn" aria-hidden /> Schwächste Themen
+              </h2>
+              {weak.length === 0 ? (
+                <p className="text-sm text-muted">Noch nicht genug bewertete Antworten.</p>
+              ) : (
+                <ul className="space-y-3">
+                  {weak.map((w) => (
+                    <li key={w.chapterId}>
+                      <div className="flex justify-between text-sm">
+                        <Link className="hover:underline" href={`/library/?chapter=${w.chapterId}`}>{w.title}</Link>
+                        <span className="tabular-nums text-muted">{String(w.accuracy).replace(".", ",")} %</span>
+                      </div>
+                      <Progress value={w.accuracy ?? 0} tone="bad" label={w.title} className="mt-1" />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <div>
+              <h2 className="mb-2 flex items-center gap-2 text-sm font-semibold">
+                <TrendingUp className="h-4 w-4 text-teal" aria-hidden /> Fortschritt nach Kapitel
+              </h2>
+              <ul className="space-y-3">
+                {chStats.map((c) => (
+                  <li key={c.chapterId}>
+                    <div className="flex justify-between text-sm">
+                      <span>{c.title}</span>
+                      <span className="tabular-nums text-muted">{c.answered}/{c.total}</span>
+                    </div>
+                    <Progress value={(c.answered / c.total) * 100} label={c.title} className="mt-1" />
                   </li>
-                ) : null;
-              })}
-              {bookmarked.map((q) => (
-                <li key={q.id}>
-                  <Link className="flex gap-2 hover:underline" href={`/question/?id=${q.id}`}>
-                    <Badge tone="teal">Merk</Badge>
-                    <span className="line-clamp-1">{q.text}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </Card>
-      </div>
-      <p className="mt-6 text-xs text-muted">Alle Werte stammen aus den lokal gespeicherten Daten dieses Browsers (keine Demo-Werte).</p>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="mb-2 text-sm font-semibold">Letzte Lerneinheiten</h2>
+              {recent.length === 0 ? (
+                <p className="text-sm text-muted">Noch keine Sitzungen.</p>
+              ) : (
+                <ul className="divide-y divide-line text-sm">
+                  {recent.map((l) => (
+                    <li key={l.sessionId} className="flex items-center justify-between gap-3 py-2">
+                      <Link className="min-w-0 truncate hover:underline" href={`/quiz/results/?id=${l.sessionId}`}>{l.title}</Link>
+                      <span className="shrink-0 text-xs text-muted">
+                        {l.answered}/{l.total}
+                        {l.scorePercent !== null ? ` · ${String(l.scorePercent).replace(".", ",")} %` : ""}
+                        {!l.finishedAt && <Badge tone="warn" className="ml-2">offen</Badge>}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <div>
+              <h2 className="mb-2 text-sm font-semibold">Zuletzt falsch & Lesezeichen</h2>
+              {mistakes.length === 0 && bookmarked.length === 0 ? (
+                <p className="text-sm text-muted">Noch nichts vorhanden.</p>
+              ) : (
+                <ul className="space-y-2 text-sm">
+                  {mistakes.map((a) => {
+                    const q = bank.byId.get(a.questionId);
+                    return q ? (
+                      <li key={a.id}>
+                        <Link className="flex gap-2 hover:underline" href={`/question/?id=${q.id}`}>
+                          <Badge tone="bad">Fehler</Badge>
+                          <span className="line-clamp-1">{q.text}</span>
+                        </Link>
+                      </li>
+                    ) : null;
+                  })}
+                  {bookmarked.map((q) => (
+                    <li key={q.id}>
+                      <Link className="flex gap-2 hover:underline" href={`/question/?id=${q.id}`}>
+                        <Badge tone="teal">Merk</Badge>
+                        <span className="line-clamp-1">{q.text}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+          <Button variant="ghost" size="sm" onClick={randomCase}>🎲 Zufälliges Fallbeispiel</Button>
+        </div>
+      </details>
     </>
   );
 }
@@ -237,11 +231,23 @@ function shuffleIds(ids: string[]) {
   return a;
 }
 
-function QuickCard({ title, text, onClick }: { title: string; text: string; onClick: () => void }) {
+function Tile({ emoji, color, title, sub, onClick }: { emoji: string; color: string; title: string; sub: string; onClick: () => void }) {
   return (
-    <button onClick={onClick} className="rounded-2xl border border-line bg-surface p-4 text-left transition-colors hover:border-teal hover:bg-tealsoft">
-      <span className="block font-semibold">{title}</span>
-      <span className="mt-1 block text-sm text-muted">{text}</span>
+    <button onClick={onClick} className="flex min-h-[7.5rem] flex-col items-start justify-between rounded-2xl border border-line bg-surface p-4 text-start shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[.98]">
+      <span aria-hidden className="flex h-11 w-11 items-center justify-center rounded-xl text-2xl text-white" style={{ background: color }}>{emoji}</span>
+      <span>
+        <span className="block font-semibold leading-tight">{title}</span>
+        <span className="mt-0.5 block text-xs text-muted">{sub}</span>
+      </span>
     </button>
+  );
+}
+
+function MiniStat({ value, label }: { value: React.ReactNode; label: string }) {
+  return (
+    <div className="rounded-2xl border border-line bg-surface p-3 text-center">
+      <div className="text-xl font-bold tabular-nums">{value}</div>
+      <div className="text-[11px] text-muted">{label}</div>
+    </div>
   );
 }

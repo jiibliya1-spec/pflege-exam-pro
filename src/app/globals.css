@@ -140,3 +140,23 @@ main p, main pre, main li, main h1, main h2, main h3, main td, main th, main lab
 /* Tabellen im Fließtext nie breiter als der Bildschirm */
 .prose-de table { max-width: 100%; }
 .prose-de td, .prose-de th { hyphens: auto; }
+
+/* Wörterbuch-Sprechblase */
+.gloss-pop { animation: gloss-in .18s ease-out; }
+@keyframes gloss-in { from { opacity: 0; transform: translateY(2px) scale(.96); } to { opacity: 1; transform: none; } }
+
+/* Fall-Szenen */
+.scene-pop, .scene-step, .scene-problem { opacity: 0; animation: scene-in .5s ease-out forwards; }
+.scene-pop { animation-name: scene-pop; animation-duration: .45s; }
+.scene-float { display: inline-block; animation: scene-float 3s ease-in-out infinite; }
+.scene-problem { animation-name: scene-in, scene-pulse; animation-duration: .5s, 2.4s; animation-delay: inherit; animation-iteration-count: 1, 2; }
+@keyframes scene-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes scene-pop { from { opacity: 0; transform: scale(.7); } to { opacity: 1; transform: none; } }
+@keyframes scene-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes scene-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); } 50% { box-shadow: 0 0 0 6px rgba(245, 158, 11, .25); } }
+@media (prefers-reduced-motion: reduce) {
+  .scene-pop, .scene-step, .scene-problem { opacity: 1; animation: none; }
+  .scene-float { animation: none; }
+}
+.no-motion .scene-pop, .no-motion .scene-step, .no-motion .scene-problem { opacity: 1; animation: none; }
+.no-motion .scene-float { animation: none; }

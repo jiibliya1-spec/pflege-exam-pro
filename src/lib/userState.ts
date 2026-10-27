@@ -51,7 +51,7 @@ export function emptyState(): UserState {
 
 const settingsSchema = z.object({
   theme: z.enum(["light", "dark", "system"]),
-  uiLanguage: z.enum(["de", "de-ar"]),
+  uiLanguage: z.enum(["de", "ar", "en", "fr", "tr", "de-ar"]),
   defaultMode: z.enum(["practice", "mock", "chapter", "custom", "mistakes", "bookmarks", "case", "due"]),
   defaultQuestionCount: z.number().int().min(1).max(1000),
   defaultTimeLimitMin: z.number().min(0).max(600),

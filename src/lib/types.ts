@@ -262,7 +262,7 @@ export interface QuestionUserData {
 
 export interface Settings {
   theme: "light" | "dark" | "system";
-  uiLanguage: "de" | "de-ar";
+  uiLanguage: "de" | "ar" | "en" | "fr" | "tr" | "de-ar";
   defaultMode: ExamMode;
   defaultQuestionCount: number;
   defaultTimeLimitMin: number;

@@ -25,10 +25,12 @@ import {
 } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { useBank } from "@/lib/bank";
+import { useT } from "@/lib/i18n";
 import { cn, Dialog, Input, Notice } from "./ui";
 
 interface NavItem {
   href: string;
+  key: string;
   de: string;
   ar: string;
   icon: ReactNode;
@@ -36,18 +38,18 @@ interface NavItem {
 }
 
 export const NAV: NavItem[] = [
-  { href: "/", de: "Dashboard", ar: "لوحة التحكم", icon: <LayoutDashboard className="h-5 w-5" />, mobile: true },
-  { href: "/library/", de: "Fragenbank", ar: "بنك الأسئلة", icon: <Library className="h-5 w-5" />, mobile: true },
-  { href: "/cases/", de: "Fallbeispiele", ar: "الحالات السريرية", icon: <Stethoscope className="h-5 w-5" />, mobile: true },
-  { href: "/quiz/setup/", de: "Quiz & Prüfung", ar: "اختبار وامتحان", icon: <PlayCircle className="h-5 w-5" />, mobile: true },
-  { href: "/chapters/", de: "Kapitel", ar: "الفصول", icon: <BookOpen className="h-5 w-5" /> },
-  { href: "/flashcards/", de: "Karteikarten", ar: "البطاقات التعليمية", icon: <Layers className="h-5 w-5" /> },
-  { href: "/mistakes/", de: "Fehler", ar: "أخطائي", icon: <RotateCcw className="h-5 w-5" /> },
-  { href: "/bookmarks/", de: "Lesezeichen", ar: "المحفوظات", icon: <Bookmark className="h-5 w-5" /> },
-  { href: "/progress/", de: "Fortschritt", ar: "التقدّم", icon: <BarChart3 className="h-5 w-5" /> },
-  { href: "/source/", de: "Quelle (PDF)", ar: "المصدر", icon: <FileText className="h-5 w-5" /> },
-  { href: "/admin/", de: "Import & Qualität", ar: "الاستيراد والمراجعة", icon: <ShieldCheck className="h-5 w-5" /> },
-  { href: "/settings/", de: "Einstellungen", ar: "الإعدادات", icon: <Settings className="h-5 w-5" /> },
+  { href: "/", key: "nav.dashboard", de: "Dashboard", ar: "لوحة التحكم", icon: <LayoutDashboard className="h-5 w-5" />, mobile: true },
+  { href: "/library/", key: "nav.library", de: "Fragenbank", ar: "بنك الأسئلة", icon: <Library className="h-5 w-5" />, mobile: true },
+  { href: "/cases/", key: "nav.cases", de: "Fallbeispiele", ar: "الحالات السريرية", icon: <Stethoscope className="h-5 w-5" />, mobile: true },
+  { href: "/quiz/setup/", key: "nav.quiz", de: "Quiz & Prüfung", ar: "اختبار وامتحان", icon: <PlayCircle className="h-5 w-5" />, mobile: true },
+  { href: "/chapters/", key: "nav.chapters", de: "Kapitel", ar: "الفصول", icon: <BookOpen className="h-5 w-5" /> },
+  { href: "/flashcards/", key: "nav.flashcards", de: "Karteikarten", ar: "البطاقات التعليمية", icon: <Layers className="h-5 w-5" /> },
+  { href: "/mistakes/", key: "nav.mistakes", de: "Fehler", ar: "أخطائي", icon: <RotateCcw className="h-5 w-5" /> },
+  { href: "/bookmarks/", key: "nav.bookmarks", de: "Lesezeichen", ar: "المحفوظات", icon: <Bookmark className="h-5 w-5" /> },
+  { href: "/progress/", key: "nav.progress", de: "Fortschritt", ar: "التقدّم", icon: <BarChart3 className="h-5 w-5" /> },
+  { href: "/source/", key: "nav.source", de: "Quelle (PDF)", ar: "المصدر", icon: <FileText className="h-5 w-5" /> },
+  { href: "/admin/", key: "nav.admin", de: "Import & Qualität", ar: "الاستيراد والمراجعة", icon: <ShieldCheck className="h-5 w-5" /> },
+  { href: "/settings/", key: "nav.settings", de: "Einstellungen", ar: "الإعدادات", icon: <Settings className="h-5 w-5" /> },
 ];
 
 function isActive(pathname: string, href: string) {
@@ -57,13 +59,13 @@ function isActive(pathname: string, href: string) {
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const { state, dispatch, persistenceError, warnings, ready } = useStore();
+  const { dispatch, persistenceError, warnings, ready } = useStore();
   const [menuPath, setMenuPath] = useState<string | null>(null);
   const menuOpen = menuPath === pathname;
   const setMenuOpen = (v: boolean) => setMenuPath(v ? pathname : null);
   const [searchOpen, setSearchOpen] = useState(false);
   const router = useRouter();
-  const ar = state.settings.uiLanguage === "de-ar";
+  const t = useT();
   const mainRef = useRef<HTMLElement>(null);
 
   // Fokus auf Hauptbereich nach Seitenwechsel (Barrierefreiheit)
@@ -113,14 +115,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             )}
           >
             {n.icon}
-            <span className="flex flex-col leading-tight">
-              <span>{n.de}</span>
-              {ar && (
-                <span dir="rtl" lang="ar" className="text-xs font-normal text-white/70">
-                  {n.ar}
-                </span>
-              )}
-            </span>
+            <span>{t(n.key)}</span>
           </Link>
         );
       })}
@@ -160,10 +155,10 @@ export function AppShell({ children }: { children: ReactNode }) {
           <button
             onClick={() => setSearchOpen(true)}
             className="ml-auto flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-xl border border-line bg-surface text-sm text-muted hover:border-teal sm:w-full sm:max-w-md sm:justify-start sm:px-3 md:ml-0"
-            aria-label="Globale Suche öffnen"
+            aria-label={t("search.open")}
           >
             <Search className="h-4 w-4" aria-hidden />
-            <span className="hidden flex-1 text-left sm:inline">Fragen, Fälle, Seiten suchen …</span>
+            <span className="hidden flex-1 text-left sm:inline">{t("search.placeholder")}</span>
             <kbd className="hidden rounded border border-line px-1.5 text-xs sm:inline">Strg K</kbd>
           </button>
           <button className="rounded-lg p-2 hover:bg-surface2 sm:ml-auto" aria-label={dark ? "Helles Design" : "Dunkles Design"} onClick={toggleTheme}>
@@ -198,13 +193,13 @@ export function AppShell({ children }: { children: ReactNode }) {
           return (
             <Link key={n.href} href={n.href} aria-current={active ? "page" : undefined} className={cn("flex min-h-14 flex-col items-center justify-center gap-0.5 py-2 text-[11px] font-medium", active ? "text-teal" : "text-muted")}>
               {n.icon}
-              {n.de.split(" ")[0]}
+              {n.href === "/" ? t("nav.dashboard") : t(`nav.short.${n.href.split("/")[1] === "quiz" ? "quiz" : n.href.split("/")[1]}`)}
             </Link>
           );
         })}
         <button onClick={() => setMenuOpen(true)} className="flex min-h-14 flex-col items-center justify-center gap-0.5 py-2 text-[11px] font-medium text-muted">
           <Menu className="h-5 w-5" />
-          Mehr
+          {t("nav.more")}
         </button>
       </nav>
 

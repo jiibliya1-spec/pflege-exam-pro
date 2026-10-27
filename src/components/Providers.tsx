@@ -3,6 +3,7 @@
 import { useEffect, type ReactNode } from "react";
 import { StoreProvider, useStore } from "@/lib/store";
 import { BankProvider } from "@/lib/bank";
+import { LANGS, normalizeLang } from "@/lib/i18n";
 import { ToastProvider } from "./Toast";
 import { AppShell } from "./AppShell";
 
@@ -37,8 +38,10 @@ function SettingsEffects({ children }: { children: ReactNode }) {
   }, [reducedMotion, animations]);
 
   useEffect(() => {
-    document.documentElement.lang = "de";
-    document.documentElement.dataset.ui = uiLanguage;
+    const lang = normalizeLang(uiLanguage);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = LANGS.find((l) => l.id === lang)?.dir ?? "ltr";
+    document.documentElement.dataset.ui = lang;
   }, [uiLanguage]);
 
   return <>{children}</>;

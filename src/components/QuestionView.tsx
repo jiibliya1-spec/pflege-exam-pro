@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { BookMarked, CheckCircle2, FileText, XCircle } from "lucide-react";
+import { BookMarked, CheckCircle2, FileText, Languages, XCircle } from "lucide-react";
+import { LANGS, useLang, useT } from "@/lib/i18n";
 import type { CaseStudy, ChoiceOption, Question, SessionAnswer } from "@/lib/types";
 import { TYPE_LABELS } from "@/lib/exam";
 import { isChoice, maxPoints, type GradeResult } from "@/lib/grading";
@@ -51,6 +52,19 @@ export function QuestionText({ q, hideTable }: { q: Question; hideTable?: boolea
   );
 }
 
+export function TranslateLink({ text }: { text: string }) {
+  const lang = useLang();
+  const t = useT();
+  if (lang === "de" || !text) return null;
+  const g = LANGS.find((l) => l.id === lang)!.google;
+  const href = `https://translate.google.com/?sl=de&tl=${g}&op=translate&text=${encodeURIComponent(text.slice(0, 4500))}`;
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-full border border-teal/40 px-2.5 py-1 text-xs font-medium text-teal hover:bg-teal/10">
+      <Languages className="h-3.5 w-3.5" aria-hidden /> {t("tr.button")}
+    </a>
+  );
+}
+
 export function CaseNarrative({ c, compact }: { c: CaseStudy; compact?: boolean }) {
   return (
     <section aria-label={`Fallsituation ${c.title}`} className={cn("rounded-2xl border border-line bg-surface2 p-4", compact && "max-h-[70vh] overflow-y-auto")}>
@@ -74,6 +88,11 @@ export function CaseNarrative({ c, compact }: { c: CaseStudy; compact?: boolean 
             </>
           )}
         </p>
+      )}
+      {c.narrative && (
+        <div className="mb-2">
+          <TranslateLink text={c.narrative} />
+        </div>
       )}
       {c.narrative ? <RichText text={c.narrative} className="text-sm" /> : <Notice>Die Fallsituation konnte nicht extrahiert werden. Bitte die Quellseite öffnen.</Notice>}
       {c.footnote && <p className="mt-2 text-xs text-muted">{c.footnote}</p>}

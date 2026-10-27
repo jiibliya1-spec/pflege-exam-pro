@@ -2,12 +2,13 @@ import { Fragment } from "react";
 import { cn } from "./ui";
 import { parseAnswerTable, parseQuestionTable } from "@/lib/tables";
 import { AnswerTableView, QuestionTableView } from "./TableView";
+import { GlossText } from "./Gloss";
 
 /**
  * Stellt bereinigten Buchtext dar: Absätze, Aufzählungen ("•", "–") und Tabellenblöcke
  * ("⟦Tabelle⟧ … ⟦/Tabelle⟧" bzw. "[Tabelle: …]"). Der Text selbst wird nie verändert.
  */
-function Lines({ lines }: { lines: string[] }) {
+function Lines({ lines, seen }: { lines: string[]; seen: Set<string> }) {
   const out: React.ReactNode[] = [];
   let list: { sub: boolean; text: string }[] = [];
   const flush = () => {
@@ -16,7 +17,7 @@ function Lines({ lines }: { lines: string[] }) {
       <ul key={`ul${out.length}`} className="my-1.5 space-y-1">
         {list.map((li, i) => (
           <li key={i} className={cn("relative pl-4 before:absolute before:left-0 before:content-['•']", li.sub && "ml-4 before:content-['–']")}>
-            {li.text}
+            <GlossText text={li.text} seen={seen} />
           </li>
         ))}
       </ul>
@@ -28,7 +29,7 @@ function Lines({ lines }: { lines: string[] }) {
     if (!para.length) return;
     out.push(
       <p key={`p${out.length}`} className="my-1.5">
-        {para.join(" ")}
+        <GlossText text={para.join(" ")} seen={seen} />
       </p>
     );
     para = [];
@@ -62,6 +63,7 @@ function Lines({ lines }: { lines: string[] }) {
 }
 
 export function RichText({ text, className, hideTables }: { text: string; className?: string; hideTables?: boolean }) {
+  const seen = new Set<string>();
   const parts = text.split(/(⟦Tabelle⟧[\s\S]*?⟦\/Tabelle⟧|\[Tabelle:[\s\S]*?\])/g);
   return (
     <div className={cn("prose-de", className)}>
@@ -73,7 +75,7 @@ export function RichText({ text, className, hideTables }: { text: string; classN
           return (
             <div key={i} className="my-2 rounded-lg border border-line bg-surface2 p-3 text-[0.95em]">
               <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted">Tabelle (aus dem Buch)</p>
-              <Lines lines={inner.split("\n")} />
+              <Lines lines={inner.split("\n")} seen={seen} />
             </div>
           );
         }
@@ -89,7 +91,7 @@ export function RichText({ text, className, hideTables }: { text: string; classN
         }
         return (
           <Fragment key={i}>
-            <Lines lines={part.split("\n")} />
+            <Lines lines={part.split("\n")} seen={seen} />
           </Fragment>
         );
       })}

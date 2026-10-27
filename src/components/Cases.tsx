@@ -7,12 +7,15 @@ import { FileText, PlayCircle, Stethoscope } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { useBank } from "@/lib/bank";
 import { latestAttempts } from "@/lib/stats";
-import { Badge, Card, EmptyState, LinkButton, Notice, PageHeader, Progress, Spinner, cn } from "./ui";
+import { Card, EmptyState, LinkButton, Notice, PageHeader, Progress, Spinner, cn } from "./ui";
 import { CaseNarrative, GradeBadge, ModelAnswerBox, QuestionMeta, QuestionText } from "./QuestionView";
 import { gradeQuestion } from "@/lib/grading";
+import { CaseScene, PlaceBadge } from "./CaseScene";
+import { useT } from "@/lib/i18n";
 import { summarize } from "@/lib/grading";
 
 export function CaseList() {
+  const t = useT();
   const bank = useBank();
   const { state } = useStore();
   const latest = useMemo(() => latestAttempts(state.attempts), [state.attempts]);
@@ -27,12 +30,10 @@ export function CaseList() {
   const groups = bank.chapters.filter((ch) => bank.cases.some((c) => c.chapterId === ch.id));
   return (
     <>
-      <PageHeader title="Fallbeispiele" subtitle="Jedes Fallbeispiel bleibt mit seiner Originalsituation und allen zugehörigen Aufgaben zusammen." crumbs={[{ label: "Start", href: "/" }, { label: "Fallbeispiele" }]} />
+      <PageHeader title={t("cases.title")} crumbs={[{ label: "Start", href: "/" }, { label: "Fallbeispiele" }]} />
       {groups.map((ch) => (
         <section key={ch.id} className="mb-8">
-          <h2 className="mb-3 text-lg font-semibold">
-            {ch.number} {ch.title}
-          </h2>
+          <h2 className="mb-3 text-lg font-semibold">{ch.id.startsWith("k3") ? t("cases.oral") : t("cases.written")}</h2>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {bank.cases
               .filter((c) => c.chapterId === ch.id)
@@ -41,17 +42,20 @@ export function CaseList() {
                 const done = qs.filter((q) => latest.has(q.id)).length;
                 return (
                   <Link key={c.id} href={`/cases/view/?id=${c.id}`} className="group block">
-                    <Card className="h-full transition-colors group-hover:border-teal">
-                      <div className="flex items-start justify-between gap-2">
-                        <h3 className="font-semibold">{c.title}</h3>
-                        {c.extraction.status === "review" && <Badge tone="warn">prüfen</Badge>}
+                    <Card className="h-full transition-all group-hover:-translate-y-0.5 group-hover:border-teal group-hover:shadow-md">
+                      <div className="flex items-start gap-3">
+                        <PlaceBadge caseId={c.id} />
+                        <div className="min-w-0 flex-1">
+                          <h3 className="font-semibold leading-snug">{c.title}</h3>
+                          <p className="mt-0.5 text-xs text-muted">
+                            {qs.length} {t("cases.tasks")}
+                            {c.extraction.status === "review" ? " · ⚠️" : ""}
+                          </p>
+                        </div>
                       </div>
-                      <p className="mt-1 text-xs text-muted">
-                        {qs.length} Aufgaben{c.totalPoints ? ` · ${String(c.totalPoints).replace(".", ",")} P. erkannt` : ""} · Buch S. {c.source.printedPage ?? c.source.pdfPage}
-                      </p>
                       <Progress value={qs.length ? (done / qs.length) * 100 : 0} label={`${c.title}: Fortschritt`} className="mt-3" />
                       <p className="mt-1 text-xs text-muted">
-                        {done} von {qs.length} bearbeitet
+                        {done} / {qs.length} {t("cases.done")}
                       </p>
                     </Card>
                   </Link>
@@ -70,6 +74,7 @@ export function CaseList() {
 }
 
 export function CaseView() {
+  const t = useT();
   const id = useSearchParams().get("id") ?? "";
   const bank = useBank();
   const { state } = useStore();
@@ -131,7 +136,13 @@ export function CaseView() {
       )}
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div className="lg:sticky lg:top-20 lg:self-start">
-          <CaseNarrative c={c} compact />
+          <CaseScene caseId={c.id} />
+          <details className="mt-4 rounded-2xl border border-line bg-surface">
+            <summary className="flex min-h-12 cursor-pointer items-center px-4 font-medium">📖 {t("scene.original")}</summary>
+            <div className="p-2">
+              <CaseNarrative c={c} compact />
+            </div>
+          </details>
           <Card className="mt-4 text-sm">
             <h3 className="font-semibold">Fallübersicht</h3>
             <dl className="mt-2 grid grid-cols-2 gap-1 text-muted">
