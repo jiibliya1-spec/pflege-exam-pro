@@ -3,6 +3,11 @@
  * Das sind Lernhilfen der App in einfachem Deutsch – KEIN Buchtext. Sie ersetzen kein Lehrbuch;
  * Anordnungen, Dosierungen und Hausstandards des Betriebs gehen immer vor.
  */
+import { KRANK_PLUS } from "./lessonsPlusKrank";
+import { AUSBILDUNG_PLUS } from "./lessonsPlusAusbildung";
+import { NEW_LESSONS_1 } from "./lessonsNew1";
+import { NEW_LESSONS_2 } from "./lessonsNew2";
+
 export type LessonGroup = "krank" | "ausbildung";
 
 export interface LessonBlock {
@@ -34,16 +39,23 @@ export const AREAS: Record<LessonGroup, { id: string; label: string; emoji: stri
     { id: "niere", label: "Niere und Harnwege", emoji: "💧" },
     { id: "psyche", label: "Psyche", emoji: "💭" },
     { id: "infektion", label: "Infektionen", emoji: "🦠" },
+    { id: "notfall", label: "Notfälle", emoji: "🚨" },
+    { id: "haut", label: "Haut und Wunden", emoji: "🩹" },
+    { id: "schmerz", label: "Schmerz und Palliativ", emoji: "🕊️" },
   ],
   ausbildung: [
     { id: "start", label: "Ausbildung und Prüfung", emoji: "🎓" },
     { id: "pflege", label: "Pflegen und Vorbeugen", emoji: "🛏️" },
     { id: "kommunikation", label: "Kommunikation", emoji: "💬" },
     { id: "recht", label: "Recht und Verantwortung", emoji: "⚖️" },
+    { id: "qualitaet", label: "Qualität und Standards", emoji: "📊" },
+    { id: "ethik", label: "Ethik und Beruf", emoji: "🧭" },
+    { id: "gesundheit", label: "Gesundheit der Pflegenden", emoji: "💪" },
+    { id: "system", label: "Gesundheitswesen", emoji: "🏛️" },
   ],
 };
 
-export const LESSONS: Lesson[] = [
+const BASE_LESSONS: Lesson[] = [
   // ───────── Krankheitslehre ─────────
   {
     id: "hypertonie", group: "krank", area: "herz", title: "Bluthochdruck (Hypertonie)", emoji: "🩺",
@@ -364,6 +376,28 @@ export const LESSONS: Lesson[] = [
     ],
   },
 ];
+
+const PLUS: Record<string, LessonBlock[]> = { ...KRANK_PLUS, ...AUSBILDUNG_PLUS };
+
+function withPlus(l: Lesson): Lesson {
+  const extra = PLUS[l.id];
+  if (!extra) return l;
+  const seen = new Set(l.blocks.map((b) => b.h));
+  const add = extra.map((b) => {
+    let h = b.h;
+    while (seen.has(h)) h += " (Vertiefung)";
+    seen.add(h);
+    return { ...b, h };
+  });
+  return { ...l, blocks: [...l.blocks, ...add] };
+}
+
+const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2];
+
+/** Sortiert nach Gruppe und Reihenfolge der Bereiche, damit Weiter/Zurück sinnvoll ist. */
+export const LESSONS: Lesson[] = (["krank", "ausbildung"] as LessonGroup[]).flatMap((g) =>
+  AREAS[g].flatMap((a) => ALL.filter((l) => l.group === g && l.area === a.id)),
+);
 
 export function lessonById(id: string): Lesson | undefined {
   return LESSONS.find((l) => l.id === id);
