@@ -9,6 +9,7 @@ import { RECHT_LESSONS } from "./lessonsRecht";
 import { BUCH_KRANK_1 } from "./lessonsBuchKrank1";
 import { BUCH_KRANK_2 } from "./lessonsBuchKrank2";
 import { BUCH_PFLEGE } from "./lessonsBuchPflege";
+import { ASSESSMENT_LESSONS } from "./lessonsAssessment";
 import { AUSBILDUNG_PLUS } from "./lessonsPlusAusbildung";
 import { NEW_LESSONS_1 } from "./lessonsNew1";
 import { NEW_LESSONS_2 } from "./lessonsNew2";
@@ -70,6 +71,7 @@ export const AREAS: Record<LessonGroup, { id: string; label: string; icon: strin
     { id: "lebensphasen", label: "Lebensphasen", icon: "Sprout" },
     { id: "therapie", label: "Therapie und besondere Situationen", icon: "Hospital" },
     { id: "konzepte", label: "Pflegekonzepte", icon: "HandHelping" },
+    { id: "assessment", label: "Assessment und Einschätzung", icon: "ClipboardCheck" },
   ],
 };
 
@@ -427,7 +429,7 @@ function withExtra(l: Lesson): Lesson {
 /** Doppelte Kurzfassungen, deren Inhalt in den ausführlichen Lektionen steckt. */
 const DROP = new Set(["b-hygiene", "b-prophylaxen", "b-beobachtung-vital"]);
 
-const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2, ...MODELLE_LESSONS, ...RECHT_LESSONS, ...BUCH_KRANK_1, ...BUCH_KRANK_2, ...BUCH_PFLEGE]
+const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2, ...MODELLE_LESSONS, ...RECHT_LESSONS, ...BUCH_KRANK_1, ...BUCH_KRANK_2, ...BUCH_PFLEGE, ...ASSESSMENT_LESSONS]
   .filter((l) => !DROP.has(l.id))
   .map(withExtra);
 

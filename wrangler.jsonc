@@ -1,9 +1,20 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "pflege-exam-pro",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-10-19",
   "assets": {
     "directory": "./out",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // Jede Anfrage läuft zuerst durch den Worker (Lizenzprüfung), auch JS- und Daten-Dateien.
+    "run_worker_first": true
+  },
+  // Wird beim Deploy automatisch angelegt (Zugangscodes und Bestellungen).
+  "kv_namespaces": [{ "binding": "LICENSES" }],
+  "vars": {
+    "MAX_DEVICES": "2",
+    "SESSION_DAYS": "30",
+    "BUY_URL": ""
   }
 }
