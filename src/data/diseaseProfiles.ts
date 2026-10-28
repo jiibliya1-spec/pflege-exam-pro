@@ -1,8 +1,10 @@
 import type { Lang } from "@/lib/i18n";
 import { P1 } from "./prof/p1";
 import { P2 } from "./prof/p2";
+import { P3 } from "./prof/p3";
 import { AR_P1 } from "./tr/prof/ar1";
 import { AR_P2 } from "./tr/prof/ar2";
+import { AR_P3 } from "./tr/prof/ar3";
 
 /** Krankheitsprofil: einheitliche Gliederung für jede Krankheits-Lektion. */
 export interface Profile {
@@ -16,9 +18,9 @@ export interface Profile {
 }
 export const PROFILE_KEYS = ["sym", "urs", "risk", "ther", "pfl"] as const;
 
-export const PROFILES: Record<string, Profile> = { ...P1, ...P2 };
+export const PROFILES: Record<string, Profile> = { ...P1, ...P2, ...P3 };
 
-const TR: Partial<Record<Lang, Record<string, Profile>>> = { ar: { ...AR_P1, ...AR_P2 } };
+const TR: Partial<Record<Lang, Record<string, Profile>>> = { ar: { ...AR_P1, ...AR_P2, ...AR_P3 } };
 
 export function profileFor(id: string, lang: Lang): { p: Profile; translated: boolean } | null {
   const de = PROFILES[id];
