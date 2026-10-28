@@ -11,6 +11,7 @@ import { Card, EmptyState, LinkButton, PageHeader, Progress, Spinner, cn } from 
 import { CaseNarrative, GradeBadge, ModelAnswerBox, QuestionMeta, QuestionText } from "./QuestionView";
 import { gradeQuestion } from "@/lib/grading";
 import { CaseScene, PlaceBadge } from "./CaseScene";
+import { OperatorHint } from "./Oral";
 import { useT } from "@/lib/i18n";
 import { Icon } from "./Icon";
 import { summarize } from "@/lib/grading";
@@ -146,6 +147,7 @@ export function CaseView() {
                   {a && <GradeBadge g={{ questionId: q.id, status: a.gradedBy === "none" ? "ungraded" : "graded", pointsMax: a.pointsMax, pointsAwarded: a.pointsAwarded, gradedBy: a.gradedBy, correct: a.correct, scorable: a.gradedBy !== "none" }} />}
                 </div>
                 <QuestionText q={q} />
+                {c.kind === "oral" && <OperatorHint text={q.text} />}
                 <div className="flex flex-wrap gap-2">
                   <button className={cn("rounded-lg border border-line px-3 py-1.5 text-sm hover:bg-surface2")} onClick={() => setShowAns((s) => ({ ...s, [q.id]: !s[q.id] }))} aria-expanded={!!showAns[q.id]}>
                     {showAns[q.id] ? "Musterlösung ausblenden" : "Musterlösung anzeigen"}

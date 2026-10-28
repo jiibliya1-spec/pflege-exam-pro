@@ -17,10 +17,12 @@ import {
   Settings,
   Stethoscope,
   Sun,
+  Mic,
   X,
 } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { useBank } from "@/lib/bank";
+import { searchLessons } from "@/lib/lessonSearch";
 import { useT } from "@/lib/i18n";
 import { cn, Dialog, Input, Notice } from "./ui";
 
@@ -37,6 +39,7 @@ export const NAV: NavItem[] = [
   { href: "/", key: "nav.dashboard", de: "Dashboard", ar: "لوحة التحكم", icon: <LayoutDashboard className="h-5 w-5" />, mobile: true },
   { href: "/learn/", key: "nav.learn", de: "Lernen", ar: "دروس", icon: <BookOpen className="h-5 w-5" />, mobile: true },
   { href: "/cases/", key: "nav.cases", de: "Fallbeispiele", ar: "الحالات السريرية", icon: <Stethoscope className="h-5 w-5" />, mobile: true },
+  { href: "/oral/", key: "nav.oral", de: "Mündliche Prüfung", ar: "الامتحان الشفوي", icon: <Mic className="h-5 w-5" /> },
   { href: "/quiz/setup/", key: "nav.quiz", de: "Quiz & Prüfung", ar: "اختبار وامتحان", icon: <PlayCircle className="h-5 w-5" />, mobile: true },
   { href: "/flashcards/", key: "nav.flashcards", de: "Karteikarten", ar: "البطاقات التعليمية", icon: <Layers className="h-5 w-5" /> },
   { href: "/mistakes/", key: "nav.mistakes", de: "Fehler", ar: "أخطائي", icon: <RotateCcw className="h-5 w-5" /> },
@@ -243,11 +246,12 @@ function SearchBody({ onClose }: { onClose: () => void }) {
       .filter((c) => c.title.toLowerCase().includes(term) || c.narrative.toLowerCase().includes(term))
       .slice(0, 5)
       .map((c) => ({ kind: "Fallbeispiel", title: c.title, href: `/cases/view/?id=${c.id}` }));
+    const ls = searchLessons(q, 6).map((h) => ({ kind: "Lektion", title: h.lesson.title, href: `/learn/view/?id=${h.lesson.id}` }));
     const qs = questions
       .filter((x) => x.text.toLowerCase().includes(term) || (x.stem ?? "").toLowerCase().includes(term))
       .slice(0, 12)
       .map((x) => ({ kind: `Frage ${x.label}`, title: x.text.replace(/\s+/g, " ").slice(0, 110), href: `/question/?id=${x.id}` }));
-    return [...pages, ...cs, ...qs];
+    return [...pages, ...ls, ...cs, ...qs];
   }, [q, questions, cases]);
 
   return (
@@ -267,7 +271,7 @@ function SearchBody({ onClose }: { onClose: () => void }) {
       />
       <div className="mt-3 max-h-[50vh] overflow-y-auto">
         {status === "loading" && <p className="py-4 text-sm text-muted">Fragenbank wird geladen …</p>}
-        {results === null && <p className="py-4 text-sm text-muted">Mindestens 2 Zeichen eingeben. Gesucht wird in Fragen und Fallbeispielen.</p>}
+        {results === null && <p className="py-4 text-sm text-muted">Mindestens 2 Zeichen eingeben. Gesucht wird in Lektionen, Fragen und Fallbeispielen.</p>}
         {results && results.length === 0 && <p className="py-4 text-sm text-muted">Keine Treffer.</p>}
         <ul>
           {results?.map((r, i) => (

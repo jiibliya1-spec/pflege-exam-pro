@@ -99,7 +99,9 @@ export function Dashboard() {
         </div>
       </section>
 
-      <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
+      <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-3">
+        <Tile icon="BookOpen" color="#0369a1" title={t("nav.learn")} sub={t("dash.tile.learn.sub")} onClick={() => router.push("/learn/")} />
+        <Tile icon="Mic" color="#1d4ed8" title={t("nav.oral")} sub={t("dash.tile.oral.sub")} onClick={() => router.push("/oral/")} />
         <Tile icon="Stethoscope" color="#0f766e" title={t("dash.tile.cases")} sub={t("dash.tile.cases.sub")} onClick={() => router.push("/cases/")} />
         <Tile icon="Zap" color="#7c3aed" title={t("dash.tile.quiz")} sub={t("dash.tile.quiz.sub")} onClick={() => launch(shuffleIds(bank.questions.map((q) => q.id)).slice(0, 10), "Schnellquiz")} />
         <Tile icon="Timer" color="#c2410c" title={t("dash.tile.mock")} sub={t("dash.tile.mock.sub")} onClick={() => router.push("/quiz/setup/?preset=mock")} />

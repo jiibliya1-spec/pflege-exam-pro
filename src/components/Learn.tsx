@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { Search, X } from "lucide-react";
+import { searchLessons, tokens } from "@/lib/lessonSearch";
 import { AREAS, LESSONS, lessonById, type LessonGroup } from "@/data/lessons";
 import { normalizeLang, useLang, useT } from "@/lib/i18n";
 import { Card, EmptyState, LinkButton, PageHeader, cn } from "./ui";
@@ -19,9 +21,50 @@ const GROUPS: { id: LessonGroup; label: string; icon: string }[] = [
 export function LearnList() {
   const t = useT();
   const [group, setGroup] = useState<LessonGroup>("krank");
+  const [q, setQ] = useState("");
+  const hits = useMemo(() => (tokens(q).length ? searchLessons(q) : null), [q]);
   return (
     <>
       <PageHeader title={t("nav.learn")} />
+      <div className="relative mb-4">
+        <Search aria-hidden className="pointer-events-none absolute start-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted" />
+        <input
+          type="search"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder={t("learn.search")}
+          aria-label={t("learn.search")}
+          autoComplete="off"
+          className="h-12 w-full rounded-2xl border border-line bg-surface ps-11 pe-11 text-base outline-none focus:border-teal [&::-webkit-search-cancel-button]:hidden"
+        />
+        {q && (
+          <button type="button" onClick={() => setQ("")} aria-label={t("ui.close")} className="absolute end-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-muted hover:bg-surface2">
+            <X className="h-5 w-5" aria-hidden />
+          </button>
+        )}
+      </div>
+      {hits ? (
+        <section aria-live="polite">
+          <p className="mb-3 text-sm text-muted">{hits.length ? t("learn.hits", hits.length) : t("learn.nohits")}</p>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {hits.map((h) => (
+              <Link key={h.lesson.id} href={`/learn/view/?id=${h.lesson.id}`} className="group block">
+                <Card className="h-full transition-all group-hover:-translate-y-0.5 group-hover:border-teal group-hover:shadow-md">
+                  <div className="flex items-start gap-3">
+                    <span aria-hidden className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal/10 text-teal"><Icon name={h.lesson.icon} className="h-5 w-5" /></span>
+                    <div className="min-w-0">
+                      <p className="font-medium leading-snug">{h.lesson.title}</p>
+                      {h.where && <p className="mt-0.5 text-xs font-medium text-teal">{h.where}</p>}
+                      {h.snippet && <p className="mt-1 text-sm text-muted"><Marked text={h.snippet} terms={q} /></p>}
+                    </div>
+                  </div>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : (
+        <>
       <div className="mb-5 grid grid-cols-2 gap-2" role="tablist">
         {GROUPS.map((g) => (
           <button key={g.id} role="tab" aria-selected={group === g.id} onClick={() => setGroup(g.id)} className={cn("min-h-12 rounded-2xl border px-3 py-2 font-semibold transition-colors", group === g.id ? "border-teal bg-tealsoft" : "border-line bg-surface")}>
@@ -50,7 +93,21 @@ export function LearnList() {
           </section>
         );
       })}
+        </>
+      )}
       <p className="text-xs text-muted">Lernhilfe der App in einfachem Deutsch, kein Buchtext. Ersetzt kein Lehrbuch. Es gelten immer die Anordnungen und Standards deines Betriebs.</p>
+    </>
+  );
+}
+
+/** Hebt die Suchwörter im Text hervor (einfacher Vergleich ohne Umlaut-Umwandlung). */
+function Marked({ text, terms }: { text: string; terms: string }) {
+  const words = terms.trim().split(/\s+/).filter((w) => w.length >= 2).map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  if (!words.length) return <>{text}</>;
+  const parts = text.split(new RegExp(`(${words.join("|")})`, "gi"));
+  return (
+    <>
+      {parts.map((p, i) => (i % 2 ? <mark key={i} className="rounded bg-warnsoft px-0.5 text-fg">{p}</mark> : <span key={i}>{p}</span>))}
     </>
   );
 }
