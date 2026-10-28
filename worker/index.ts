@@ -7,7 +7,7 @@
  * - Codes entstehen automatisch nach Zahlung (Stripe-Webhook) oder von Hand (Admin-API) und werden per E-Mail verschickt.
  * - Ist SESSION_SECRET nicht gesetzt, bleibt die App offen (so bricht ein Deploy ohne Einrichtung nichts).
  */
-import { getCookie, maskEmail, newCode, newDeviceId, normalizeCode, signSession, verifySession, verifyStripe, type Session } from "./lib";
+import { getCookie, maskEmail, newCode, newDeviceId, normalizeCode, shortUa, signSession, verifySession, verifyStripe, type Session } from "./lib";
 
 interface KV {
   get(key: string, type?: "text"): Promise<string | null>;
@@ -23,7 +23,7 @@ interface Env {
   STRIPE_WEBHOOK_SECRET?: string;
   RESEND_API_KEY?: string;
   MAIL_FROM?: string;
-  /** Wie viele Geräte pro Code (Standard 2: z. B. Handy und Laptop) */
+  /** Wie viele Geräte pro Code (Standard 1). Mehr Geräte = leichter weiterzugeben. */
   MAX_DEVICES?: string;
   /** Wohin Interessenten zum Kaufen geschickt werden (z. B. Stripe Payment Link) */
   BUY_URL?: string;
@@ -36,6 +36,11 @@ interface Licence {
   note?: string;
   status: "active" | "revoked";
   devices: string[];
+  /** Anzeigenamen der Geräte (gleiche Reihenfolge wie devices), nur für den Admin */
+  labels?: string[];
+  /** Wie oft ein weiteres Gerät abgelehnt wurde (Hinweis auf Weitergabe des Codes) */
+  blocked?: number;
+  lastBlocked?: number;
   created: number;
   source: "stripe" | "admin";
 }
@@ -87,7 +92,8 @@ button:disabled{opacity:.6}.err{color:#b42318;min-height:24px;margin-top:10px;fo
 <p>Bitte gib deinen Zugangscode ein. Du findest ihn in der E-Mail nach dem Kauf.</p>
 <form id="f"><input id="c" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="PEP-XXXX-XXXX-XXXX" inputmode="text" aria-label="Zugangscode"><button id="b" type="submit">Freischalten</button><div class="err" id="e" role="alert"></div></form>
 ${buy}
-<div class="ar">أدخل رمز الوصول الذي وصلك بالبريد الإلكتروني. الرمز شخصي ويعمل على عدد محدود من الأجهزة.</div>
+<p style="font-size:14px;margin:14px 0 0">iPhone: Zuerst die App zum Home-Bildschirm hinzufügen, dann dort öffnen und den Code eingeben. Der Code gilt nur für ein Gerät.</p>
+<div class="ar">أدخل رمز الوصول الذي وصلك بالبريد الإلكتروني. الرمز شخصي ويعمل على جهاز واحد. على iPhone: أضف التطبيق للشاشة الرئيسية أولاً ثم افتحه وأدخل الرمز هناك.</div>
 </main>
 <script>
 var f=document.getElementById("f"),c=document.getElementById("c"),b=document.getElementById("b"),e=document.getElementById("e");
@@ -128,7 +134,7 @@ if($("em").value){var ml=el("a","E-Mail-App","b");ml.href="mailto:"+$("em").valu
 o.appendChild(el("div",j.mailed?"E-Mail wurde automatisch gesendet.":"Nicht automatisch gesendet: bitte per Button oben schicken.","m"))}).catch(function(e){o.textContent="Fehler: "+e.message})};
 function act(path,code){api(path,{code:code}).then(function(){$("ls").click()}).catch(function(e){alert(e.message)})}
 $("ls").onclick=function(){var l=$("lst");l.textContent="...";api("/api/admin/list").then(function(j){l.textContent=j.count+" Codes";var t=el("table");j.licences.forEach(function(x){var tr=el("tr"),td=el("td");
-td.appendChild(el("div",x.code,"code"));td.lastChild.style.fontSize="15px";td.appendChild(el("div",(x.status==="active"?"aktiv":"GESPERRT")+" | Geräte: "+x.devices+(x.email?" | "+x.email:"")+(x.note?" | "+x.note:""),"m"));
+td.appendChild(el("div",x.code,"code"));td.lastChild.style.fontSize="15px";var inf=el("div",(x.status==="active"?"aktiv":"GESPERRT")+" | Geräte: "+x.devices+(x.labels&&x.labels.length?" ("+x.labels.join("; ")+")":"")+(x.blocked?" | ABGELEHNT: "+x.blocked+"x":"")+(x.email?" | "+x.email:"")+(x.note?" | "+x.note:""),"m");if(x.blocked){inf.style.color="#b42318";inf.style.fontWeight="600"}td.appendChild(inf);
 var b1=el("button",x.status==="active"?"Sperren":"Freigeben",x.status==="active"?"r":"");b1.onclick=function(){act(x.status==="active"?"/api/admin/revoke":"/api/admin/restore",x.code)};
 var b2=el("button","Geräte zurücksetzen","g");b2.onclick=function(){act("/api/admin/reset",x.code)};td.appendChild(b1);td.appendChild(b2);tr.appendChild(td);t.appendChild(tr)});l.appendChild(t)}).catch(function(e){l.textContent="Fehler: "+e.message})};
 </script></body></html>`;
@@ -144,15 +150,20 @@ async function activate(req: Request, env: Env): Promise<Response> {
   if (!lic) return json({ error: "unknown", message: "Dieser Code ist unbekannt." }, 404);
   if (lic.status !== "active") return json({ error: "revoked", message: "Dieser Code wurde gesperrt. Bitte Support kontaktieren." }, 403);
 
-  const max = Number(env.MAX_DEVICES) || 2;
+  const max = Number(env.MAX_DEVICES) || 1;
   const existing = await verifySession(env.SESSION_SECRET!, getCookie(req.headers.get("cookie"), COOKIE), now());
   let device = existing && existing.c === code && lic.devices.includes(existing.d) ? existing.d : "";
   if (!device) {
     if (lic.devices.length >= max) {
-      return json({ error: "device_limit", message: `Dieser Code ist schon auf ${max} Geräten aktiv. Bitte den Support kontaktieren, um ein Gerät zurückzusetzen.` }, 403);
+      lic.blocked = (lic.blocked || 0) + 1;
+      lic.lastBlocked = now();
+      await putLicence(env, code, lic);
+      const geraet = max === 1 ? "einem Gerät" : `${max} Geräten`;
+      return json({ error: "device_limit", message: `Dieser Code ist schon auf ${geraet} aktiv und gilt nur für eine Person. Neues Handy? Dann schreib dem Support, wir setzen den Code zurück. / الرمز مفعّل على جهاز آخر. إذا غيّرت هاتفك راسل الدعم.` }, 403);
     }
     device = newDeviceId();
     lic.devices.push(device);
+    (lic.labels ||= [])[lic.devices.length - 1] = shortUa(req.headers.get("user-agent"));
     await putLicence(env, code, lic);
   }
   return json({ ok: true }, 200, { "set-cookie": await issue(env, code, device) });
@@ -170,7 +181,7 @@ async function authorize(req: Request, env: Env, checkDb: boolean): Promise<{ ok
 
 async function sendMail(env: Env, to: string, code: string, appUrl: string): Promise<boolean> {
   if (!env.RESEND_API_KEY || !env.MAIL_FROM) return false;
-  const text = `Danke für deinen Kauf von Pflege Exam Pro.\n\nDein persönlicher Zugangscode:\n\n    ${code}\n\nApp öffnen: ${appUrl}/activate/\nDen Code einmal eingeben, danach bleibt dein Gerät freigeschaltet. Der Code ist nur für dich und auf ${env.MAX_DEVICES || 2} Geräte begrenzt. Bitte nicht weitergeben.\n\n---\nشكراً لشرائك Pflege Exam Pro.\nرمز الوصول الخاص بك: ${code}\nافتح التطبيق: ${appUrl}/activate/\nأدخل الرمز مرة واحدة فقط. الرمز شخصي ولا يُشارك.`;
+  const text = `Danke für deinen Kauf von Pflege Exam Pro.\n\nDein persönlicher Zugangscode:\n\n    ${code}\n\nApp öffnen: ${appUrl}/activate/\nDen Code einmal eingeben, danach bleibt dein Gerät freigeschaltet. Der Code ist nur für dich und auf ${env.MAX_DEVICES || 1} Gerät(e) begrenzt. Wenn du den Code weitergibst, wird er gesperrt. Neues Handy? Schreib uns, dann setzen wir ihn zurück.\n\n---\nشكراً لشرائك Pflege Exam Pro.\nرمز الوصول الخاص بك: ${code}\nافتح التطبيق: ${appUrl}/activate/\nأدخل الرمز مرة واحدة فقط. الرمز شخصي ولا يُشارك، ويعمل على جهاز واحد. إذا غيّرت هاتفك راسلنا.`;
   const r = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { authorization: `Bearer ${env.RESEND_API_KEY}`, "content-type": "application/json" },
@@ -221,18 +232,18 @@ async function admin(req: Request, env: Env, path: string): Promise<Response> {
     if (!code || !lic) return json({ error: "unknown" }, 404);
     if (path.endsWith("revoke")) lic.status = "revoked";
     if (path.endsWith("restore")) lic.status = "active";
-    if (path.endsWith("reset")) lic.devices = [];
+    if (path.endsWith("reset")) { lic.devices = []; lic.labels = []; lic.blocked = 0; }
     if (!path.endsWith("info")) await putLicence(env, code, lic);
-    return json({ code, status: lic.status, devices: lic.devices.length, email: lic.email ? maskEmail(lic.email) : null, note: lic.note ?? null });
+    return json({ code, status: lic.status, devices: lic.devices.length, labels: lic.labels ?? [], blocked: lic.blocked ?? 0, email: lic.email ? maskEmail(lic.email) : null, note: lic.note ?? null });
   }
   if (path === "/api/admin/list" && req.method === "GET") {
-    const out: { code: string; status: string; devices: number; email: string | null; note: string | null }[] = [];
+    const out: { code: string; status: string; devices: number; labels: string[]; blocked: number; email: string | null; note: string | null }[] = [];
     let cursor: string | undefined;
     do {
       const page = await env.LICENSES!.list({ prefix: "code:", cursor, limit: 1000 });
       for (const k of page.keys) {
         const l = JSON.parse((await env.LICENSES!.get(k.name)) || "null") as Licence | null;
-        if (l) out.push({ code: k.name.slice(5), status: l.status, devices: l.devices.length, email: l.email ?? null, note: l.note ?? null });
+        if (l) out.push({ code: k.name.slice(5), status: l.status, devices: l.devices.length, labels: l.labels ?? [], blocked: l.blocked ?? 0, email: l.email ?? null, note: l.note ?? null });
       }
       cursor = page.list_complete ? undefined : page.cursor;
     } while (cursor);

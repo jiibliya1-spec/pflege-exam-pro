@@ -13,7 +13,7 @@
   // Wird beim Deploy automatisch angelegt (Zugangscodes und Bestellungen).
   "kv_namespaces": [{ "binding": "LICENSES" }],
   "vars": {
-    "MAX_DEVICES": "2",
+    "MAX_DEVICES": "1",
     "SESSION_DAYS": "30",
     "BUY_URL": ""
   }

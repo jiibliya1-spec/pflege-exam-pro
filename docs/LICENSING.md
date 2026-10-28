@@ -8,8 +8,10 @@ oder Datendateien ausgeliefert (auch nicht die Lerninhalte).
 1. Kunde zahlt (Stripe) oder du erstellst den Code von Hand.
 2. Der Kunde bekommt per E-Mail einen Code: `PEP-XXXX-XXXX-XXXX`.
 3. Er öffnet die App, gibt den Code **einmal** ein. Das Gerät bleibt 30 Tage freigeschaltet (verlängert sich beim Benutzen).
-4. Ein Code gilt für höchstens `MAX_DEVICES` Geräte (Standard 2, z. B. Handy und Laptop). Weitere Geräte werden abgelehnt.
-   Warum nicht 1? iPhone-Apps auf dem Home-Bildschirm haben einen eigenen Cookie-Speicher (Safari und App = zwei "Geräte").
+4. Ein Code gilt standardmäßig für **ein** Gerät (`MAX_DEVICES`=1). Jedes weitere Gerät wird abgelehnt, auch wenn der Code weitergegeben wird.
+   Der Admin sieht pro Code, welche Geräte aktiv sind (z. B. "iPhone, Safari") und wie oft ein weiteres Gerät abgelehnt wurde ("ABGELEHNT: 3x" = Code wird geteilt).
+   Neues Handy oder Browserdaten gelöscht: In `/admin/` auf "Geräte zurücksetzen" tippen, dann kann der Kunde sich neu anmelden.
+   iPhone: Safari und die App auf dem Home-Bildschirm haben getrennte Speicher. Der Kunde soll die App erst zum Home-Bildschirm hinzufügen und den Code **in der App** eingeben (die Code-Seite sagt das auch).
 5. Sperren, Zurücksetzen und neue Codes machst du mit der Admin-Schnittstelle (unten).
 
 Ist `SESSION_SECRET` nicht gesetzt, bleibt die App offen wie vorher. Der Schutz wird erst mit der Einrichtung unten aktiv.
@@ -60,7 +62,7 @@ curl https://DOMAIN/api/admin/list -H "authorization: Bearer TOKEN"
 ```
 
 ## Grenzen
-- Wer Code und Gerät teilt, kann ihn nutzen, aber nur auf `MAX_DEVICES` Geräten. Missbrauch siehst du in `list` (Geräte-Zähler).
+- Wer Code und Gerät teilt, kann ihn nutzen, aber nur auf `MAX_DEVICES` Geräten (Standard 1). Versuche mit weiteren Geräten werden gezählt und im Admin rot angezeigt.
 - Ein Kunde kann Inhalte nach dem Login abfotografieren oder abtippen. Technisch verhindern lässt sich das nicht.
 - Sperren wirken spätestens nach 6 Stunden (Prüfung gegen die Datenbank beim Seitenaufruf).
 - Rate-Limit gegen Raten: Cloudflare > Security > WAF > Rate limiting rules auf `/api/activate` (z. B. 10 pro Minute pro IP). Ein Code hat ca. 2^60 Möglichkeiten.

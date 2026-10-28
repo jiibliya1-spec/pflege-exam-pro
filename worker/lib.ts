@@ -109,3 +109,11 @@ export function maskEmail(e: string): string {
   if (!d) return "";
   return `${u.slice(0, 2)}***@${d}`;
 }
+
+/** Kurze, lesbare Gerätebeschreibung aus dem User-Agent, z. B. "iPhone, Safari". Nur zur Anzeige im Admin. */
+export function shortUa(ua: string | null | undefined): string {
+  const u = ua || "";
+  const os = /iPhone/.test(u) ? "iPhone" : /iPad/.test(u) ? "iPad" : /Android/.test(u) ? "Android" : /Windows/.test(u) ? "Windows" : /Macintosh|Mac OS X/.test(u) ? "Mac" : /Linux/.test(u) ? "Linux" : "Gerät";
+  const br = /Edg\//.test(u) ? "Edge" : /OPR\/|Opera/.test(u) ? "Opera" : /Firefox|FxiOS/.test(u) ? "Firefox" : /Chrome|CriOS/.test(u) ? "Chrome" : /Safari/.test(u) ? "Safari" : "Browser";
+  return `${os}, ${br}`;
+}
