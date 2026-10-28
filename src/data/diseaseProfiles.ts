@@ -3,10 +3,12 @@ import { P1 } from "./prof/p1";
 import { P2 } from "./prof/p2";
 import { P3 } from "./prof/p3";
 import { P4 } from "./prof/p4";
+import { P5 } from "./prof/p5";
 import { AR_P1 } from "./tr/prof/ar1";
 import { AR_P2 } from "./tr/prof/ar2";
 import { AR_P3 } from "./tr/prof/ar3";
 import { AR_P4 } from "./tr/prof/ar4";
+import { AR_P5 } from "./tr/prof/ar5";
 
 /** Krankheitsprofil: einheitliche Gliederung für jede Krankheits-Lektion. */
 export interface Profile {
@@ -20,9 +22,9 @@ export interface Profile {
 }
 export const PROFILE_KEYS = ["sym", "urs", "risk", "ther", "pfl"] as const;
 
-export const PROFILES: Record<string, Profile> = { ...P1, ...P2, ...P3, ...P4 };
+export const PROFILES: Record<string, Profile> = { ...P1, ...P2, ...P3, ...P4, ...P5 };
 
-const TR: Partial<Record<Lang, Record<string, Profile>>> = { ar: { ...AR_P1, ...AR_P2, ...AR_P3, ...AR_P4 } };
+const TR: Partial<Record<Lang, Record<string, Profile>>> = { ar: { ...AR_P1, ...AR_P2, ...AR_P3, ...AR_P4, ...AR_P5 } };
 
 export function profileFor(id: string, lang: Lang): { p: Profile; translated: boolean } | null {
   const de = PROFILES[id];
