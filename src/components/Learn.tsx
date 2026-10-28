@@ -1,5 +1,6 @@
 "use client";
 
+import { OrganFigure } from "./OrganFigure";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
@@ -167,6 +168,7 @@ export function LearnView() {
         </div>
       )}
       <div dir={german ? "ltr" : dir} lang={german ? "de" : lang}>
+        {l.group === "krank" && <OrganFigure id={l.id} area={l.area} />}
         {loc.diagrams?.length ? (
           <div className="mb-4 space-y-4">
             {loc.diagrams.map((d, k) => (
