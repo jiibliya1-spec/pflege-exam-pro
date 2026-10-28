@@ -36,7 +36,7 @@ export function OperatorHint({ text }: { text: string }) {
               ))}
             </ol>
             <p className="mt-2 rounded-lg bg-surface px-3 py-2 italic">„{op.starter}“</p>
-            {(lang === "ar" || lang === "de") && (
+            {lang === "ar" && (
               <p dir="rtl" lang="ar" className="mt-2 text-[0.85rem] text-muted">
                 {op.ar}
               </p>
@@ -152,7 +152,7 @@ export function OralHub() {
     <>
       <PageHeader title={t("nav.oral")} subtitle="Ablauf, Antwortschema und 12 Prüfungsfälle mit Erwartungshorizont" crumbs={[{ label: "Start", href: "/" }, { label: t("nav.oral") }]} />
 
-      {(lang === "ar" || lang === "de") && (
+      {lang === "ar" && (
         <div dir="rtl" lang="ar" className="mb-5 rounded-2xl border border-teal/30 bg-tealsoft p-4 text-sm leading-relaxed">
           <p className="mb-1 text-xs font-semibold text-teal">الخلاصة</p>
           {ORAL_AR}

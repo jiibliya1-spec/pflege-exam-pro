@@ -14,6 +14,9 @@ import { AUSBILDUNG_PLUS } from "./lessonsPlusAusbildung";
 import { NEW_LESSONS_1 } from "./lessonsNew1";
 import { NEW_LESSONS_2 } from "./lessonsNew2";
 import { EXTRA } from "./lessonsExtra";
+import { BUCH_NEU_1 } from "./lessonsBuchNeu1";
+import { BUCH_NEU_2 } from "./lessonsBuchNeu2";
+import { WHO, type Who } from "./lessonsWho";
 import type { Diagram } from "./diagram";
 
 export type LessonGroup = "krank" | "ausbildung";
@@ -34,6 +37,8 @@ export interface Lesson {
   blocks: LessonBlock[];
   /** Ein bis zwei Lern-Diagramme (Ablauf, Vergleich, Stufen ...) */
   diagrams?: Diagram[];
+  /** Patientengruppen (Kinder, Frauen, Männer, Erwachsene, alle) – nur bei Krankheits-Lektionen */
+  who?: Who[];
 }
 
 const B = (h: string, ...li: string[]): LessonBlock => ({ h, li });
@@ -429,9 +434,10 @@ function withExtra(l: Lesson): Lesson {
 /** Doppelte Kurzfassungen, deren Inhalt in den ausführlichen Lektionen steckt. */
 const DROP = new Set(["b-hygiene", "b-prophylaxen", "b-beobachtung-vital"]);
 
-const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2, ...MODELLE_LESSONS, ...RECHT_LESSONS, ...BUCH_KRANK_1, ...BUCH_KRANK_2, ...BUCH_PFLEGE, ...ASSESSMENT_LESSONS]
+const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2, ...MODELLE_LESSONS, ...RECHT_LESSONS, ...BUCH_KRANK_1, ...BUCH_KRANK_2, ...BUCH_PFLEGE, ...ASSESSMENT_LESSONS, ...BUCH_NEU_1, ...BUCH_NEU_2]
   .filter((l) => !DROP.has(l.id))
-  .map(withExtra);
+  .map(withExtra)
+  .map((l) => (WHO[l.id] ? { ...l, who: WHO[l.id] } : l));
 
 /** Sortiert nach Gruppe und Reihenfolge der Bereiche, damit Weiter/Zurück sinnvoll ist. */
 export const LESSONS: Lesson[] = (["krank", "ausbildung"] as LessonGroup[]).flatMap((g) =>
