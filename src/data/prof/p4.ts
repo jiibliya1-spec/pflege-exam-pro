@@ -1,0 +1,68 @@
+import type { Profile } from "../diseaseProfiles";
+/** Krankheitsprofile Teil 4: Nervensystem II. */
+export const P4: Record<string, Profile> = {
+  "kopfschmerz-nerven": {
+    def: "Kopf- und Gesichtsschmerzen (Spannungskopfschmerz, Migräne, Trigeminusneuralgie) sowie Nervenerkrankungen wie Karpaltunnelsyndrom und Guillain-Barré-Syndrom.",
+    sym: ["Spannungskopfschmerz: mittlere Stärke, keine neurologischen Begleitzeichen", "Migräne: meist einseitige Attacken, Übelkeit, Erbrechen, Licht- und Lärmempfindlichkeit", "Trigeminusneuralgie: einseitiger, attackenartiger, starker Gesichtsschmerz", "Karpaltunnel: Kribbeln, Schmerz, Taubheit der Hand", "Guillain-Barré: aufsteigende Lähmungen"],
+    urs: ["Karpaltunnel: Engstelle des N. medianus (Entzündung, Verletzung, Diabetes, Schwangerschaft)", "Guillain-Barré: Autoimmunentzündung peripherer Nerven, Markscheiden werden zerstört"],
+    risk: [],
+    ther: ["Karpaltunnel: Ruhigstellen und entzündungshemmende Mittel, sonst Operation (Dach wird gespalten)", "Guillain-Barré: heilt meist nach Wochen zurück, oft Intensivstation mit Beatmung, evtl. Plasmapherese"],
+    pfl: ["Nach Karpaltunnel-OP: Schmerzmanagement, Arm hochlagern, Fingerdurchblutung prüfen; bei blauen Fingern, Nachblutung, Gefühlsstörung oder Hämatom sofort Arzt", "Guillain-Barré: Prophylaxen, gründliche Mundpflege, Ernährungsunterstützung, Patienten beruhigen (Symptome sehr wahrscheinlich vorübergehend)"],
+  },
+  "anlagestoerung-nerven": {
+    def: "Neuralrohrdefekte sind Fehlbildungen von Rückenmark und Gehirn. Die infantile Zerebralparese ist eine Hirnschädigung rund um die Geburt.",
+    sym: ["Neuralrohrdefekte: z. B. Lähmungen", "Zerebralparese: motorische Defekte, oft zusätzliche neurologische Ausfälle und Intelligenzminderung", "Hirndruck bei Verschlusshydrozephalus: Bewusstseinsstörung, Bluthochdruck, Bradykardie, Pupillenunterschied; bei Shunt Kopfschmerz, Erbrechen, Schläfrigkeit, Krampfanfall"],
+    urs: ["Neuralrohrdefekte: Ursache unklar", "Zerebralparese: Schädigung des Gehirns rund um die Geburt"],
+    risk: [],
+    ther: ["Vorbeugung der Neuralrohrdefekte: Folsäure in der Frühschwangerschaft", "Frühförderung und regelmäßige Therapien"],
+    pfl: ["Pflege wie beim Querschnittsyndrom", "Bei Hydrozephalus auf Hirndruck achten", "Eltern anleiten, entlasten und über Hilfen informieren (Kinderärzte, Sozialpädiatrische Zentren)"],
+  },
+  "hydrozephalus": {
+    def: "Die Liquorräume im Gehirn sind erweitert, das Hirngewebe geht zurück. Es kann Kinder und Erwachsene betreffen.",
+    sym: ["Hirndruck bei Unterdrainage: Kopfschmerz, Übelkeit, Erbrechen, Apathie", "Überdrainage: niedriger Hirndruck, Kopfschmerz bessert sich im Liegen", "Normaldruckhydrozephalus: Trias aus Gangstörung (kleinschrittig), Demenz und Harninkontinenz"],
+    urs: ["Zu viel Liquor, gestörte Zirkulation oder zu geringe Resorption", "Verklebte oder verengte Liquorkanäle (Entzündung, Blutung, Tumor)", "Verminderte Resorption, z. B. nach Subarachnoidalblutung, Meningitis oder Strahlentherapie"],
+    risk: [],
+    ther: ["Ziel: Liquorresorption normalisieren", "Externe Ventrikeldrainage: Ableitung über einen Katheter nach außen", "Interner Liquor-Shunt: in die Bauchhöhle (ventrikuloperitoneal) oder selten in den rechten Herzvorhof (ventrikuloatrial)", "Komplikationen: Krampfanfälle (selten), Infektionen am Kathetersystem (Endokarditis, Meningitis, Peritonitis)"],
+    pfl: ["Nach Shunt-OP: allgemeine postoperative Pflege, Frühmobilisation am 1. Tag nach Rücksprache", "Beobachten: Kopfschmerz, Übelkeit, Schwindel, Erbrechen, Sehstörung, Schläfrigkeit, Bauchschmerzen", "Entlassmanagement: im ersten Monat körperliche Anstrengung vermeiden, keinen Druck auf Ventil und Katheter", "Kontrollen im ersten Jahr alle 3 bis 6 Monate, danach jährlich; Notfallzeichen vermitteln, Ventil-Pass immer bei sich tragen"],
+  },
+  "vaskulaere-demenz": {
+    def: "Demenz durch Durchblutungsstörung im Gehirn. Betroffen sind Hirnbereiche unterhalb der Hirnrinde (auch Multi-Infarkt-Demenz, arteriosklerotische Demenz).",
+    sym: ["Schubweiser Verlauf passend zu den Infarkten", "Antriebs- und Konzentrationsstörungen", "Stimmungsschwankungen, rascher Wechsel von Lachen und Weinen", "Fokale Ausfälle: Halbseitenlähmung, Sprach- und Gangstörung, gesteigerte Muskeleigenreflexe", "Persönlichkeit und Sozialverhalten bleiben länger erhalten"],
+    urs: ["Durchblutungsstörungen im Gehirn (Infarkte, Arteriosklerose)"],
+    risk: ["Risikofaktoren der Arteriosklerose, z. B. Bluthochdruck"],
+    ther: ["Diagnostik: Anamnese, CT oder MRT, Ultraschall der hirnversorgenden Arterien", "Risikofaktoren senken, z. B. Blutdruck einstellen", "Physiotherapie, Ergotherapie, Logopädie", "Keine Demenzform ist heilbar"],
+    pfl: ["Wie bei Alzheimer-Demenz: Orientierung geben, wertschätzend ansprechen, Stärken loben", "Nicht ständig wegen verlorenen Realitätsbezugs korrigieren"],
+  },
+  "migraene": {
+    def: "Starke, oft einseitige Kopfschmerzattacken, häufig mit Übelkeit und Erbrechen sowie erhöhter Licht- und Lärmempfindlichkeit.",
+    sym: ["Prodromalphase Stunden bis Tage vorher", "Aura, z. B. einseitige Sehstörung (Flimmerskotom), Lähmung oder Sprachstörung", "Kopfschmerzphase 4 bis 72 Stunden", "Bei Kindern ggf. nur Bauchschmerz und Schwindel ohne Kopfschmerz"],
+    urs: ["Genetische Veranlagung führt zu erhöhter Erregbarkeit der Hirnrinde"],
+    risk: ["Auslöser: Schlafrhythmus, Hormone, Stress, Alkohol"],
+    ther: ["Akut: Schmerzmittel und Antiemetikum, bei starken Schmerzen Triptane (z. B. Sumatriptan)", "Triptane höchstens an 10 Tagen im Monat, sonst Dauerkopfschmerz durch Schmerzmittelübergebrauch", "Vorbeugung: Betablocker, Antikonvulsiva, Ausdauersport"],
+    pfl: ["Zimmer abdunkeln, Lärm vermeiden, genug Flüssigkeit", "Kalter Waschlappen auf die Stirn, Pfefferminzöl auf Stirn und Schläfen", "Schmerzmanagement nach Anordnung und Expertenstandard", "Schmerztagebuch, regelmäßiger Tagesablauf, Sport, Entspannung, Auslöser wie Alkohol meiden"],
+  },
+  "kopfschmerz-trigeminus": {
+    def: "Spannungskopfschmerz: Kopfschmerz mittlerer Intensität ohne neurologische Begleitsymptome. Trigeminusneuralgie: meist einseitiger, attackenartiger starker Gesichtsschmerz im Gebiet des V. Hirnnervs.",
+    sym: ["Spannungskopfschmerz: beidseitig, drückend-ziehend, nicht pulsierend (Gefühl eines zu engen Huts), keine Verstärkung bei Aktivität", "Trigeminusneuralgie: Attacken bis zu 100-mal am Tag über Wochen bis Monate, dazu Hautrötung, Tränen, Nasen- und Speichelfluss"],
+    urs: ["Spannungskopfschmerz: keine nachweisbare Ursache", "Trigeminusneuralgie idiopathisch (evtl. Gefäßschlinge drückt auf den Nerv) oder symptomatisch (MS, Gefäßschaden, Herpes zoster, Schädelbasisfraktur)"],
+    risk: ["Dauergebrauch von NSAR kann Kopfschmerz auslösen"],
+    ther: ["Spannungskopfschmerz: kurzfristig Schmerzmittel (z. B. Ibuprofen), zur Vorbeugung bestimmte Antidepressiva, Entspannungsverfahren, Physiotherapie", "Trigeminusneuralgie: Antikonvulsiva wie Carbamazepin (Schmerzmittel allein reichen nicht)", "Bei Gefäßschlinge Entlastungs-OP, evtl. operative Läsion des Ganglion trigeminale", "Diagnostik: Anamnese, Befund, MRT, CT, Liquor"],
+    pfl: ["Spannungskopfschmerz: beraten zu Ausdauersport, gesunder Ernährung, Entspannung, Verzicht auf Alkohol, keine Dauergabe von NSAR", "Trigeminusneuralgie: aus Angst vor Schmerzen essen und trinken Patienten wenig, auf Flüssigkeit und Nährstoffe achten", "Selbsthilfegruppen vermitteln"],
+  },
+  "hirntumor": {
+    def: "Gutartige oder bösartige Zellneubildung im Gehirn. Bösartige Tumoren wachsen in das gesunde Gewebe hinein, gutartige schaden durch Raumforderung (Druck auf umliegendes Gewebe).",
+    sym: ["Erste Zeichen: diffuse Kopfschmerzen, Übelkeit, Erbrechen, evtl. durch erhöhten Hirndruck", "Wesensveränderung, Konzentrationsstörungen, Lähmungen, Sensibilitätsstörungen, epileptische Anfälle", "Bösartige fallen meist schnell auf, bei gutartigen erst nach Jahren"],
+    urs: ["Primär aus Hirngewebe (z. B. Glioblastom), sekundär Metastasen anderer Tumoren"],
+    risk: [],
+    ther: ["Diagnostik: Anamnese, klinischer Befund, neurologischer Status (Glasgow Coma Scale), MRT, Gewebeprobe", "Möglichst vollständige Entfernung des Tumors, dazu Strahlen- und Chemotherapie"],
+    pfl: ["Nach OP Intensivstation: Hirndruck früh erkennen (Hirndruckmessung, ZVD, Vitalzeichen, GCS)", "Körperpflege nach Bobath-Konzept und Basaler Stimulation", "Dauerkatheter zur Überwachung der Urinausscheidung, Prophylaxen bedarfsgerecht", "Psychosozial: Ängste ernst nehmen, Angehörige einbeziehen, psychoonkologische Beratung, Seelsorge, Selbsthilfegruppen"],
+  },
+  "periphere-nerven-wirbelkanal": {
+    def: "Erkrankungen peripherer Nerven (Guillain-Barré, Karpaltunnelsyndrom) und Einengung des Wirbelkanals (Spinalkanalstenose).",
+    sym: ["Guillain-Barré: aufsteigende Lähmungen bis zur Atem- und Gesichtsmuskulatur, ggf. Bradykardie", "Karpaltunnel: Kribbeln, Schmerz, Taubheit, Feinmotorik und Kraft lassen nach, später Muskelschwund", "Zervikale Stenose: Nackenschmerz, Ausstrahlung in den Arm, Gefühlsstörungen, Blasen- und Mastdarmstörungen", "Lumbale Stenose: Schmerz und Gefühlsstörungen in den Beinen, besser bei Vorbeugen"],
+    urs: ["Guillain-Barré: Autoimmunreaktion zerstört die Myelinscheiden", "Karpaltunnel: Entzündung, Verletzung, Stoffwechsel (Diabetes, Schwangerschaft)", "Spinalkanalstenose: knöcherne Auswüchse (Degeneration), Tumoren oder Entzündungen"],
+    risk: [],
+    ther: ["Guillain-Barré: Lähmungen verschwinden meist nach Wochen; ggf. Intensivstation mit Beatmung, Plasmapherese", "Karpaltunnel: Durchtrennung des Karpaltunnel-Dachs", "Spinalkanalstenose: Schmerzmittel, Physiotherapie, bei neurologischen Ausfällen operative Erweiterung"],
+    pfl: ["Guillain-Barré: Prophylaxen (Kontrakturen, Thrombose), gründliche Mundpflege, Ernährungsunterstützung ggf. Sonde, Patienten aufklären (Symptome vorübergehend)", "Spinalkanalstenose: Pflege wie beim Bandscheibenvorfall"],
+  },
+};
