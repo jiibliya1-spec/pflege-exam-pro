@@ -48,7 +48,7 @@ const json = (data: unknown, status = 200, extra: Record<string, string> = {}) =
 /** Pfade, die ohne Lizenz erreichbar sind (Aktivierungsseite, API, Manifest und Symbole fürs Installieren). */
 function isPublic(path: string): boolean {
   return (
-    path === "/activate" || path === "/activate/" || path.startsWith("/api/") ||
+    path === "/activate" || path === "/activate/" || path === "/admin" || path === "/admin/" || path.startsWith("/api/") ||
     path === "/manifest.webmanifest" || path.startsWith("/icons/") || path === "/favicon.ico"
   );
 }
@@ -99,6 +99,40 @@ fetch("/api/activate",{method:"POST",headers:{"content-type":"application/json"}
 .catch(function(){e.textContent="Keine Verbindung. Bitte später erneut versuchen.";b.disabled=false})});
 </script></body></html>`;
   return new Response(html, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
+}
+
+
+function adminPage(): Response {
+  const html = `<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Admin</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#0f2238;font:16px/1.5 system-ui,-apple-system,sans-serif;padding:16px;max-width:560px;margin:auto}
+h1{font-size:20px}.c{background:#fff;border:1px solid #d9e2ec;border-radius:14px;padding:16px;margin:12px 0}
+input{width:100%;padding:12px;font-size:16px;border:1px solid #d9e2ec;border-radius:10px;margin:6px 0}
+button,a.b{display:inline-block;padding:11px 14px;border:0;border-radius:10px;background:#0b8f8f;color:#fff;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;margin:4px 4px 0 0}
+button.g{background:#52667d}button.r{background:#b42318}.code{font:700 22px monospace;letter-spacing:1px;word-break:break-all}
+table{width:100%;border-collapse:collapse;font-size:14px}td{border-top:1px solid #eef3f8;padding:8px 4px;vertical-align:top;word-break:break-all}.m{color:#52667d;font-size:14px}</style></head><body>
+<h1>Pflege Exam Pro: Admin</h1>
+<div class="c"><label>Admin-Token</label><input id="t" type="password" autocomplete="off"><button class="g" id="sv">Merken (nur dieser Tab)</button></div>
+<div class="c"><b>Neuen Code erzeugen</b> (nach Zahlungseingang)<input id="em" type="email" placeholder="E-Mail des Kunden (optional, wird dann direkt gesendet)"><input id="nt" placeholder="Notiz, z. B. PayPal 29 EUR, Name"><button id="mk">Code erzeugen</button><div id="out"></div></div>
+<div class="c"><b>Alle Codes</b> <button class="g" id="ls">Laden</button><div id="lst" class="m"></div></div>
+<script>
+var $=function(i){return document.getElementById(i)};
+try{$("t").value=sessionStorage.getItem("tk")||""}catch(e){}
+$("sv").onclick=function(){try{sessionStorage.setItem("tk",$("t").value)}catch(e){}};
+function api(path,body){var o={method:body?"POST":"GET",headers:{authorization:"Bearer "+$("t").value}};if(body)o.body=JSON.stringify(body);return fetch(path,o).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||r.status);return j})})}
+function el(t,x,c){var e=document.createElement(t);if(x)e.textContent=x;if(c)e.className=c;return e}
+$("mk").onclick=function(){var o=$("out");o.textContent="...";api("/api/admin/mint",{count:1,email:$("em").value||undefined,note:$("nt").value||undefined}).then(function(j){o.textContent="";var code=j.codes[0];o.appendChild(el("div",code,"code"));
+var msg="Dein Zugangscode fuer Pflege Exam Pro: "+code+"\\nApp: "+location.origin+"/activate/";
+var cp=el("button","Kopieren");cp.onclick=function(){navigator.clipboard.writeText(msg);cp.textContent="Kopiert"};o.appendChild(cp);
+var wa=el("a","WhatsApp","b");wa.href="https://wa.me/?text="+encodeURIComponent(msg);o.appendChild(wa);
+if($("em").value){var ml=el("a","E-Mail-App","b");ml.href="mailto:"+$("em").value+"?subject="+encodeURIComponent("Dein Zugangscode")+"&body="+encodeURIComponent(msg);o.appendChild(ml)}
+o.appendChild(el("div",j.mailed?"E-Mail wurde automatisch gesendet.":"Nicht automatisch gesendet: bitte per Button oben schicken.","m"))}).catch(function(e){o.textContent="Fehler: "+e.message})};
+function act(path,code){api(path,{code:code}).then(function(){$("ls").click()}).catch(function(e){alert(e.message)})}
+$("ls").onclick=function(){var l=$("lst");l.textContent="...";api("/api/admin/list").then(function(j){l.textContent=j.count+" Codes";var t=el("table");j.licences.forEach(function(x){var tr=el("tr"),td=el("td");
+td.appendChild(el("div",x.code,"code"));td.lastChild.style.fontSize="15px";td.appendChild(el("div",(x.status==="active"?"aktiv":"GESPERRT")+" | Geräte: "+x.devices+(x.email?" | "+x.email:"")+(x.note?" | "+x.note:""),"m"));
+var b1=el("button",x.status==="active"?"Sperren":"Freigeben",x.status==="active"?"r":"");b1.onclick=function(){act(x.status==="active"?"/api/admin/revoke":"/api/admin/restore",x.code)};
+var b2=el("button","Geräte zurücksetzen","g");b2.onclick=function(){act("/api/admin/reset",x.code)};td.appendChild(b1);td.appendChild(b2);tr.appendChild(td);t.appendChild(tr)});l.appendChild(t)}).catch(function(e){l.textContent="Fehler: "+e.message})};
+</script></body></html>`;
+  return new Response(html, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store", "x-robots-tag": "noindex" } });
 }
 
 async function activate(req: Request, env: Env): Promise<Response> {
@@ -222,6 +256,7 @@ export default {
     if (path.startsWith("/api/")) return json({ error: "not_found" }, 404);
 
     if (isPublic(path)) {
+      if (path === "/admin" || path === "/admin/") return adminPage();
       if (path.startsWith("/activate")) {
         const ok = await authorize(req, env, false);
         if (ok.ok) return Response.redirect(url.origin + "/", 302);

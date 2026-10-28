@@ -36,7 +36,13 @@ Der KV-Speicher `LICENSES` wird beim Deploy automatisch angelegt.
 
 Zahlung in bar, per Überweisung oder PayPal: Code von Hand erzeugen (nächster Abschnitt) und selbst senden.
 
-## Admin-Befehle
+## Einfachster Weg: PayPal + Admin-Seite
+1. In `BUY_URL` deinen PayPal.me-Link eintragen (z. B. `https://paypal.me/DEINNAME/29`). Er erscheint auf der Code-Seite.
+2. Kunde zahlt und schickt dir Name/E-Mail (oder du siehst es in PayPal).
+3. Du öffnest `https://DEINE-DOMAIN/admin/`, gibst den Admin-Token ein, tippst "Code erzeugen" und schickst den Code per WhatsApp oder E-Mail-Button.
+4. Auf der Seite kannst du auch sperren und Geräte zurücksetzen. Funktioniert auf dem Handy.
+
+## Admin-Befehle (für Fortgeschrittene)
 Ersetze `DOMAIN` und `TOKEN`.
 
 ```bash
