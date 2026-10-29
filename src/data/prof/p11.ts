@@ -1,0 +1,68 @@
+import type { Profile } from "../diseaseProfiles";
+/** Krankheitsprofile Teil 11: Haut, Schmerz, Palliativ. */
+export const P11: Record<string, Profile> = {
+  "hauterkrankungen": {
+    def: "Überblick über Hauterkrankungen: chronisch (Psoriasis, Neurodermitis), infektiös (Follikulitis, Candidose, Pilze, Läuse, Krätze) und bösartig (z. B. Basaliom).",
+    sym: ["Häufigste Symptome: Juckreiz und Schmerzen", "Psoriasis: scharf begrenzte gerötete Herde mit silbrigen Schuppen, Ellenbogen und Knie", "Neurodermitis: trockene, stark juckende Haut, Beugen betroffen", "Hautkrebs: auffällige, wachsende, blutende Muttermale (ABCDE-Regel)"],
+    urs: ["Chronisch: Psoriasis, Neurodermitis; infektiös: Follikulitis, Candidose; bösartig: z. B. Basaliom"],
+    risk: [],
+    ther: ["Medikamente nach Anordnung: Glukokortikoide, Antihistaminika", "Psoriasis nicht ansteckend; Pilzinfektionen, Läuse und Krätze sind ansteckend"],
+    pfl: ["Kratzalternativen: Nägel fest auf die juckende Stelle drücken, beklopfen, Massageball sanft rollen", "Schwitzen und Reibung vermeiden, kühlen, entspannen", "Ansteckende Erkrankungen: Hygiene, Hausstandard, Meldung beachten", "Auffällige Muttermale melden (ABCDE: Asymmetrie, Begrenzung, Colorit, Durchmesser, Entwicklung)"],
+  },
+  "hauttumoren": {
+    def: "Gutartige (Nävus, Hämangiom) und bösartige Hauttumoren (Basaliom, Spinaliom, malignes Melanom).",
+    sym: ["Pigmentnävus: hell- bis dunkelbraune Flecken", "Nävus flammeus (Feuermal): angeborener hellroter Fleck durch erweiterte Kapillaren", "Hämangiom (Blutschwamm): gutartige Gefäßneubildung, kann sich bis zum 9. Lebensjahr zurückbilden", "Auffällige Muttermale: ABCDE-Regel (Asymmetrie, unscharfe Begrenzung, uneinheitliche Farbe, Durchmesser über 6 mm, Entwicklung); juckend, blutend oder wachsend immer abklären"],
+    urs: ["Pigmentnävus: mehr Melanozyten", "Basaliom geht von den Basalzellen aus"],
+    risk: ["Sonnenbrand und starke UV-Belastung"],
+    ther: ["Auffällige Nävi im Zweifel entfernen; Riesennävi (über 10 cm) wegen Entartungsgefahr früh operieren", "Basaliom: häufigster Hauttumor; Spinaliom: zweithäufigster, großzügigere Exzision", "Malignes Melanom: sehr bösartig, breite Exzision und Entfernung befallener Lymphknoten, bei Metastasen Strahlen-, Chemo- oder palliative Therapie", "Hämangiom: Entfernung nur bei Funktionsstörung; Feuermal: Laser möglich"],
+    pfl: ["Auffällige Hautveränderung bemerkt: auf die fachärztliche Kontrolle hinweisen und im Pflegebericht festhalten", "Vorsorgeuntersuchungen beim Hautarzt empfehlen", "Sonnenschutz erklären, Sonnenbrand vermeiden"],
+  },
+  "psoriasis": {
+    def: "Chronisch-entzündliche, nichtinfektiöse, schubweise verlaufende Autoimmunerkrankung, vor allem an Haut und Nägeln, seltener Gelenken. Nicht ansteckend.",
+    sym: ["Scharf begrenzte gerötete Herde mit silbrigen Schuppen (Ellenbogen, Knie)", "Neubildung von Hornzellen durch die Entzündung stark beschleunigt", "Juckreiz; seelische Folgen: Stigmatisierung, Rückzug, Isolation, Depression, Substanzmissbrauch"],
+    urs: ["Erbliche Veranlagung"],
+    risk: ["Auslöser eines Schubs: Infektionen (v. a. obere Luftwege), Betablocker, mechanische Hautreizung, Stress, Klimawechsel", "Starke Hitze, Sonnenbrand, Alkohol, Drogen, Übergewicht meiden"],
+    ther: ["Lokal: abgestimmte Hautpflege und entzündungshemmende Salben (z. B. Glukokortikoide)", "Phototherapie bei stärkerer Ausdehnung", "Systemisch bei großflächigem Befall oder ungenügendem Erfolg, Gegenanzeigen wie Kinderwunsch prüfen"],
+    pfl: ["Haut beobachten: Farbe, Oberfläche, Nebenwirkungen der Therapie, Superinfektion", "Juckreiz lindern: Nägel kurz, Kratzalternativen, Reibung vermeiden (lockere Naturfaser-Kleidung, kein Weichspüler, Haut abtupfen)", "Auf Selbsthilfegruppen hinweisen; sensibel hinsehen und früh ansprechen (Isolation, Depression)"],
+  },
+  "neurodermitis": {
+    def: "Schubweise verlaufende, chronische Hauterkrankung mit stark juckenden Ekzemen (nichtinfektiöse Entzündungsreaktion der Haut). Etwa 10 % der Kinder und 3 % der Erwachsenen sind betroffen.",
+    sym: ["Quälender Juckreiz mit hohem Leidensdruck", "Trockene Haut und glanzloses Haar (verminderte Talgproduktion)", "Ekzeme heilen ohne Narben, langfristig Hautvergröberung (Lichenifikation)", "Gefürchtet: Superinfektion durch Kratzen (Bakterien, Herpes simplex, Pilze)"],
+    urs: ["Genetische Veranlagung angenommen; Hautbarriere gestört, Haut reagiert empfindlich auf Reize"],
+    risk: ["Triggerfaktoren: künstliche Zusätze, Duftstoffe, Umweltbelastungen, chlorhaltiges Wasser, schubauslösende Lebensmittel"],
+    ther: ["Rückfettung als Basis; Therapie lokal oder systemisch", "Phototherapie erst bei Patienten über 40 Jahren erwägen (kann Hautkrebs fördern)"],
+    pfl: ["Haut und Haare beobachten, auf erhöhte Temperatur achten (Superinfektion?), psychosoziale Faktoren beachten", "Nägel kurz halten, Haut nach dem Waschen nur abtupfen", "Schlafen im ungeheizten Zimmer unter dünner Decke", "Schubauslösende Lebensmittel erfragen und dokumentieren; Tagebuch über Nahrung und Aktivitäten", "Maßnahmen gegen Juckreiz, Selbsthilfegruppen, Sozialdienst"],
+  },
+  "haut-infektionen": {
+    def: "Hautinfektionen: Follikulitis, Furunkel, Karbunkel (Staphylococcus aureus), Pilzinfektionen (Dermatophyten, Candida) und Krätze (Skabies).",
+    sym: ["Furunkel im Gesicht dürfen nicht eröffnet werden", "Pilze: Fußpilz, Nagelpilz, Kopfhautpilz; Candida: Mundsoor (weiße abwischbare Beläge), Hautfalten, genital", "Krätze: Juckreiz entlang der Milbengänge"],
+    urs: ["Follikulitis: oberflächliche bakterielle Infektion des Haarbalgs; Furunkel tiefer; Karbunkel mehrere verschmolzene Furunkel", "Krätze: Milben graben Gänge in die Hornschicht, Körper reagiert allergisch auf den Milbenkot, Ansteckung durch engen Körperkontakt"],
+    risk: ["Geschwächtes Immunsystem (z. B. Diabetes mellitus), mangelnde Körperhygiene"],
+    ther: ["Follikulitis: lokal antiseptisch (z. B. Jodlösung); Furunkel: Ichthyolsalbe lässt den Abszess ausreifen, Arzt eröffnet und räumt aus, ggf. Drainage", "Gesichtsfurunkel: Antibiotika, Sprech- und Kauverbot, flüssige Kost, Parotitisprophylaxe", "Pilze: Antimykotika als Creme oder Nagellack, bei starker Ausprägung systemisch", "Krätze: Permethrin-Salbe, nach 8 bis 12 Stunden abduschen; Säuglinge und starker Befall stationär, 14 Tage Isolation"],
+    pfl: ["Pilze: Körperfalten und Zehenzwischenräume trocken halten, gründlich abtrocknen, Kompressen einlegen, separater Einmal-Waschhandschuh und Handtuch", "Mundsoor: Beläge mit Zahnbürste oder Zungenreiniger entfernen, Antimykotikum auftragen, danach eine halbe Stunde nichts essen oder trinken", "Krätze: Kleidung und Bettwäsche wechseln, dünne Stoffe tragen; Eigenschutz mit Einmalhandschuhen, Schutzkittel, Händehygiene"],
+  },
+  "arzneimittelexanthem": {
+    def: "Unerwünschte Arzneimittelwirkung an der Haut: allergische Reaktion oder Pseudoallergie (Unverträglichkeit ohne Allergie).",
+    sym: ["Meist ab der 2. Behandlungswoche", "Beginn häufig am Stamm, dann Ausbreitung auf die Extremitäten", "Sehr unterschiedliches Aussehen, meist mit Juckreiz", "Notfallzeichen: Atemnot, Schwellung im Gesicht, Kreislaufprobleme: sofort Arzt rufen"],
+    urs: ["Grundsätzlich kann jedes Medikament einen Ausschlag verursachen", "Gehäuft bei Antibiotika (besonders Ampicillin), Schmerzmitteln und Schilddrüsenmedikamenten"],
+    risk: [],
+    ther: ["Medikament absetzen (nur nach ärztlicher Anordnung)", "Antihistaminikum, Glukokortikoide und lokale Maßnahmen gegen den Juckreiz"],
+    pfl: ["Auslösendes Medikament künftig meiden und im Allergiepass eintragen", "Dokumentation in der Patientenakte beachten"],
+  },
+  "schmerz": {
+    def: "Schmerz ist das, was der Mensch sagt. Akuter Schmerz ist ein Warnsignal; chronischer Schmerz hält länger an (oft über Monate) und braucht Plan, Gespräche und ein Team.",
+    sym: ["Erfassen: Wo? Wie (stechend, brennend, dumpf)? Wie stark? Wann? Was verbessert oder verschlechtert?", "Skalen: numerisch (0 bis 10), visuell, Gesichter; bei fehlender Sprache Beobachtungsskalen wie BESD"],
+    urs: ["Auch Angst, Einsamkeit und Sorgen verstärken Schmerz"],
+    risk: [],
+    ther: ["WHO-Stufenschema: Stufe 1 nicht-opioide Schmerzmittel (Paracetamol, Ibuprofen); Stufe 2 schwache, Stufe 3 starke Opioide, jeweils mit Stufe 1; Co-Analgetika bei Nervenschmerz", "Gabe nach Plan, Wirkung nach etwa 30 bis 60 Minuten prüfen und dokumentieren", "Opioide: Nebenwirkungen Verstopfung (Abführmittel nach Anordnung), Übelkeit, Müdigkeit; Überdosierung: sehr langsame Atmung, kaum erweckbar: sofort Hilfe; Pflaster nicht erwärmen; Betäubungsmittel gesichert lagern und besonders dokumentieren"],
+    pfl: ["Immer erfragen; Expertenstandards zum Schmerzmanagement (akut/tumorbedingt und chronisch nicht tumorbedingt)", "Nichtmedikamentös: Lagerung, Wärme oder Kälte (nach Anordnung und Verträglichkeit), Entspannung, Ablenkung, Musik, Zuwendung"],
+  },
+  "palliativ": {
+    def: "Palliative Care: Lebensqualität verbessern, wenn eine Krankheit nicht mehr heilbar ist; körperliche, seelische, soziale und spirituelle Bedürfnisse zusammen betrachten.",
+    sym: ["Beschwerden: Schmerz, Atemnot, Übelkeit, Unruhe, Angst, Mundtrockenheit", "Rasselatmung in der Sterbephase"],
+    urs: [],
+    risk: [],
+    ther: ["Symptome dürfen konsequent gelindert werden, auch wenn dies unerwünschte Wirkungen haben kann", "Töten auf Verlangen ist strafbar; zulässig ist, lebensverlängernde Maßnahmen nicht zu beginnen oder zu beenden, wenn das dem Willen des Menschen entspricht (Patientenverfügung, mutmaßlicher Wille)", "Versorgungsformen: Palliativstation, stationäres Hospiz, ambulanter Hospizdienst, SAPV zu Hause"],
+    pfl: ["Atemnot: Oberkörper hoch, frische Luft, ruhig bleiben", "Mundpflege: Befeuchten, Lippenpflege, Lieblingsgeschmack (oft wichtiger als Trinkmenge)", "Rasselatmung: Position ändern, nicht routinemäßig absaugen, Angehörigen erklären, dass dies meist nicht belastend ist", "Zeit schenken, aushalten, zuhören; Wünsche (Religion, Musik, Menschen) erfragen; Ritual oder Seelsorge anbieten; Angehörige einbeziehen", "Kübler-Ross: Leugnen, Zorn, Verhandeln, Depression, Akzeptanz (nicht zwingend in dieser Reihenfolge)", "Nach dem Tod: Tod stellt der Arzt fest (Totenflecke, Totenstarre), Würde wahren, Dokumentation; eigene Belastung ernst nehmen (Teamgespräch, Supervision)"],
+  },
+};
