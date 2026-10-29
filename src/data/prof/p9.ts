@@ -78,7 +78,7 @@ export const P9: Record<string, Profile> = {
     sym: ["Paranoid: erwartet von der Umgebung Schlechtes", "Schizoid: verschlossen, unfähig zu engen sozialen Kontakten", "Narzisstisch: überzeugt, etwas Besonderes zu sein, Aggression bei fehlender Aufmerksamkeit", "Impulskontrollstörungen: Pyromanie, pathologisches Glücksspiel, Kleptomanie"],
     urs: ["Veranlagung plus frühe Lernerfahrungen, z. B. selbstverstärkendes Vermeidungsverhalten"],
     risk: [],
-    ther: [],
+    ther: ["Im Vordergrund steht Psychotherapie (Ergänzung zum Lehrbuch: allgemeines medizinisches Wissen)"],
     pfl: ["Professionelle Vertrauensbasis schaffen", "Klare Absprachen treffen und einhalten", "Geduld, authentisch und glaubwürdig bleiben", "Grenzen setzen: aggressives Verhalten wird nicht toleriert"],
   },
 };
