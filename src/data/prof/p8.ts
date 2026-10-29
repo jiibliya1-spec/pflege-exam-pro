@@ -1,0 +1,68 @@
+import type { Profile } from "../diseaseProfiles";
+/** Krankheitsprofile Teil 8: Niere & Wasserhaushalt. */
+export const P8: Record<string, Profile> = {
+  "harnweg": {
+    def: "Entzündung von Blase oder Harnwegen, oft durch Bakterien.",
+    sym: ["Brennen beim Wasserlassen, häufiger Harndrang, trüber oder übelriechender Urin", "Fieber, Schüttelfrost, Flankenschmerz: mögliche Nierenbeckenentzündung oder Urosepsis, sofort melden", "Bei alten Menschen manchmal nur Verwirrtheit"],
+    urs: ["Meist Bakterien"],
+    risk: ["Frauen (kurze Harnröhre)", "Blasenkatheter, Inkontinenz, zu wenig Trinken, Zuckerkrankheit, Harnabflussstörung (z. B. Prostatavergrößerung)"],
+    ther: ["Urinstreifentest und Urinkultur (Mittelstrahlurin nach Intimreinigung)", "Antibiotika nur nach Anordnung, die ganze verordnete Dauer"],
+    pfl: ["Ausreichend trinken, wenn nichts dagegen spricht; Blase regelmäßig entleeren", "Intimpflege von vorn nach hinten, Inkontinenzmaterial rechtzeitig wechseln", "Blasenkatheter: geschlossenes System nicht trennen, Beutel unter Blasenhöhe und nie auf dem Boden, tägliche Katheterpflege, Zug vermeiden, täglich Indikation hinterfragen", "Katheter nur bei klarer Indikation und so kurz wie möglich"],
+  },
+  "niereninsuff": {
+    def: "Die Nieren filtern das Blut nicht mehr ausreichend. Es gibt eine akute und eine chronische Form.",
+    sym: ["Wassereinlagerungen (Ödeme), wenig Urin, Müdigkeit, Juckreiz, Übelkeit", "Folgen: zu viel Kalium (Herzrhythmusstörungen), Blutarmut, Knochenstörungen", "Akut: Oligurie unter 500 ml/Tag, Anurie unter 100 ml/Tag"],
+    urs: ["Chronisch: häufigste Ursachen Diabetes und Bluthochdruck, schleichend über Jahre", "Akut: Volumenmangel, Medikamente, Verschluss; oft umkehrbar, wenn die Ursache behoben wird"],
+    risk: ["Diabetes, Bluthochdruck"],
+    ther: ["Hämodialyse: Blut wird über eine Maschine gereinigt, meist mehrmals pro Woche für einige Stunden, Zugang oft Shunt am Arm", "Peritonealdialyse: Reinigung über das Bauchfell, oft zu Hause", "Chronisch im Endstadium: Dialyse oder Transplantation", "Medikamentendosis anpassen; neue Mittel mit dem Arzt abstimmen"],
+    pfl: ["Trinkmenge und Ausscheidung bilanzieren, Gewicht kontrollieren; Vorgaben zu Flüssigkeit, Kalium und Eiweiß beachten", "Am Shuntarm nichts messen, nichts spritzen, nichts drücken, keine enge Kleidung; Shunt täglich kontrollieren (Schwirren fühlen), Fehlen sofort melden", "Haut pflegen (Juckreiz), Infektionen vorbeugen", "Gewicht zwischen den Dialysen kontrollieren; steigendes Kalium: Rhythmusstörungen sind die gefährlichste Folge"],
+  },
+  "glomerulonephritis": {
+    def: "Entzündung der Nierenkörperchen. Häufige Ursache einer späteren Niereninsuffizienz.",
+    sym: ["Nephritisches Syndrom: Blut im Urin (Hämaturie), Ödeme, Bluthochdruck", "Nephrotisches Syndrom: starker Eiweißverlust im Urin (über 3 g pro Tag)"],
+    urs: ["Häufig nach einem Infekt mit Streptokokken (Mandel- oder Hautinfektion)", "Autoimmunreaktion"],
+    risk: [],
+    ther: ["Ursache angehen, Blutdruck senken, entwässern, Eiweiß und Salz nach Arztplan, bei Bedarf Immunsuppression"],
+    pfl: ["Vitalzeichen 2 bis 3 mal täglich (Hochdruck?)", "Urin beobachten (Menge, Farbe, Beimengungen)", "Ödeme an Augenlidern und Knöcheln beobachten, tägliche Gewichtskontrolle, ggf. Bilanzierung", "Infektionen früh melden, Haut schützen"],
+  },
+  "dialyse": {
+    def: "Nierenersatztherapie: Stoffe wandern passiv über eine halbdurchlässige Membran zwischen Blut und Dialysat (Konzentrationsgefälle, Gegenstromprinzip).",
+    sym: ["Indikation: Anurie bei akutem Nierenversagen, drohende Urämie, Elektrolytentgleisung oder Azidose, Überwässerung mit Lungenödem"],
+    urs: [],
+    risk: [],
+    ther: ["Extrakorporal: Hämodialyse und Hämofiltration; intrakorporal: Peritonealdialyse", "Hämodialyse: meist 3-mal pro Woche für 4 bis 6 Stunden; Zugang arteriovenöser Shunt (OP 4 bis 6 Wochen vorher) oder zentralvenöser Katheter", "Ziel: „Trockengewicht“ (normale Wasserbilanz); Blut wird heparinisiert, auf Blutungen achten (Magen-Darm)"],
+    pfl: ["Vor und nach der Dialyse wiegen und Blutdruck messen (Gewichtsverlust = entzogene Menge); Elektrolyte vor der Dialyse prüfen", "Nach der Dialyse: Kreislauf (Blutdruckabfall, Schwindel), Punktionsstellen (Nachblutung), Shuntkontrolle", "Medikamente, die ausgewaschen werden, nach der Dialyse geben (Absprache)", "Shunt schützen: Punktion über die Vene; am Shuntarm keine Blutdruckmessung, Blutentnahme, Infusion oder enge Kleidung"],
+  },
+  "saeure-basen": {
+    def: "Normal ist ein arterieller pH von 7,37 bis 7,43. Azidose: pH unter 7,37. Alkalose: pH über 7,43.",
+    sym: ["Respiratorische Alkalose z. B. bei Hyperventilation", "Flache, langsame Atmung: Gefahr der CO2-Narkose"],
+    urs: ["Respiratorisch: Atmung zu stark (Alkalose) oder zu schwach (Azidose)", "Metabolisch: Säure im Körper zu viel oder zu wenig produziert oder ausgeschieden"],
+    risk: [],
+    ther: ["Metabolische Alkalose: ggf. NaCl-Infusion, Kalium ausgleichen"],
+    pfl: ["Respiratorische Alkalose: Patienten beruhigen, Rückatmung der Ausatemluft nach Anordnung", "Bei flacher, langsamer Atmung Blutgasanalyse beachten"],
+  },
+  "urolithiasis": {
+    def: "Nierensteine und Harnleiterkolik: Steine entstehen, wenn vermehrt steinbildende Stoffe wie Kalzium oder Harnsäure ausgeschieden werden.",
+    sym: ["Leitsymptom: kolikartige Schmerzen mit Ausstrahlung und Makrohämaturie", "Akutes Abdomen oder Subileus möglich", "Fieber + Stau = Notfall"],
+    urs: ["Vermehrte steinbildende Stoffe (Kalzium, Harnsäure)", "Erhöhter Urin-pH, z. B. bei Harnwegsinfekten"],
+    risk: ["Zu wenig Trinken, Harnwegsinfekte"],
+    ther: ["Sonografie oder Niedrigdosis-CT", "Kolik: Spasmolytika und Analgetika", "Fieberhafte Harnstauungsniere: Urinableitung plus Antibiotika", "Aktive Steinentfernung: ESWL, PNL, Ureteroskopie"],
+    pfl: ["Schmerz erfassen, Medikamente nach Anordnung, Ausscheidung und Urinfarbe beobachten", "Bilanzieren, auf ausreichende Flüssigkeitszufuhr achten (wenn keine Einschränkung)", "Urin sieben, wenn angeordnet", "Nach Eingriffen: Katheter und Drainagen kontrollieren (abgeknickt? Blutgerinnsel?), Verbandwechsel, Katheterpflege", "Vorbeugen: viel trinken, Ernährung nach ärztlicher Beratung anpassen"],
+  },
+  "vur-kinder": {
+    def: "Beim vesikoureteralen Reflux (VUR) fließt Harn unphysiologisch aus der Blase in die Harnleiter oder bis in die Nieren zurück. Es besteht die Gefahr wiederholter Infektionen.",
+    sym: ["Wiederkehrende Harnwegsinfektionen, Nierenschmerzen, Fieber", "Bei kleinen Kindern unspezifisch: Trinkschwäche, Erbrechen, unklares Fieber"],
+    urs: ["Primär: Harnleiter falsch angelegt und verkürzt", "Sekundär: Blasenschädigung oder gestörter Abfluss unterhalb der Blase"],
+    risk: ["1–5 % aller Kinder, Mädchen häufiger als Jungen"],
+    ther: ["Miktionszystourethrografie und Sonografie", "Infektprophylaxe und Kontrollen; bei Reinfektionen operative oder endoskopische Möglichkeiten"],
+    pfl: ["Urin und Diurese beobachten, bilanzieren, regelmäßig Gewicht kontrollieren", "Auf ausreichende Flüssigkeitszufuhr achten", "Nach OP: Drainagen auf Lage prüfen, Verbandwechsel, Katheterpflege", "Eltern einbeziehen und zur Intimhygiene beraten"],
+  },
+  "wasser-elektrolyte": {
+    def: "Der Körper hält Wasser und Elektrolyte in engen Grenzen konstant. Störungen entstehen als Dehydratation (Wassermangel) oder Hyperhydratation (zu viel Wasser), jeweils isoton, hyperton oder hypoton.",
+    sym: ["Dehydratation: Durst, Mundtrockenheit, Volumenmangel", "Hyperhydratation: Ödeme", "Laborwerte und Rhythmusstörungen"],
+    urs: ["Dehydratation isoton: Erbrechen, Durchfall, Blutverlust; hyperton: lange nichts getrunken, starkes Schwitzen; hypoton: häufiges Erbrechen, Überdosis Diuretika oder Abführmittel", "Hyperhydratation isoton: Herzinsuffizienz, zu große isotone Infusionsmengen; hyperton: salzhaltiges Wasser, hypertone NaCl-Infusion; hypoton: destilliertes Wasser, Niereninsuffizienz"],
+    risk: ["Ältere Menschen (Durst vermindert)"],
+    ther: ["Regulation: ADH, Renin-Angiotensin-Aldosteron-System, ANP; Insulin schiebt Kalium in die Zellen"],
+    pfl: ["Flüssigkeit bilanzieren, Gewicht kontrollieren, Vitalzeichen und Hautzustand beobachten", "Dehydratation vorbeugen: Trinkmenge anbieten, Trinkprotokoll, auf Durst und Mundtrockenheit achten, v. a. bei älteren Menschen", "Bei Ödemen oder Herz- und Niereninsuffizienz Trinkmenge nach Anordnung beschränken", "Auffällige Laborwerte und Rhythmusstörungen sofort melden"],
+  },
+};
