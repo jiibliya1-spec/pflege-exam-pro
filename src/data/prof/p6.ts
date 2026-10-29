@@ -1,0 +1,60 @@
+import type { Profile } from "../diseaseProfiles";
+/** Krankheitsprofile Teil 6: Verdauung I. */
+export const P6: Record<string, Profile> = {
+  "crohn": {
+    def: "Chronische Entzündung im Verdauungstrakt, verläuft in Schüben. Sie kann den ganzen Darm betreffen (Mund bis After), oft in einzelnen Abschnitten, alle Wandschichten.",
+    sym: ["Bauchschmerzen, Durchfall, Gewichtsverlust, Müdigkeit, manchmal Fieber", "Komplikationen: Stenosen, Fisteln, Abszesse, Mangel an Vitaminen und Eisen", "Abgrenzung Colitis ulcerosa: Dickdarm, fortlaufend von unten nach oben, blutig-schleimige Durchfälle"],
+    urs: [],
+    risk: ["Rauchen verschlechtert den Verlauf"],
+    ther: ["Kortison im Schub, Medikamente zur Hemmung des Immunsystems, Biologika, manchmal Operation", "Keine feste „Crohn-Diät“, Verträglichkeit individuell herausfinden; bei Mangel Zusatznahrung nach Anordnung"],
+    pfl: ["Gewicht und Ernährung beobachten, auf Flüssigkeit achten", "Haut am After und rund ums Stoma schützen; bei Stoma Beutelwechsel, Hautpflege, Beratung", "Scham und Belastung ansprechen, diskret pflegen", "Infektionsrisiko durch Immunsuppression beachten (Hygiene, Impfstatus, Fieber melden)"],
+  },
+  "leberzirrhose": {
+    def: "Die Leber wird bindegewebig umgebaut und arbeitet schlechter. Die Leber ist ein Entgiftungsorgan: Bei Ausfall steigen Giftstoffe im Blut.",
+    sym: ["Aszites (Bauchwasser), Gelbfärbung der Haut, Juckreiz, Müdigkeit", "Blutungsneigung, Ösophagusvarizen (Bluterbrechen, Teerstuhl, Kreislaufabfall: Notfall)", "Hepatische Enzephalopathie: Ammoniak schädigt das Gehirn (Schlaf-Wach-Umkehr, Verwirrtheit, Zittern der Hände)", "Infektionen"],
+    urs: ["Alkohol, chronische Virushepatitis (B und C), Fettleber, bestimmte Autoimmunerkrankungen"],
+    risk: ["Alkohol, Hepatitis B und C, Fettleber"],
+    ther: ["Salzarm; Eiweiß nicht pauschal verbieten (viele sind mangelernährt), Vorgaben des Arztes befolgen", "Viele Medikamente werden in der Leber abgebaut: nur angeordnete Mittel, Vorsicht bei Schmerzmitteln"],
+    pfl: ["Gewicht und Bauchumfang regelmäßig messen", "Ein- und Ausfuhr bilanzieren, Vorgaben zu Salz, Flüssigkeit und Eiweiß beachten", "Blutungen vorbeugen: weiche Zahnbürste, vorsichtige Rasur", "Haut schützen, Bewusstsein beobachten", "Alkoholverzicht respektvoll ansprechen, ohne Schuldzuweisung; Recht auf eigene Entscheidung, Alternativen anbieten"],
+  },
+  "ileus": {
+    def: "Darmverschluss in zwei Formen: mechanischer Ileus (Darmlumen verlegt) und paralytischer Ileus (Darmbewegung gelähmt).",
+    sym: ["Kein oder kaum Stuhlgang, Bauchschmerzen, Übelkeit, Erbrechen, aufgeblähter Bauch ohne Windabgang, evtl. Fieber, Appetitlosigkeit", "Koterbrechen (Miserere) bei Rückstau", "Fehlende Darmgeräusche = paralytisch, klingende = mechanisch"],
+    urs: ["Mechanisch: Tumor, Verwachsungen, Hernie", "Paralytisch: Entzündungen im Bauch, nach Operationen, Opiate"],
+    risk: [],
+    ther: ["Mechanisch: muss operiert werden, Einläufe sind verboten", "Paralytisch: Peristaltik wird durch Einläufe und Medikamente angeregt", "Diagnostik: Ultraschall, Röntgen, CT", "Gefahren: Volumenmangel bis Schock, Peritonitis, Perforation"],
+    pfl: ["Nahrungskarenz: nichts essen und trinken", "Nasogastrale Ablaufsonde, Infusionen, Bilanz", "Bauchumfang und Schmerz beobachten, Vitalzeichen kontrollieren, Arzt informieren"],
+  },
+  "akutes-abdomen": {
+    def: "Lebensbedrohliches Krankheitsbild mit plötzlichen heftigen Bauchschmerzen, Abwehrspannung der Bauchdecke und oft Schocksymptomen.",
+    sym: ["Bauchschmerz, Übelkeit, Erbrechen, Verstopfung oder Durchfall, evtl. Fieber", "Abwehrspannung („brettharter Bauch“), Schonhaltung mit angezogenen Beinen", "Schock: Unruhe, Blässe, Kaltschweißigkeit, Tachykardie, wenig Urin"],
+    urs: ["Entzündungen (Blinddarm, Gallenblase, Bauchspeicheldrüse, Divertikel, Darm), Durchbruch eines Hohlorgans, Gallensteine, mechanischer Ileus, Durchblutungsstörung des Darms"],
+    risk: [],
+    ther: ["Eine Operation kann nötig sein"],
+    pfl: ["Arzt sofort informieren, Vitalzeichen kontrollieren, nicht allein lassen", "Nüchtern lassen (Narkoserisiko)", "Keine Schmerzmittel ohne Anordnung (verschleiern Zeichen vor der Untersuchung)", "Zugang vorbereiten"],
+  },
+  "divertikel": {
+    def: "Divertikulose: Die Darmwand buchtet sich nach außen aus. Divertikulitis: entzündete Ausstülpungen.",
+    sym: ["Divertikulose: meist keine Beschwerden", "Divertikulitis: Schmerzen, „brettharter“ Bauch, Stuhlveränderungen", "Komplikationen: Durchbruch, Blutung, Abszess"],
+    urs: [],
+    risk: ["Ballaststoffarme Kost und Bewegungsmangel begünstigen das Fortschreiten"],
+    ther: ["Divertikulose: ballaststoffreiche Kost und Bewegung", "Divertikulitis: sofort Antibiotika", "Nach Abheilen Koloskopie, um andere Ursachen wie Tumor auszuschließen"],
+    pfl: ["Vitalzeichen, Schmerzen, Stuhl und einen „brettharten“ Bauch beobachten"],
+  },
+  "darmkrebs": {
+    def: "Kolorektales Karzinom: bösartiger Tumor von Dickdarm und Enddarm.",
+    sym: ["Blut im Stuhl oder schwarzer Stuhl, wechselnde Stuhlgewohnheiten, Bleistiftstuhl, Gewichtsverlust, Müdigkeit", "Anämie ohne erkennbare Ursache kann ein erstes Zeichen sein"],
+    urs: [],
+    risk: ["Chronisch-entzündliche Darmerkrankung, genetische Faktoren, fett- und fleischreiche Ernährung", "Alter: 90 % sind über 50"],
+    ther: ["Früherkennung ab 50: jährlich Test auf verstecktes Blut im Stuhl (iFOBT), alle 10 Jahre Koloskopie", "Operation, ggf. mit Anlage eines Enterostomas; Chemotherapie kann den Tumor vorher verkleinern"],
+    pfl: ["Präoperativ: ballaststoffarme Kost, ggf. künstliche Ernährung über ZVK, Abführen und Rasur nach Anordnung, Stomatherapeut einbeziehen; Tumorsitz beachten, beim Einlauf Perforationsgefahr", "Postoperativ: Vitalzeichen 2 bis 3 mal täglich, Stuhlgang nach 4 bis 7 Tagen erwartet, Frühmobilisation ab dem 1. Tag, stufenweiser Kostaufbau", "Komplikationen beobachten: Blutung, undichte Naht (Anastomoseninsuffizienz), Pneumonie, Thrombose, Lungenembolie, Blasenentleerungsstörung", "Psychosoziale Begleitung, Sozialdienst und Krebsberatung"],
+  },
+  "hepatitis": {
+    def: "Leberentzündung, meist durch Viren (A, B, C), aber auch durch Gifte (Alkohol, Medikamente), Fettleber, Stoffwechselkrankheiten oder Autoimmunerkrankung.",
+    sym: ["Akut: Unwohlsein, Fieber, Übelkeit, Erbrechen, Schmerzen im rechten Oberbauch, ggf. Gelbsucht (Ikterus), lange Müdigkeit", "Grauer, lehmfarbener (acholischer) Stuhl", "Fulminante Verläufe mit Leberversagen möglich"],
+    urs: ["Hepatitis A: fäkal-oral, heilt folgenlos aus, wird nicht chronisch", "Hepatitis B: Blut-zu-Blut-Kontakt, etwa 90 % heilen aus, ca. 10 % chronisch", "Hepatitis C: u. a. Blut-zu-Blut-Kontakt, 50 bis 85 % chronisch"],
+    risk: ["Medizinisches Personal: Nadelstichverletzungen"],
+    ther: ["Impfung gegen Hepatitis A und B; Hepatitis-B-Impfung im Kinderimpfprogramm, Wirksamkeit per Antikörpertest prüfen, bei ausreichendem Status alle 10 Jahre auffrischen", "Nach Nadelstichverletzung sofort Arzt: bei Hepatitis B Notfall-Impfung und Immunglobulin"],
+    pfl: ["Stuhl beobachten, Haut und Schleimhäute auf Gelbfärbung prüfen, Blutzucker, Schmerzen im Oberbauch", "Eigenschutz: Handschuhe, Nadelstichprophylaxe, Hygiene"],
+  },
+};

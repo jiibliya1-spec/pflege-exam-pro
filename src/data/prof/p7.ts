@@ -1,0 +1,60 @@
+import type { Profile } from "../diseaseProfiles";
+/** Krankheitsprofile Teil 7: Verdauung II. */
+export const P7: Record<string, Profile> = {
+  "galle": {
+    def: "Erkrankungen der Gallenblase und Gallenwege: Cholezystolithiasis (Steine in der Gallenblase), Cholezystitis (Entzündung), Choledocholithiasis (Steine im Gallengang), Cholangitis (Entzündung der Gallenwege).",
+    sym: ["Oft lange keine Beschwerden", "Später kolikartige Schmerzen, Übelkeit und Erbrechen", "Verschlussikterus: gelbe Haut und Augen, heller (lehmfarbener) Stuhl, dunkler Urin"],
+    urs: ["Gallensteine; ein Stein am Pankreasgang kann eine Pankreatitis auslösen"],
+    risk: ["Die 5 F: female, fat, forty, fertile, fair (weiblich, übergewichtig, um 40, Schwangerschaften, hellhäutig)"],
+    ther: ["Diagnostik: Ultraschall und Blutwerte", "ERCP (Spiegelung der Gallenwege), laparoskopische Gallenblasenentfernung, Antibiotika"],
+    pfl: ["Perioperativ: allgemeine OP-Pflege, Schmerzmanagement", "Fieber, Hautfarbe und Stuhl beobachten"],
+  },
+  "pankreatitis": {
+    def: "Entzündung der Bauchspeicheldrüse (akut oder chronisch).",
+    sym: ["Gürtelförmige Oberbauchschmerzen, „gummiartiger“ Bauch", "Übelkeit, Erbrechen, Fieber, Blähbauch", "Bei akutem Verlauf Volumenmangel möglich", "Komplikation: Pankreasinsuffizienz mit hohem Blutzucker, Fettstühlen und Gewichtsverlust, häufig folgt ein Diabetes"],
+    urs: ["Akut: Gallengangstein mit Verschlussikterus (ca. 55 %), chronischer Alkohol (ca. 35 %), Medikamente, Viren, nach ERCP", "Chronisch: v. a. Alkohol (ca. 80 %)"],
+    risk: ["Alkohol, Gallensteine"],
+    ther: ["Akut: Pankreas entlasten (Schonkost nach Arztplan), ausreichend Schmerzmittel, Überwachung (evtl. Intensiv)", "Chronisch: Alkoholverzicht, Schmerzmanagement, Pankreasenzyme, ggf. Operation"],
+    pfl: ["Schmerzen erfassen und Schmerzmittel nach Anordnung", "Überwachung der Vitalzeichen und des Flüssigkeitshaushalts", "Blutzucker, Stuhl (Fettstühle) und Gewicht beobachten", "Alkoholverzicht respektvoll ansprechen"],
+  },
+  "hernie": {
+    def: "Das Bauchfell stülpt sich sackartig durch eine Lücke in der Bauchmuskulatur nach außen. Im Bruchsack kann auch Darm liegen. Häufigste Form: Leistenhernie.",
+    sym: ["Beschwerden gering, ggf. Schmerzen bei Anspannung", "Inkarzeration: Inhalt klemmt ein, Darm kann absterben (Notfall)"],
+    urs: ["Chronische Verstopfung, schweres Heben, Übergewicht", "Angeboren (selten) oder erworben (häufig)"],
+    risk: ["Verstopfung, schweres Heben, Übergewicht"],
+    ther: ["Meist (laparoskopische) Operation"],
+    pfl: ["Vorbeugen: Verstopfung vermeiden, nicht pressen, schwer heben vermeiden, Übergewicht reduzieren", "Nach OP: Wunde und Schwellung beobachten, Schmerzen, Blasenentleerung, Heben nach ärztlicher Vorgabe"],
+  },
+  "reflux-gerd": {
+    def: "Saurer Magensaft fließt in die Speiseröhre zurück.",
+    sym: ["Sodbrennen, Übelkeit, Völlegefühl, saures Aufstoßen", "NERD: Schleimhaut gleicht die Reizung anfangs aus; ERD: bei längerer Reizung entstehen Geschwüre", "Ständige Reizung kann zu Speiseröhrenkrebs führen"],
+    urs: ["Mangelnder Verschluss des unteren Speiseröhren-Schließmuskels", "Erhöhter Bauchdruck (Schwangerschaft, Übergewicht)", "Erhöhte Säureproduktion (Alkohol, Kaffee)"],
+    risk: ["Übergewicht, Alkohol, Kaffee, Nikotin, fettreiches Essen"],
+    ther: ["Diagnostik: Gastroskopie, Langzeit-pH-Metrie (24 Stunden), Ösophagusmanometrie", "Lebensweise ändern: Gewicht normalisieren, weniger fettreich, Kaffee, Nikotin und Alkohol", "Protonenpumpenhemmer (z. B. Pantoprazol)", "Bei fortgeschrittener Erkrankung Fundoplicatio"],
+    pfl: ["Oberkörper hochlagern (verringert den Rückfluss)", "Säurehemmer im Stehen mit kohlensäurearmem Wasser auf nüchternen Magen einnehmen", "Auf Programme der Krankenkasse (z. B. Raucherentwöhnung) und regelmäßige Kontrollen beim Gastroenterologen hinweisen"],
+  },
+  "gastritis-ulkus": {
+    def: "Gastritis: Entzündung der Magenschleimhaut. Ulkus: Geschwür, das bis tief in die Schleimhaut reicht (Magen: Ulcus ventriculi, Zwölffingerdarm: Ulcus duodeni).",
+    sym: ["Übelkeit und Erbrechen, saures Aufstoßen, Schmerzen im Oberbauch, Appetitlosigkeit, manchmal Gewichtsabnahme", "Alarmzeichen bei blutendem Ulkus: Teerstuhl und Hämatinerbrechen (kaffeesatzartig)", "Komplikationen: Blutung, Durchbruch mit akuter Peritonitis, Magenkrebs bei chronischer Typ-A/B-Gastritis"],
+    urs: ["Akute Gastritis: meist akute Magen-Darm-Entzündung, häufig Viren (z. B. Noroviren), heilt nach einigen Tagen Diät meist folgenlos aus", "Chronische Formen (Typ A, B, C); Helicobacter pylori"],
+    risk: ["Übergewicht, fettreiche Kost, Kaffee, Nikotin, Alkohol"],
+    ther: ["Gastroskopie mit Schleimhautbiopsie; Helicobacter-Nachweis durch Stuhluntersuchung und C13-Atemtest", "Helicobacter: Triple-Therapie aus zwei Antibiotika plus Protonenpumpenhemmer (z. B. Pantoprazol)", "Lebensweise ändern"],
+    pfl: ["Stuhl beobachten: Farbe (Teerstuhl?), Konsistenz, Häufigkeit", "Akute Gastritis mit Übelkeit: schrittweiser Kostaufbau (z. B. Tee, Zwieback)", "Beraten: Lebensgewohnheiten, regelmäßige Medikamenteneinnahme, Krankheitsverlauf, mögliche Stuhlveränderungen"],
+  },
+  "appendizitis": {
+    def: "Entzündung des Wurmfortsatzes (Appendix vermiformis) am Dickdarm, im Alltag Blinddarmentzündung genannt.",
+    sym: ["Schmerz im rechten Unterbauch bei Druck auf McBurney- oder Lanz-Punkt, kontralateraler Loslassschmerz (Blumberg-Zeichen)", "Schmerz bei der rektalen Untersuchung", "Fieber, etwa 1 °C Unterschied zwischen axillärer und rektaler Messung", "Übelkeit, Erbrechen, evtl. Durchfall"],
+    urs: ["Meist Verlegung der Appendix, z. B. durch Kotsteine oder Fremdkörper"],
+    risk: ["Typisch bei jungen Patienten unter 30 Jahren"],
+    ther: ["Diagnostik: Tasten der Schmerzpunkte, Blutwerte (Entzündung), Sonografie", "Operation (meist laparoskopisch), nach der OP Antibiotika i. v., bis dahin Nahrungskarenz"],
+    pfl: ["Vitalzeichen beobachten, Schmerzen erfassen und nach Anordnung behandeln", "Bauchdeckenentspannende Position: Knierolle, Oberkörper leicht hoch", "Nahrungskarenz, Kostaufbau nur nach Arztanordnung, Flüssigkeit, Elektrolyte und Glukose nach Anordnung", "Bei unklarem Bauchschmerz keine Wärme auf den Bauch und keine Abführmittel", "Nach OP: 4 Wochen nicht schwer tragen"],
+  },
+  "peritonitis": {
+    def: "Entzündung des Bauchfells, das den ganzen Bauchraum auskleidet; deshalb kann das gesamte Abdomen betroffen sein.",
+    sym: ["Abdomineller Druckschmerz mit Abwehrspannung", "Starkes Krankheitsgefühl und hohes Fieber", "Im Verlauf Kreislaufprobleme durch septischen Schock, oft Intensivstation"],
+    urs: ["Jede Entzündung oder nicht ausreichend sterile Operation im Bauchraum; häufigste Ursache: Appendizitis", "Spontan bakterielle Peritonitis: Darmbakterien durchdringen die Darmwand (etwa 15 % der Patienten mit Aszites)"],
+    risk: ["Aszites"],
+    ther: ["Diagnostik wie beim akuten Abdomen: Untersuchung, Blutwerte, Sonografie, CT", "Antibiotika i. v. und intensivmedizinische Überwachung", "Ursache finden und so schnell wie möglich behandeln"],
+    pfl: ["Intensivmedizinische Überwachung, Vitalzeichen", "Flüssigkeitshaushalt beobachten, bei septischem Schock Urinmenge und Hautzustand prüfen", "Antibiotikatherapie geben und überwachen", "Bei Verschlechterung sofort Arzt informieren"],
+  },
+};
