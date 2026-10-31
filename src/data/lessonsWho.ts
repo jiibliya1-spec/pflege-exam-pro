@@ -50,6 +50,7 @@ export const WHO: Record<string, Who[]> = {
   "frauen-organe": F, "maenner-organe": M, sti: E, "bph-prostata-op": M,
   // Lebensphasen (Ausbildung)
   "wasser-elektrolyte": A, hirntumor: A, "periphere-nerven-wirbelkanal": E,
+  "trisomie-21": K, cvi: E, larynxkarzinom: E, mammakarzinom: F, "colitis-ulcerosa": A, verbrennung: A,
   "b-schwangerschaft": F, "b-kind-alter": ["kinder", "erwachsene"],
 };
 

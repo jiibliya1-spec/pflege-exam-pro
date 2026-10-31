@@ -11,6 +11,7 @@ import { P9 } from "./prof/p9";
 import { P10 } from "./prof/p10";
 import { P11 } from "./prof/p11";
 import { P12 } from "./prof/p12";
+import { P13 } from "./prof/p13";
 import { AR_P1 } from "./tr/prof/ar1";
 import { AR_P2 } from "./tr/prof/ar2";
 import { AR_P3 } from "./tr/prof/ar3";
@@ -23,6 +24,7 @@ import { AR_P9 } from "./tr/prof/ar9";
 import { AR_P10 } from "./tr/prof/ar10";
 import { AR_P11 } from "./tr/prof/ar11";
 import { AR_P12 } from "./tr/prof/ar12";
+import { AR_P13 } from "./tr/prof/ar13";
 
 /** Krankheitsprofil: einheitliche Gliederung für jede Krankheits-Lektion. */
 export interface Profile {
@@ -36,9 +38,9 @@ export interface Profile {
 }
 export const PROFILE_KEYS = ["sym", "urs", "risk", "ther", "pfl"] as const;
 
-export const PROFILES: Record<string, Profile> = { ...P1, ...P2, ...P3, ...P4, ...P5, ...P6, ...P7, ...P8, ...P9, ...P10, ...P11, ...P12 };
+export const PROFILES: Record<string, Profile> = { ...P1, ...P2, ...P3, ...P4, ...P5, ...P6, ...P7, ...P8, ...P9, ...P10, ...P11, ...P12, ...P13 };
 
-const TR: Partial<Record<Lang, Record<string, Profile>>> = { ar: { ...AR_P1, ...AR_P2, ...AR_P3, ...AR_P4, ...AR_P5, ...AR_P6, ...AR_P7, ...AR_P8, ...AR_P9, ...AR_P10, ...AR_P11, ...AR_P12 } };
+const TR: Partial<Record<Lang, Record<string, Profile>>> = { ar: { ...AR_P1, ...AR_P2, ...AR_P3, ...AR_P4, ...AR_P5, ...AR_P6, ...AR_P7, ...AR_P8, ...AR_P9, ...AR_P10, ...AR_P11, ...AR_P12, ...AR_P13 } };
 
 export function profileFor(id: string, lang: Lang): { p: Profile; translated: boolean } | null {
   const de = PROFILES[id];

@@ -19,6 +19,7 @@ import { AR17 } from "./ar17";
 import { AR18 } from "./ar18";
 import { AR19 } from "./ar19";
 import { AR20 } from "./ar20";
+import { AR21 } from "./ar21";
 
 /** Übersetzte Lektionen (Arabisch), Schlüssel = Lektions-ID. Teile in ar1.ts, ar2.ts, ... */
-export const AR: Record<string, LessonTr> = { ...AR1, ...AR2, ...AR3, ...AR4, ...AR5, ...AR6, ...AR7, ...AR8, ...AR9, ...AR10, ...AR11, ...AR12, ...AR13, ...AR14, ...AR15, ...AR16, ...AR17, ...AR18, ...AR19, ...AR20 };
+export const AR: Record<string, LessonTr> = { ...AR1, ...AR2, ...AR3, ...AR4, ...AR5, ...AR6, ...AR7, ...AR8, ...AR9, ...AR10, ...AR11, ...AR12, ...AR13, ...AR14, ...AR15, ...AR16, ...AR17, ...AR18, ...AR19, ...AR20, ...AR21 };
