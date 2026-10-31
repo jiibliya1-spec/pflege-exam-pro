@@ -328,6 +328,56 @@ export const SCENES: CaseScene[] = [
     ],
     problem: l10n("Umzug ins Pflegeheim und Eingewöhnung.", "الانتقال إلى دار الرعاية والتأقلم.", "Moving into a care home and settling in.", "Emménagement en maison de retraite et adaptation.", "Bakım evine taşınma ve alışma."),
   },
+  {
+    id: "z01", place: "heim",
+    who: [p("Ingeborg Lehmann", "patient", 89), p("Selin Yıldız", "pflege", 31), p("Leon Weber", "azubi", 19), p("Karin", "angehoerig", 58)],
+    steps: [
+      st("Moon", "Frau Lehmann stürzt nachts auf dem Weg zur Toilette.", "السيدة ليمان تسقط ليلاً في طريقها إلى المرحاض.", "Mrs Lehmann falls at night on her way to the toilet.", "Mme Lehmann tombe la nuit en allant aux toilettes.", "Bayan Lehmann geceleyin tuvalete giderken düşüyor."),
+      st("Hospital", "Hüft-TEP im Krankenhaus, nach zwölf Tagen Rückkehr ins Heim.", "استبدال مفصل الورك في المستشفى والعودة إلى دار الرعاية بعد 12 يوماً.", "Hip replacement in hospital, back in the home after twelve days.", "Prothèse de hanche à l'hôpital, retour à la maison de retraite après douze jours.", "Hastanede kalça protezi, on iki gün sonra bakım evine dönüş."),
+      st("Users", "Die Tochter fordert ein Bettgitter und denkt an die Pflege zu Hause.", "الابنة تطلب حاجز سرير وتفكر بالرعاية في البيت.", "The daughter demands a bed rail and considers home care.", "La fille demande une barrière de lit et envisage les soins à domicile.", "Kızı yatak korkuluğu istiyor ve evde bakımı düşünüyor."),
+    ],
+    problem: l10n("Wie werden Sturzrisiko, Angst und Angehörigenwünsche fachlich und rechtlich richtig behandelt?", "كيف يُتعامل مع خطر السقوط والخوف ورغبات الأقارب مهنياً وقانونياً؟", "How are fall risk, fear and relatives' wishes handled professionally and legally?", "Comment traiter correctement le risque de chute, la peur et les souhaits des proches sur le plan professionnel et juridique ?", "Düşme riski, korku ve yakınların istekleri mesleki ve hukuki olarak nasıl ele alınır?"),
+  },
+  {
+    id: "z02", place: "klinik",
+    who: [p("Jonas Berger", "kind", 9), p("Dennis Krämer", "pflege", 29), p("Nicole Berger", "angehoerig", 38)],
+    steps: [
+      st("Hospital", "Jonas wird mit Knieschmerzen und Müdigkeit aufgenommen.", "يُقبل يوناس بآلام في الركبة وتعب.", "Jonas is admitted with knee pain and fatigue.", "Jonas est admis avec des douleurs au genou et de la fatigue.", "Jonas diz ağrısı ve yorgunlukla yatırılıyor."),
+      st("Utensils", "Viel Limonade, Fast Food und Bildschirmzeit prägen den Alltag.", "الحياة اليومية مليئة بالمشروبات الغازية والوجبات السريعة وأوقات الشاشة.", "Lots of lemonade, fast food and screen time shape daily life.", "Beaucoup de limonade, de fast-food et d'écrans rythment le quotidien.", "Günlük yaşamda çok gazoz, fast food ve ekran süresi var."),
+      st("Frown", "In der Schule wird er gehänselt.", "يتعرض للسخرية في المدرسة.", "He is teased at school.", "On se moque de lui à l'école.", "Okulda alay ediliyor."),
+    ],
+    problem: l10n("Wie berät der Pflegefachmann die Familie ohne Schuldzuweisung und stärkt Jonas?", "كيف يرشد الممرض الأسرة دون لوم ويقوّي يوناس؟", "How does the nurse advise the family without blame and strengthen Jonas?", "Comment l'infirmier conseille-t-il la famille sans culpabiliser et soutient-il Jonas ?", "Hemşire aileyi suçlamadan nasıl yönlendirir ve Jonas'ı nasıl güçlendirir?"),
+  },
+  {
+    id: "z03", place: "klinik",
+    who: [p("Walter Neumann", "patient", 83), p("Maria Kowalczyk", "pflege", 44), p("Peter", "angehoerig", 55)],
+    steps: [
+      st("Bandage", "Nach einer Sepsis wird das linke Bein unterhalb des Knies amputiert.", "بعد إنتان الدم يُبتر الساق اليسرى تحت الركبة.", "After sepsis the left leg is amputated below the knee.", "Après une septicémie, la jambe gauche est amputée sous le genou.", "Sepsis sonrası sol bacak diz altından ampute ediliyor."),
+      st("Syringe", "Phantomschmerzen, Metamizol und ein niedriger Blutzucker.", "ألم الطرف الشبحي وميتاميزول وسكر دم منخفض.", "Phantom pain, metamizole and low blood sugar.", "Douleurs fantômes, métamizole et glycémie basse.", "Hayalet ağrısı, metamizol ve düşük kan şekeri."),
+      st("Frown", "Herr Neumann sagt: „Lieber tot als ein Krüppel.“", "السيد نويمان يقول: «الموت أفضل من أن أكون معاقاً».", "Mr Neumann says: “Better dead than a cripple.”", "M. Neumann dit : « Plutôt mort qu'infirme. »", "Bay Neumann: «Sakat olmaktansa ölmek yeğ» diyor."),
+    ],
+    problem: l10n("Wie reagiert die Pflegekraft auf Krise und Suizidgedanken und wer entscheidet rechtlich?", "كيف تتصرف الممرضة تجاه الأزمة وأفكار الانتحار ومن يقرر قانونياً؟", "How does the nurse respond to crisis and suicidal thoughts, and who decides legally?", "Comment l'infirmière réagit-elle à la crise et aux idées suicidaires, et qui décide juridiquement ?", "Hemşire krize ve intihar düşüncelerine nasıl yanıt verir ve hukuken kim karar verir?"),
+  },
+  {
+    id: "z04", place: "klinik",
+    who: [p("Lea Sommer", "kind", 17), p("Aylin Demir", "pflege", 27), p("Silke Sommer", "angehoerig", 46)],
+    steps: [
+      st("Hospital", "Lea hat Spina bifida und kommt mit Harnwegsinfekt und Dekubitus.", "ليا مصابة بسنسنة مشقوقة وتأتي بعدوى بولية وقرحة ضغط.", "Lea has spina bifida and arrives with a urinary tract infection and a pressure ulcer.", "Lea a un spina-bifida et arrive avec une infection urinaire et une escarre.", "Lea'da spina bifida var; idrar yolu enfeksiyonu ve bası yarasıyla geliyor."),
+      st("ShieldCheck", "Latexallergie und Selbstkatheterismus müssen beachtet werden.", "يجب مراعاة حساسية اللاتكس والقسطرة الذاتية.", "Latex allergy and self-catheterisation must be considered.", "L'allergie au latex et l'autosondage doivent être pris en compte.", "Lateks alerjisi ve kendi kendine kateterizasyon dikkate alınmalı."),
+      st("House", "Lea möchte in eine Wohngemeinschaft ziehen.", "ليا تريد الانتقال إلى سكن مشترك.", "Lea wants to move into a shared flat.", "Lea veut emménager en colocation.", "Lea ortak bir eve taşınmak istiyor."),
+    ],
+    problem: l10n("Wie werden Selbstbestimmung der Jugendlichen und Sorgen der Eltern vereinbart?", "كيف يُوفَّق بين استقلالية المراهقة ومخاوف الوالدين؟", "How are the teenager's autonomy and the parents' worries reconciled?", "Comment concilier l'autonomie de l'adolescente et les inquiétudes des parents ?", "Genç kızın özerkliği ile ailenin endişeleri nasıl uzlaştırılır?"),
+  },
+  {
+    id: "z05", place: "klinik",
+    who: [p("Hans-Jürgen Pohl", "patient", 74), p("Tim Becker", "pflege", 33), p("Amira Hadad", "azubi", 20), p("Gisela Pohl", "angehoerig", 72)],
+    steps: [
+      st("Brain", "Schlaganfall links: rechtsseitige Lähmung und Sprachstörung.", "سكتة في الجانب الأيسر: شلل أيمن واضطراب في الكلام.", "Left-sided stroke: right-sided paralysis and speech disorder.", "AVC gauche : paralysie à droite et trouble du langage.", "Sol inme: sağ tarafta felç ve konuşma bozukluğu."),
+      st("Utensils", "Beim Essen hustet er und das Essen bleibt in der Wange.", "يسعل أثناء الأكل ويبقى الطعام في الخد.", "He coughs while eating and food stays in his cheek.", "Il tousse en mangeant et la nourriture reste dans la joue.", "Yemek sırasında öksürüyor ve yemek yanağında kalıyor."),
+      st("Users", "Seine Frau ist überfordert.", "زوجته تشعر بالإرهاق.", "His wife feels overwhelmed.", "Son épouse est dépassée.", "Eşi bunalmış durumda."),
+    ],
+    problem: l10n("Wie werden Dysphagie, Aphasie, Lagerung und Angehörigenberatung fachgerecht gelöst?", "كيف تُعالج عسر البلع والحبسة والتوضع وإرشاد الأقارب بشكل مهني؟", "How are dysphagia, aphasia, positioning and relatives' counselling handled professionally?", "Comment gérer correctement dysphagie, aphasie, positionnement et conseil aux proches ?", "Disfaji, afazi, pozisyon ve yakın danışmanlığı mesleki olarak nasıl çözülür?"),
+  },
 ];
 
 export function sceneFor(id: string): CaseScene | undefined {
