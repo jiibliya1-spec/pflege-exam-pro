@@ -53,7 +53,7 @@ const json = (data: unknown, status = 200, extra: Record<string, string> = {}) =
 /** Pfade, die ohne Lizenz erreichbar sind (Aktivierungsseite, API, Manifest und Symbole fürs Installieren). */
 function isPublic(path: string): boolean {
   return (
-    path === "/activate" || path === "/activate/" || /^\/(impressum|datenschutz|agb|widerruf|landing)\/?$/.test(path) || path.startsWith("/landing/") || path === "/admin" || path === "/admin/" || path.startsWith("/api/") ||
+    path === "/activate" || path === "/activate/" || /^\/(impressum|datenschutz|agb|widerruf|landing)\/?$/.test(path) || path.startsWith("/landing/") || /^\/_next\/static\/(.+\.css|media\/.+\.(woff2?|ttf))$/.test(path) || path === "/admin" || path === "/admin/" || path.startsWith("/api/") ||
     path === "/manifest.webmanifest" || path.startsWith("/icons/") || path === "/favicon.ico"
   );
 }
