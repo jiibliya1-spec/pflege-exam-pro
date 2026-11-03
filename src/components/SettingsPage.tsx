@@ -2,6 +2,7 @@
 
 import { LANGS, normalizeLang } from "@/lib/i18n";
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { Download, Upload } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { DEFAULT_SETTINGS } from "@/lib/defaults";
@@ -155,6 +156,12 @@ export function SettingsPage() {
         </Card>
       </div>
 
+      <p className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-muted">
+        <Link href="/impressum/" className="underline">Impressum</Link>
+        <Link href="/datenschutz/" className="underline">Datenschutz</Link>
+        <Link href="/agb/" className="underline">AGB</Link>
+        <Link href="/widerruf/" className="underline">Widerruf</Link>
+      </p>
       <ConfirmDialog
         open={confirm === "progress"}
         danger

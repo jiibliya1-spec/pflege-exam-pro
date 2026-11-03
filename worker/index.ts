@@ -53,7 +53,7 @@ const json = (data: unknown, status = 200, extra: Record<string, string> = {}) =
 /** Pfade, die ohne Lizenz erreichbar sind (Aktivierungsseite, API, Manifest und Symbole fürs Installieren). */
 function isPublic(path: string): boolean {
   return (
-    path === "/activate" || path === "/activate/" || path === "/admin" || path === "/admin/" || path.startsWith("/api/") ||
+    path === "/activate" || path === "/activate/" || /^\/(impressum|datenschutz|agb|widerruf)\/?$/.test(path) || path === "/admin" || path === "/admin/" || path.startsWith("/api/") ||
     path === "/manifest.webmanifest" || path.startsWith("/icons/") || path === "/favicon.ico"
   );
 }
@@ -75,7 +75,10 @@ async function issue(env: Env, code: string, device: string): Promise<string> {
 }
 
 function activatePage(env: Env, next: string): Response {
-  const buy = env.BUY_URL ? `<a class="buy" href="${env.BUY_URL.replace(/"/g, "")}">Zugang kaufen &middot; شراء الوصول</a>` : "";
+  const buy = env.BUY_URL
+    ? `<div class="bx"><label class="ck"><input type="checkbox" id="wv"><span>Ich stimme ausdrücklich zu, dass der Zugang sofort nach Zahlung beginnt. Mir ist bekannt, dass ich dadurch mein <a href="/widerruf/">Widerrufsrecht</a> verliere, sobald ich den Zugangscode erhalten habe. Es gelten die <a href="/agb/">AGB</a>.</span></label><a class="buy" id="bu" href="${env.BUY_URL.replace(/"/g, "")}" aria-disabled="true">Jetzt zahlungspflichtig kaufen (PayPal) &middot; شراء الوصول</a><p class="sm">Nach der Zahlung schickt dir der Anbieter den Zugangscode per E-Mail. Bitte gib bei PayPal im Hinweis deine E-Mail-Adresse an.</p></div>`
+    : "";
+  const legal = `<p class="lg"><a href="/impressum/">Impressum</a> &middot; <a href="/datenschutz/">Datenschutz</a> &middot; <a href="/agb/">AGB</a> &middot; <a href="/widerruf/">Widerruf</a></p>`;
   const html = `<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b2a4a"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><title>Pflege Exam Pro: Zugang</title>
 <style>
@@ -86,7 +89,7 @@ input{width:100%;font-size:20px;letter-spacing:2px;text-align:center;padding:14p
 input:focus{outline:3px solid #0fa3a3;border-color:#0fa3a3}
 button{margin-top:14px;width:100%;padding:14px;border:0;border-radius:12px;background:#0b8f8f;color:#fff;font-size:17px;font-weight:600;cursor:pointer}
 button:disabled{opacity:.6}.err{color:#b42318;min-height:24px;margin-top:10px;font-size:15px}
-.buy{display:block;text-align:center;margin-top:16px;color:#0b8f8f;font-weight:600}.ar{direction:rtl;text-align:right;font-size:14px;margin-top:14px;color:#52667d}
+.buy{display:block;text-align:center;margin-top:12px;padding:13px;border-radius:12px;background:#0b8f8f;color:#fff;font-weight:700;text-decoration:none}.buy[aria-disabled=true]{opacity:.45;pointer-events:none}.bx{margin-top:18px;padding-top:14px;border-top:1px solid #d9e2ec}.ck{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#52667d;text-align:left}.ck input{width:20px;height:20px;margin-top:2px;flex:none;text-transform:none;letter-spacing:0}.sm{font-size:13px;margin:8px 0 0}.lg{font-size:13px;text-align:center;margin:18px 0 0}.lg a,.ck a{color:#0b8f8f}.ar{direction:rtl;text-align:right;font-size:14px;margin-top:14px;color:#52667d}
 </style></head><body><main class="card">
 <h1>Pflege Exam Pro</h1>
 <p>Bitte gib deinen Zugangscode ein. Du findest ihn in der E-Mail nach dem Kauf.</p>
@@ -94,10 +97,11 @@ button:disabled{opacity:.6}.err{color:#b42318;min-height:24px;margin-top:10px;fo
 ${buy}
 <p style="font-size:14px;margin:14px 0 0">iPhone: Zuerst die App zum Home-Bildschirm hinzufügen, dann dort öffnen und den Code eingeben. Der Code gilt nur für ein Gerät.</p>
 <div class="ar">أدخل رمز الوصول الذي وصلك بالبريد الإلكتروني. الرمز شخصي ويعمل على جهاز واحد. على iPhone: أضف التطبيق للشاشة الرئيسية أولاً ثم افتحه وأدخل الرمز هناك.</div>
+${legal}
 </main>
 <script>
 var f=document.getElementById("f"),c=document.getElementById("c"),b=document.getElementById("b"),e=document.getElementById("e");
-var next=${JSON.stringify(next)};
+var next=${JSON.stringify(next)};var wv=document.getElementById("wv"),bu=document.getElementById("bu");if(wv&&bu){wv.addEventListener("change",function(){bu.setAttribute("aria-disabled",wv.checked?"false":"true")})}
 f.addEventListener("submit",function(ev){ev.preventDefault();e.textContent="";b.disabled=true;
 fetch("/api/activate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({code:c.value}),credentials:"same-origin"})
 .then(function(r){return r.json().then(function(j){return[r.status,j]})})
