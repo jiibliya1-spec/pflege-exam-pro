@@ -53,7 +53,7 @@ const json = (data: unknown, status = 200, extra: Record<string, string> = {}) =
 /** Pfade, die ohne Lizenz erreichbar sind (Aktivierungsseite, API, Manifest und Symbole fürs Installieren). */
 function isPublic(path: string): boolean {
   return (
-    path === "/activate" || path === "/activate/" || /^\/(impressum|datenschutz|agb|widerruf)\/?$/.test(path) || path === "/admin" || path === "/admin/" || path.startsWith("/api/") ||
+    path === "/activate" || path === "/activate/" || /^\/(impressum|datenschutz|agb|widerruf|landing)\/?$/.test(path) || path.startsWith("/landing/") || path === "/admin" || path === "/admin/" || path.startsWith("/api/") ||
     path === "/manifest.webmanifest" || path.startsWith("/icons/") || path === "/favicon.ico"
   );
 }
@@ -282,6 +282,11 @@ export default {
     }
 
     const isPage = req.method === "GET" && (req.headers.get("accept") || "").includes("text/html");
+    // Besucher ohne Zugang sehen unter "/" die Verkaufsseite statt der Code-Eingabe.
+    if (path === "/" && isPage) {
+      const pre = await authorize(req, env, false);
+      if (!pre.ok) return env.ASSETS.fetch(new Request(`${url.origin}/landing/`, req));
+    }
     const auth = await authorize(req, env, isPage);
     if (!auth.ok) {
       if (isPage) return Response.redirect(`${url.origin}/activate/?next=${encodeURIComponent(path + url.search)}`, 302);

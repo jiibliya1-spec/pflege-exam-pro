@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { StoreProvider, useStore } from "@/lib/store";
 import { BankProvider } from "@/lib/bank";
 import { LANGS, normalizeLang } from "@/lib/i18n";
@@ -47,7 +48,12 @@ function SettingsEffects({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }
 
+/** Öffentliche Seiten (Verkaufsseite, Rechtstexte): ohne App-Navigation und ohne lokale Lern-Daten. */
+const PUBLIC_PAGE = /^\/(landing|impressum|datenschutz|agb|widerruf)\/?$/;
+
 export function Providers({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  if (PUBLIC_PAGE.test(pathname || "")) return <>{children}</>;
   return (
     <StoreProvider>
       <SettingsEffects>
