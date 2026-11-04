@@ -8,6 +8,7 @@ import { useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
 import { searchLessons, tokens } from "@/lib/lessonSearch";
 import { AREAS, LESSONS, lessonById, type LessonGroup } from "@/data/lessons";
+import { HUB, HUB_IDS } from "@/data/theoryHub";
 import { WHO_ORDER, type Who } from "@/data/lessonsWho";
 import { localizeLesson } from "@/data/lessonsI18n";
 import { useTranslationsReady } from "@/lib/useTr";
@@ -18,14 +19,16 @@ import { TranslateLink } from "./QuestionView";
 import { Icon } from "./Icon";
 import { DiagramView } from "./Diagram";
 
-const GROUPS: { id: LessonGroup; icon: string }[] = [
+type Tab = LessonGroup | "modelle";
+const GROUPS: { id: Tab; icon: string }[] = [
   { id: "krank", icon: "Stethoscope" },
   { id: "ausbildung", icon: "GraduationCap" },
+  { id: "modelle", icon: "Puzzle" },
 ];
 
 export function LearnList() {
   const t = useT();
-  const [group, setGroup] = useState<LessonGroup>("krank");
+  const [group, setGroup] = useState<Tab>("krank");
   const [q, setQ] = useState("");
   const [who, setWho] = useState<Who | "">("");
   const lang = useLang();
@@ -73,9 +76,9 @@ export function LearnList() {
         </section>
       ) : (
         <>
-      <div className="mb-5 grid grid-cols-2 gap-2" role="tablist">
+      <div className="mb-5 grid grid-cols-3 gap-2" role="tablist">
         {GROUPS.map((g) => (
-          <button key={g.id} role="tab" aria-selected={group === g.id} onClick={() => setGroup(g.id)} className={cn("min-h-12 rounded-2xl border px-3 py-2 font-semibold transition-colors", group === g.id ? "border-teal bg-tealsoft" : "border-line bg-surface")}>
+          <button key={g.id} role="tab" aria-selected={group === g.id} onClick={() => setGroup(g.id)} className={cn("min-h-12 rounded-2xl border px-1.5 py-2 text-[0.8rem] font-semibold leading-tight transition-colors", group === g.id ? "border-teal bg-tealsoft" : "border-line bg-surface")}>
             <Icon name={g.icon} className="me-1.5 inline h-5 w-5 align-text-bottom" /> {t(`learn.group.${g.id}`)}
           </button>
         ))}
@@ -92,8 +95,30 @@ export function LearnList() {
           </div>
         </div>
       )}
-      {AREAS[group].map((a) => {
-        const items = LESSONS.filter((l) => l.group === group && l.area === a.id && (!who || group !== "krank" || l.who?.includes(who)))
+      {group === "modelle" && (
+        <div>
+          <p className="mb-4 text-sm text-muted">{t("learn.hub.intro")}</p>
+          {HUB.map((h) => (
+            <section key={h.id} className="mb-6">
+              <h2 className="mb-2 flex items-center gap-1.5 text-sm font-semibold text-muted">
+                <Icon name={h.icon} className="h-4 w-4" /> {t(`learn.hub.${h.id}`)}
+              </h2>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                {h.lessons.map((id) => lessonById(id)).filter((l): l is NonNullable<typeof l> => !!l).map((l) => (
+                  <Link key={l.id} href={`/learn/view/?id=${l.id}`} className="group block">
+                    <Card className="flex items-center gap-3 transition-all group-hover:-translate-y-0.5 group-hover:border-teal group-hover:shadow-md">
+                      <span aria-hidden className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal/10 text-teal"><Icon name={l.icon} className="h-6 w-6" /></span>
+                      <span className="min-w-0 font-medium leading-snug">{localizeLesson(l, lang).title}</span>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      )}
+      {group !== "modelle" && AREAS[group].map((a) => {
+        const items = LESSONS.filter((l) => l.group === group && l.area === a.id && !HUB_IDS.has(l.id) && (!who || group !== "krank" || l.who?.includes(who)))
           .map((l) => ({ l, loc: localizeLesson(l, lang) }));
         if (!items.length) return null;
         return (

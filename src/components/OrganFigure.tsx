@@ -1,6 +1,8 @@
 "use client";
-import type { ReactNode } from "react";
-import { useT } from "@/lib/i18n";
+import { useState, type ReactNode } from "react";
+import { useLang, useT } from "@/lib/i18n";
+import { ORGAN_PARTS, ORGAN_TITLE } from "@/data/organParts";
+import { Dialog } from "./ui";
 
 /** Anatomisch angelegte, farbige und leicht animierte Abbildung je Organsystem (reine SVG/CSS, ohne Bibliothek, respektiert „reduzierte Bewegung“). */
 const L = { fill: "none", strokeLinecap: "round", strokeLinejoin: "round" } as const;
@@ -285,14 +287,36 @@ export function figureKey(id: string, area: string): string | null {
 
 export function OrganFigure({ id, area }: { id: string; area: string }) {
   const t = useT();
+  const lang = useLang();
+  const [open, setOpen] = useState(false);
   const k = figureKey(id, area);
   if (!k) return null;
+  const parts = ORGAN_PARTS[k] ?? [];
+  const title = ORGAN_TITLE[k]?.[lang] ?? t("learn.figure");
   return (
-    <figure className="mb-4 flex flex-col items-center rounded-2xl border border-teal/30 bg-tealsoft p-3 text-teal">
-      <svg viewBox="0 0 240 220" className="h-48 w-48" role="img" aria-label={t("learn.figure")}>
-        {FIG[k]}
-      </svg>
-      <figcaption className="mt-1 text-xs text-muted">{t("learn.figure")}</figcaption>
-    </figure>
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-label={`${title}: ${t("learn.figure.tap")}`}
+        className="mb-4 flex w-full flex-col items-center rounded-2xl border border-teal/30 bg-tealsoft p-3 text-teal transition-colors hover:border-teal"
+      >
+        <svg viewBox="0 0 240 220" className="h-48 w-48" role="img" aria-label={title}>
+          {FIG[k]}
+        </svg>
+        <span className="mt-1 text-sm font-semibold">{title}</span>
+        <span className="text-xs text-muted">{t("learn.figure.tap")}</span>
+      </button>
+      <Dialog open={open} onClose={() => setOpen(false)} title={title}>
+        <ul className="space-y-2">
+          {parts.map((p, i) => (
+            <li key={i} className="flex items-center gap-3 rounded-xl bg-surface2 px-3 py-2.5">
+              <span aria-hidden className="h-5 w-5 shrink-0 rounded-full border border-black/20" style={{ background: p.color }} />
+              <span className="font-medium leading-snug">{p.name[lang]}</span>
+            </li>
+          ))}
+        </ul>
+      </Dialog>
+    </>
   );
 }
