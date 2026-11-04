@@ -378,6 +378,156 @@ export const SCENES: CaseScene[] = [
     ],
     problem: l10n("Wie werden Dysphagie, Aphasie, Lagerung und Angehörigenberatung fachgerecht gelöst?", "كيف تُعالج عسر البلع والحبسة والتوضع وإرشاد الأقارب بشكل مهني؟", "How are dysphagia, aphasia, positioning and relatives' counselling handled professionally?", "Comment gérer correctement dysphagie, aphasie, positionnement et conseil aux proches ?", "Disfaji, afazi, pozisyon ve yakın danışmanlığı mesleki olarak nasıl çözülür?"),
   },
+  {
+    id: "m13", place: "heim",
+    who: [p("Hedwig Brandt", "patient", 81), p("Peter Brandt", "angehoerig", 54), p("Gisela Wolf", "pflege", 48)],
+    steps: [
+      st("Brain", "Frau Brandt sucht ständig ihren „Schlüssel“ und erkennt ihren Sohn nicht.", "السيدة براندت تبحث باستمرار عن «مفتاحها» ولا تتعرّف على ابنها.", "Mrs Brandt keeps searching for her “key” and does not recognise her son.", "Mme Brandt cherche sans cesse sa « clé » et ne reconnaît pas son fils.", "Bayan Brandt sürekli «anahtarını» arıyor ve oğlunu tanımıyor."),
+      st("Users", "Funktionspflege und ein Streit im Team über Bezugspflege.", "تمريض وظيفي وخلاف في الفريق حول التمريض المرجعي.", "Functional nursing and a team dispute about primary nursing.", "Soins fonctionnels et dispute d'équipe sur les soins référents.", "Fonksiyonel bakım ve ekipte birincil bakım tartışması."),
+      st("ShieldCheck", "Bettgitter und Beruhigungsmittel: Ist das erlaubt? Der MD kommt in zwei Wochen.", "حاجز السرير والمهدئات: هل هذا مسموح؟ والمراجعة الطبية بعد أسبوعين.", "Bed rail and sedatives: is this allowed? The inspection is in two weeks.", "Barrière de lit et sédatifs : est-ce permis ? Le contrôle a lieu dans deux semaines.", "Yatak korkuluğu ve sakinleştirici: izinli mi? Denetim iki hafta sonra."),
+    ],
+    problem: l10n("Wie gehen Sie mit Demenz, Konflikt im Team und freiheitsentziehenden Maßnahmen um?", "كيف تتعاملون مع الخرف والنزاع في الفريق والإجراءات المقيّدة للحرية؟", "How do you deal with dementia, team conflict and restraint measures?", "Comment gérer démence, conflit d'équipe et mesures de contention ?", "Demans, ekip çatışması ve özgürlüğü kısıtlayıcı önlemlerle nasıl başa çıkarsınız?"),
+  },
+  {
+    id: "m14", place: "klinik",
+    who: [p("Mirela Kovač", "pflege", 36), p("Tobias Wendt", "patient", 44), p("Frau Lorenz", "team", 50)],
+    steps: [
+      st("Frown", "Die Kollegin ist erschöpft und gefühllos geworden.", "الزميلة منهكة وفقدت مشاعرها.", "The colleague is exhausted and emotionally numb.", "La collègue est épuisée et insensible.", "Meslektaş tükenmiş ve duygusuzlaşmış."),
+      st("Activity", "Herr Wendt hat Schmerzen „8“ und fühlt sich nicht ernst genommen.", "السيد فيندت يشعر بألم «8» ولا يُؤخذ على محمل الجد.", "Mr Wendt reports pain “8” and feels not taken seriously.", "M. Wendt a une douleur « 8 » et ne se sent pas pris au sérieux.", "Bay Wendt ağrıyı «8» bildiriyor ve ciddiye alınmadığını hissediyor."),
+      st("ClipboardList", "Pflegevisite und Fallbesprechung sollen helfen.", "زيارة التمريض واجتماع الحالة للمساعدة.", "A nursing visit and case review should help.", "Une visite de soins et une réunion de cas doivent aider.", "Bakım vizitesi ve vaka görüşmesi yardımcı olmalı."),
+    ],
+    problem: l10n("Wie helfen Sie der Kollegin und wie sichern Sie die Schmerzversorgung?", "كيف تساعدون الزميلة وكيف تضمنون علاج الألم؟", "How do you help the colleague and secure pain management?", "Comment aider la collègue et assurer la prise en charge de la douleur ?", "Meslektaşa nasıl yardım eder, ağrı yönetimini nasıl sağlarsınız?"),
+  },
+  {
+    id: "m15", place: "wg",
+    who: [p("Paul und Lena", "patient", 27), p("Frau Albers", "pflege", 45), p("Herr Meurer", "angehoerig", 58)],
+    steps: [
+      st("Heart", "Lena (Trisomie 21) möchte Paul heiraten.", "لينا (متلازمة داون) تريد الزواج من باول.", "Lena (Down syndrome) wants to marry Paul.", "Lena (trisomie 21) veut épouser Paul.", "Lena (Down sendromu) Paul ile evlenmek istiyor."),
+      st("ShieldCheck", "Der Vater fürchtet Überforderung und Missbrauch.", "الأب يخشى الإرهاق وسوء المعاملة.", "Her father fears overload and abuse.", "Le père craint la surcharge et les abus.", "Baba aşırı yüklenmeden ve istismardan korkuyor."),
+      st("BookOpen", "Selbstbestimmung, UN-BRK und die Geschichte der Pflege.", "تقرير المصير واتفاقية حقوق ذوي الإعاقة وتاريخ التمريض.", "Self-determination, UN CRPD and the history of nursing.", "Autodétermination, CDPH et histoire des soins.", "Özerklik, BM Engelli Hakları Sözleşmesi ve hemşirelik tarihi."),
+    ],
+    problem: l10n("Wie stärken Sie Selbstbestimmung und beraten zu Gesundheit und Vollmachten?", "كيف تعزّزون تقرير المصير وتقدّمون الاستشارة الصحية والتوكيلات؟", "How do you support self-determination and advise on health and powers of attorney?", "Comment soutenir l'autodétermination et conseiller santé et procurations ?", "Özerkliği nasıl desteklersiniz, sağlık ve vekâletler konusunda nasıl danışmanlık verirsiniz?"),
+  },
+  {
+    id: "m16", place: "klinik",
+    who: [p("Herr Auer", "patient", 78), p("Sie (Pflegefachperson)", "pflege", 30), p("Frau Auer", "angehoerig", 75)],
+    steps: [
+      st("Heart", "Herr Auer will nach einem Herzinfarkt sein Testament machen.", "السيد أور يريد كتابة وصيته بعد نوبة قلبية.", "Mr Auer wants to make his will after a heart attack.", "M. Auer veut faire son testament après un infarctus.", "Bay Auer kalp krizinden sonra vasiyet yazmak istiyor."),
+      st("Zap", "Plötzlich Kreislaufstillstand: Reanimation.", "توقف مفاجئ للقلب: إنعاش.", "Sudden cardiac arrest: resuscitation.", "Arrêt cardiaque soudain : réanimation.", "Ani kalp durması: resüsitasyon."),
+      st("BookOpen", "Nottestament, Pflegewissenschaft und lebenslanges Lernen.", "وصية الطوارئ وعلم التمريض والتعلّم مدى الحياة.", "Emergency will, nursing science and lifelong learning.", "Testament d'urgence, sciences infirmières et formation continue.", "Acil vasiyet, hemşirelik bilimi ve yaşam boyu öğrenme."),
+    ],
+    problem: l10n("Was ist rechtlich beim Testament und bei der Reanimation zu beachten?", "ما الذي يجب مراعاته قانونياً في الوصية والإنعاش؟", "What must be considered legally for the will and resuscitation?", "Que faut-il respecter juridiquement pour le testament et la réanimation ?", "Vasiyet ve resüsitasyonda hukuken nelere dikkat edilmeli?"),
+  },
+  {
+    id: "m17", place: "klinik",
+    who: [p("Mika", "kind", 3), p("Frau Jansen", "angehoerig", 32), p("Sie (Pflegefachperson)", "pflege", 28)],
+    steps: [
+      st("Thermometer", "Mika (3 Jahre) hat Erbrechen und Durchfall: Rotavirus.", "ميكا (3 سنوات) يعاني من القيء والإسهال: فيروس الروتا.", "Mika (3) has vomiting and diarrhoea: rotavirus.", "Mika (3 ans) vomit et a la diarrhée : rotavirus.", "Mika (3 yaşında) kusma ve ishal: rotavirüs."),
+      st("ShieldCheck", "Strenge Hygiene, Isolation und Händedesinfektion.", "نظافة صارمة وعزل وتعقيم الأيدي.", "Strict hygiene, isolation and hand disinfection.", "Hygiène stricte, isolement et désinfection des mains.", "Sıkı hijyen, izolasyon ve el dezenfeksiyonu."),
+      st("Users", "Mutter anleiten, Team schützen und Belastung der Pflegenden.", "توجيه الأم وحماية الفريق وعبء الممرضين.", "Guide the mother, protect the team and workload of nurses.", "Guider la mère, protéger l'équipe et charge des soignants.", "Anneyi yönlendirme, ekibi koruma ve hemşire iş yükü."),
+    ],
+    problem: l10n("Wie verhindern Sie die Ausbreitung und leiten die Mutter an?", "كيف تمنعون انتشار العدوى وتوجّهون الأم؟", "How do you prevent spread and instruct the mother?", "Comment éviter la propagation et guider la mère ?", "Yayılımı nasıl önler, anneyi nasıl yönlendirirsiniz?"),
+  },
+  {
+    id: "m18", place: "notaufnahme",
+    who: [p("Frau Berger", "patient", 82), p("Hausarzt", "arzt", 55), p("Sie (Pflegefachperson)", "pflege", 29)],
+    steps: [
+      st("Stethoscope", "Telefonische Anordnung des Arztes und Unsicherheit.", "أمر الطبيب الهاتفي وعدم اليقين.", "The doctor's telephone order and uncertainty.", "Prescription téléphonique du médecin et incertitude.", "Doktorun telefonla talimatı ve belirsizlik."),
+      st("Activity", "Sturz, Osteoporose und Frakturrisiko.", "سقوط وهشاشة عظام وخطر كسر.", "Fall, osteoporosis and fracture risk.", "Chute, ostéoporose et risque de fracture.", "Düşme, osteoporoz ve kırık riski."),
+      st("BookOpen", "Evidenzbasierte Pflege und Weiterentwicklung des Berufs.", "تمريض قائم على الأدلة وتطوير المهنة.", "Evidence-based nursing and developing the profession.", "Soins fondés sur les preuves et évolution de la profession.", "Kanıta dayalı bakım ve mesleğin gelişimi."),
+    ],
+    problem: l10n("Was tun bei mündlicher Anordnung und wie beugen Sie Stürzen vor?", "ماذا تفعلون عند الأمر الشفهي وكيف تمنعون السقوط؟", "What to do with verbal orders and how to prevent falls?", "Que faire avec une prescription orale et comment prévenir les chutes ?", "Sözlü talimatta ne yapılır, düşmeler nasıl önlenir?"),
+  },
+  {
+    id: "m19", place: "ambulant",
+    who: [p("Herr Dietz", "patient", 79), p("Frau Dietz", "angehoerig", 76), p("Pflegedienst", "pflege", 38)],
+    steps: [
+      st("Frown", "Herr Dietz zieht sich zurück und verstummt.", "السيد ديتس ينسحب ويصمت.", "Mr Dietz withdraws and falls silent.", "M. Dietz se replie et se tait.", "Bay Dietz içine kapanıyor ve susuyor."),
+      st("ClipboardList", "Pflegegrad, Begutachtung und Case Management.", "درجة الرعاية والتقييم وإدارة الحالة.", "Care level, assessment and case management.", "Degré de dépendance, expertise et case management.", "Bakım derecesi, değerlendirme ve vaka yönetimi."),
+      st("Scale", "Grund- und Behandlungspflege, Vorbehaltsaufgaben.", "الرعاية الأساسية والعلاجية والمهام المحجوزة.", "Basic and medical nursing care, reserved tasks.", "Soins de base et médicaux, tâches réservées.", "Temel ve tıbbi bakım, ayrılmış görevler."),
+    ],
+    problem: l10n("Wie organisieren Sie die Versorgung und welche Aufgaben sind Pflegefachpersonen vorbehalten?", "كيف تنظمون الرعاية وما المهام المحجوزة للتمريض؟", "How do you organise care and which tasks are reserved for nurses?", "Comment organiser les soins et quelles tâches sont réservées ?", "Bakımı nasıl organize edersiniz, hangi görevler hemşirelere ayrılmıştır?"),
+  },
+  {
+    id: "m20", place: "ambulant",
+    who: [p("Jonas", "kind", 9), p("Frau Reuter", "angehoerig", 39), p("Sie (Pflegefachperson)", "pflege", 26)],
+    steps: [
+      st("Syringe", "Fehler bei der Insulingabe bei einem Kind mit Diabetes.", "خطأ في إعطاء الإنسولين لطفل مصاب بالسكري.", "A mistake in insulin dosing for a child with diabetes.", "Erreur d'insuline chez un enfant diabétique.", "Diyabetli çocukta insülin hatası."),
+      st("ShieldCheck", "Haftung, Aufklärung der Eltern und Schweigepflicht.", "المسؤولية وإبلاغ الأهل وسرية المهنة.", "Liability, informing parents and confidentiality.", "Responsabilité, information des parents et secret professionnel.", "Sorumluluk, ebeveynleri bilgilendirme ve gizlilik."),
+      st("Users", "Fehlerkultur, Betriebsrat und Schulung.", "ثقافة الأخطاء ومجلس العمال والتدريب.", "Error culture, works council and training.", "Culture d'erreur, comité d'entreprise et formation.", "Hata kültürü, iş konseyi ve eğitim."),
+    ],
+    problem: l10n("Wie gehen Sie nach einem Medikationsfehler vor?", "كيف تتصرفون بعد خطأ دوائي؟", "How do you proceed after a medication error?", "Comment procéder après une erreur médicamenteuse ?", "İlaç hatasından sonra nasıl hareket edersiniz?"),
+  },
+  {
+    id: "m21", place: "klinik",
+    who: [p("Marco Esser", "patient", 31), p("Sie (Pflegefachperson)", "pflege", 32), p("Team", "team")],
+    steps: [
+      st("Flame", "Herr Esser wird laut und schlägt die Tür zu.", "السيد إسر يرفع صوته ويصفق الباب.", "Mr Esser gets loud and slams the door.", "M. Esser s'emporte et claque la porte.", "Bay Esser bağırıyor ve kapıyı çarpıyor."),
+      st("Eye", "Videoüberwachung und Grundrechte stehen zur Debatte.", "المراقبة بالفيديو والحقوق الأساسية قيد النقاش.", "Video surveillance and fundamental rights are debated.", "Vidéosurveillance et droits fondamentaux en débat.", "Video gözetim ve temel haklar tartışılıyor."),
+      st("HeartHandshake", "Deeskalation und ethische Entscheidung.", "خفض التصعيد وقرار أخلاقي.", "De-escalation and ethical decision.", "Désescalade et décision éthique.", "Gerginliği azaltma ve etik karar."),
+    ],
+    problem: l10n("Wie deeskalieren Sie und wie wägen Sie Sicherheit und Freiheit ab?", "كيف تخفّفون التوتر وتوازنون بين الأمان والحرية؟", "How do you de-escalate and balance safety and freedom?", "Comment désamorcer et peser sécurité et liberté ?", "Gerginliği nasıl azaltır, güvenlik ve özgürlüğü nasıl dengelersiniz?"),
+  },
+  {
+    id: "m22", place: "klinik",
+    who: [p("Anna Kessler", "patient", 34), p("Sie (Pflegefachperson)", "pflege", 29), p("Michael", "team", 45)],
+    steps: [
+      st("Moon", "Frau Kessler sagt: „Alles ist so schwer.“", "السيدة كيسلر تقول: «كل شيء ثقيل جداً».", "Ms Kessler says: “Everything is so heavy.”", "Mme Kessler dit : « Tout est si lourd. »", "Bayan Kessler: «Her şey çok ağır» diyor."),
+      st("Brain", "Depression und Suizidalität müssen eingeschätzt werden.", "يجب تقييم الاكتئاب وخطر الانتحار.", "Depression and suicidality must be assessed.", "Dépression et risque suicidaire doivent être évalués.", "Depresyon ve intihar riski değerlendirilmeli."),
+      st("Handshake", "Interprofessionelle Zusammenarbeit und ICN-Kodex.", "التعاون بين المهن ومدونة المجلس الدولي للتمريض.", "Interprofessional collaboration and the ICN Code.", "Collaboration interprofessionnelle et code CII.", "Disiplinlerarası işbirliği ve ICN etik kuralları."),
+    ],
+    problem: l10n("Wie reagieren Sie auf Suizidgedanken und wer arbeitet zusammen?", "كيف تتصرفون تجاه أفكار الانتحار ومن يتعاون؟", "How do you respond to suicidal thoughts and who collaborates?", "Comment réagir aux idées suicidaires et qui collabore ?", "İntihar düşüncelerine nasıl yanıt verirsiniz, kim işbirliği yapar?"),
+  },
+  {
+    id: "p01", place: "klinik",
+    who: [p("Ilse Kranz", "patient", 81), p("Vera Sommer", "patient", 49), p("Nadja Kuhn", "pflege", 34)],
+    steps: [
+      st("Wind", "Frau Kranz: Pneumonie, Fieber, Sauerstoff und Diabetes.", "السيدة كرانتس: التهاب رئوي وحمى وأكسجين وسكري.", "Mrs Kranz: pneumonia, fever, oxygen and diabetes.", "Mme Kranz : pneumonie, fièvre, oxygène et diabète.", "Bayan Kranz: pnömoni, ateş, oksijen ve diyabet."),
+      st("Clock", "Zeitgebundene Termine: Infusion 8:00, EKG 9:30.", "مواعيد ثابتة: التسريب 8:00 وتخطيط القلب 9:30.", "Fixed times: infusion 8:00, ECG 9:30.", "Horaires fixes : perfusion 8 h, ECG 9 h 30.", "Sabit saatler: infüzyon 8:00, EKG 9:30."),
+      st("ClipboardList", "Pflegeplanung und Ablaufplan für zwei Patientinnen.", "تخطيط التمريض وجدول العمل لمريضتين.", "Care plan and schedule for two patients.", "Plan de soins et planning pour deux patientes.", "İki hasta için bakım planı ve iş akışı."),
+    ],
+    problem: l10n("Wie ordnen Sie Prioritäten und planen den Frühdienst?", "كيف ترتبون الأولويات وتخططون للوردية الصباحية؟", "How do you set priorities and plan the early shift?", "Comment fixer les priorités et planifier le service du matin ?", "Öncelikleri nasıl belirler, sabah vardiyasını nasıl planlarsınız?"),
+  },
+  {
+    id: "p02", place: "klinik",
+    who: [p("Lukas Brandt", "patient", 22), p("Dennis Voigt", "pflege", 35), p("Freundin", "angehoerig", 21)],
+    steps: [
+      st("Hospital", "Erster Tag nach der Blinddarm-OP.", "اليوم الأول بعد عملية الزائدة.", "First day after appendectomy.", "Premier jour après l'appendicectomie.", "Apandisit ameliyatının ilk günü."),
+      st("Activity", "Schmerz, Wunde, Kreislauf und erstes Aufstehen.", "الألم والجرح والدورة والنهوض الأول.", "Pain, wound, circulation and first mobilisation.", "Douleur, plaie, circulation et premier lever.", "Ağrı, yara, dolaşım ve ilk mobilizasyon."),
+      st("Flame", "Rauchen und Angst vor Prüfungsausfall.", "التدخين والخوف من تفويت الامتحان.", "Smoking and fear of missing exams.", "Tabagisme et peur de rater les examens.", "Sigara ve sınavı kaçırma korkusu."),
+    ],
+    problem: l10n("Wie mobilisieren Sie sicher und beugen Komplikationen vor?", "كيف تحرّكونه بأمان وتمنعون المضاعفات؟", "How do you mobilise safely and prevent complications?", "Comment mobiliser en sécurité et prévenir les complications ?", "Güvenle nasıl mobilize eder, komplikasyonları nasıl önlersiniz?"),
+  },
+  {
+    id: "p03", place: "heim",
+    who: [p("Gerd Fink", "patient", 84), p("Elke", "angehoerig", 55), p("Marion Sauer", "pflege", 47)],
+    steps: [
+      st("Brain", "Parkinson mit Schluckstörung und Rollstuhl.", "باركنسون مع عسر بلع وكرسي متحرك.", "Parkinson's with dysphagia and wheelchair.", "Parkinson avec dysphagie et fauteuil roulant.", "Parkinson, yutma bozukluğu ve tekerlekli sandalye."),
+      st("Utensils", "Essen anreichen, eingedickte Getränke, Gewichtsverlust.", "إطعام بالمساعدة ومشروبات مكثّفة وفقدان وزن.", "Assisted eating, thickened drinks, weight loss.", "Aide au repas, boissons épaissies, perte de poids.", "Yardımlı yemek, koyulaştırılmış içecek, kilo kaybı."),
+      st("Droplet", "Dekubitus Kategorie 2: Verbandwechsel heute.", "قرحة ضغط الدرجة 2: تغيير الضماد اليوم.", "Category 2 pressure ulcer: dressing change today.", "Escarre catégorie 2 : changement de pansement.", "Kategori 2 bası yarası: bugün pansuman."),
+    ],
+    problem: l10n("Wie vereinen Sie Medikamentenzeit, Schlucksicherheit und Wundversorgung?", "كيف توفّقون بين وقت الدواء وأمان البلع وعناية الجرح؟", "How do you combine medication timing, swallowing safety and wound care?", "Comment concilier horaires des médicaments, déglutition et plaie ?", "İlaç saati, yutma güvenliği ve yara bakımını nasıl birleştirirsiniz?"),
+  },
+  {
+    id: "p04", place: "ambulant",
+    who: [p("Marta Szabo", "patient", 77), p("Wolfgang Leitner", "patient", 85), p("Frau Leitner", "angehoerig", 80)],
+    steps: [
+      st("Syringe", "Frau Szabo: Insulin vor dem Frühstück und Kompression.", "السيدة سابو: إنسولين قبل الفطور وضغط الساقين.", "Mrs Szabo: insulin before breakfast and compression.", "Mme Szabo : insuline avant le petit-déjeuner et compression.", "Bayan Szabo: kahvaltıdan önce insülin ve kompresyon."),
+      st("Wind", "Herr Leitner: COPD, Sauerstoff, überlastete Ehefrau.", "السيد لايتنر: انسداد رئوي مزمن وأكسجين وزوجة مرهقة.", "Mr Leitner: COPD, oxygen, overwhelmed wife.", "M. Leitner : BPCO, oxygène, épouse dépassée.", "Bay Leitner: KOAH, oksijen, bunalmış eş."),
+      st("Clock", "Tourenplan mit Fahrzeit und Pufferzeit.", "جدول الجولة مع وقت التنقل وهامش زمني.", "Route plan with travel and buffer time.", "Plan de tournée avec trajets et marge.", "Yolculuk ve tampon süreli tur planı."),
+    ],
+    problem: l10n("Wie planen Sie die Tour und entlasten die Angehörige?", "كيف تخططون للجولة وتخففون عن القريبة؟", "How do you plan the tour and relieve the relative?", "Comment planifier la tournée et soulager la proche ?", "Turu nasıl planlar, yakını nasıl rahatlatırsınız?"),
+  },
+  {
+    id: "p05", place: "klinik",
+    who: [p("Armin Vogt", "patient", 52), p("Tim Rader", "pflege", 33), p("Frau Vogt", "angehoerig", 50)],
+    steps: [
+      st("Zap", "Alkoholentzug: Zittern, Schwitzen, Unruhe, Halluzination.", "انسحاب الكحول: رعشة وتعرّق وقلق وهلوسة.", "Alcohol withdrawal: tremor, sweating, restlessness, hallucination.", "Sevrage alcoolique : tremblements, sueurs, agitation, hallucination.", "Alkol yoksunluğu: titreme, terleme, huzursuzluk, halüsinasyon."),
+      st("Activity", "Vitalzeichen, Entzugsskala und Delirgefahr.", "العلامات الحيوية ومقياس الانسحاب وخطر الهذيان.", "Vital signs, withdrawal scale and delirium risk.", "Signes vitaux, échelle de sevrage et risque de délire.", "Yaşam bulguları, yoksunluk skalası ve deliryum riski."),
+      st("MessageCircle", "Scham, Beziehungskrise und Motivation.", "خجل وأزمة علاقة ودافعية.", "Shame, relationship crisis and motivation.", "Honte, crise de couple et motivation.", "Utanç, ilişki krizi ve motivasyon."),
+    ],
+    problem: l10n("Wie sichern Sie den Entzug und führen ein motivierendes Gespräch?", "كيف تؤمّنون الانسحاب وتجرون حواراً محفّزاً؟", "How do you secure withdrawal and hold a motivating conversation?", "Comment sécuriser le sevrage et mener un entretien motivant ?", "Yoksunluğu nasıl güvenceye alır, motive edici görüşmeyi nasıl yürütürsünüz?"),
+  },
 ];
 
 export function sceneFor(id: string): CaseScene | undefined {

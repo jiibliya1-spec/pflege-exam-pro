@@ -6,8 +6,8 @@ const bank = JSON.parse(readFileSync("public/data/bank.json", "utf8"));
 const oral = bank.cases.filter((c: { kind: string }) => c.kind === "oral");
 
 describe("Mündliche Prüfung: Hilfen", () => {
-  it("12 mündliche Fälle mit Schwerpunkten und Setting", () => {
-    expect(oral.length).toBe(12);
+  it("22 mündliche Fälle mit Schwerpunkten und Setting", () => {
+    expect(oral.length).toBe(22);
     for (const c of oral) {
       expect(focusPoints(c.preparation).length, c.id).toBeGreaterThan(0);
       expect(parseSetting(c.setting).age, c.id).not.toBe("");
