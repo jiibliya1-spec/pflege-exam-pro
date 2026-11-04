@@ -27,6 +27,8 @@ interface Env {
   MAX_DEVICES?: string;
   /** Wohin Interessenten zum Kaufen geschickt werden (z. B. Stripe Payment Link) */
   BUY_URL?: string;
+  /** "1" = Zugangsschranke vorübergehend aus (App offen für alle mit dem Link). Admin und API bleiben erreichbar. */
+  FREE_ACCESS?: string;
   /** Sitzungsdauer in Tagen (Standard 30) */
   SESSION_DAYS?: string;
 }
@@ -269,6 +271,9 @@ export default {
     if (path.startsWith("/api/admin/")) return admin(req, env, path);
     if (path === "/api/logout") return json({ ok: true }, 200, { "set-cookie": `${COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax` });
     if (path.startsWith("/api/")) return json({ error: "not_found" }, 404);
+
+    // Vorübergehend frei: App offen (z. B. für eine Testgruppe). Admin und Aktivierung bleiben erreichbar.
+    if (env.FREE_ACCESS === "1" && !path.startsWith("/admin") && !path.startsWith("/activate")) return env.ASSETS.fetch(req);
 
     if (isPublic(path)) {
       if (path === "/admin" || path === "/admin/") return adminPage();
