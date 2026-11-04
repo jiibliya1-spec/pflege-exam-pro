@@ -10,6 +10,7 @@ import { searchLessons, tokens } from "@/lib/lessonSearch";
 import { AREAS, LESSONS, lessonById, type LessonGroup } from "@/data/lessons";
 import { WHO_ORDER, type Who } from "@/data/lessonsWho";
 import { localizeLesson } from "@/data/lessonsI18n";
+import { useTranslationsReady } from "@/lib/useTr";
 import { normalizeLang, useLang, useT } from "@/lib/i18n";
 import { Card, EmptyState, LinkButton, PageHeader, cn } from "./ui";
 import { GlossText } from "./Gloss";
@@ -28,6 +29,7 @@ export function LearnList() {
   const [q, setQ] = useState("");
   const [who, setWho] = useState<Who | "">("");
   const lang = useLang();
+  useTranslationsReady(normalizeLang(lang));
   const hits = useMemo(() => (tokens(q).length ? searchLessons(q) : null), [q]);
   return (
     <>
@@ -144,6 +146,7 @@ export function LearnView() {
   const id = useSearchParams().get("id") ?? "";
   const l = lessonById(id);
   const lang = normalizeLang(useLang());
+  const ready = useTranslationsReady(lang);
   const t = useT();
   if (!l) return <EmptyState title={t("learn.notfound")} action={<LinkButton href="/learn/">{t("learn.all")}</LinkButton>}>{id}</EmptyState>;
   const i = LESSONS.findIndex((x) => x.id === l.id);
@@ -154,7 +157,7 @@ export function LearnView() {
   const nextLoc = next ? localizeLesson(next, lang) : null;
   const full = [l.title, ...l.blocks.flatMap((b) => [b.h, ...b.li])].join("\n");
   /** In einer Fremdsprache ohne vollständige Übersetzung bleibt der deutsche Text mit Tipp-Übersetzung. */
-  const german = lang !== "de" && !loc.translated;
+  const german = ready && lang !== "de" && !loc.translated;
   const dir = lang === "ar" ? "rtl" : "ltr";
   return (
     <>

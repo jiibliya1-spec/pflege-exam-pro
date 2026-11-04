@@ -497,33 +497,6 @@ export const EXTRA_PFLEGE_4: Record<string, Extra> = {
       { h: "Sprachbarrieren", li: ["Professionelle Dolmetscher oder Sprachmittler bevorzugen, Angehörige nur kurz und im Notfall. Datenschutz beachten.", "Einfache Sprache, Bildtafeln, Übersetzungs-Apps nur zur Hilfe, wichtige Aufklärung nur mit qualifizierter Sprachmittlung."] },
     ],
   },
-  "b-anleiten-beraten": {
-    d: [
-      {
-        kind: "flow",
-        title: "Anleiten in fünf Schritten",
-        steps: [
-          { t: "Bedarf und Ziel klären", s: "Was will/muss die Person können?", icon: "Target" },
-          { t: "Vormachen und erklären", icon: "Eye", tone: "info" },
-          { t: "Gemeinsam üben", icon: "HandHelping", tone: "info" },
-          { t: "Selbst durchführen lassen, Rückmeldung geben", icon: "ThumbsUp", tone: "ok" },
-          { t: "Wirkung prüfen", s: "Hat sie es verstanden und kann sie es allein?", icon: "Search", tone: "ok" },
-        ],
-      },
-      {
-        kind: "compare",
-        title: "Anleiten, Beraten, Schulen",
-        cols: [
-          { t: "Anleiten", icon: "Hand", tone: "info", items: ["Eine Tätigkeit zeigen und üben", "Beispiel: Insulin spritzen, Verband"] },
-          { t: "Beraten", icon: "MessageCircle", tone: "warn", items: ["Informieren und Entscheidungen unterstützen", "Entscheidung bleibt beim Menschen"] },
-          { t: "Schulen", icon: "Users", tone: "ok", items: ["Gruppen mit Lernzielen", "Beispiel: Diabetesschulung"] },
-        ],
-      },
-    ],
-    b: [
-      { h: "Gute Anleitung und Beratung", li: ["Einfache Sprache, kleine Schritte, Wiederholung, Teach-back („Zeigen Sie mir bitte, wie Sie es machen“).", "Vorwissen und Gefühle erfragen. Angst, Scham und Überforderung beeinflussen das Lernen.", "Schriftliche Hilfen (Bilder, Checklisten) geben, Termine für Rückfragen anbieten, Ergebnis dokumentieren."] },
-    ],
-  },
   "b-kinaesthetik-basal-bobath": {
     d: [
       {

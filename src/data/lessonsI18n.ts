@@ -8,10 +8,6 @@
 import type { Lang } from "@/lib/i18n";
 import type { Lesson, LessonBlock } from "./lessons";
 import type { Diagram } from "./diagram";
-import { AR } from "./tr/ar";
-import { EN } from "./tr/en";
-import { TR } from "./tr/tr";
-import { FR } from "./tr/fr";
 
 export interface LessonTr {
   t: string;
@@ -19,7 +15,20 @@ export interface LessonTr {
   d?: string[][];
 }
 
-export const TRANSLATIONS: Record<Exclude<Lang, "de">, Record<string, LessonTr>> = { ar: AR, en: EN, tr: TR, fr: FR };
+/** Übersetzungen werden erst bei Bedarf geladen (je Sprache ein eigenes Paket), damit die App schnell startet. */
+export const TRANSLATIONS: Record<Exclude<Lang, "de">, Record<string, LessonTr>> = { ar: {}, en: {}, tr: {}, fr: {} };
+const LOADERS: Record<Exclude<Lang, "de">, () => Promise<Record<string, LessonTr>>> = {
+  ar: () => import("./tr/ar").then((m) => m.AR),
+  en: () => import("./tr/en").then((m) => m.EN),
+  tr: () => import("./tr/tr").then((m) => m.TR),
+  fr: () => import("./tr/fr").then((m) => m.FR),
+};
+const pending: Partial<Record<string, Promise<void>>> = {};
+export function loadTranslations(lang: Lang): Promise<void> {
+  if (lang === "de") return Promise.resolve();
+  if (Object.keys(TRANSLATIONS[lang]).length) return Promise.resolve();
+  return (pending[lang] ??= LOADERS[lang]().then((tbl) => { Object.assign(TRANSLATIONS[lang], tbl); }));
+}
 
 /** Alle übersetzbaren Texte eines Diagramms in fester Reihenfolge (Titel zuerst, Hinweis zuletzt). */
 export function diagramStrings(d: Diagram): string[] {

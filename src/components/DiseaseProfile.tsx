@@ -3,6 +3,7 @@ import { AlertTriangle, BookOpen, HeartHandshake, Pill, Search, Stethoscope } fr
 import type { ReactNode } from "react";
 import { profileFor, type Profile } from "@/data/diseaseProfiles";
 import { useT, normalizeLang, useLang } from "@/lib/i18n";
+import { useTranslationsReady } from "@/lib/useTr";
 
 const SEC: { k: keyof Omit<Profile, "def">; icon: ReactNode; cls: string }[] = [
   { k: "sym", icon: <Stethoscope className="h-4 w-4" aria-hidden />, cls: "border-sky-500/40 bg-sky-500/10" },
@@ -16,8 +17,9 @@ const SEC: { k: keyof Omit<Profile, "def">; icon: ReactNode; cls: string }[] = [
 export function DiseaseProfile({ id }: { id: string }) {
   const t = useT();
   const lang = normalizeLang(useLang());
+  const ready = useTranslationsReady(lang, true);
   const r = profileFor(id, lang);
-  if (!r) return null;
+  if (!r || !ready) return null;
   const { p, translated } = r;
   const shown = translated ? lang : "de";
   const dir = shown === "ar" ? "rtl" : "ltr";

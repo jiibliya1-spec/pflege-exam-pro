@@ -223,15 +223,6 @@ export const BUCH_PFLEGE: Lesson[] = [
 
   // ───────── Konzepte ─────────
   {
-    id: "b-anleiten-beraten", group: "ausbildung", area: "konzepte", title: "Anleiten, Beraten und Schulen", icon: "Target",
-    ar: "التوجيه والاستشارة والتدريب: تحديد الحاجة، أهداف واقعية، شرح بسيط، عرض عملي ثم تطبيق المريض ثم تقييم. الاستشارة تحترم قرار المريض. التدريب لمجموعة.",
-    blocks: [
-      B("Anleiten", "Schritte: Bedarf klären, Ziel vereinbaren, vormachen, gemeinsam üben, selbst durchführen lassen, Rückmeldung geben und Wirkung prüfen."),
-      B("Beraten", "Informieren und unterstützen bei Entscheidungen. Entscheidung bleibt bei der Person. Auf Rogers-Haltung und aktives Zuhören achten."),
-      B("Schulen", "Gruppenangebot mit Lernzielen, Methoden und Auswertung."),
-    ],
-  },
-  {
     id: "b-kinaesthetik-basal-bobath", group: "ausbildung", area: "konzepte", title: "Kinästhetik, Basale Stimulation und Bobath", icon: "HandHelping",
     ar: "مفاهيم التمريض: الكينستيتيك (حركة طبيعية، تقليل الجهد)، التحفيز القاعدي (إدراك الجسم والبيئة لدى المرضى ذوي الإدراك المحدود)، بوباث (تحفيز الجانب المصاب لدى مرضى السكتة).",
     blocks: [

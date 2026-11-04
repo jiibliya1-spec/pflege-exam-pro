@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { LESSONS } from "../src/data/lessons";
-import { TRANSLATIONS, applyStrings, diagramStrings } from "../src/data/lessonsI18n";
+import { TRANSLATIONS, loadTranslations, applyStrings, diagramStrings } from "../src/data/lessonsI18n";
 import { WHO } from "../src/data/lessonsWho";
 
 describe("Lektionen: Patientengruppen", () => {
@@ -23,8 +23,10 @@ describe("Lektionen: Übersetzungen spiegeln das Original", () => {
       }
     }
   });
-  for (const [lang, table] of Object.entries(TRANSLATIONS)) {
-    it(`${lang}: Struktur stimmt`, () => {
+  for (const lang of ["ar", "en", "tr", "fr"] as const) {
+    it(`${lang}: Struktur stimmt`, async () => {
+      await loadTranslations(lang);
+      const table = TRANSLATIONS[lang];
       const problems: string[] = [];
       for (const [id, t] of Object.entries(table)) {
         const l = LESSONS.find((x) => x.id === id);
