@@ -7,7 +7,7 @@ import { PlayCircle, Stethoscope } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { useBank } from "@/lib/bank";
 import { latestAttempts } from "@/lib/stats";
-import { Card, EmptyState, LinkButton, PageHeader, Progress, Spinner, cn } from "./ui";
+import { Card, EmptyState, LinkButton, PageHeader, PrevNext, Progress, Spinner, cn } from "./ui";
 import { CaseNarrative, GradeBadge, ModelAnswerBox, QuestionMeta, QuestionText } from "./QuestionView";
 import { gradeQuestion } from "@/lib/grading";
 import { CaseScene, PlaceBadge } from "./CaseScene";
@@ -116,12 +116,12 @@ export function CaseView() {
         }
       />
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-        <div className="lg:sticky lg:top-20 lg:self-start">
+        <div className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto">
           <CaseScene caseId={c.id} />
           <details className="mt-4 rounded-2xl border border-line bg-surface">
             <summary className="flex min-h-12 cursor-pointer items-center px-4 font-medium"><Icon name="BookOpen" className="me-2 h-4 w-4" /> {t("scene.original")}</summary>
             <div className="p-2">
-              <CaseNarrative c={c} compact />
+              <CaseNarrative c={c} compact art={false} />
             </div>
           </details>
           <Card className="mt-4 text-sm">
@@ -160,20 +160,7 @@ export function CaseView() {
               </Card>
             );
           })}
-          <div className="flex justify-between gap-3 pt-2 text-sm">
-            {prev ? (
-              <button onClick={() => router.push(`/cases/view/?id=${prev.id}`)} className="text-teal hover:underline">
-                ← {prev.title}
-              </button>
-            ) : (
-              <span />
-            )}
-            {next && (
-              <button onClick={() => router.push(`/cases/view/?id=${next.id}`)} className="text-teal hover:underline">
-                {next.title} →
-              </button>
-            )}
-          </div>
+          <PrevNext label="Weitere Fälle" prev={prev ? { title: prev.title, href: `/cases/view/?id=${prev.id}` } : null} next={next ? { title: next.title, href: `/cases/view/?id=${next.id}` } : null} />
         </div>
       </div>
     </>

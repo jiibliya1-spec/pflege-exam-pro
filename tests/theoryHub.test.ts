@@ -20,3 +20,18 @@ describe("Organteile", () => {
     }
   });
 });
+
+import { readFileSync } from "node:fs";
+describe("Explosionsansicht", () => {
+  it("Markierungen <P i={n}> passen zu den Teilen jedes Organs", () => {
+    const src = readFileSync("src/components/OrganFigure.tsx", "utf8");
+    const fig = src.slice(src.indexOf("export const FIG"));
+    for (const [k, parts] of Object.entries(ORGAN_PARTS)) {
+      const start = fig.indexOf(`\n  ${k}: (`);
+      const next = fig.indexOf("\n  ),", start);
+      const block = fig.slice(start, next);
+      const used = new Set([...block.matchAll(/<P i=\{(\d+)\}/g)].map((m) => Number(m[1])));
+      expect([...used].sort((a, b) => a - b), k).toEqual(parts.map((_, i) => i));
+    }
+  });
+});

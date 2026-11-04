@@ -13,7 +13,7 @@ import { WHO_ORDER, type Who } from "@/data/lessonsWho";
 import { localizeLesson } from "@/data/lessonsI18n";
 import { useTranslationsReady } from "@/lib/useTr";
 import { normalizeLang, useLang, useT } from "@/lib/i18n";
-import { Card, EmptyState, LinkButton, PageHeader, cn } from "./ui";
+import { Card, EmptyState, LinkButton, PageHeader, PrevNext, cn } from "./ui";
 import { GlossText } from "./Gloss";
 import { TranslateLink } from "./QuestionView";
 import { Icon } from "./Icon";
@@ -227,10 +227,7 @@ export function LearnView() {
         </div>
       )}
       <p className="mt-4 text-xs text-muted">{t("learn.note")}</p>
-      <nav className="mt-5 flex justify-between gap-2" aria-label="Weitere Lektionen">
-        {prev && prevLoc ? <LinkButton variant="secondary" href={`/learn/view/?id=${prev.id}`}>← {prevLoc.title}</LinkButton> : <span />}
-        {next && nextLoc ? <LinkButton variant="secondary" href={`/learn/view/?id=${next.id}`}>{nextLoc.title} →</LinkButton> : <span />}
-      </nav>
+      <PrevNext label="Weitere Lektionen" prev={prev && prevLoc ? { title: prevLoc.title, href: `/learn/view/?id=${prev.id}` } : null} next={next && nextLoc ? { title: nextLoc.title, href: `/learn/view/?id=${next.id}` } : null} />
     </>
   );
 }

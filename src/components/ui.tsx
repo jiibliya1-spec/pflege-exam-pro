@@ -16,7 +16,7 @@ const VARIANTS: Record<Variant, string> = {
   ghost: "bg-transparent text-fg hover:bg-surface2",
   danger: "bg-bad text-white hover:opacity-90 dark:text-[#2a0805]",
 };
-const SIZES = { sm: "h-8 px-3 text-sm", md: "h-10 px-4 text-sm", lg: "h-12 px-6 text-base" };
+const SIZES = { sm: "min-h-8 px-3 py-1 text-sm", md: "min-h-10 px-4 py-1.5 text-sm", lg: "min-h-12 px-6 py-2 text-base" };
 
 interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
@@ -34,7 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, BtnProps>(function Button(
       type={type}
       disabled={disabled || loading}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex items-center justify-center gap-2 rounded-xl text-center font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50",
         VARIANTS[variant],
         SIZES[size],
         className
@@ -58,7 +58,7 @@ export function LinkButton({
   return (
     <Link
       href={href}
-      className={cn("inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-colors", VARIANTS[variant], SIZES[size], className)}
+      className={cn("inline-flex items-center justify-center gap-2 rounded-xl text-center font-medium transition-colors", VARIANTS[variant], SIZES[size], className)}
       {...rest}
     >
       {children}
@@ -323,5 +323,30 @@ export function ConfirmDialog({
         </div>
       )}
     </Dialog>
+  );
+}
+
+/** Zurück/Weiter zu Nachbar-Einträgen: Kästchen wachsen mit dem Text, nichts läuft über den Rand. */
+export function PrevNext({ prev, next, label }: { prev?: { title: string; href: string } | null; next?: { title: string; href: string } | null; label?: string }) {
+  const box = "flex min-h-14 min-w-0 items-center gap-2 rounded-2xl border border-line bg-surface px-3 py-2.5 text-start text-sm font-medium leading-snug text-teal transition-colors hover:border-teal hover:bg-tealsoft";
+  return (
+    <nav className="mt-5 grid grid-cols-2 gap-2" aria-label={label ?? "Weiter"}>
+      {prev ? (
+        <Link href={prev.href} className={box}>
+          <span aria-hidden className="shrink-0 rtl:rotate-180">←</span>
+          <span className="min-w-0 break-words [overflow-wrap:anywhere]">{prev.title}</span>
+        </Link>
+      ) : (
+        <span />
+      )}
+      {next ? (
+        <Link href={next.href} className={cn(box, "justify-end text-end")}>
+          <span className="min-w-0 break-words [overflow-wrap:anywhere]">{next.title}</span>
+          <span aria-hidden className="shrink-0 rtl:rotate-180">→</span>
+        </Link>
+      ) : (
+        <span />
+      )}
+    </nav>
   );
 }

@@ -1,13 +1,21 @@
 import { l10n, type L10n } from "@/lib/i18n";
 
-/** Bestandteile der Organabbildungen (Farbe wie in der Zeichnung). Reihenfolge der Sprachen: de | ar | en | fr | tr. */
+/**
+ * Bestandteile der Organabbildungen: Farbe wie in der Zeichnung, Name und Aufgabe in fünf Sprachen
+ * (Reihenfolge: de | ar | en | fr | tr) und der Weg, den das Teil in der „Explosionsansicht“ zurücklegt.
+ * Die Reihenfolge je Organ muss zu den <P i={n}>-Markierungen in OrganFigure.tsx passen.
+ */
 export interface OrganPart {
   color: string;
   name: L10n;
+  role: L10n;
+  /** Verschiebung in der Explosionsansicht (x, y in Zeichnungseinheiten). */
+  v: [number, number];
 }
-const row = (color: string, s: string): OrganPart => {
-  const [de, ar, en, fr, tr] = s.split("|");
-  return { color, name: l10n(de, ar, en, fr, tr) };
+const row = (color: string, names: string, roles: string, dx: number, dy: number): OrganPart => {
+  const [a, b, c, d, e] = names.split("|");
+  const [f, g, h, i, j] = roles.split("|");
+  return { color, name: l10n(a, b, c, d, e), role: l10n(f, g, h, i, j), v: [dx, dy] };
 };
 
 export const ORGAN_TITLE: Record<string, L10n> = {
@@ -30,117 +38,116 @@ export const ORGAN_TITLE: Record<string, L10n> = {
 
 export const ORGAN_PARTS: Record<string, OrganPart[]> = {
   herz: [
-    row("#e8545f", "Linke Herzkammer|البطين الأيسر|Left ventricle|Ventricule gauche|Sol karıncık"),
-    row("#f08a8f", "Rechte Herzkammer|البطين الأيمن|Right ventricle|Ventricule droit|Sağ karıncık"),
-    row("#b8334a", "Rechter Vorhof|الأذين الأيمن|Right atrium|Oreillette droite|Sağ kulakçık"),
-    row("#9c2233", "Linker Vorhof (Herzohr)|الأذين الأيسر (الزائدة)|Left atrium (appendage)|Oreillette gauche (auricule)|Sol kulakçık (kulakçık kulağı)"),
-    row("#e0303c", "Aorta (Hauptschlagader)|الأبهر (الشريان الرئيسي)|Aorta|Aorte|Aort (ana atardamar)"),
-    row("#6b83cc", "Lungenarterie|الشريان الرئوي|Pulmonary artery|Artère pulmonaire|Akciğer atardamarı"),
-    row("#4f74c2", "Obere Hohlvene|الوريد الأجوف العلوي|Superior vena cava|Veine cave supérieure|Üst ana toplardamar"),
-    row("#ffb54d", "Herzkranzgefäße (Koronararterien)|الشرايين التاجية|Coronary arteries|Artères coronaires|Koroner damarlar"),
+    row("#e8545f", "Linke Herzkammer|البطين الأيسر|Left ventricle|Ventricule gauche|Sol karıncık", "Pumpt das sauerstoffreiche Blut mit hohem Druck in den Körper.|يضخ الدم الغني بالأكسجين بضغط عال إلى الجسم.|Pumps oxygen-rich blood to the whole body under high pressure.|Pompe le sang riche en oxygène vers tout le corps sous haute pression.|Oksijenli kanı yüksek basınçla tüm vücuda pompalar.", 12, 14),
+    row("#f08a8f", "Rechte Herzkammer|البطين الأيمن|Right ventricle|Ventricule droit|Sağ karıncık", "Pumpt das sauerstoffarme Blut zur Lunge.|يضخ الدم الفقير بالأكسجين إلى الرئتين.|Pumps oxygen-poor blood to the lungs.|Pompe le sang pauvre en oxygène vers les poumons.|Oksijenden fakir kanı akciğerlere pompalar.", -12, 16),
+    row("#b8334a", "Rechter Vorhof|الأذين الأيمن|Right atrium|Oreillette droite|Sağ kulakçık", "Sammelt das Blut aus dem Körper und gibt es an die rechte Kammer weiter.|يجمع الدم العائد من الجسم ويمرّره إلى البطين الأيمن.|Collects blood returning from the body and passes it to the right ventricle.|Recueille le sang du corps et le passe au ventricule droit.|Vücuttan dönen kanı toplar ve sağ karıncığa verir.", -20, -4),
+    row("#9c2233", "Linker Vorhof (Herzohr)|الأذين الأيسر (الزائدة)|Left atrium (appendage)|Oreillette gauche (auricule)|Sol kulakçık (kulakçık kulağı)", "Nimmt das Blut aus der Lunge auf. Im Herzohr können sich Gerinnsel bilden (Vorhofflimmern).|يستقبل الدم من الرئتين. قد تتكوّن جلطات في الزائدة (الرجفان الأذيني).|Receives blood from the lungs. Clots can form in the appendage (atrial fibrillation).|Reçoit le sang des poumons. Des caillots peuvent se former dans l'auricule (fibrillation).|Akciğerden kanı alır. Kulakçık kulağında pıhtı oluşabilir (atriyal fibrilasyon).", 18, -6),
+    row("#e0303c", "Aorta (Hauptschlagader)|الأبهر (الشريان الرئيسي)|Aorta|Aorte|Aort (ana atardamar)", "Verteilt das Blut von der linken Kammer an den ganzen Körper.|يوزّع الدم من البطين الأيسر إلى كل الجسم.|Distributes blood from the left ventricle to the whole body.|Distribue le sang du ventricule gauche à tout le corps.|Kanı sol karıncıktan tüm vücuda dağıtır.", 12, -16),
+    row("#6b83cc", "Lungenarterie|الشريان الرئوي|Pulmonary artery|Artère pulmonaire|Akciğer atardamarı", "Führt sauerstoffarmes Blut zur Lunge (einzige Arterie mit „blauem“ Blut).|ينقل الدم الفقير بالأكسجين إلى الرئتين (الشريان الوحيد بدم «أزرق»).|Carries oxygen-poor blood to the lungs (the only artery with “blue” blood).|Conduit le sang pauvre en oxygène vers les poumons.|Oksijenden fakir kanı akciğerlere taşır.", -6, -18),
+    row("#4f74c2", "Obere Hohlvene|الوريد الأجوف العلوي|Superior vena cava|Veine cave supérieure|Üst ana toplardamar", "Bringt das Blut aus Kopf und Armen zurück zum Herzen.|يعيد الدم من الرأس والذراعين إلى القلب.|Returns blood from head and arms to the heart.|Ramène le sang de la tête et des bras au cœur.|Baş ve kollardan kanı kalbe geri getirir.", -22, -10),
+    row("#ffb54d", "Herzkranzgefäße (Koronararterien)|الشرايين التاجية|Coronary arteries|Artères coronaires|Koroner damarlar", "Versorgen den Herzmuskel selbst mit Blut. Verschluss führt zum Herzinfarkt.|تغذّي عضلة القلب نفسها بالدم. انسدادها يسبب احتشاء القلب.|Supply the heart muscle itself. A blockage causes a heart attack.|Irriguent le muscle cardiaque. Une obstruction cause un infarctus.|Kalp kasının kendisini besler. Tıkanması kalp krizine yol açar.", 6, 12),
   ],
   atmung: [
-    row("#bcd3e6", "Luftröhre|القصبة الهوائية|Trachea|Trachée|Nefes borusu (trakea)"),
-    row("#4b7fb0", "Bronchien|الشعب الهوائية|Bronchi|Bronches|Bronşlar"),
-    row("#f6b3b8", "Rechte Lunge (3 Lappen)|الرئة اليمنى (3 فصوص)|Right lung (3 lobes)|Poumon droit (3 lobes)|Sağ akciğer (3 lob)"),
-    row("#f9c0c4", "Linke Lunge (2 Lappen)|الرئة اليسرى (فصان)|Left lung (2 lobes)|Poumon gauche (2 lobes)|Sol akciğer (2 lob)"),
-    row("#4b7fb0", "Lungenbläschen (Alveolen)|الحويصلات الهوائية|Alveoli|Alvéoles|Alveoller"),
-    row("#9aa5b1", "Zwerchfell|الحجاب الحاجز|Diaphragm|Diaphragme|Diyafram"),
+    row("#bcd3e6", "Luftröhre|القصبة الهوائية|Trachea|Trachée|Nefes borusu (trakea)", "Leitet die Atemluft zur Lunge. Knorpelspangen halten sie offen.|تنقل هواء التنفس إلى الرئتين. حلقات غضروفية تبقيها مفتوحة.|Conducts air to the lungs. Cartilage rings keep it open.|Conduit l'air vers les poumons. Des anneaux de cartilage la maintiennent ouverte.|Havayı akciğerlere iletir. Kıkırdak halkalar açık tutar.", 0, -14),
+    row("#4b7fb0", "Bronchien|الشعب الهوائية|Bronchi|Bronches|Bronşlar", "Verzweigter Luftweg in beide Lungen. Hier wird die Luft angewärmt und gereinigt.|مجرى هوائي متفرع إلى الرئتين. يتم فيه تدفئة الهواء وتنقيته.|Branching airways into both lungs. The air is warmed and cleaned here.|Voies aériennes ramifiées dans les deux poumons. L'air y est réchauffé et nettoyé.|Her iki akciğere dallanan hava yolları. Hava burada ısıtılır ve temizlenir.", 0, -2),
+    row("#f6b3b8", "Rechte Lunge (3 Lappen)|الرئة اليمنى (3 فصوص)|Right lung (3 lobes)|Poumon droit (3 lobes)|Sağ akciğer (3 lob)", "Gasaustausch: Sauerstoff ins Blut, Kohlendioxid hinaus. Größer als die linke Lunge.|تبادل الغازات: الأكسجين إلى الدم وثاني أكسيد الكربون إلى الخارج. أكبر من الرئة اليسرى.|Gas exchange: oxygen into the blood, carbon dioxide out. Larger than the left lung.|Échanges gazeux : oxygène vers le sang, CO₂ vers l'extérieur. Plus grand que le gauche.|Gaz değişimi: oksijen kana, karbondioksit dışarı. Soldan büyüktür.", -20, 4),
+    row("#f9c0c4", "Linke Lunge (2 Lappen)|الرئة اليسرى (فصان)|Left lung (2 lobes)|Poumon gauche (2 lobes)|Sol akciğer (2 lob)", "Wie rechts, aber kleiner, weil das Herz Platz braucht (Herzbucht).|مثل اليمنى لكنها أصغر لأن القلب يحتاج مكاناً.|Like the right, but smaller because the heart needs space.|Comme le droit, mais plus petit car le cœur prend de la place.|Sağ gibi ama kalbe yer açmak için daha küçüktür.", 20, 4),
+    row("#4b7fb0", "Lungenbläschen (Alveolen)|الحويصلات الهوائية|Alveoli|Alvéoles|Alveoller", "Winzige Bläschen, in denen der Gasaustausch stattfindet. Sehr große Oberfläche.|حويصلات صغيرة يحدث فيها تبادل الغازات. مساحتها كبيرة جداً.|Tiny sacs where gas exchange takes place. A huge surface area.|Minuscules sacs où se font les échanges gazeux. Très grande surface.|Gaz değişiminin olduğu minik keseler. Çok geniş yüzey.", 0, 12),
+    row("#9aa5b1", "Zwerchfell|الحجاب الحاجز|Diaphragm|Diaphragme|Diyafram", "Wichtigster Atemmuskel: zieht sich beim Einatmen zusammen und senkt sich.|أهم عضلة تنفس: تنقبض وتهبط عند الشهيق.|Main breathing muscle: contracts and lowers when breathing in.|Principal muscle respiratoire : se contracte et s'abaisse à l'inspiration.|Ana solunum kasıdır: nefes alırken kasılır ve iner.", 0, 16),
   ],
   nerven: [
-    row("#f2a7a0", "Stirnlappen (Denken, Bewegung)|الفص الجبهي (التفكير والحركة)|Frontal lobe (thinking, movement)|Lobe frontal (pensée, mouvement)|Frontal lob (düşünme, hareket)"),
-    row("#f7c97e", "Scheitellappen (Gefühl, Tasten)|الفص الجداري (الإحساس واللمس)|Parietal lobe (sensation)|Lobe pariétal (sensibilité)|Parietal lob (duyu)"),
-    row("#9dc4e8", "Hinterhauptlappen (Sehen)|الفص القذالي (الرؤية)|Occipital lobe (vision)|Lobe occipital (vision)|Oksipital lob (görme)"),
-    row("#a9d29a", "Schläfenlappen (Hören, Gedächtnis)|الفص الصدغي (السمع والذاكرة)|Temporal lobe (hearing, memory)|Lobe temporal (audition, mémoire)|Temporal lob (işitme, hafıza)"),
-    row("#d9a577", "Kleinhirn (Gleichgewicht)|المخيخ (التوازن)|Cerebellum (balance)|Cervelet (équilibre)|Beyincik (denge)"),
-    row("#e6bfa6", "Hirnstamm|جذع الدماغ|Brainstem|Tronc cérébral|Beyin sapı"),
-    row("#f0d8c8", "Rückenmark|النخاع الشوكي|Spinal cord|Moelle épinière|Omurilik"),
+    row("#f2a7a0", "Stirnlappen (Denken, Bewegung)|الفص الجبهي (التفكير والحركة)|Frontal lobe (thinking, movement)|Lobe frontal (pensée, mouvement)|Frontal lob (düşünme, hareket)", "Planen, Entscheiden, Persönlichkeit und willkürliche Bewegung.|التخطيط واتخاذ القرار والشخصية والحركة الإرادية.|Planning, decisions, personality and voluntary movement.|Planification, décisions, personnalité et mouvement volontaire.|Planlama, karar, kişilik ve istemli hareket.", -18, -4),
+    row("#f7c97e", "Scheitellappen (Gefühl, Tasten)|الفص الجداري (الإحساس واللمس)|Parietal lobe (sensation)|Lobe pariétal (sensibilité)|Parietal lob (duyu)", "Verarbeitet Berührung, Schmerz, Temperatur und Körperwahrnehmung.|يعالج اللمس والألم والحرارة وإدراك الجسم.|Processes touch, pain, temperature and body awareness.|Traite le toucher, la douleur, la température et la perception du corps.|Dokunma, ağrı, sıcaklık ve beden algısını işler.", 0, -16),
+    row("#9dc4e8", "Hinterhauptlappen (Sehen)|الفص القذالي (الرؤية)|Occipital lobe (vision)|Lobe occipital (vision)|Oksipital lob (görme)", "Sehzentrum: verarbeitet, was die Augen sehen.|مركز الرؤية: يعالج ما تراه العينان.|Vision centre: processes what the eyes see.|Centre de la vision : traite ce que voient les yeux.|Görme merkezi: gözün gördüğünü işler.", 18, -6),
+    row("#a9d29a", "Schläfenlappen (Hören, Gedächtnis)|الفص الصدغي (السمع والذاكرة)|Temporal lobe (hearing, memory)|Lobe temporal (audition, mémoire)|Temporal lob (işitme, hafıza)", "Hören, Sprachverständnis und Gedächtnis.|السمع وفهم اللغة والذاكرة.|Hearing, understanding language and memory.|Audition, compréhension du langage et mémoire.|İşitme, dil anlama ve hafıza.", -6, 14),
+    row("#d9a577", "Kleinhirn (Gleichgewicht)|المخيخ (التوازن)|Cerebellum (balance)|Cervelet (équilibre)|Beyincik (denge)", "Koordiniert Bewegungen und hält das Gleichgewicht.|ينسّق الحركات ويحافظ على التوازن.|Coordinates movements and keeps balance.|Coordonne les mouvements et maintient l'équilibre.|Hareketleri koordine eder, dengeyi sağlar.", 16, 12),
+    row("#e6bfa6", "Hirnstamm|جذع الدماغ|Brainstem|Tronc cérébral|Beyin sapı", "Steuert Atmung, Kreislauf und Bewusstsein: überlebenswichtig.|يتحكم بالتنفس والدورة الدموية والوعي: حيوي للبقاء.|Controls breathing, circulation and consciousness: vital for survival.|Contrôle respiration, circulation et conscience : vital.|Solunum, dolaşım ve bilinci kontrol eder: yaşamsal.", 0, 8),
+    row("#f0d8c8", "Rückenmark|النخاع الشوكي|Spinal cord|Moelle épinière|Omurilik", "Leitet Signale zwischen Gehirn und Körper. Verletzung führt zur Querschnittlähmung.|ينقل الإشارات بين الدماغ والجسم. إصابته تسبب الشلل النصفي السفلي.|Carries signals between brain and body. Injury causes paraplegia.|Transmet les signaux entre cerveau et corps. Une lésion cause une paraplégie.|Beyin ile vücut arasında sinyal taşır. Yaralanması paraplejiye yol açar.", 0, 14),
   ],
   verdauung: [
-    row("#d97b85", "Speiseröhre|المريء|Oesophagus|Œsophage|Yemek borusu"),
-    row("#d9707a", "Magen|المعدة|Stomach|Estomac|Mide"),
-    row("#b86a46", "Leber|الكبد|Liver|Foie|Karaciğer"),
-    row("#4f9a5f", "Gallenblase|المرارة|Gallbladder|Vésicule biliaire|Safra kesesi"),
-    row("#f2c94c", "Bauchspeicheldrüse|البنكرياس|Pancreas|Pancréas|Pankreas"),
-    row("#f2937f", "Dünndarm|الأمعاء الدقيقة|Small intestine|Intestin grêle|İnce bağırsak"),
-    row("#e48d63", "Dickdarm|الأمعاء الغليظة|Large intestine|Gros intestin|Kalın bağırsak"),
+    row("#d97b85", "Speiseröhre|المريء|Oesophagus|Œsophage|Yemek borusu", "Transportiert den Speisebrei per Muskelwellen in den Magen.|ينقل الطعام إلى المعدة بموجات عضلية.|Moves food to the stomach by muscle waves.|Transporte les aliments vers l'estomac par ondes musculaires.|Yiyeceği kas dalgalarıyla mideye taşır.", 0, -14),
+    row("#d9707a", "Magen|المعدة|Stomach|Estomac|Mide", "Speichert die Nahrung, mischt sie mit Magensäure und beginnt die Eiweißverdauung.|يخزّن الطعام ويخلطه بحمض المعدة ويبدأ هضم البروتين.|Stores food, mixes it with acid and starts protein digestion.|Stocke les aliments, les mélange à l'acide et débute la digestion des protéines.|Yiyeceği depolar, asitle karıştırır, protein sindirimini başlatır.", 16, -6),
+    row("#b86a46", "Leber|الكبد|Liver|Foie|Karaciğer", "Zentrales Stoffwechselorgan: baut Giftstoffe ab, bildet Galle und Eiweiße, speichert Zucker.|عضو الأيض المركزي: يفكك السموم وينتج الصفراء والبروتينات ويخزّن السكر.|Central metabolic organ: breaks down toxins, makes bile and proteins, stores sugar.|Organe métabolique central : détoxifie, fabrique la bile et les protéines, stocke le sucre.|Merkezi metabolizma organı: toksinleri yıkar, safra ve protein üretir, şeker depolar.", -18, -8),
+    row("#4f9a5f", "Gallenblase|المرارة|Gallbladder|Vésicule biliaire|Safra kesesi", "Speichert und konzentriert die Galle für die Fettverdauung.|تخزّن الصفراء وتركّزها لهضم الدهون.|Stores and concentrates bile for fat digestion.|Stocke et concentre la bile pour digérer les graisses.|Yağ sindirimi için safrayı depolar ve yoğunlaştırır.", -8, 14),
+    row("#f2c94c", "Bauchspeicheldrüse|البنكرياس|Pancreas|Pancréas|Pankreas", "Bildet Verdauungsenzyme und Insulin (Blutzucker).|تنتج إنزيمات الهضم والإنسولين (سكر الدم).|Makes digestive enzymes and insulin (blood sugar).|Produit des enzymes digestives et l'insuline (glycémie).|Sindirim enzimleri ve insülin (kan şekeri) üretir.", 12, 8),
+    row("#f2937f", "Dünndarm|الأمعاء الدقيقة|Small intestine|Intestin grêle|İnce bağırsak", "Hier werden fast alle Nährstoffe ins Blut aufgenommen.|هنا يُمتص معظم المغذيات إلى الدم.|Almost all nutrients are absorbed into the blood here.|Presque tous les nutriments passent dans le sang ici.|Besinlerin neredeyse tamamı burada kana geçer.", 0, 8),
+    row("#e48d63", "Dickdarm|الأمعاء الغليظة|Large intestine|Gros intestin|Kalın bağırsak", "Entzieht dem Darminhalt Wasser und formt den Stuhl.|يمتص الماء من محتوى الأمعاء ويكوّن البراز.|Removes water from the bowel contents and forms stool.|Retire l'eau du contenu intestinal et forme les selles.|Bağırsak içeriğinden su emer, dışkıyı şekillendirir.", 0, 18),
   ],
   niere: [
-    row("#c24a58", "Nieren|الكليتان|Kidneys|Reins|Böbrekler"),
-    row("#f6dc7a", "Nierenbecken|حوض الكلية|Renal pelvis|Bassinet|Böbrek pelvisi"),
-    row("#f2cf5c", "Harnleiter|الحالبان|Ureters|Uretères|Üreterler"),
-    row("#d9b13d", "Harnblase|المثانة|Bladder|Vessie|Mesane"),
-    row("#e0303c", "Bauchaorta|الأبهر البطني|Abdominal aorta|Aorte abdominale|Karın aortu"),
-    row("#4f74c2", "Untere Hohlvene|الوريد الأجوف السفلي|Inferior vena cava|Veine cave inférieure|Alt ana toplardamar"),
+    row("#c24a58", "Nieren|الكليتان|Kidneys|Reins|Böbrekler", "Filtern das Blut, scheiden Abfallstoffe aus und regeln Wasser, Salze und Blutdruck.|تصفّيان الدم وتطرحان الفضلات وتنظّمان الماء والأملاح وضغط الدم.|Filter the blood, remove waste and regulate water, salts and blood pressure.|Filtrent le sang, éliminent les déchets et règlent eau, sels et tension.|Kanı süzer, atıkları atar, su, tuz ve kan basıncını düzenler.", 22, -4),
+    row("#f6dc7a", "Nierenbecken|حوض الكلية|Renal pelvis|Bassinet|Böbrek pelvisi", "Sammelt den Urin und leitet ihn in den Harnleiter.|يجمع البول ويمرّره إلى الحالب.|Collects urine and passes it into the ureter.|Recueille l'urine et la dirige vers l'uretère.|İdrarı toplar ve üretere iletir.", 14, 6),
+    row("#f2cf5c", "Harnleiter|الحالبان|Ureters|Uretères|Üreterler", "Dünne Muskelschläuche, die den Urin zur Blase befördern.|أنبوبان عضليان رفيعان ينقلان البول إلى المثانة.|Thin muscular tubes that carry urine to the bladder.|Fins tuyaux musculaires qui conduisent l'urine à la vessie.|İdrarı mesaneye taşıyan ince kas borular.", 0, 8),
+    row("#d9b13d", "Harnblase|المثانة|Bladder|Vessie|Mesane", "Speichert den Urin (ca. 300–500 ml) bis zur Entleerung.|تخزّن البول (حوالي 300–500 مل) حتى التفريغ.|Stores urine (about 300–500 ml) until emptying.|Stocke l'urine (env. 300–500 ml) jusqu'à la miction.|İdrarı (yaklaşık 300–500 ml) boşaltılana kadar depolar.", 0, 18),
+    row("#e0303c", "Bauchaorta|الأبهر البطني|Abdominal aorta|Aorte abdominale|Karın aortu", "Bringt frisches Blut zu den Nieren und zu den Beinen.|تجلب الدم النقي إلى الكليتين والساقين.|Brings fresh blood to the kidneys and legs.|Apporte le sang frais aux reins et aux jambes.|Böbreklere ve bacaklara taze kan getirir.", 10, 0),
+    row("#4f74c2", "Untere Hohlvene|الوريد الأجوف السفلي|Inferior vena cava|Veine cave inférieure|Alt ana toplardamar", "Führt das Blut aus Beinen und Bauch zum Herzen zurück.|يعيد الدم من الساقين والبطن إلى القلب.|Returns blood from legs and abdomen to the heart.|Ramène le sang des jambes et de l'abdomen au cœur.|Bacak ve karından kanı kalbe geri getirir.", -10, 0),
   ],
   haut: [
-    row("#f1b88f", "Oberhaut (Epidermis)|البشرة|Epidermis|Épiderme|Epidermis"),
-    row("#ee9d86", "Lederhaut (Dermis)|الأدمة|Dermis|Derme|Dermis"),
-    row("#f8e3a6", "Unterhaut (Fettgewebe)|النسيج تحت الجلد (الدهون)|Subcutis (fat tissue)|Hypoderme (tissu adipeux)|Deri altı (yağ dokusu)"),
-    row("#7a5238", "Haar und Haarwurzel|الشعرة وجذرها|Hair and follicle|Poil et follicule|Kıl ve kıl kökü"),
-    row("#f8d977", "Talgdrüse|الغدة الدهنية|Sebaceous gland|Glande sébacée|Yağ bezi"),
-    row("#4aa3a0", "Schweißdrüse|الغدة العرقية|Sweat gland|Glande sudoripare|Ter bezi"),
-    row("#d4343f", "Blutgefäße|الأوعية الدموية|Blood vessels|Vaisseaux sanguins|Kan damarları"),
+    row("#f1b88f", "Oberhaut (Epidermis)|البشرة|Epidermis|Épiderme|Epidermis", "Äußerer Schutz vor Keimen, Wasserverlust und UV-Licht. Erneuert sich ständig.|حماية خارجية من الجراثيم وفقدان الماء والأشعة فوق البنفسجية. تتجدد باستمرار.|Outer protection against germs, water loss and UV. Renews constantly.|Protection externe contre germes, perte d'eau et UV. Se renouvelle sans cesse.|Mikroplara, su kaybına ve UV'ye karşı dış koruma. Sürekli yenilenir.", 0, -20),
+    row("#ee9d86", "Lederhaut (Dermis)|الأدمة|Dermis|Derme|Dermis", "Gibt Festigkeit und Elastizität; enthält Nerven, Gefäße, Drüsen und Haarwurzeln.|تمنح المتانة والمرونة وتحوي الأعصاب والأوعية والغدد وجذور الشعر.|Gives strength and elasticity; holds nerves, vessels, glands and hair roots.|Donne solidité et élasticité ; contient nerfs, vaisseaux, glandes et racines des poils.|Dayanıklılık ve esneklik verir; sinir, damar, bez ve kıl köklerini içerir.", 0, 0),
+    row("#f8e3a6", "Unterhaut (Fettgewebe)|النسيج تحت الجلد (الدهون)|Subcutis (fat tissue)|Hypoderme (tissu adipeux)|Deri altı (yağ dokusu)", "Wärmeschutz, Energiespeicher und Polster gegen Druck. Hier werden Spritzen (s. c.) gegeben.|عازل حراري ومخزن للطاقة ووسادة ضد الضغط. هنا تُعطى الحقن تحت الجلد.|Insulation, energy store and cushion. Subcutaneous injections go here.|Isolation, réserve d'énergie et coussin. Les injections sous-cutanées s'y font.|Isı yalıtımı, enerji deposu ve yastık. Deri altı enjeksiyonlar buraya yapılır.", 0, 20),
+    row("#7a5238", "Haar und Haarwurzel|الشعرة وجذرها|Hair and follicle|Poil et follicule|Kıl ve kıl kökü", "Schützt und fühlt (Tastsinn); die Wurzel sitzt in der Lederhaut.|يحمي ويحسّ (اللمس)؛ جذره في الأدمة.|Protects and senses touch; the root sits in the dermis.|Protège et perçoit le toucher ; la racine est dans le derme.|Korur ve dokunmayı algılar; kökü dermiste bulunur.", -8, -14),
+    row("#f8d977", "Talgdrüse|الغدة الدهنية|Sebaceous gland|Glande sébacée|Yağ bezi", "Bildet Hauttalg, der Haut und Haar geschmeidig hält.|تنتج الزهم الذي يبقي الجلد والشعر ليّنين.|Makes sebum that keeps skin and hair supple.|Produit le sébum qui garde peau et cheveux souples.|Deri ve kılı yumuşak tutan sebum üretir.", -12, -4),
+    row("#4aa3a0", "Schweißdrüse|الغدة العرقية|Sweat gland|Glande sudoripare|Ter bezi", "Bildet Schweiß und kühlt den Körper durch Verdunstung.|تنتج العرق وتبرّد الجسم بالتبخر.|Makes sweat and cools the body by evaporation.|Produit la sueur et refroidit le corps par évaporation.|Ter üretir, buharlaşma ile vücudu soğutur.", 14, 0),
+    row("#d4343f", "Blutgefäße|الأوعية الدموية|Blood vessels|Vaisseaux sanguins|Kan damarları", "Versorgen die Haut mit Sauerstoff und regeln die Wärmeabgabe.|تغذّي الجلد بالأكسجين وتنظّم فقدان الحرارة.|Supply the skin with oxygen and regulate heat loss.|Alimentent la peau en oxygène et règlent la perte de chaleur.|Cildi oksijenle besler, ısı kaybını düzenler.", -6, 8),
   ],
   blut: [
-    row("#ee4b57", "Rote Blutkörperchen (Sauerstoff)|كريات الدم الحمراء (الأكسجين)|Red blood cells (oxygen)|Globules rouges (oxygène)|Alyuvarlar (oksijen)"),
-    row("#7a5bc0", "Weiße Blutkörperchen (Abwehr)|كريات الدم البيضاء (الدفاع)|White blood cells (defence)|Globules blancs (défense)|Akyuvarlar (savunma)"),
-    row("#f2c94c", "Blutplättchen (Gerinnung)|الصفائح الدموية (التخثر)|Platelets (clotting)|Plaquettes (coagulation)|Trombositler (pıhtılaşma)"),
-    row("#c4535e", "Gefäßwand|جدار الوعاء الدموي|Vessel wall|Paroi du vaisseau|Damar duvarı"),
+    row("#ee4b57", "Rote Blutkörperchen (Sauerstoff)|كريات الدم الحمراء (الأكسجين)|Red blood cells (oxygen)|Globules rouges (oxygène)|Alyuvarlar (oksijen)", "Transportieren Sauerstoff mit dem roten Blutfarbstoff Hämoglobin. Zu wenige = Anämie.|تنقل الأكسجين بواسطة الهيموغلوبين. نقصها يسبب فقر الدم.|Carry oxygen with haemoglobin. Too few = anaemia.|Transportent l'oxygène avec l'hémoglobine. Trop peu = anémie.|Hemoglobin ile oksijen taşır. Azlığı anemidir.", 0, -12),
+    row("#7a5bc0", "Weiße Blutkörperchen (Abwehr)|كريات الدم البيضاء (الدفاع)|White blood cells (defence)|Globules blancs (défense)|Akyuvarlar (savunma)", "Bekämpfen Keime und Fremdkörper: Teil des Immunsystems.|تحارب الجراثيم والأجسام الغريبة: جزء من جهاز المناعة.|Fight germs and foreign bodies: part of the immune system.|Combattent germes et corps étrangers : partie du système immunitaire.|Mikropları ve yabancı maddeleri yok eder: bağışıklığın parçasıdır.", 6, 12),
+    row("#f2c94c", "Blutplättchen (Gerinnung)|الصفائح الدموية (التخثر)|Platelets (clotting)|Plaquettes (coagulation)|Trombositler (pıhtılaşma)", "Verschließen Wunden und starten die Blutgerinnung.|تغلق الجروح وتبدأ تخثر الدم.|Seal wounds and start blood clotting.|Obturent les plaies et déclenchent la coagulation.|Yaraları kapatır, pıhtılaşmayı başlatır.", 0, -20),
+    row("#c4535e", "Gefäßwand|جدار الوعاء الدموي|Vessel wall|Paroi du vaisseau|Damar duvarı", "Hält das Blut im Kreislauf; Schäden fördern Thrombosen und Blutungen.|تبقي الدم داخل الدورة؛ تلفها يسهّل الجلطات والنزف.|Keeps blood in circulation; damage promotes clots and bleeding.|Garde le sang dans la circulation ; les lésions favorisent caillots et saignements.|Kanı dolaşımda tutar; hasar pıhtı ve kanamaya yol açar.", 0, -6),
   ],
   bewegung: [
-    row("#cdbb8c", "Oberschenkelknochen (Femur)|عظم الفخذ|Thigh bone (femur)|Fémur|Uyluk kemiği (femur)"),
-    row("#cdbb8c", "Schienbein (Tibia)|عظم الظنبوب|Shin bone (tibia)|Tibia|Kaval kemiği (tibia)"),
-    row("#fff", "Kniescheibe (Patella)|الرضفة|Kneecap (patella)|Rotule|Diz kapağı (patella)"),
-    row("#9fd1e8", "Gelenkknorpel|غضروف المفصل|Articular cartilage|Cartilage articulaire|Eklem kıkırdağı"),
-    row("#e9eef2", "Menisken|الغضروفان الهلاليان|Menisci|Ménisques|Menisküsler"),
-    row("#c94b57", "Kreuzbänder|الرباطان الصليبيان|Cruciate ligaments|Ligaments croisés|Çapraz bağlar"),
-    row("#d7efff", "Schleimbeutel / Gelenkflüssigkeit|الجراب / السائل المفصلي|Bursa / joint fluid|Bourse / liquide articulaire|Bursa / eklem sıvısı"),
+    row("#cdbb8c", "Oberschenkelknochen (Femur)|عظم الفخذ|Thigh bone (femur)|Fémur|Uyluk kemiği (femur)", "Größter und stärkster Knochen; trägt das Körpergewicht.|أكبر وأقوى عظمة؛ تحمل وزن الجسم.|Largest, strongest bone; bears body weight.|Os le plus grand et le plus fort ; supporte le poids du corps.|En büyük ve güçlü kemik; vücut ağırlığını taşır.", 0, -18),
+    row("#cdbb8c", "Schienbein (Tibia)|عظم الظنبوب|Shin bone (tibia)|Tibia|Kaval kemiği (tibia)", "Trägt das Gewicht des Unterschenkels; bildet die untere Gelenkfläche.|يحمل وزن الساق ويكوّن السطح السفلي للمفصل.|Bears weight of the lower leg; forms the lower joint surface.|Porte le poids de la jambe ; forme la surface articulaire inférieure.|Alt bacağın yükünü taşır; eklemin alt yüzünü oluşturur.", 0, 20),
+    row("#ffffff", "Kniescheibe (Patella)|الرضفة|Kneecap (patella)|Rotule|Diz kapağı (patella)", "Schützt das Gelenk und verstärkt die Kraft des Oberschenkelmuskels.|تحمي المفصل وتقوّي قوة عضلة الفخذ.|Protects the joint and boosts thigh muscle force.|Protège l'articulation et renforce la force du quadriceps.|Eklemi korur, uyluk kasının gücünü artırır.", 20, -4),
+    row("#9fd1e8", "Gelenkknorpel|غضروف المفصل|Articular cartilage|Cartilage articulaire|Eklem kıkırdağı", "Glatte Gleitschicht auf den Knochenenden. Abnutzung = Arthrose.|طبقة ملساء للانزلاق على أطراف العظام. تآكلها = خشونة المفاصل.|Smooth gliding layer on bone ends. Wear = osteoarthritis.|Couche lisse sur les extrémités osseuses. Usure = arthrose.|Kemik uçlarında kaygan tabaka. Aşınması = artroz.", 0, -4),
+    row("#e9eef2", "Menisken|الغضروفان الهلاليان|Menisci|Ménisques|Menisküsler", "Faserknorpel-Scheiben: dämpfen Stöße und stabilisieren das Knie.|أقراص غضروفية: تمتص الصدمات وتثبّت الركبة.|Fibrocartilage discs: absorb shock and stabilise the knee.|Disques fibrocartilagineux : amortissent et stabilisent le genou.|Lifli kıkırdak diskler: şoku emer, dizi dengeler.", 0, 8),
+    row("#c94b57", "Kreuzbänder|الرباطان الصليبيان|Cruciate ligaments|Ligaments croisés|Çapraz bağlar", "Halten Ober- und Unterschenkel zusammen und verhindern Verschieben.|يربطان الفخذ بالساق ويمنعان الانزلاق.|Hold thigh and shin together and prevent sliding.|Maintiennent cuisse et jambe et empêchent le glissement.|Uyluk ve kaval kemiğini bir arada tutar, kaymayı önler.", 0, 4),
+    row("#d7efff", "Schleimbeutel / Gelenkflüssigkeit|الجراب / السائل المفصلي|Bursa / joint fluid|Bourse / liquide articulaire|Bursa / eklem sıvısı", "Polster und „Schmiere“: reduzieren Reibung im Gelenk.|وسادة و«زيت»: تقلّل الاحتكاك في المفصل.|Cushion and “lubricant”: reduce friction in the joint.|Coussin et « lubrifiant » : réduisent le frottement.|Yastık ve «yağ»: eklemde sürtünmeyi azaltır.", 16, 8),
   ],
   psyche: [
-    row("#f2cdae", "Kopf und Gesicht|الرأس والوجه|Head and face|Tête et visage|Baş ve yüz"),
-    row("#f9b9c4", "Großhirn (Denken, Gefühle)|المخ (التفكير والمشاعر)|Cerebrum (thinking, emotions)|Cerveau (pensée, émotions)|Beyin (düşünce, duygular)"),
-    row("#d9a577", "Kleinhirn|المخيخ|Cerebellum|Cervelet|Beyincik"),
-    row("#9a8bd8", "Gedanken und Gefühle|الأفكار والمشاعر|Thoughts and feelings|Pensées et émotions|Düşünceler ve duygular"),
+    row("#f2cdae", "Kopf und Gesicht|الرأس والوجه|Head and face|Tête et visage|Baş ve yüz", "Schützt das Gehirn und zeigt Gefühle durch Mimik.|يحمي الدماغ ويُظهر المشاعر بتعابير الوجه.|Protects the brain and shows feelings through expression.|Protège le cerveau et montre les émotions par la mimique.|Beyni korur, mimiklerle duyguları gösterir.", -10, 8),
+    row("#f9b9c4", "Großhirn (Denken, Gefühle)|المخ (التفكير والمشاعر)|Cerebrum (thinking, emotions)|Cerveau (pensée, émotions)|Beyin (düşünce, duygular)", "Sitz von Denken, Gedächtnis, Gefühlen und Willen. Hier entstehen psychische Erkrankungen.|مقر التفكير والذاكرة والمشاعر والإرادة. هنا تنشأ الأمراض النفسية.|Seat of thinking, memory, feelings and will. Mental illness arises here.|Siège de la pensée, mémoire, émotions et volonté.|Düşünce, hafıza, duygu ve iradenin merkezi. Ruhsal hastalıklar burada ortaya çıkar.", 6, -18),
+    row("#d9a577", "Kleinhirn|المخيخ|Cerebellum|Cervelet|Beyincik", "Koordination und Gleichgewicht.|التنسيق والتوازن.|Coordination and balance.|Coordination et équilibre.|Koordinasyon ve denge.", 16, -2),
+    row("#9a8bd8", "Gedanken und Gefühle|الأفكار والمشاعر|Thoughts and feelings|Pensées et émotions|Düşünceler ve duygular", "Erleben, Deuten und Verarbeiten: Grundlage der psychischen Gesundheit.|المعايشة والتفسير والمعالجة: أساس الصحة النفسية.|Experiencing, interpreting, coping: basis of mental health.|Vécu, interprétation, traitement : base de la santé mentale.|Yaşama, yorumlama, başa çıkma: ruh sağlığının temeli.", 8, -8),
   ],
   sinne: [
-    row("#f6f7f9", "Lederhaut (Sklera)|الصلبة|Sclera|Sclérotique|Sklera"),
-    row("#eaf5fb", "Hornhaut (Kornea)|القرنية|Cornea|Cornée|Kornea"),
-    row("#2b5f8a", "Regenbogenhaut (Iris)|القزحية|Iris|Iris|İris"),
-    row("#fff0b8", "Linse|العدسة|Lens|Cristallin|Lens (mercek)"),
-    row("#d4e9f4", "Glaskörper|الجسم الزجاجي|Vitreous body|Corps vitré|Camsı cisim"),
-    row("#e2553c", "Netzhaut (Retina)|الشبكية|Retina|Rétine|Retina"),
-    row("#f0c44a", "Sehnerv|العصب البصري|Optic nerve|Nerf optique|Görme siniri"),
+    row("#f6f7f9", "Lederhaut (Sklera)|الصلبة|Sclera|Sclérotique|Sklera", "Das „Weiße im Auge“: feste Schutzhülle, hält die Form.|«بياض العين»: غلاف واقٍ صلب يحافظ على الشكل.|The “white of the eye”: tough protective shell that keeps the shape.|Le « blanc de l'œil » : enveloppe solide qui garde la forme.|«Gözün beyazı»: şekli koruyan sert koruyucu kılıf.", -8, 0),
+    row("#eaf5fb", "Hornhaut (Kornea)|القرنية|Cornea|Cornée|Kornea", "Klare Vorderfläche; bricht das Licht am stärksten.|السطح الأمامي الشفاف؛ تكسر الضوء أكثر من غيرها.|Clear front surface; bends light the most.|Surface avant transparente ; réfracte le plus la lumière.|Şeffaf ön yüz; ışığı en çok kıran yapıdır.", 26, 0),
+    row("#2b5f8a", "Regenbogenhaut (Iris)|القزحية|Iris|Iris|İris", "Farbiger Ring: regelt über die Pupille, wie viel Licht ins Auge fällt.|حلقة ملونة: تنظّم عبر البؤبؤ كمية الضوء الداخل.|Coloured ring: controls via the pupil how much light enters.|Anneau coloré : règle par la pupille la lumière entrante.|Renkli halka: gözbebeği ile giren ışık miktarını ayarlar.", 14, 0),
+    row("#fff0b8", "Linse|العدسة|Lens|Cristallin|Lens (mercek)", "Stellt scharf auf Nähe und Ferne. Trübung = Grauer Star.|تضبط الرؤية للقريب والبعيد. عتامتها = الساد (الكاتاراكت).|Focuses near and far. Clouding = cataract.|Fait la mise au point. Opacification = cataracte.|Yakın ve uzağa odaklar. Bulanıklaşması = katarakt.", 8, 0),
+    row("#d4e9f4", "Glaskörper|الجسم الزجاجي|Vitreous body|Corps vitré|Camsı cisim", "Gelartige Füllung: gibt dem Augapfel Form und Halt.|حشوة هلامية: تعطي كرة العين شكلها وثباتها.|Gel filling: gives the eyeball shape and support.|Remplissage gélatineux : donne sa forme à l'œil.|Jel dolgu: göz küresine şekil verir.", -2, 0),
+    row("#e2553c", "Netzhaut (Retina)|الشبكية|Retina|Rétine|Retina", "Lichtempfindliche Schicht: wandelt Licht in Nervensignale um.|طبقة حساسة للضوء: تحوّل الضوء إلى إشارات عصبية.|Light-sensitive layer: turns light into nerve signals.|Couche sensible à la lumière : transforme la lumière en signaux nerveux.|Işığa duyarlı tabaka: ışığı sinir sinyaline çevirir.", -14, 4),
+    row("#f0c44a", "Sehnerv|العصب البصري|Optic nerve|Nerf optique|Görme siniri", "Leitet die Bildinformation zum Gehirn (Hinterhauptlappen).|ينقل معلومات الصورة إلى الدماغ (الفص القذالي).|Carries visual information to the brain (occipital lobe).|Transmet l'image au cerveau (lobe occipital).|Görüntü bilgisini beyne (oksipital lob) taşır.", -18, 12),
   ],
   geschlecht: [
-    row("#f1a2ae", "Gebärmutter|الرحم|Uterus|Utérus|Rahim"),
-    row("#e58d9a", "Eileiter|قناتا فالوب|Fallopian tubes|Trompes de Fallope|Fallop tüpleri"),
-    row("#f6c58f", "Eierstöcke|المبيضان|Ovaries|Ovaires|Yumurtalıklar"),
-    row("#d9697f", "Gebärmutterhals|عنق الرحم|Cervix|Col de l'utérus|Rahim ağzı"),
-    row("#e58d9a", "Scheide|المهبل|Vagina|Vagin|Vajina"),
+    row("#f1a2ae", "Gebärmutter|الرحم|Uterus|Utérus|Rahim", "Hier nistet sich die befruchtete Eizelle ein und das Kind wächst heran.|هنا تنغرس البويضة المخصبة ويكبر الجنين.|The fertilised egg implants here and the baby grows.|L'œuf fécondé s'y implante et l'enfant s'y développe.|Döllenmiş yumurta buraya yerleşir, bebek burada büyür.", 0, -8),
+    row("#e58d9a", "Eileiter|قناتا فالوب|Fallopian tubes|Trompes de Fallope|Fallop tüpleri", "Fangen die Eizelle auf; hier findet die Befruchtung statt.|تلتقط البويضة؛ وهنا يحدث الإخصاب.|Catch the egg; fertilisation takes place here.|Captent l'ovule ; la fécondation s'y produit.|Yumurtayı yakalar; döllenme burada olur.", 0, -12),
+    row("#f6c58f", "Eierstöcke|المبيضان|Ovaries|Ovaires|Yumurtalıklar", "Reifen Eizellen heran und bilden Hormone (Östrogen, Progesteron).|تنضج البويضات وتنتج الهرمونات (الإستروجين والبروجسترون).|Mature eggs and make hormones (oestrogen, progesterone).|Font mûrir les ovules et produisent des hormones.|Yumurtaları olgunlaştırır, hormon (östrojen, progesteron) üretir.", 0, 8),
+    row("#d9697f", "Gebärmutterhals|عنق الرحم|Cervix|Col de l'utérus|Rahim ağzı", "Verschließt die Gebärmutter; öffnet sich bei der Geburt. Wird bei der Krebsvorsorge untersucht.|يغلق الرحم ويفتح عند الولادة. يُفحص في الكشف المبكر عن السرطان.|Closes the uterus, opens at birth. Examined in cancer screening.|Ferme l'utérus, s'ouvre à l'accouchement. Examiné au dépistage.|Rahmi kapatır, doğumda açılır. Kanser taramasında muayene edilir.", 0, 10),
+    row("#e58d9a", "Scheide|المهبل|Vagina|Vagin|Vajina", "Verbindung nach außen: Geburtsweg und Ausgang der Monatsblutung.|المنفذ إلى الخارج: ممر الولادة ومخرج الدورة الشهرية.|Passage to the outside: birth canal and exit of menstrual blood.|Passage vers l'extérieur : voie de naissance et écoulement des règles.|Dışarıya açılan yol: doğum kanalı ve adet kanının çıkışı.", 0, 20),
   ],
   infektion: [
-    row("#e8744a", "Virus|فيروس|Virus|Virus|Virüs"),
-    row("#6fbf73", "Bakterien (Stäbchen)|بكتيريا (عصوية)|Bacteria (rods)|Bactéries (bâtonnets)|Bakteriler (çomak)"),
-    row("#dfe8f6", "Abwehrzelle (weißes Blutkörperchen)|خلية دفاعية (كرية بيضاء)|Defence cell (white blood cell)|Cellule de défense (globule blanc)|Savunma hücresi (akyuvar)"),
-    row("#7a5bc0", "Zellkern|النواة|Cell nucleus|Noyau|Hücre çekirdeği"),
+    row("#e8744a", "Virus|فيروس|Virus|Virus|Virüs", "Winzig, braucht fremde Zellen zur Vermehrung. Antibiotika wirken nicht.|صغير جداً ويحتاج خلايا الغير للتكاثر. المضادات الحيوية لا تؤثر فيه.|Tiny, needs host cells to multiply. Antibiotics do not work.|Minuscule, a besoin de cellules hôtes. Les antibiotiques sont inefficaces.|Çok küçüktür, çoğalmak için konak hücre gerekir. Antibiyotik etkisizdir.", -16, -6),
+    row("#6fbf73", "Bakterien (Stäbchen)|بكتيريا (عصوية)|Bacteria (rods)|Bactéries (bâtonnets)|Bakteriler (çomak)", "Einzellige Keime; viele sind nützlich, manche machen krank. Antibiotika wirken.|جراثيم وحيدة الخلية؛ كثير منها مفيد وبعضها يسبب المرض. المضادات الحيوية فعّالة.|Single-celled germs; many are useful, some cause disease. Antibiotics work.|Germes unicellulaires ; beaucoup utiles, certains pathogènes. Les antibiotiques agissent.|Tek hücreli mikroplar; çoğu yararlı, bazısı hastalık yapar. Antibiyotik etkilidir.", 12, -8),
+    row("#dfe8f6", "Abwehrzelle (weißes Blutkörperchen)|خلية دفاعية (كرية بيضاء)|Defence cell (white blood cell)|Cellule de défense (globule blanc)|Savunma hücresi (akyuvar)", "Erkennt Erreger und frisst oder bekämpft sie: Immunabwehr.|تتعرف على المسببات وتلتهمها أو تحاربها: الدفاع المناعي.|Recognises pathogens and engulfs or fights them: immune defence.|Reconnaît les agents pathogènes et les détruit : défense immunitaire.|Etkenleri tanır, yer ya da yok eder: bağışıklık savunması.", 10, 12),
   ],
   stoffwechsel: [
-    row("#f6d68a", "Bauchspeicheldrüse|البنكرياس|Pancreas|Pancréas|Pankreas"),
-    row("#c88a2c", "Ausführungsgang|القناة البنكرياسية|Pancreatic duct|Canal pancréatique|Pankreas kanalı"),
-    row("#ee9a8c", "Zwölffingerdarm|الاثنا عشري|Duodenum|Duodénum|Onikiparmak bağırsağı"),
-    row("#4aa3d9", "Insulin / Zucker im Blut|الإنسولين / سكر الدم|Insulin / blood sugar|Insuline / glycémie|İnsülin / kan şekeri"),
+    row("#f6d68a", "Bauchspeicheldrüse|البنكرياس|Pancreas|Pancréas|Pankreas", "Bildet Verdauungssäfte und die Hormone Insulin und Glukagon.|تنتج عصارات الهضم وهرموني الإنسولين والغلوكاغون.|Makes digestive juices and the hormones insulin and glucagon.|Produit des sucs digestifs et les hormones insuline et glucagon.|Sindirim sıvıları ile insülin ve glukagon hormonlarını üretir.", 6, -10),
+    row("#c88a2c", "Ausführungsgang|القناة البنكرياسية|Pancreatic duct|Canal pancréatique|Pankreas kanalı", "Leitet die Verdauungssäfte in den Zwölffingerdarm.|ينقل عصارات الهضم إلى الاثني عشري.|Carries digestive juices into the duodenum.|Conduit les sucs digestifs vers le duodénum.|Sindirim sıvılarını onikiparmak bağırsağına iletir.", 6, 2),
+    row("#ee9a8c", "Zwölffingerdarm|الاثنا عشري|Duodenum|Duodénum|Onikiparmak bağırsağı", "Erster Dünndarmabschnitt: Hier mischen sich Galle und Bauchspeichel dem Speisebrei bei.|أول جزء من الأمعاء الدقيقة: تمتزج فيه الصفراء وعصارة البنكرياس بالطعام.|First part of the small intestine: bile and pancreatic juice mix in.|Premier segment de l'intestin grêle : bile et suc pancréatique s'y mélangent.|İnce bağırsağın ilk kısmı: safra ve pankreas sıvısı burada karışır.", -16, 8),
+    row("#4aa3d9", "Insulin / Zucker im Blut|الإنسولين / سكر الدم|Insulin / blood sugar|Insuline / glycémie|İnsülin / kan şekeri", "Insulin senkt den Blutzucker, indem es Zucker in die Zellen schleust. Fehlt es = Diabetes.|الإنسولين يخفض سكر الدم بإدخاله إلى الخلايا. نقصه = السكري.|Insulin lowers blood sugar by moving sugar into cells. Lack = diabetes.|L'insuline abaisse la glycémie en faisant entrer le sucre dans les cellules. Manque = diabète.|İnsülin şekeri hücrelere sokarak kan şekerini düşürür. Eksikliği = diyabet.", 0, -8),
   ],
   schmerz: [
-    row("#f6c85a", "Zellkörper|جسم الخلية|Cell body|Corps cellulaire|Hücre gövdesi"),
-    row("#e8a63a", "Dendriten|الزوائد الشجرية|Dendrites|Dendrites|Dendritler"),
-    row("#f0d9a0", "Axon (Nervenfaser)|المحور العصبي|Axon (nerve fibre)|Axone (fibre nerveuse)|Akson (sinir lifi)"),
-    row("#fff3c4", "Myelinscheide|غمد الميالين|Myelin sheath|Gaine de myéline|Miyelin kılıf"),
-    row("#ff5a3c", "Schmerzsignal|إشارة الألم|Pain signal|Signal de douleur|Ağrı sinyali"),
+    row("#f6c85a", "Zellkörper|جسم الخلية|Cell body|Corps cellulaire|Hücre gövdesi", "Steuerzentrale der Nervenzelle mit dem Zellkern.|مركز التحكم في الخلية العصبية وفيه النواة.|Control centre of the nerve cell, contains the nucleus.|Centre de contrôle du neurone, contient le noyau.|Sinir hücresinin kontrol merkezi; çekirdeği içerir.", -12, 0),
+    row("#e8a63a", "Dendriten|الزوائد الشجرية|Dendrites|Dendrites|Dendritler", "Empfangen Signale von anderen Zellen oder Schmerzfühlern.|تستقبل الإشارات من خلايا أخرى أو مستقبلات الألم.|Receive signals from other cells or pain receptors.|Reçoivent les signaux d'autres cellules ou des récepteurs de douleur.|Diğer hücrelerden veya ağrı alıcılarından sinyal alır.", -16, -10),
+    row("#f0d9a0", "Axon (Nervenfaser)|المحور العصبي|Axon (nerve fibre)|Axone (fibre nerveuse)|Akson (sinir lifi)", "Lange Leitung: transportiert das Signal zur nächsten Zelle.|ناقل طويل: ينقل الإشارة إلى الخلية التالية.|Long cable: carries the signal to the next cell.|Long câble : transporte le signal à la cellule suivante.|Uzun kablo: sinyali sonraki hücreye taşır.", 0, 12),
+    row("#fff3c4", "Myelinscheide|غمد الميالين|Myelin sheath|Gaine de myéline|Miyelin kılıf", "Fetthülle, die Signale schneller macht. Bei MS ist sie geschädigt.|غلاف دهني يسرّع الإشارات. في التصلب المتعدد يتضرر.|Fatty cover that speeds up signals. Damaged in MS.|Gaine graisseuse qui accélère les signaux. Atteinte dans la SEP.|Sinyalleri hızlandıran yağlı kılıf. MS'te hasar görür.", 0, -12),
+    row("#ff5a3c", "Schmerzsignal|إشارة الألم|Pain signal|Signal de douleur|Ağrı sinyali", "Elektrischer Impuls, der Schmerz von der Haut zum Gehirn meldet.|نبضة كهربائية تنقل الألم من الجلد إلى الدماغ.|Electrical impulse that reports pain from skin to brain.|Impulsion électrique qui signale la douleur de la peau au cerveau.|Ağrıyı deriden beyne bildiren elektrik impulsu.", 0, 20),
   ],
   notfall: [
-    row("#ee5560", "Herz|القلب|Heart|Cœur|Kalp"),
-    row("#ffffff", "Rotes Kreuz: Hilfe|الصليب: المساعدة|Cross: first aid|Croix : premiers secours|Haç: ilk yardım"),
-    row("#e8545f", "EKG-Linie|خط تخطيط القلب|ECG trace|Tracé ECG|EKG çizgisi"),
+    row("#ee5560", "Herz|القلب|Heart|Cœur|Kalp", "Bei Kreislaufstillstand pumpt es nicht mehr: sofort Herzdruckmassage (100–120 pro Minute).|عند توقف القلب لا يضخ: يجب الضغط على الصدر فوراً (100–120 بالدقيقة).|In cardiac arrest it no longer pumps: start chest compressions at once (100–120 per minute).|En arrêt cardiaque il ne pompe plus : massage cardiaque immédiat (100–120/min).|Kalp durunca pompalamaz: hemen göğüs masajı (dakikada 100–120).", 0, -6),
+    row("#ffffff", "Rotes Kreuz: Hilfe|الصليب: المساعدة|Cross: first aid|Croix : premiers secours|Haç: ilk yardım", "Zeichen für Hilfe: Notruf 112, Hilfe holen, Erste Hilfe beginnen.|رمز المساعدة: اتصل بـ 112 واطلب المساعدة وابدأ الإسعاف.|Sign for help: call 112, get help, start first aid.|Signe d'aide : appeler le 112, chercher de l'aide, commencer les gestes.|Yardım işareti: 112'yi ara, yardım çağır, ilk yardıma başla.", 0, 24),
+    row("#e8545f", "EKG-Linie|خط تخطيط القلب|ECG trace|Tracé ECG|EKG çizgisi", "Zeigt die elektrische Herzaktion. Flachlinie = keine Herzaktion.|يُظهر النشاط الكهربائي للقلب. الخط المستقيم = لا نشاط.|Shows the heart's electrical activity. Flat line = no activity.|Montre l'activité électrique du cœur. Ligne plate = aucune activité.|Kalbin elektrik aktivitesini gösterir. Düz çizgi = aktivite yok.", 0, 6),
   ],
 };

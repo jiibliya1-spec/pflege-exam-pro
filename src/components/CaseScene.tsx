@@ -6,6 +6,7 @@ import { pick, useLang, useT } from "@/lib/i18n";
 import { sceneFor, type Place } from "@/data/caseScenes";
 import { cn } from "./ui";
 import { Icon } from "./Icon";
+import { SceneArt } from "./SceneArt";
 
 export const PLACE_STYLE: Record<Place, { icon: string; from: string; to: string }> = {
   klinik: { icon: "Hospital", from: "#0f766e", to: "#14b8a6" },
@@ -50,6 +51,7 @@ export function CaseScene({ caseId }: { caseId: string }) {
         </button>
       </div>
 
+      <div aria-hidden className="relative h-40 w-full overflow-hidden border-b border-line sm:h-48"><SceneArt place={sc.place} who={sc.who} /></div>
       <div key={`b${run}`} className="space-y-4 p-4">
         <ul className="flex flex-wrap gap-2" aria-label={t("scene.who")}>
           {sc.who.map((w, i) => (

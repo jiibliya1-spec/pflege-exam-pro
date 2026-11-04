@@ -1,5 +1,7 @@
 "use client";
 
+import { SceneArt } from "./SceneArt";
+import { sceneFor } from "@/data/caseScenes";
 import { BookMarked, CheckCircle2, Languages, XCircle } from "lucide-react";
 import { LANGS, useLang, useT } from "@/lib/i18n";
 import type { CaseStudy, ChoiceOption, Question, SessionAnswer } from "@/lib/types";
@@ -47,9 +49,15 @@ export function TranslateLink({ text }: { text: string }) {
   );
 }
 
-export function CaseNarrative({ c, compact }: { c: CaseStudy; compact?: boolean }) {
+export function CaseNarrative({ c, compact, art = true }: { c: CaseStudy; compact?: boolean; art?: boolean }) {
+  const sc = art ? sceneFor(c.id) : undefined;
   return (
     <section aria-label={`Fallsituation ${c.title}`} className={cn("rounded-2xl border border-line bg-surface2 p-4", compact && "max-h-[70vh] overflow-y-auto")}>
+      {sc && (
+        <div aria-hidden className="-mx-4 -mt-4 mb-3 h-32 overflow-hidden rounded-t-2xl border-b border-line sm:h-40">
+          <SceneArt place={sc.place} who={sc.who} />
+        </div>
+      )}
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
         <h3 className="font-semibold">{c.title}</h3>
       </div>

@@ -189,3 +189,13 @@ main p, main pre, main li, main h1, main h2, main h3, main td, main th, main lab
 @keyframes ofSpin { to { transform: rotate(360deg); } }
 @keyframes ofShimmer { 0% { transform: translateX(0); } 100% { transform: translateX(140px); } }
 @keyframes ofDraw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+
+.art-bob { animation: art-bob 3.4s ease-in-out infinite; transform-box: fill-box; transform-origin: bottom center; }
+@keyframes art-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.5px); } }
+.art-blink { animation: art-blink 2.4s ease-in-out infinite; }
+@keyframes art-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .art-bob, .art-blink { animation: none; } }
+.no-motion .art-bob, .no-motion .art-blink { animation: none; }
+.organ-part { transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s; cursor: pointer; }
+.organ-part:hover { filter: brightness(1.08); }
+@media (prefers-reduced-motion: reduce) { .organ-part { transition: none; } }
