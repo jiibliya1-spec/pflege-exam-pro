@@ -51,6 +51,7 @@ export const WHO: Record<string, Who[]> = {
   // Lebensphasen (Ausbildung)
   "wasser-elektrolyte": A, hirntumor: A, "periphere-nerven-wirbelkanal": E,
   "trisomie-21": K, cvi: E, larynxkarzinom: E, mammakarzinom: F, "colitis-ulcerosa": A, verbrennung: A,
+  "g3-sucht-grundlagen": A, "g3-somatoform": A, "g3-borderline-narzissmus": E, "g3-trauma-krisen": A,
   "b-schwangerschaft": F, "b-kind-alter": ["kinder", "erwachsene"],
 };
 
