@@ -13,6 +13,7 @@ import { P11 } from "./prof/p11";
 import { P12 } from "./prof/p12";
 import { P13 } from "./prof/p13";
 import { P14 } from "./prof/p14";
+import { P15 } from "./prof/p15";
 
 /** Krankheitsprofil: einheitliche Gliederung für jede Krankheits-Lektion. */
 export interface Profile {
@@ -26,7 +27,7 @@ export interface Profile {
 }
 export const PROFILE_KEYS = ["sym", "urs", "risk", "ther", "pfl"] as const;
 
-export const PROFILES: Record<string, Profile> = { ...P1, ...P2, ...P3, ...P4, ...P5, ...P6, ...P7, ...P8, ...P9, ...P10, ...P11, ...P12, ...P13, ...P14 };
+export const PROFILES: Record<string, Profile> = { ...P1, ...P2, ...P3, ...P4, ...P5, ...P6, ...P7, ...P8, ...P9, ...P10, ...P11, ...P12, ...P13, ...P14, ...P15 };
 
 const TR: Partial<Record<Lang, Record<string, Profile>>> = {};
 /** Arabische Profile werden erst bei Bedarf nachgeladen. */

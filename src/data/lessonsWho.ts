@@ -15,6 +15,8 @@ const F: Who[] = ["frauen"];
 const M: Who[] = ["maenner"];
 
 export const WHO: Record<string, Who[]> = {
+  // Ergänzende Krankheitslehre
+  "g7-obere-atemwege": A, "g7-kinderinfekte-atemweg": A, "g7-lunge-pleura": E, "g7-hormone-neben": E, "g7-herz-weitere": A, "g7-gefaess-gehirn": E, "g7-speiseroehre-magen": E, "g7-darm-leber-pankreas": E, "g7-niere-harnwege-weitere": A, "g7-maenner-weitere": M, "g7-frauen-entzuendung": F, "g7-frauen-tumoren": F, "g7-blut-lymphom": A, "g7-haut-weitere": A, "g7-virus-kinder-weitere": K, "g7-knochen-weitere": E,
   // Herz und Kreislauf
   hypertonie: E, herzinsuffizienz: E, herzinfarkt: E, pavk: E, thrombose: E, khk: E,
   herzrhythmus: A, "herz-entzuendung": A, hypotonie: A, arterienverschluss: E, aneurysma: E,
