@@ -150,146 +150,206 @@ export const FIG: Record<string, ReactNode> = {
   atmung: (
     <g>
       <defs>
-        <G id="lg1" a="#f6b3b8" b="#d9707e" />
-        <G id="lg2" a="#f9c0c4" b="#dd7a88" />
+        <linearGradient id="lgR" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#f7b9bd" /><stop offset="1" stopColor="#d8727f" /></linearGradient>
+        <linearGradient id="lgT" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#9ebbd6" /><stop offset="0.5" stopColor="#d6e6f2" /><stop offset="1" stopColor="#8fadc9" /></linearGradient>
+        <linearGradient id="lgD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#d9857a" /><stop offset="1" stopColor="#9c4a47" /></linearGradient>
       </defs>
       <P i={0}>
-      <rect x="111" y="12" width="18" height="70" rx="6" fill="#bcd3e6" {...O()} />
-      <path d="M111 24 H129 M111 36 H129 M111 48 H129 M111 60 H129 M111 72 H129" {...L} stroke="#6f8fb0" strokeWidth="2" />
+        <rect x="111" y="8" width="18" height="76" rx="7" fill="url(#lgT)" {...O()} />
+        <path d="M112 18 H128 M112 28 H128 M112 38 H128 M112 48 H128 M112 58 H128 M112 68 H128 M112 78 H128" {...L} stroke="#5f84a8" strokeWidth="2.4" />
       </P>
       <g className="of-breathe" style={{ transformOrigin: "120px 130px" }}>
+        {/* Rechte Lunge: drei Lappen */}
         <P i={2}>
-        <path d="M108 66 C80 62 48 84 42 128 C38 168 50 196 76 196 C100 196 110 180 110 152Z" fill="url(#lg1)" {...O()} />
+          <path d="M108 76 C84 64 48 82 40 128 C36 168 46 198 74 200 C98 200 110 186 112 158 C114 126 112 98 108 76Z" fill="url(#lgR)" {...O()} />
+          <path d="M108 76 C84 64 48 82 42 120 C70 124 94 116 110 100Z" fill="#f2a1aa" opacity="0.75" />
+          <path d="M42 124 C70 128 94 120 110 106 C112 130 112 142 110 150 C90 142 64 146 44 156Z" fill="#fbcfcb" opacity="0.7" />
+          <path d="M44 156 C64 148 90 142 110 152 C108 182 98 198 74 200 C52 198 42 176 44 156Z" fill="#e17e8e" opacity="0.7" />
+          <path d="M42 124 C70 128 94 120 110 104 M44 156 C64 148 90 142 110 152" {...L} stroke="#a83f55" strokeWidth="1.6" opacity="0.7" />
         </P>
+        {/* Linke Lunge: zwei Lappen mit Herzbucht */}
         <P i={3}>
-        <path d="M132 66 C160 62 192 84 198 128 C202 168 190 196 164 196 C142 196 130 184 134 166 C120 154 126 122 132 102Z" fill="url(#lg2)" {...O()} />
+          <path d="M132 76 C156 64 192 82 200 128 C204 168 194 198 166 200 C144 200 130 186 134 168 C122 156 126 126 132 100Z" fill="url(#lgR)" {...O()} />
+          <path d="M132 76 C156 64 192 82 200 124 C176 134 150 128 134 110Z" fill="#f4a8b0" opacity="0.75" />
+          <path d="M200 128 C176 138 150 130 134 112 C128 130 126 158 134 168 C130 186 144 200 166 200 C194 198 204 168 200 128Z" fill="#e58896" opacity="0.7" />
+          <path d="M200 128 C176 138 150 130 134 112" {...L} stroke="#a83f55" strokeWidth="1.6" opacity="0.7" />
         </P>
-        <P i={2}>
-        <path d="M46 112 C70 118 92 112 108 100 M44 150 C68 150 92 156 110 164" {...L} stroke="#b85565" strokeWidth="1.6" opacity="0.7" />
-        </P>
-        <P i={3}>
-        <path d="M198 128 C176 130 150 124 134 116" {...L} stroke="#b85565" strokeWidth="1.6" opacity="0.7" />
-        </P>
+        {/* Bronchialbaum */}
         <P i={1}>
-        <path d="M120 82 L96 112 L80 128 M96 112 L96 150 M120 82 L144 112 L160 130 M144 112 L146 150 M80 128 L62 140 M96 150 L84 170 M146 150 L158 172" {...L} stroke="#4b7fb0" strokeWidth="3" />
+          <path d="M120 82 L100 98 M120 82 L140 98" {...L} stroke="#3d6c99" strokeWidth="5" />
+          <path d="M100 98 L72 106 M100 98 L78 134 M100 98 L90 170 M140 98 L164 114 M140 98 L158 160" {...L} stroke="#3d6c99" strokeWidth="3.4" />
+          <path d="M72 106 L58 100 M72 106 L56 116 M78 134 L58 140 M78 134 L66 152 M90 170 L78 184 M90 170 L98 184 M164 114 L184 112 M164 114 L178 130 M158 160 L146 176 M158 160 L172 176 M90 150 L100 140 M148 134 L134 140" {...L} stroke="#5b8dbb" strokeWidth="2" />
         </P>
+        {/* Lungenbläschen-Träubchen */}
         <P i={4}>
-        <circle cx="62" cy="142" r="4" fill="#4b7fb0" opacity="0.5" /><circle cx="84" cy="172" r="4" fill="#4b7fb0" opacity="0.5" /><circle cx="158" cy="174" r="4" fill="#4b7fb0" opacity="0.5" />
+          <g fill="#fbd5d6" stroke="#c96a79" strokeWidth="0.8">
+            <circle cx="55" cy="99" r="3.4" /><circle cx="60" cy="104" r="3.4" /><circle cx="53" cy="105" r="3.4" /><circle cx="58" cy="95" r="3" />
+            <circle cx="55" cy="141" r="3.4" /><circle cx="61" cy="145" r="3.4" /><circle cx="54" cy="147" r="3.4" />
+            <circle cx="76" cy="187" r="3.4" /><circle cx="82" cy="190" r="3.4" /><circle cx="75" cy="193" r="3.4" /><circle cx="100" cy="187" r="3.4" /><circle cx="105" cy="182" r="3.4" />
+            <circle cx="187" cy="111" r="3.4" /><circle cx="192" cy="116" r="3.4" /><circle cx="186" cy="118" r="3.4" /><circle cx="181" cy="132" r="3.4" /><circle cx="186" cy="137" r="3.4" />
+            <circle cx="144" cy="179" r="3.4" /><circle cx="150" cy="183" r="3.4" /><circle cx="174" cy="179" r="3.4" /><circle cx="179" cy="175" r="3.4" />
+          </g>
         </P>
       </g>
       <P i={5}>
-      <path d="M30 204 C80 190 160 190 210 204" {...L} stroke="#9aa5b1" strokeWidth="3" opacity="0.7" />
+        <path d="M22 208 C60 186 180 186 218 208 L218 220 L22 220Z" fill="url(#lgD)" {...O()} />
+        <path d="M34 206 C70 192 170 192 206 206" {...L} stroke="#fff" strokeWidth="2.4" opacity="0.25" />
       </P>
     </g>
   ),
   nerven: (
     <g>
       <defs>
-        <clipPath id="br-c"><path d="M40 112 C26 70 68 28 120 30 C172 32 208 66 202 108 C200 130 182 140 160 140 C140 152 100 152 88 140 C60 140 44 130 40 112Z" /></clipPath>
-        <G id="cb1" a="#d9a577" b="#a8764c" />
+        <clipPath id="brOut"><path d="M40 118 C32 70 70 36 120 34 C176 32 214 62 214 106 C214 136 190 150 160 150 C130 152 100 150 78 148 C54 146 42 136 40 118Z" /></clipPath>
+        <clipPath id="brLfr"><path d="M20 20 H100 V108 L72 122 V160 H20Z" /></clipPath>
+        <radialGradient id="brGfr" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stopColor="#f7bdb6" /><stop offset="1" stopColor="#f2a7a0" /></radialGradient>
+        <clipPath id="brLpa"><path d="M100 20 H172 V100 L100 108Z" /></clipPath>
+        <radialGradient id="brGpa" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stopColor="#fbd99e" /><stop offset="1" stopColor="#f7c97e" /></radialGradient>
+        <clipPath id="brLoc"><path d="M172 20 H230 V160 H172Z" /></clipPath>
+        <radialGradient id="brGoc" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stopColor="#b8d6f0" /><stop offset="1" stopColor="#9dc4e8" /></radialGradient>
+        <clipPath id="brLte"><path d="M72 122 L100 108 L172 100 V160 H72Z" /></clipPath>
+        <radialGradient id="brGte" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stopColor="#bfe0b1" /><stop offset="1" stopColor="#a9d29a" /></radialGradient>
+        <linearGradient id="brC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#e4b58c" /><stop offset="1" stopColor="#b9825a" /></linearGradient>
+        <linearGradient id="brS" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#d9ae96" /><stop offset="0.5" stopColor="#f2d6c3" /><stop offset="1" stopColor="#d0a58c" /></linearGradient>
       </defs>
-      <D><g clipPath="url(#br-c)"><rect x="20" y="20" width="200" height="140" fill="#f0b0aa" /></g></D>
-      <P i={0}><g clipPath="url(#br-c)"><path d="M20 20 H112 L104 150 H20Z" fill="#f2a7a0" /></g></P>
-      <P i={1}><g clipPath="url(#br-c)"><path d="M112 20 H196 L170 90 L116 78Z" fill="#f7c97e" /></g></P>
-      <P i={2}><g clipPath="url(#br-c)"><path d="M170 90 L196 20 H220 V160 H150Z" fill="#9dc4e8" /></g></P>
-      <P i={3}><g clipPath="url(#br-c)"><path d="M60 118 C84 100 110 104 140 116 L170 140 L60 150Z" fill="#a9d29a" /></g></P>
-      <D><g clipPath="url(#br-c)"><path d="M50 70 C68 56 82 80 98 66 C112 54 124 78 140 64 M62 96 C78 82 96 104 112 90 C128 78 144 100 160 86 C172 76 184 92 194 84 M140 40 C156 50 172 36 186 48 M90 40 C100 52 114 42 124 52" {...L} stroke="#8a4b4f" strokeWidth="2.2" opacity="0.65" /></g></D>
+      <P i={0}>
+        <g clipPath="url(#brLfr)"><g clipPath="url(#brOut)">
+          <rect x="20" y="20" width="220" height="150" fill="url(#brGfr)" />
+          <path d="M24 44 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 q4 8 8 0 M24 54 q10 -7 20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 M24 64 q10 -7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 M24 74 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 M24 84 q10 7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 M24 94 q10 7 20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 M24 104 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 M24 114 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 q4 8 8 0 M24 124 q10 -7 20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 M24 134 q10 7 20 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 M24 144 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 M24 154 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0" {...L} stroke="#a8444f" strokeWidth="1.5" opacity="0.65" />
+        </g></g>
+        <path d="M20 20 H100 V108 L72 122 V160 H20Z" fill="none" />
+      </P>
+      <P i={1}>
+        <g clipPath="url(#brLpa)"><g clipPath="url(#brOut)">
+          <rect x="20" y="20" width="220" height="150" fill="url(#brGpa)" />
+          <path d="M24 44 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 q4 8 8 0 M24 54 q10 -7 20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 M24 64 q10 -7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 M24 74 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 M24 84 q10 7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 M24 94 q10 7 20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 M24 104 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 M24 114 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 q4 8 8 0 M24 124 q10 -7 20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 M24 134 q10 7 20 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 M24 144 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 M24 154 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0" {...L} stroke="#a8444f" strokeWidth="1.5" opacity="0.65" />
+        </g></g>
+        <path d="M100 20 H172 V100 L100 108Z" fill="none" />
+      </P>
+      <P i={2}>
+        <g clipPath="url(#brLoc)"><g clipPath="url(#brOut)">
+          <rect x="20" y="20" width="220" height="150" fill="url(#brGoc)" />
+          <path d="M24 44 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 q4 8 8 0 M24 54 q10 -7 20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 M24 64 q10 -7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 M24 74 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 M24 84 q10 7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 M24 94 q10 7 20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 M24 104 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 M24 114 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 q4 8 8 0 M24 124 q10 -7 20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 M24 134 q10 7 20 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 M24 144 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 M24 154 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0" {...L} stroke="#a8444f" strokeWidth="1.5" opacity="0.65" />
+        </g></g>
+        <path d="M172 20 H230 V160 H172Z" fill="none" />
+      </P>
+      <P i={3}>
+        <g clipPath="url(#brLte)"><g clipPath="url(#brOut)">
+          <rect x="20" y="20" width="220" height="150" fill="url(#brGte)" />
+          <path d="M24 44 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 q4 8 8 0 M24 54 q10 -7 20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 M24 64 q10 -7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 M24 74 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 M24 84 q10 7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 M24 94 q10 7 20 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 M24 104 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 M24 114 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 q4 8 8 0 M24 124 q10 -7 20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 t20 0 M24 134 q10 7 20 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 -8 8 0 t20 0 M24 144 q10 7 20 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0 q4 8 8 0 t20 0 q4 -8 8 0 M24 154 q10 -7 20 0 t20 0 q4 8 8 0 t20 0 t20 0 t20 0 t20 0 q4 -8 8 0 t20 0 t20 0 q4 8 8 0 t20 0" {...L} stroke="#a8444f" strokeWidth="1.5" opacity="0.65" />
+        </g></g>
+        <path d="M72 122 L100 108 L172 100 V160 H72Z" fill="none" />
+      </P>
       <D>
-      <path d="M40 112 C26 70 68 28 120 30 C172 32 208 66 202 108 C200 130 182 140 160 140 C140 152 100 152 88 140 C60 140 44 130 40 112Z" fill="none" {...O(2)} />
+        <path d="M40 118 C32 70 70 36 120 34 C176 32 214 62 214 106 C214 136 190 150 160 150 C130 152 100 150 78 148 C54 146 42 136 40 118Z" {...L} stroke="#00000040" strokeWidth="1.6" />
       </D>
       <P i={4}>
-      <path d="M150 140 C168 132 198 140 196 158 C192 176 160 180 146 164Z" fill="url(#cb1)" {...O()} />
-      <path d="M154 148 C168 146 184 150 190 156 M152 158 C166 158 180 162 186 166" {...L} stroke="#7a4f2f" strokeWidth="1.6" />
+        <path d="M140 146 C148 134 178 130 204 138 C214 148 204 170 180 176 C158 178 140 168 140 146Z" fill="url(#brC)" {...O()} />
+        <path d="M146 148 C166 144 190 146 206 146 M146 154 C168 152 192 154 205 154 M148 160 C168 160 188 162 202 162 M152 167 C168 168 184 169 194 169" {...L} stroke="#8a5a3a" strokeWidth="1.5" opacity="0.7" />
       </P>
       <P i={5}>
-      <path d="M112 146 L130 146 L134 196 L116 196Z" fill="#e6bfa6" {...O()} />
+        <path d="M112 146 C112 164 116 182 122 196 H136 C134 180 132 162 130 148Z" fill="url(#brS)" {...O()} />
       </P>
       <P i={6}>
-      <path d="M118 196 V216 H130 V196" fill="#f0d8c8" {...O()} />
+        <path d="M122 196 C122 206 124 214 126 222 H134 C134 214 136 206 136 196Z" fill="url(#brS)" {...O()} />
+        <path d="M122 202 H136 M123 208 H135 M124 214 H134" {...L} stroke="#a77d63" strokeWidth="1.3" opacity="0.7" />
       </P>
-      <D>
-      <circle className="of-pulse" cx="80" cy="70" r="5" fill="#ffd54a" />
-      <circle className="of-pulse of-d2" cx="140" cy="62" r="5" fill="#ffd54a" />
-      <circle className="of-pulse of-d3" cx="168" cy="100" r="5" fill="#ffd54a" />
-      </D>
     </g>
   ),
   verdauung: (
     <g>
       <defs>
-        <G id="lv1" a="#b86a46" b="#7c3a24" />
-        <G id="st1" a="#f4a7a0" b="#d9707a" />
+        <radialGradient id="lvG" cx="0.35" cy="0.3" r="0.9"><stop offset="0" stopColor="#c8765a" /><stop offset="1" stopColor="#7d3524" /></radialGradient>
+        <radialGradient id="stG" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stopColor="#f4a5a2" /><stop offset="1" stopColor="#c8575f" /></radialGradient>
+        <radialGradient id="gbG" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stopColor="#8fd39a" /><stop offset="1" stopColor="#2f7a49" /></radialGradient>
+        <linearGradient id="pcG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#f7dc86" /><stop offset="1" stopColor="#d9ad45" /></linearGradient>
       </defs>
-      <P i={0}>
-      <path d="M148 8 V50 C148 58 146 62 142 66" {...L} stroke="#d97b85" strokeWidth="9" />
-      </P>
-      <P i={6}>
-      <path d="M52 192 V128 H190 V192" {...L} stroke="#e48d63" strokeWidth="15" />
-      <path d="M52 192 V128 H190 V192" {...L} stroke="#f0b08c" strokeWidth="9" />
-      </P>
-      <P i={5}>
-      <path d="M72 140 C90 132 96 150 112 144 C128 138 132 156 148 150 C164 144 168 160 172 168 C150 176 148 160 130 168 C112 176 108 160 92 168 C80 174 72 170 70 160 M80 182 C100 172 110 190 126 182 C142 174 150 190 164 184" {...L} stroke="#f2937f" strokeWidth="9" />
-      <path d="M72 140 C90 132 96 150 112 144 C128 138 132 156 148 150 C164 144 168 160 172 168 C150 176 148 160 130 168 C112 176 108 160 92 168 C80 174 72 170 70 160 M80 182 C100 172 110 190 126 182 C142 174 150 190 164 184" {...L} stroke="#fbb9a8" strokeWidth="4" />
-      </P>
       <P i={4}>
-      <path d="M96 112 C120 100 150 104 176 112 C170 120 140 118 96 122Z" fill="#f2c94c" {...O()} />
-      </P>
-      <P i={1}>
-      <path d="M142 62 C176 58 196 86 180 112 C170 128 148 126 140 114 C136 104 150 98 152 90 C150 78 138 76 142 62Z" fill="url(#st1)" {...O()} />
+        <path d="M108 104 C130 96 162 104 192 96 C200 102 196 112 186 116 C160 118 130 116 108 112Z" fill="url(#pcG)" {...O()} />
+        <path d="M112 106 C140 106 170 106 190 102" {...L} stroke="#fff" strokeWidth="2" opacity="0.4" />
       </P>
       <P i={2}>
-      <path d="M40 66 C68 44 122 46 150 64 C142 88 100 98 62 94 C42 88 34 76 40 66Z" fill="url(#lv1)" {...O()} />
+        <path d="M24 58 C36 40 92 34 128 46 C142 52 140 72 124 80 C100 94 58 98 38 86 C22 78 18 66 24 58Z" fill="url(#lvG)" {...O()} />
+        <path d="M40 54 C70 46 100 48 124 56" {...L} stroke="#fff" strokeWidth="3" opacity="0.2" />
+        <path d="M84 50 C86 64 92 76 100 84" {...L} stroke="#5a2214" strokeWidth="1.6" opacity="0.5" />
       </P>
       <P i={3}>
-      <path d="M90 90 C86 98 90 108 98 108 C104 106 104 96 100 90Z" fill="#4f9a5f" {...O()} />
+        <path d="M86 90 C78 102 84 120 96 118 C106 114 102 98 96 88Z" fill="url(#gbG)" {...O()} />
+        <path d="M88 96 C86 104 88 110 92 114" {...L} stroke="#fff" strokeWidth="2" opacity="0.4" />
       </P>
-      <P i={2}>
-      <ellipse cx="74" cy="64" rx="22" ry="7" fill="#fff" opacity="0.14" />
+      <P i={0}>
+        <path d="M117 4 C117 22 119 36 123 52" {...L} stroke="#a94a58" strokeWidth="11" />
+        <path d="M117 4 C117 22 119 36 123 52" {...L} stroke="#e48a94" strokeWidth="8" />
+        <path d="M115 8 C115 22 117 34 120 46" {...L} stroke="#fff" strokeWidth="1.8" opacity="0.35" />
       </P>
-      <D>
-      <circle className="of-flow" cx="148" cy="30" r="4" fill="#ffd54a" />
-      </D>
+      <P i={1}>
+        <path d="M120 46 C140 38 178 46 186 74 C192 102 168 120 146 114 C130 110 128 96 138 90 C150 82 146 70 132 68 C124 64 120 56 120 46Z" fill="url(#stG)" {...O()} />
+        <path d="M140 54 C160 54 172 68 174 84 M146 62 C158 64 164 72 166 82 M150 100 C158 98 164 92 168 86" {...L} stroke="#8d2c3a" strokeWidth="1.6" opacity="0.5" />
+        <path d="M134 50 C150 46 168 52 176 64" {...L} stroke="#fff" strokeWidth="3" opacity="0.3" />
+      </P>
+      <P i={6}>
+        <path d="M56 194 V132 C56 122 66 122 74 128 C110 144 142 144 172 128 C184 122 190 126 190 136 V172 C190 192 170 192 160 184 C150 178 140 192 152 204" {...L} stroke="#a8603a" strokeWidth="15" />
+        <path d="M56 194 V132 C56 122 66 122 74 128 C110 144 142 144 172 128 C184 122 190 126 190 136 V172 C190 192 170 192 160 184 C150 178 140 192 152 204" {...L} stroke="#e9975f" strokeWidth="11" />
+        <path d="M56 194 V132 C56 122 66 122 74 128 C110 144 142 144 172 128 C184 122 190 126 190 136 V172 C190 192 170 192 160 184 C150 178 140 192 152 204" {...L} stroke="#b86a40" strokeWidth="11" strokeDasharray="1.5 8" />
+      </P>
+      <P i={5}>
+        <path d="M80 152 C110 148 140 156 170 152 C178 162 150 166 120 164 C90 162 74 170 84 178 C104 186 150 180 172 188 C150 198 110 198 84 194" {...L} stroke="#b85a58" strokeWidth="12" />
+        <path d="M80 152 C110 148 140 156 170 152 C178 162 150 166 120 164 C90 162 74 170 84 178 C104 186 150 180 172 188 C150 198 110 198 84 194" {...L} stroke="#f3a08e" strokeWidth="8.5" />
+        <path d="M82 150 C110 146 140 154 168 150" {...L} stroke="#fff" strokeWidth="1.6" opacity="0.35" />
+      </P>
     </g>
   ),
   niere: (
     <g>
       <defs>
-        <G id="kd1" a="#c24a58" b="#7d1f2e" />
-        <G id="bl1" a="#f6dc7a" b="#d9b13d" />
+        <radialGradient id="kdG" cx="0.35" cy="0.3" r="0.9"><stop offset="0" stopColor="#d9707a" /><stop offset="0.6" stopColor="#a8323f" /><stop offset="1" stopColor="#6e1a2a" /></radialGradient>
+        <radialGradient id="blG" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stopColor="#f7e29a" /><stop offset="1" stopColor="#d5a93a" /></radialGradient>
+        <clipPath id="kdC"><path d="M58 22 C32 20 14 48 16 78 C18 110 40 128 62 120 C70 116 68 108 62 100 C56 90 58 82 66 76 C58 64 60 44 70 30 C68 24 64 22 58 22Z" /></clipPath>
       </defs>
       <P i={4}>
-      <path d="M126 10 V132" {...L} stroke="#e0303c" strokeWidth="9" />
+        <path d="M131 6 V150" {...L} stroke="#8e1420" strokeWidth="14" />
+        <path d="M131 6 V150" {...L} stroke="#e0303c" strokeWidth="10" />
+        <path d="M128 12 V140" {...L} stroke="#fff" strokeWidth="2" opacity="0.3" />
+        <path d="M131 84 C150 84 160 82 172 80 M131 92 C112 96 90 90 70 84" {...L} stroke="#e0303c" strokeWidth="4" />
+        <path d="M131 150 L118 178 M131 150 L142 178" {...L} stroke="#e0303c" strokeWidth="8" />
       </P>
       <P i={5}>
-      <path d="M110 10 V132" {...L} stroke="#4f74c2" strokeWidth="9" />
+        <path d="M110 6 V150" {...L} stroke="#2c4a94" strokeWidth="15" />
+        <path d="M110 6 V150" {...L} stroke="#5878c8" strokeWidth="11" />
+        <path d="M107 12 V140" {...L} stroke="#fff" strokeWidth="2" opacity="0.3" />
+        <path d="M110 100 C124 106 150 94 172 88 M110 96 C96 98 84 92 70 90" {...L} stroke="#5878c8" strokeWidth="4" />
       </P>
-      <D>
-      <path d="M110 70 C92 70 86 74 80 80 M126 70 C146 70 150 74 156 80" {...L} stroke="#9a6fc4" strokeWidth="5" />
-      </D>
-      <P i={0}><g>
-        <path d="M156 38 C184 34 198 66 190 96 C184 122 160 124 152 106 C160 96 156 86 150 78 C146 62 146 40 156 38Z" fill="url(#kd1)" {...O()} />
-        <path d="M156 52 C176 52 184 74 178 92 C170 78 160 72 152 74Z" fill="#e57b83" opacity="0.7" />
-      </g></P>
-      <P i={1}><g>
-        <path d="M150 78 C142 84 144 96 152 104" {...L} stroke="#f6dc7a" strokeWidth="5" />
-      </g></P>
-      <P i={0} m><g transform="translate(236 0) scale(-1 1)">
-        <path d="M156 38 C184 34 198 66 190 96 C184 122 160 124 152 106 C160 96 156 86 150 78 C146 62 146 40 156 38Z" fill="url(#kd1)" {...O()} />
-        <path d="M156 52 C176 52 184 74 178 92 C170 78 160 72 152 74Z" fill="#e57b83" opacity="0.7" />
-      </g></P>
-      <P i={1} m><g transform="translate(236 0) scale(-1 1)">
-        <path d="M150 78 C142 84 144 96 152 104" {...L} stroke="#f6dc7a" strokeWidth="5" />
-      </g></P>
+      <g>
+        <P i={0}>
+          <path d="M58 22 C32 20 14 48 16 78 C18 110 40 128 62 120 C70 116 68 108 62 100 C56 90 58 82 66 76 C58 64 60 44 70 30 C68 24 64 22 58 22Z" fill="url(#kdG)" {...O()} />
+          <g clipPath="url(#kdC)">
+            <path d="M64 76 L34 44 L48 36Z M64 80 L22 66 L22 82Z M64 84 L28 100 L40 112Z M62 90 L50 118 L66 118Z" fill="#7f2230" opacity="0.8" />
+          </g>
+        </P>
+        <P i={0} m>
+          <g transform="translate(240 0) scale(-1 1)">
+            <path d="M58 22 C32 20 14 48 16 78 C18 110 40 128 62 120 C70 116 68 108 62 100 C56 90 58 82 66 76 C58 64 60 44 70 30 C68 24 64 22 58 22Z" fill="url(#kdG)" {...O()} />
+            <path d="M64 76 L34 44 L48 36Z M64 80 L22 66 L22 82Z M64 84 L28 100 L40 112Z M62 90 L50 118 L66 118Z" fill="#7f2230" opacity="0.8" clipPath="url(#kdC)" />
+          </g>
+        </P>
+        <P i={1}>
+          <path d="M66 76 C56 70 50 62 44 58 M66 76 C54 76 46 76 38 80 M66 80 C56 86 50 92 46 98 M66 72 C60 62 58 54 56 46" {...L} stroke="#f2cf5c" strokeWidth="3.4" />
+          <path d="M66 70 C74 76 74 86 66 94 C62 86 62 78 66 70Z" fill="url(#blG)" {...O(1.2)} />
+          <g transform="translate(240 0) scale(-1 1)">
+            <path d="M66 76 C56 70 50 62 44 58 M66 76 C54 76 46 76 38 80 M66 80 C56 86 50 92 46 98 M66 72 C60 62 58 54 56 46" {...L} stroke="#f2cf5c" strokeWidth="3.4" />
+            <path d="M66 70 C74 76 74 86 66 94 C62 86 62 78 66 70Z" fill="url(#blG)" {...O(1.2)} />
+          </g>
+        </P>
+      </g>
       <P i={2}>
-      <path d="M92 100 C90 130 108 150 114 168 M144 100 C146 130 128 150 122 168" {...L} stroke="#f2cf5c" strokeWidth="4" />
+        <path d="M70 94 C78 126 98 150 108 176 M170 94 C162 126 142 150 132 176" {...L} stroke="#c9a02f" strokeWidth="6" />
+        <path d="M70 94 C78 126 98 150 108 176 M170 94 C162 126 142 150 132 176" {...L} stroke="#f2cf5c" strokeWidth="3.6" />
       </P>
       <P i={3}>
-      <path d="M96 172 C96 160 144 160 144 172 C146 200 98 204 96 172Z" fill="url(#bl1)" {...O()} />
+        <path d="M94 176 C96 160 144 160 146 176 C148 202 134 218 120 218 C106 218 92 202 94 176Z" fill="url(#blG)" {...O()} />
+        <path d="M102 180 C104 196 110 208 118 212" {...L} stroke="#fff" strokeWidth="3" opacity="0.4" />
+        <ellipse cx="120" cy="172" rx="12" ry="3" fill="#a77c18" opacity="0.4" />
       </P>
-      <D>
-      <circle className="of-drop" cx="92" cy="104" r="3.5" fill="#f6dc7a" />
-      <circle className="of-drop of-d2" cx="144" cy="104" r="3.5" fill="#f6dc7a" />
-      </D>
     </g>
   ),
   haut: (
