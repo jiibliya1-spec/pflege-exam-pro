@@ -78,6 +78,9 @@ export function Chapters() {
                 </p>
               </div>
               <div className="flex gap-2">
+                <LinkButton variant="secondary" href={`/source/?page=${selected.source.pdfPage}`}>
+                  <FileText className="h-4 w-4" aria-hidden /> Originalseite
+                </LinkButton>
                 {qs.length > 0 && (
                   <LinkButton href={`/quiz/setup/?chapter=${selected.id}`}>
                     <PlayCircle className="h-4 w-4" aria-hidden /> Kapitel üben
@@ -130,9 +133,9 @@ export function Chapters() {
                 {readingPages.map((p) => (
                   <section key={p.pdfPage}>
                     <p className="mb-1 flex items-center gap-2 text-xs text-muted">
-                      <span>
+                      <Link className="text-teal hover:underline" href={`/source/?page=${p.pdfPage}`}>
                         Seite {p.pdfPage}{p.printedPage ? ` · Buch S. ${p.printedPage}` : ""}
-                      </span>
+                      </Link>
                       {p.meanConfidence < 70 && <Badge tone="warn">Text unsicher</Badge>}
                     </p>
                     <RichText text={p.text} className="text-sm" />

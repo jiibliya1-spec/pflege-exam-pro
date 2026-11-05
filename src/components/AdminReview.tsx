@@ -146,6 +146,7 @@ function Editor({ q }: { q: Question }) {
         <Card className="space-y-3 p-3">
           <div className="flex items-center justify-between text-sm">
             <span className="font-semibold">Quelle: Seite {q.source.pdfPage}</span>
+            <Link className="text-teal hover:underline" href={`/source/?page=${q.source.pdfPage}`}>Vollansicht</Link>
           </div>
           <p className="text-xs text-muted">Vergleichen Sie die Aufgabe und die Musterlösung unten mit dem Quelltext der Seite (rechts) bzw. mit Ihrem Buch.</p>
         </Card>
