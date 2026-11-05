@@ -963,6 +963,14 @@ const ROWS: Row[] = [
   ["Donabedian-Modell", "نموذج دونابيديان للجودة", "Donabedian model", "modèle de Donabedian", "Donabedian modeli"],
   ["Benchmarking", "المقارنة المرجعية", "benchmarking", "étalonnage (benchmarking)", "kıyaslama"],
   ["Qualitätszirkel", "دائرة الجودة", "quality circle", "cercle de qualité", "kalite çemberi"],
+  ["Kündigungsfrist", "مهلة الإنهاء", "notice period", "délai de préavis", "ihbar süresi"],
+  ["Fristlose Kündigung", "إنهاء فوري", "dismissal without notice", "licenciement sans préavis", "derhal fesih"],
+  ["Abmahnung", "إنذار (كتابي)", "formal warning", "avertissement", "ihtar"],
+  ["Aufhebungsvertrag", "اتفاق إنهاء بالتراضي", "termination agreement", "convention de rupture", "fesih sözleşmesi"],
+  ["Kündigungsschutzgesetz (KSchG)", "قانون الحماية من الفصل", "Protection Against Dismissal Act", "loi sur la protection contre le licenciement", "iş güvencesi yasası"],
+  ["Sozialauswahl", "الاختيار الاجتماعي عند الفصل", "social selection (dismissal)", "choix social", "sosyal seçim"],
+  ["Arbeitszeugnis", "شهادة عمل", "employment reference", "certificat de travail", "iş belgesi (referans)"],
+  ["Änderungskündigung", "إنهاء مع تعديل الشروط", "dismissal with offer of changed terms", "licenciement avec modification", "değişiklik feshi"],
 ];
 
 export interface GlossEntry {

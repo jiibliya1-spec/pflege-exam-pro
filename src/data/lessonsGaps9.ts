@@ -1172,5 +1172,128 @@ export const GAPS9_LESSONS: Lesson[] = [
     ]
    }
   ]
+ },
+ {
+  "id": "g9-kuendigung",
+  "group": "ausbildung",
+  "area": "recht",
+  "title": "Kündigung: Arten, Fristen, Kündigungsschutz und Abmahnung",
+  "icon": "DoorOpen",
+  "ar": "إنهاء عقد العمل قد يكون عادياً بمهلة أو فورياً لسبب خطير. يجب أن يكون كتابياً. وفي المنشآت الأكبر يحمي قانون الحماية من الفصل العامل فلا يُفصل إلا لسبب مبرر. وهناك فئات لها حماية خاصة، ومهلة قصيرة لرفع الدعوى.",
+  "blocks": [
+   {
+    "h": "Arten der Kündigung",
+    "li": [
+     "Ordentliche Kündigung: mit Kündigungsfrist, durch Arbeitgeber oder Arbeitnehmer. Der Grund muss beim Arbeitnehmer nicht genannt werden.",
+     "Außerordentliche (fristlose) Kündigung: nur bei wichtigem Grund (§ 626 BGB), wenn die Fortsetzung bis zum Fristende unzumutbar ist, zum Beispiel Diebstahl, schwere Verletzung der Pflichten, Gewalt. Sie muss innerhalb von zwei Wochen ab Kenntnis des Grundes ausgesprochen werden.",
+     "Änderungskündigung: Kündigung verbunden mit dem Angebot, zu geänderten Bedingungen weiterzuarbeiten.",
+     "Aufhebungsvertrag: Arbeitgeber und Arbeitnehmer beenden das Arbeitsverhältnis einvernehmlich. Vorsicht: Beim Arbeitslosengeld kann eine Sperrzeit drohen.",
+     "Befristung endet automatisch zum vereinbarten Datum."
+    ]
+   },
+   {
+    "h": "Form und Frist",
+    "li": [
+     "Schriftform ist Pflicht (§ 623 BGB): Eigenhändig unterschrieben auf Papier. E-Mail, WhatsApp und Fax genügen nicht.",
+     "Gesetzliche Grundfrist (§ 622 BGB): vier Wochen zum 15. oder zum Ende eines Kalendermonats.",
+     "Für Kündigungen durch den Arbeitgeber verlängert sich die Frist mit der Betriebszugehörigkeit: nach 2 Jahren 1 Monat, nach 5 Jahren 2 Monate, nach 8 Jahren 3 Monate, nach 10 Jahren 4 Monate, nach 12 Jahren 5 Monate, nach 15 Jahren 6 Monate, nach 20 Jahren 7 Monate, jeweils zum Monatsende.",
+     "Probezeit: längstens sechs Monate, in dieser Zeit mit einer Frist von zwei Wochen kündbar.",
+     "Tarifvertrag oder Arbeitsvertrag können abweichende Fristen regeln. Die Kündigung muss dem Empfänger zugehen."
+    ]
+   },
+   {
+    "h": "Kündigungsschutzgesetz (KSchG)",
+    "li": [
+     "Gilt in Betrieben mit mehr als 10 Beschäftigten und nach mehr als 6 Monaten Betriebszugehörigkeit.",
+     "Der Arbeitgeber darf nur kündigen, wenn die Kündigung sozial gerechtfertigt ist, aus drei Gründen: personenbedingt (zum Beispiel lange Krankheit mit negativer Prognose), verhaltensbedingt (Pflichtverletzung) oder betriebsbedingt (Wegfall des Arbeitsplatzes).",
+     "Verhaltensbedingte Kündigung setzt in der Regel eine vorherige Abmahnung voraus.",
+     "Bei betriebsbedingter Kündigung ist eine Sozialauswahl nötig (Betriebszugehörigkeit, Alter, Unterhaltspflichten, Schwerbehinderung).",
+     "Ein Betriebsrat muss vor jeder Kündigung angehört werden. Sonst ist die Kündigung unwirksam."
+    ]
+   },
+   {
+    "h": "Abmahnung und Klage",
+    "li": [
+     "Abmahnung: Rüge einer konkreten Pflichtverletzung mit Hinweis auf die Folgen bei Wiederholung. Sie hat Rüge-, Dokumentations- und Warnfunktion.",
+     "Arbeitnehmer können Stellung nehmen, die Abmahnung kann mit Gegendarstellung in der Personalakte ergänzt werden.",
+     "Kündigungsschutzklage: Innerhalb von 3 Wochen nach Zugang der Kündigung beim Arbeitsgericht erheben, sonst gilt die Kündigung als wirksam.",
+     "Arbeitsagentur: Wer gekündigt wird, muss sich spätestens drei Tage nach Kenntnis arbeitssuchend melden."
+    ]
+   },
+   {
+    "h": "Besonderer Kündigungsschutz",
+    "li": [
+     "Schwangere und Mütter bis vier Monate nach der Geburt, Beschäftigte in Elternzeit.",
+     "Schwerbehinderte Menschen: Kündigung nur mit Zustimmung des Integrationsamts.",
+     "Betriebsratsmitglieder, Auszubildende (nach der Probezeit nur außerordentlich kündbar), Beschäftigte in Pflegezeit."
+    ]
+   },
+   {
+    "h": "Nach der Kündigung",
+    "li": [
+     "Anspruch auf ein Arbeitszeugnis (einfach oder qualifiziert) und Resturlaub oder dessen Abgeltung.",
+     "Eigenkündigung: Schriftlich, Frist beachten, Resturlaub und Überstunden klären, Zeugnis verlangen.",
+     "Bei Unsicherheit Beratung bei Gewerkschaft, Betriebsrat, Fachanwalt oder Arbeitsgericht-Rechtsantragsstelle suchen."
+    ]
+   }
+  ],
+  "diagrams": [
+   {
+    "kind": "compare",
+    "title": "Ordentlich oder fristlos?",
+    "cols": [
+     {
+      "t": "Ordentlich",
+      "items": [
+       "Mit Kündigungsfrist",
+       "Grund beim Arbeitnehmer nicht nötig",
+       "KSchG gilt bei Arbeitgeberkündigung"
+      ],
+      "icon": "Calendar",
+      "tone": "info"
+     },
+     {
+      "t": "Fristlos",
+      "items": [
+       "Nur wichtiger Grund (§ 626)",
+       "Innerhalb von 2 Wochen",
+       "Meist nach Abmahnung"
+      ],
+      "icon": "Siren",
+      "tone": "bad"
+     }
+    ]
+   },
+   {
+    "kind": "flow",
+    "title": "Kündigung erhalten: was tun?",
+    "steps": [
+     {
+      "t": "Prüfen",
+      "s": "Schriftform, Unterschrift, Frist",
+      "icon": "Search",
+      "tone": "info"
+     },
+     {
+      "t": "Melden",
+      "s": "Arbeitsagentur binnen 3 Tagen",
+      "icon": "Phone",
+      "tone": "warn"
+     },
+     {
+      "t": "Beraten lassen",
+      "s": "Gewerkschaft, Anwalt",
+      "icon": "Users",
+      "tone": "info"
+     },
+     {
+      "t": "Klagen",
+      "s": "Innerhalb von 3 Wochen",
+      "icon": "Scale",
+      "tone": "bad"
+     }
+    ]
+   }
+  ]
  }
 ];
