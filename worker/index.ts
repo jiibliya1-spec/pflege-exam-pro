@@ -125,6 +125,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}td{border-top:1px solid
 <h1>Pflege Exam Pro: Admin</h1>
 <div class="c"><label>Admin-Token</label><input id="t" type="password" autocomplete="off"><button class="g" id="sv">Merken (nur dieser Tab)</button></div>
 <div class="c"><b>Neuen Code erzeugen</b> (nach Zahlungseingang)<input id="em" type="email" placeholder="E-Mail des Kunden (optional, wird dann direkt gesendet)"><input id="nt" placeholder="Notiz, z. B. PayPal 29 EUR, Name"><button id="mk">Code erzeugen</button><div id="out"></div></div>
+<div class="c"><b>Fehlermeldungen</b> <button class="g" id="rp">Laden</button><div id="rpl" class="m"></div></div>
 <div class="c"><b>Alle Codes</b> <button class="g" id="ls">Laden</button><div id="lst" class="m"></div></div>
 <script>
 var $=function(i){return document.getElementById(i)};
@@ -139,6 +140,9 @@ var wa=el("a","WhatsApp","b");wa.href="https://wa.me/?text="+encodeURIComponent(
 if($("em").value){var ml=el("a","E-Mail-App","b");ml.href="mailto:"+$("em").value+"?subject="+encodeURIComponent("Dein Zugangscode")+"&body="+encodeURIComponent(msg);o.appendChild(ml)}
 o.appendChild(el("div",j.mailed?"E-Mail wurde automatisch gesendet.":"Nicht automatisch gesendet: bitte per Button oben schicken.","m"))}).catch(function(e){o.textContent="Fehler: "+e.message})};
 function act(path,code){api(path,{code:code}).then(function(){$("ls").click()}).catch(function(e){alert(e.message)})}
+$("rp").onclick=function(){var l=$("rpl");l.textContent="...";api("/api/admin/reports").then(function(j){l.textContent=j.count+" Meldungen";var t=el("table");j.reports.forEach(function(x){var tr=el("tr"),td=el("td");
+td.appendChild(el("div",(x.title||x.lesson)+" ("+x.lesson+")","code"));td.lastChild.style.fontSize="15px";td.appendChild(el("div",x.text));td.appendChild(el("div",new Date(x.t*1000).toLocaleString("de-DE")+" | "+(x.lang||"")+(x.code?" | "+x.code:""),"m"));
+var d=el("button","Erledigt","g");d.onclick=function(){api("/api/admin/report-delete",{id:x.id}).then(function(){$("rp").click()}).catch(function(e){alert(e.message)})};td.appendChild(d);tr.appendChild(td);t.appendChild(tr)});l.appendChild(t)}).catch(function(e){l.textContent="Fehler: "+e.message})};
 $("ls").onclick=function(){var l=$("lst");l.textContent="...";api("/api/admin/list").then(function(j){l.textContent=j.count+" Codes";var t=el("table");j.licences.forEach(function(x){var tr=el("tr"),td=el("td");
 td.appendChild(el("div",x.code,"code"));td.lastChild.style.fontSize="15px";var inf=el("div",(x.status==="active"?"aktiv":"GESPERRT")+" | Geräte: "+x.devices+(x.labels&&x.labels.length?" ("+x.labels.join("; ")+")":"")+(x.blocked?" | ABGELEHNT: "+x.blocked+"x":"")+(x.email?" | "+x.email:"")+(x.note?" | "+x.note:""),"m");if(x.blocked){inf.style.color="#b42318";inf.style.fontWeight="600"}td.appendChild(inf);
 var b1=el("button",x.status==="active"?"Sperren":"Freigeben",x.status==="active"?"r":"");b1.onclick=function(){act(x.status==="active"?"/api/admin/revoke":"/api/admin/restore",x.code)};
@@ -196,6 +200,25 @@ async function sendMail(env: Env, to: string, code: string, appUrl: string): Pro
   return r.ok;
 }
 
+/** Fehlermeldung eines Nutzers zu einer Lektion (nur mit gültiger Sitzung, begrenzt auf 10 pro Tag und Code). */
+async function report(req: Request, env: Env): Promise<Response> {
+  const s = await verifySession(env.SESSION_SECRET!, getCookie(req.headers.get("cookie"), COOKIE), now());
+  if (!s && env.FREE_ACCESS !== "1") return json({ error: "license_required" }, 401);
+  const b = (await req.json().catch(() => ({}))) as { lesson?: string; title?: string; text?: string; lang?: string };
+  const text = String(b.text || "").trim().slice(0, 1000);
+  if (text.length < 5) return json({ error: "too_short" }, 400);
+  const who = s ? s.c : "frei";
+  const day = new Date().toISOString().slice(0, 10);
+  const rlKey = `rl:${who}:${day}`;
+  const used = Number((await env.LICENSES!.get(rlKey)) || 0);
+  if (used >= 10) return json({ error: "limit" }, 429);
+  await env.LICENSES!.put(rlKey, String(used + 1), { expirationTtl: 172800 });
+  const id = `${Date.now()}-${newDeviceId().slice(0, 6)}`;
+  const rec = { t: now(), lesson: String(b.lesson || "").slice(0, 80), title: String(b.title || "").slice(0, 200), text, lang: String(b.lang || "").slice(0, 5), code: s ? s.c : null };
+  await env.LICENSES!.put(`report:${id}`, JSON.stringify(rec), { expirationTtl: 60 * 60 * 24 * 365 });
+  return json({ ok: true });
+}
+
 async function stripeWebhook(req: Request, env: Env): Promise<Response> {
   if (!env.STRIPE_WEBHOOK_SECRET) return json({ error: "not_configured" }, 501);
   const raw = await req.text();
@@ -242,6 +265,26 @@ async function admin(req: Request, env: Env, path: string): Promise<Response> {
     if (!path.endsWith("info")) await putLicence(env, code, lic);
     return json({ code, status: lic.status, devices: lic.devices.length, labels: lic.labels ?? [], blocked: lic.blocked ?? 0, email: lic.email ? maskEmail(lic.email) : null, note: lic.note ?? null });
   }
+  if (path === "/api/admin/reports" && req.method === "GET") {
+    const out: { id: string; t: number; lesson: string; title: string; text: string; lang: string; code: string | null }[] = [];
+    let cursor: string | undefined;
+    do {
+      const page = await env.LICENSES!.list({ prefix: "report:", cursor, limit: 1000 });
+      for (const k of page.keys) {
+        const r = JSON.parse((await env.LICENSES!.get(k.name)) || "null");
+        if (r) out.push({ id: k.name.slice(7), ...r });
+      }
+      cursor = page.list_complete ? undefined : page.cursor;
+    } while (cursor);
+    out.sort((a, b) => b.t - a.t);
+    return json({ count: out.length, reports: out });
+  }
+  if (path === "/api/admin/report-delete" && req.method === "POST") {
+    const b = (await req.json().catch(() => ({}))) as { id?: string };
+    if (!b.id || !/^[0-9a-z-]+$/i.test(b.id)) return json({ error: "bad_id" }, 400);
+    await env.LICENSES!.delete(`report:${b.id}`);
+    return json({ ok: true });
+  }
   if (path === "/api/admin/list" && req.method === "GET") {
     const out: { code: string; status: string; devices: number; labels: string[]; blocked: number; email: string | null; note: string | null }[] = [];
     let cursor: string | undefined;
@@ -268,6 +311,7 @@ export default {
 
     if (path === "/api/activate" && req.method === "POST") return activate(req, env);
     if (path === "/api/stripe-webhook" && req.method === "POST") return stripeWebhook(req, env);
+    if (path === "/api/report" && req.method === "POST") return report(req, env);
     if (path.startsWith("/api/admin/")) return admin(req, env, path);
     if (path === "/api/logout") return json({ ok: true }, 200, { "set-cookie": `${COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax` });
     if (path.startsWith("/api/")) return json({ error: "not_found" }, 404);

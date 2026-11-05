@@ -22,22 +22,57 @@ import { BUSINESS } from "@/data/business";
 import { CONTENT_STAND, reviewedDate } from "@/data/review";
 
 const META = {
-  de: { stand: "Stand der Inhalte", rev: "Fachlich geprüft", report: "Fehler melden", subj: "Fehler in Lektion" },
-  ar: { stand: "تاريخ المحتوى", rev: "روجع مهنياً", report: "بلّغ عن خطأ", subj: "خطأ في الدرس" },
-  en: { stand: "Content as of", rev: "Reviewed by a professional", report: "Report an error", subj: "Error in lesson" },
+  de: { stand: "Stand der Inhalte", rev: "Fachlich geprüft", report: "Fehler melden", subj: "Fehler in Lektion", ph: "Was ist falsch oder unklar? (z. B. Zahl, Satz, Übersetzung)", send: "Senden", sending: "Wird gesendet…", thanks: "Danke! Deine Meldung ist angekommen.", fail: "Senden hat nicht geklappt. Bitte später erneut versuchen.", cancel: "Abbrechen" },
+  ar: { stand: "تاريخ المحتوى", rev: "روجع مهنياً", report: "بلّغ عن خطأ", subj: "خطأ في الدرس", ph: "ما الخطأ أو الغامض؟ (مثلاً رقم أو جملة أو ترجمة)", send: "إرسال", sending: "جارٍ الإرسال…", thanks: "شكراً! وصل بلاغك.", fail: "تعذّر الإرسال. حاول لاحقاً.", cancel: "إلغاء" },
+  en: { stand: "Content as of", rev: "Reviewed by a professional", report: "Report an error", subj: "Error in lesson", ph: "What is wrong or unclear? (e.g. a number, sentence, translation)", send: "Send", sending: "Sending…", thanks: "Thanks! Your report was received.", fail: "Sending failed. Please try again later.", cancel: "Cancel" },
 } as const;
 
-/** Stand, Prüfdatum und Link zum Fehler melden (E-Mail an den Anbieter). */
+/** Stand, Prüfdatum und Fehler melden (Meldung landet im Admin-Bereich; ohne Server als E-Mail-Entwurf). */
 function LessonMeta({ id, title, lang }: { id: string; title: string; lang: string }) {
   const m = META[lang === "de" ? "de" : lang === "ar" ? "ar" : "en"];
   const rev = reviewedDate(id);
+  const [open, setOpen] = useState(false);
+  const [text, setText] = useState("");
+  const [state, setState] = useState<"idle" | "sending" | "done" | "fail">("idle");
   const mailOk = BUSINESS.email.includes("@") && !BUSINESS.email.startsWith("[");
-  const href = `mailto:${BUSINESS.email}?subject=${encodeURIComponent(`${m.subj}: ${id}`)}&body=${encodeURIComponent(`${title} (${id})\n\n`)}`;
+  async function send() {
+    if (text.trim().length < 5) return;
+    setState("sending");
+    try {
+      const r = await fetch("/api/report", { method: "POST", headers: { "content-type": "application/json" }, credentials: "same-origin", body: JSON.stringify({ lesson: id, title, text, lang }) });
+      if (!r.ok) throw new Error(String(r.status));
+      setState("done");
+      setText("");
+    } catch {
+      if (mailOk) {
+        window.location.href = `mailto:${BUSINESS.email}?subject=${encodeURIComponent(`${m.subj}: ${id}`)}&body=${encodeURIComponent(`${title} (${id})\n\n${text}`)}`;
+        setState("idle");
+      } else setState("fail");
+    }
+  }
   return (
-    <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted">
-      <span>{m.stand}: {CONTENT_STAND}</span>
-      {rev && <span>{m.rev}: {rev}</span>}
-      {mailOk && <a href={href} className="font-medium text-teal underline">{m.report}</a>}
+    <div className="mt-4 text-xs text-muted">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+        <span>{m.stand}: {CONTENT_STAND}</span>
+        {rev && <span>{m.rev}: {rev}</span>}
+        <button type="button" onClick={() => { setOpen((o) => !o); setState("idle"); }} className="font-medium text-teal underline">{m.report}</button>
+      </div>
+      {open && (
+        <div className="mt-2 rounded-xl border border-line p-3" dir={lang === "ar" ? "rtl" : "ltr"}>
+          {state === "done" ? (
+            <p role="status" className="text-sm text-fg">{m.thanks}</p>
+          ) : (
+            <>
+              <textarea value={text} onChange={(e) => setText(e.target.value.slice(0, 1000))} placeholder={m.ph} rows={3} className="w-full rounded-lg border border-line bg-surface p-2 text-sm text-fg" aria-label={m.report} />
+              <div className="mt-2 flex items-center gap-2">
+                <button type="button" onClick={send} disabled={state === "sending" || text.trim().length < 5} className="rounded-lg bg-teal px-3 py-1.5 text-sm font-semibold text-white disabled:opacity-50">{state === "sending" ? m.sending : m.send}</button>
+                <button type="button" onClick={() => setOpen(false)} className="text-sm underline">{m.cancel}</button>
+                {state === "fail" && <span role="alert" className="text-sm text-bad">{m.fail}</span>}
+              </div>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }
