@@ -1,12 +1,7 @@
-import { Suspense } from "react";
-import { QuizSetup } from "@/components/QuizSetup";
+import { QuizHub } from "@/components/QuizHub";
 
 export const metadata = { title: "Quiz & Prüfung" };
 
 export default function Page() {
-  return (
-    <Suspense fallback={<div role="status" className="py-16 text-center text-muted">Lädt …</div>}>
-      <QuizSetup />
-    </Suspense>
-  );
+  return <QuizHub />;
 }

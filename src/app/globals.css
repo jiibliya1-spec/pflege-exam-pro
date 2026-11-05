@@ -200,3 +200,25 @@ main p, main pre, main li, main h1, main h2, main h3, main td, main th, main lab
 .organ-part:hover { filter: brightness(1.08); }
 @media (prefers-reduced-motion: reduce) { .organ-part { transition: none; } }
 .og-lit .of-beat, .og-lit .of-breathe { animation: none; }
+
+/* ===== Kurz-Quiz (Themenwahl + Antwort-Feedback) ===== */
+@keyframes qz-rise { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes qz-slide { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+@keyframes qz-pop { 0% { transform: scale(.4); opacity: 0; } 60% { transform: scale(1.25); opacity: 1; } 100% { transform: scale(1); } }
+@keyframes qz-shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-7px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(4px); } }
+@keyframes qz-glow-ok { 0% { box-shadow: 0 0 0 0 rgba(22,163,74,.55); } 100% { box-shadow: 0 0 0 16px rgba(22,163,74,0); } }
+@keyframes qz-flame { 0%, 100% { transform: scale(1) rotate(-3deg); } 50% { transform: scale(1.18) rotate(4deg); } }
+@keyframes qz-burst { 0% { transform: translate(0,0) scale(1); opacity: 1; } 100% { transform: translate(var(--dx), var(--dy)) scale(.2) rotate(var(--r)); opacity: 0; } }
+@keyframes qz-ring { from { stroke-dashoffset: var(--len); } to { stroke-dashoffset: var(--off); } }
+@keyframes qz-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.qz-card { opacity: 0; animation: qz-rise .45s cubic-bezier(.2,.8,.2,1) forwards; }
+.qz-card:hover .qz-ico { transform: scale(1.12) rotate(-6deg); }
+.qz-ico { transition: transform .25s cubic-bezier(.3,1.6,.5,1); }
+.qz-slide { animation: qz-slide .35s cubic-bezier(.2,.8,.2,1) both; }
+.qz-pop { animation: qz-pop .45s cubic-bezier(.3,1.5,.5,1) both; }
+.qz-shake { animation: qz-shake .45s ease both; }
+.qz-glow { animation: qz-glow-ok .7s ease-out both; }
+.qz-flame { display: inline-block; animation: qz-flame 1s ease-in-out infinite; }
+.qz-float { animation: qz-float 3s ease-in-out infinite; }
+.qz-bit { position: absolute; left: 50%; top: 40%; width: 8px; height: 12px; border-radius: 2px; animation: qz-burst 1.4s cubic-bezier(.1,.7,.3,1) forwards; }
+.qz-ring-arc { stroke-dasharray: var(--len); animation: qz-ring 1.2s cubic-bezier(.3,.8,.3,1) .2s both; }
