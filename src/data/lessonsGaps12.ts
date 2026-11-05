@@ -700,5 +700,403 @@ export const GAPS12_LESSONS: Lesson[] =
     ]
    }
   ]
+ },
+ {
+  "id": "g12-notfall-abcde-sbar",
+  "group": "ausbildung",
+  "area": "pflege",
+  "title": "Notfallmanagement: ABCDE-Schema, Notruf und SBAR",
+  "icon": "Siren",
+  "ar": "نقيّم المريض الطارئ بترتيب ثابت: المجرى الهوائي ثم التنفس ثم الدوران ثم الأعصاب ثم الكشف، ونعالج المهدد للحياة فوراً قبل المتابعة. نتصل بـ112 ونذكر المكان وما حدث وعدد المصابين والإصابات. ونبلّغ بأسلوب SBAR (الوضع والخلفية والتقييم والتوصية) ونوثق الأوقات ونحمي أنفسنا أولاً.",
+  "blocks": [
+   {
+    "h": "Warum ein festes Schema?",
+    "li": [
+     "In Notfällen ist die Gefahr groß, sich in Details zu verlieren. Das ABCDE-Schema gibt eine feste Reihenfolge vor: Lebensbedrohliches wird zuerst entdeckt und behoben, bevor man weitergeht.",
+     "Grundregel: Ein Problem bei A, B oder C wird sofort behandelt, bevor man zu D und E geht. Nach jeder Maßnahme beurteilt man erneut."
+    ]
+   },
+   {
+    "h": "Notruf richtig absetzen",
+    "li": [
+     "Die Nummer ist 112. Die fünf W: Wo ist der Notfall (genaue Adresse, Station, Zimmer)? Was ist passiert? Wie viele Betroffene? Welche Verletzungen oder Krankheitszeichen? Warten auf Rückfragen. Das Gespräch beendet die Leitstelle, nicht der Anrufer.",
+     "Im Krankenhaus oder Heim gilt der hausinterne Notfallplan: Wer ruft, wer holt den Notfallwagen, wer beginnt mit den Maßnahmen, wer führt Protokoll. In der häuslichen Intensivpflege kennt man außerdem den Notfallplan des Patienten und die Telefonnummern vorab."
+    ]
+   },
+   {
+    "h": "SBAR: strukturiert melden",
+    "li": [
+     "Mit SBAR gibt man in wenigen Sätzen alles Wichtige weiter. Das spart Zeit und verhindert Missverständnisse zwischen Pflege, Arzt und Rettungsdienst.",
+     "Beispiel: Situation: Herr M., Zimmer 4, plötzliche Atemnot. Background: COPD, Herzinsuffizienz. Assessment: Atemfrequenz 30, Sättigung 85 Prozent, Puls 120. Recommendation: Bitte sofort kommen, Sauerstoff läuft."
+    ]
+   },
+   {
+    "h": "Dokumentation und Selbstschutz",
+    "li": [
+     "Zeiten, Maßnahmen, Medikamente und Werte werden fortlaufend notiert, am besten durch eine zweite Person. Eigenschutz geht vor: Handschuhe, Gefahrenquellen beachten, bei Gefahr (Gas, Strom, Feuer) nicht selbst eingreifen."
+    ]
+   }
+  ],
+  "diagrams": [
+   {
+    "kind": "flow",
+    "title": "ABCDE-Schema: systematisch beurteilen",
+    "steps": [
+     {
+      "t": "A – Atemweg",
+      "s": "Frei? Sprechen, Geräusche, Fremdkörper, Zunge",
+      "icon": "Wind",
+      "tone": "info"
+     },
+     {
+      "t": "B – Atmung",
+      "s": "Frequenz, Atemarbeit, Sättigung, Atemgeräusche",
+      "icon": "Wind",
+      "tone": "info"
+     },
+     {
+      "t": "C – Kreislauf",
+      "s": "Puls, Blutdruck, Hautfarbe, Rekap-Zeit, Blutung",
+      "icon": "HeartPulse",
+      "tone": "warn"
+     },
+     {
+      "t": "D – Neurologie",
+      "s": "Bewusstsein, Pupillen, Blutzucker, Krampf",
+      "icon": "Zap",
+      "tone": "warn"
+     },
+     {
+      "t": "E – Entkleiden",
+      "s": "Ganzen Körper ansehen, Temperatur, Verletzungen, Wärme erhalten",
+      "icon": "ShieldCheck",
+      "tone": "ok"
+     }
+    ]
+   },
+   {
+    "kind": "table",
+    "title": "SBAR: Übergabe an Arzt oder Rettungsdienst",
+    "head": [
+     "Buchstabe",
+     "Inhalt"
+    ],
+    "rows": [
+     [
+      "S – Situation",
+      "Wer bin ich, wer ist der Patient, was ist das Problem?"
+     ],
+     [
+      "B – Background",
+      "Diagnosen, Medikamente, Allergien, Verlauf"
+     ],
+     [
+      "A – Assessment",
+      "Vitalwerte, ABCDE-Befund, meine Einschätzung"
+     ],
+     [
+      "R – Recommendation",
+      "Was brauche ich: kommen, anordnen, verlegen?"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "g12-bewusstlos-seitenlage-blutung",
+  "group": "ausbildung",
+  "area": "pflege",
+  "title": "Erste Hilfe: Bewusstlosigkeit, stabile Seitenlage und starke Blutung",
+  "icon": "Droplets",
+  "ar": "فاقد الوعي ويتنفس: وضعية جانبية ثابتة مع متابعة التنفس واستدعاء الإسعاف. لا يتنفس: إنعاش فوراً. النزف الشديد: ضغط مباشر ثم ضماد ضاغط ورفع الطرف ومنع الصدمة، والتورنيكيه كملاذ أخير بعد تدريب. لا نزيل الأجسام الغريبة من الجرح.",
+  "blocks": [
+   {
+    "h": "Bewusstlosigkeit erkennen",
+    "li": [
+     "Bewusstlos ist, wer auf Ansprechen und Schmerzreiz nicht reagiert. Gefahr: Die Zunge fällt zurück und verlegt den Atemweg, Erbrochenes kann in die Lunge gelangen.",
+     "Atmet die Person normal, wird sie in die stabile Seitenlage gebracht. Atmet sie nicht oder nur schnappend, beginnt man sofort mit der Reanimation."
+    ]
+   },
+   {
+    "h": "Stabile Seitenlage",
+    "li": [
+     "Ablauf: Arm der zugewandten Seite im rechten Winkel nach oben legen, den anderen Arm mit dem Handrücken an die Wange. Weiter entferntes Bein beugen und die Person zu sich herüberziehen. Kopf überstrecken, Mund leicht nach unten öffnen, Atmung weiter prüfen.",
+     "Bei Verdacht auf Wirbelsäulenverletzung bewegt man die Person nur, wenn es wegen der Atmung nötig ist, und dann mit großer Vorsicht."
+    ]
+   },
+   {
+    "h": "Starke Blutungen stillen",
+    "li": [
+     "Zuerst Eigenschutz mit Handschuhen. Dann direkter Druck auf die Wunde, danach ein Druckverband. Der Betroffene liegt, die verletzte Gliedmaße wird hochgehalten. Blutet es durch den Verband, legt man einen zweiten Verband darüber und löst den ersten nicht.",
+     "Eine Abbindung (Tourniquet) ist die letzte Möglichkeit bei lebensbedrohlichen Gliedmaßenblutungen, die sich nicht anders stillen lassen. Sie wird nur nach Schulung angelegt, die Uhrzeit wird notiert."
+    ]
+   },
+   {
+    "h": "Besondere Situationen",
+    "li": [
+     "Nasenbluten: Oberkörper vorbeugen, Nasenflügel etwa 10 Minuten zudrücken, kalter Nacken. Blut nicht schlucken lassen. Dauert es länger oder ist der Betroffene gerinnungsgehemmt, ärztliche Hilfe holen.",
+     "Fremdkörper in der Wunde werden nicht entfernt, sondern gepolstert fixiert."
+    ]
+   }
+  ],
+  "diagrams": [
+   {
+    "kind": "flow",
+    "title": "Bewusstlose Person mit Atmung",
+    "steps": [
+     {
+      "t": "Ansprechen",
+      "s": "Laut ansprechen, an den Schultern rütteln",
+      "icon": "MessageCircle",
+      "tone": "info"
+     },
+     {
+      "t": "Atmung prüfen",
+      "s": "Kopf überstrecken, bis 10 Sekunden sehen, hören, fühlen",
+      "icon": "Wind",
+      "tone": "warn"
+     },
+     {
+      "t": "Notruf",
+      "s": "112 rufen oder rufen lassen",
+      "icon": "Siren",
+      "tone": "bad"
+     },
+     {
+      "t": "Seitenlage",
+      "s": "Stabile Seitenlage, Mund zum Boden, Atmung weiter kontrollieren",
+      "icon": "ShieldCheck",
+      "tone": "ok"
+     }
+    ]
+   },
+   {
+    "kind": "flow",
+    "title": "Starke Blutung stillen",
+    "steps": [
+     {
+      "t": "Druck",
+      "s": "Mit Handschuh und Kompresse direkt auf die Wunde drücken",
+      "icon": "Droplets",
+      "tone": "bad"
+     },
+     {
+      "t": "Druckverband",
+      "s": "Wundauflage fest umwickeln, Druckpolster auflegen",
+      "icon": "Layers",
+      "tone": "warn"
+     },
+     {
+      "t": "Hochlagern",
+      "s": "Gliedmaße hochhalten, Betroffenen hinlegen",
+      "icon": "User",
+      "tone": "info"
+     },
+     {
+      "t": "Schockvorbeugung",
+      "s": "Zudecken, beruhigen, Rettungsdienst, Verlauf beobachten",
+      "icon": "ShieldCheck",
+      "tone": "ok"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "g12-schock-vertieft",
+  "group": "ausbildung",
+  "area": "pflege",
+  "title": "Schock vertieft: Formen, Schockindex und Schocklage",
+  "icon": "TriangleAlert",
+  "ar": "في الصدمة لا تكفي التروية لتزويد الأعضاء بالأكسجين. الأشكال: نقص الحجم وقلبي وتأقي وإنتاني وعصبي. مؤشر الصدمة = النبض ÷ الضغط الانقباضي وقيمة فوق 1 مريبة. نستدعي الإسعاف ونحافظ على الدفء ولا نعطي أكلاً أو شرباً، ونرفع الساقين فقط عند فقد الدم وليس عند قصور القلب أو إصابة الرأس.",
+  "blocks": [
+   {
+    "h": "Was passiert im Schock?",
+    "li": [
+     "Beim Schock reicht die Durchblutung nicht aus, um die Organe mit Sauerstoff zu versorgen. Der Körper versucht gegenzusteuern: Puls und Atmung werden schneller, die Haut wird blass, kalt und feucht. Wird nicht behandelt, versagen die Organe.",
+     "Warnzeichen: schneller, schwacher Puls, niedriger Blutdruck, Unruhe oder Verwirrtheit, kühle Haut, verlängerte Rekapillarisierungszeit, wenig Urin. Bei der Sepsis kann die Haut anfangs warm sein."
+    ]
+   },
+   {
+    "h": "Sofortmaßnahmen",
+    "li": [
+     "Notruf auslösen, Vitalzeichen messen, Betroffenen nicht allein lassen, Wärme erhalten und beruhigen. Nichts essen und trinken lassen. Wenn möglich Sauerstoff nach Anordnung und Zugang für Infusion vorbereiten.",
+     "Schocklage: Bei Blutverlust und niedrigem Blutdruck legt man die Beine hoch, damit Blut zu Herz und Gehirn fließt. Nicht anwenden bei Herzschwäche mit Atemnot, Kopfverletzung oder Verdacht auf Wirbelsäulenverletzung. Dann ist eine Oberkörperhochlage oder flache Lage richtig."
+    ]
+   },
+   {
+    "h": "Besonderheiten je Schockform",
+    "li": [
+     "Hypovolämisch: Blutung stoppen, Flüssigkeit nach Anordnung. Kardiogen: Oberkörper hoch, kein Flüssigkeitsstoß, Notarzt. Anaphylaktisch: Auslöser stoppen, Adrenalin nach Anordnung oder Notfallplan, Rettungsdienst. Septisch: früh erkennen, Antibiotika und Flüssigkeit durch den Arzt, daher schnell melden.",
+     "Beispiel: Ein Patient nach OP wird blass, Puls 125, Blutdruck 85. Maßnahmen: ärztlich melden, Verbandsbereich auf Blutung prüfen, flach lagern mit erhöhten Beinen, Wärme, Vitalwerte engmaschig, Zugang vorbereiten."
+    ]
+   }
+  ],
+  "diagrams": [
+   {
+    "kind": "tiles",
+    "title": "Schockformen im Überblick",
+    "items": [
+     {
+      "t": "Hypovolämisch",
+      "s": "Blut- oder Flüssigkeitsverlust",
+      "icon": "Droplets",
+      "tone": "bad"
+     },
+     {
+      "t": "Kardiogen",
+      "s": "Herz pumpt zu schwach, z. B. Infarkt",
+      "icon": "HeartPulse",
+      "tone": "bad"
+     },
+     {
+      "t": "Anaphylaktisch",
+      "s": "Allergische Überreaktion",
+      "icon": "Zap",
+      "tone": "warn"
+     },
+     {
+      "t": "Septisch",
+      "s": "Infektion mit Gefäßerweiterung",
+      "icon": "Bug",
+      "tone": "warn"
+     },
+     {
+      "t": "Neurogen",
+      "s": "Rückenmarkverletzung, Gefäße weit",
+      "icon": "User",
+      "tone": "info"
+     }
+    ]
+   },
+   {
+    "kind": "table",
+    "title": "Schockindex",
+    "head": [
+     "Rechnung",
+     "Bedeutung"
+    ],
+    "rows": [
+     [
+      "Puls geteilt durch systolischen Druck",
+      "Normal etwa 0,5 bis 0,7"
+     ],
+     [
+      "Wert über 1",
+      "Hinweis auf drohenden oder bestehenden Schock"
+     ],
+     [
+      "Beispiel: Puls 120, Blutdruck 90",
+      "120 : 90 ist etwa 1,3 und damit auffällig"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "g12-reanimation-vertieft",
+  "group": "ausbildung",
+  "area": "pflege",
+  "title": "Reanimation vertieft: Zahlen, Ablauf, AED und Besonderheiten",
+  "icon": "HeartPulse",
+  "ar": "نبدأ الإنعاش عندما لا يستجيب الشخص ولا يتنفس طبيعياً. الضغطات 100 إلى 120 في الدقيقة وبعمق 5 إلى 6 سم ونسبة 30:2 مع تبادل كل دقيقتين، وجهاز AED يُستعمل مبكراً. عند الأطفال نبدأ بخمسة نفَسات. نتحقق من وصية المريض أو قرار DNR، ونوثق ونناقش الحالة مع الفريق.",
+  "blocks": [
+   {
+    "h": "Wann reanimieren?",
+    "li": [
+     "Wenn eine Person nicht reagiert und nicht normal atmet. Seltenes, schnappendes Luftholen (Schnappatmung) ist keine normale Atmung. Im Zweifel beginnt man. Jede Minute ohne Maßnahmen senkt die Überlebenschance deutlich."
+    ]
+   },
+   {
+    "h": "Herzdruckmassage richtig",
+    "li": [
+     "Der Betroffene liegt auf hartem Untergrund. Handballen auf die Mitte des Brustkorbs, Arme gestreckt, senkrecht von oben drücken. Tiefe etwa 5 bis 6 cm, Frequenz 100 bis 120 pro Minute. Nach jeder Kompression den Brustkorb vollständig entlasten, aber die Hände nicht abheben.",
+     "Bei mehreren Helfern wechselt man etwa alle 2 Minuten, damit die Qualität nicht nachlässt. Unterbrechungen so kurz wie möglich halten."
+    ]
+   },
+   {
+    "h": "Beatmung und AED",
+    "li": [
+     "Atemweg öffnen (Kopf überstrecken, Kinn anheben) und mit Beutel-Masken-Beatmung oder Mund-zu-Mund jeweils etwa 1 Sekunde beatmen, bis sich der Brustkorb sichtbar hebt. Wer sich nicht traut oder keine Maske hat, führt zumindest die Herzdruckmassage durch.",
+     "Der AED analysiert den Rhythmus und gibt Anweisungen. Elektroden laut Bild aufkleben, bei Analyse und Schock niemanden berühren lassen, danach sofort weiter drücken. Der AED darf auch von Laien benutzt werden."
+    ]
+   },
+   {
+    "h": "Besonderheiten in der Pflege",
+    "li": [
+     "Vor Beginn gilt zu klären, ob eine Patientenverfügung oder ein Reanimationsverzicht (DNR) vorliegt. Gibt es keine klare Verfügung, wird reanimiert. Die Entscheidung gegen eine Reanimation trifft immer ein Arzt gemeinsam mit dem Betroffenen oder dessen Vertreter.",
+     "Nach jedem Einsatz werden Maßnahmen, Zeiten und Medikamente dokumentiert, Material aufgefüllt und das Team nachbesprochen, auch weil solche Situationen belasten."
+    ]
+   }
+  ],
+  "diagrams": [
+   {
+    "kind": "flow",
+    "title": "Reanimation Erwachsene: Ablauf",
+    "steps": [
+     {
+      "t": "Erkennen",
+      "s": "Keine Reaktion und keine normale Atmung",
+      "icon": "Search",
+      "tone": "warn"
+     },
+     {
+      "t": "Notruf",
+      "s": "112, AED holen lassen",
+      "icon": "Siren",
+      "tone": "bad"
+     },
+     {
+      "t": "Herzdruckmassage",
+      "s": "Mitte des Brustkorbs, 100 bis 120 pro Minute, 5 bis 6 cm tief",
+      "icon": "HeartPulse",
+      "tone": "bad"
+     },
+     {
+      "t": "Beatmung",
+      "s": "Nach 30 Kompressionen 2 Beatmungen (30:2)",
+      "icon": "Wind",
+      "tone": "info"
+     },
+     {
+      "t": "AED",
+      "s": "Einschalten, Anweisungen folgen, niemand berühren",
+      "icon": "Zap",
+      "tone": "ok"
+     }
+    ]
+   },
+   {
+    "kind": "table",
+    "title": "Erwachsene und Kinder im Vergleich",
+    "head": [
+     "Merkmal",
+     "Erwachsene",
+     "Kinder"
+    ],
+    "rows": [
+     [
+      "Start",
+      "Mit Herzdruckmassage",
+      "Mit 5 Beatmungen"
+     ],
+     [
+      "Verhältnis",
+      "30:2",
+      "Helfer ohne Ausbildung 30:2, Fachpersonal 15:2"
+     ],
+     [
+      "Tiefe",
+      "5 bis 6 cm",
+      "Etwa ein Drittel des Brustkorbs"
+     ],
+     [
+      "Notruf",
+      "Zuerst",
+      "Allein: erst etwa eine Minute reanimieren, dann rufen"
+     ]
+    ]
+   }
+  ]
  }
 ];
