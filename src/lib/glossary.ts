@@ -957,6 +957,12 @@ const ROWS: Row[] = [
   ["Sozialhilfe", "المساعدة الاجتماعية", "social assistance", "aide sociale", "sosyal yardım"],
   ["Rentenversicherung", "التأمين التقاعدي", "pension insurance", "assurance retraite", "emeklilik sigortası"],
   ["Unfallversicherung", "تأمين الحوادث", "accident insurance", "assurance accidents", "kaza sigortası"],
+  ["Strukturqualität", "جودة البنية", "structure quality", "qualité de structure", "yapı kalitesi"],
+  ["Prozessqualität", "جودة العملية", "process quality", "qualité de processus", "süreç kalitesi"],
+  ["Ergebnisqualität", "جودة النتيجة", "outcome quality", "qualité des résultats", "sonuç kalitesi"],
+  ["Donabedian-Modell", "نموذج دونابيديان للجودة", "Donabedian model", "modèle de Donabedian", "Donabedian modeli"],
+  ["Benchmarking", "المقارنة المرجعية", "benchmarking", "étalonnage (benchmarking)", "kıyaslama"],
+  ["Qualitätszirkel", "دائرة الجودة", "quality circle", "cercle de qualité", "kalite çemberi"],
 ];
 
 export interface GlossEntry {

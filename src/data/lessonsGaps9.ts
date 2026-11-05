@@ -951,5 +951,226 @@ export const GAPS9_LESSONS: Lesson[] = [
     ]
    }
   ]
+ },
+ {
+  "id": "g9-donabedian",
+  "group": "ausbildung",
+  "area": "qualitaet",
+  "title": "Pflegequalität nach Donabedian: Struktur-, Prozess- und Ergebnisqualität",
+  "icon": "Layers",
+  "ar": "الطبيب أفيديس دونابيديان قسّم الجودة إلى ثلاثة مستويات مترابطة: جودة البنية (الإمكانات)، وجودة العملية (طريقة العمل)، وجودة النتيجة (ما تحقق للمريض). البنية الجيدة تسهّل العملية الجيدة وهي تؤدي إلى نتيجة جيدة.",
+  "blocks": [
+   {
+    "h": "Die drei Dimensionen",
+    "li": [
+     "Strukturqualität: die Rahmenbedingungen, also Voraussetzungen für gute Pflege.",
+     "Prozessqualität: die Art und Weise, wie die Pflege geplant und durchgeführt wird.",
+     "Ergebnisqualität: die Wirkung der Pflege, also was beim Patienten erreicht wurde.",
+     "Die drei Ebenen hängen zusammen: Gute Struktur erleichtert gute Prozesse, gute Prozesse führen zu besseren Ergebnissen."
+    ]
+   },
+   {
+    "h": "Beispiele Strukturqualität",
+    "li": [
+     "Genug und ausreichend qualifiziertes Personal (Fachkraftquote), Personalschlüssel.",
+     "Räume, Ausstattung, Hilfsmittel, Pflegebetten, Hebehilfen, Barrierefreiheit.",
+     "Konzepte, Leitbild, Standards, Dienstpläne, Fortbildungsangebote.",
+     "Rechtliche Vorgaben, Zulassung, Verträge."
+    ]
+   },
+   {
+    "h": "Beispiele Prozessqualität",
+    "li": [
+     "Pflegeprozess nach dem Regelkreis: Assessment, Planung, Durchführung, Evaluation.",
+     "Einhaltung von Expertenstandards und hausinternen Standards (zum Beispiel Dekubitusprophylaxe, Sturzprophylaxe).",
+     "Übergabe, Dokumentation, Informationsfluss, Zusammenarbeit im Team, Pflegevisite.",
+     "Beteiligung von Patienten und Angehörigen, Schmerzassessment, Hygienemaßnahmen."
+    ]
+   },
+   {
+    "h": "Beispiele Ergebnisqualität",
+    "li": [
+     "Wohlbefinden und Zufriedenheit von Patienten, Bewohnern und Angehörigen.",
+     "Gesundheitszustand und Selbstständigkeit: wenig Dekubitus, wenige Stürze mit Folgen, Gewicht stabil, Schmerz im Zielbereich.",
+     "Kennzahlen: Infektionsrate, Wiederaufnahmerate, Beschwerden, Mitarbeiterzufriedenheit.",
+     "Ergebnisqualität wird über Qualitätsindikatoren sichtbar, die regelmäßig erhoben werden."
+    ]
+   },
+   {
+    "h": "Prüfungstipp",
+    "li": [
+     "Bei Beispielen immer fragen: Ist es eine Voraussetzung (Struktur), ein Vorgehen (Prozess) oder ein Ergebnis?",
+     "Dienstplan und Personalschlüssel sind Struktur. Die Durchführung der Mobilisation nach Standard ist Prozess. Die Sturzrate ist Ergebnis."
+    ]
+   }
+  ],
+  "diagrams": [
+   {
+    "kind": "flow",
+    "title": "Donabedian: drei Ebenen",
+    "steps": [
+     {
+      "t": "Struktur",
+      "s": "Rahmen: Personal, Ausstattung",
+      "icon": "Building2",
+      "tone": "info"
+     },
+     {
+      "t": "Prozess",
+      "s": "Ablauf: Pflegeprozess, Standards",
+      "icon": "Workflow",
+      "tone": "info"
+     },
+     {
+      "t": "Ergebnis",
+      "s": "Wirkung: Zustand, Zufriedenheit",
+      "icon": "Target",
+      "tone": "ok"
+     }
+    ],
+    "note": "Gute Struktur erleichtert gute Prozesse und gute Ergebnisse."
+   },
+   {
+    "kind": "table",
+    "title": "Beispiele zuordnen",
+    "head": [
+     "Beispiel",
+     "Ebene"
+    ],
+    "rows": [
+     [
+      "Personalschlüssel",
+      "Struktur"
+     ],
+     [
+      "Pflegebett vorhanden",
+      "Struktur"
+     ],
+     [
+      "Expertenstandard eingehalten",
+      "Prozess"
+     ],
+     [
+      "Pflegevisite durchgeführt",
+      "Prozess"
+     ],
+     [
+      "Anzahl neuer Dekubitus",
+      "Ergebnis"
+     ],
+     [
+      "Zufriedenheit der Bewohner",
+      "Ergebnis"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "g9-qualitaetsinstrumente-fehler",
+  "group": "ausbildung",
+  "area": "qualitaet",
+  "title": "Instrumente der Pflegequalität und Fehlermanagement (CIRS)",
+  "icon": "ChartBar",
+  "ar": "تُقاس الجودة وتُحسَّن بأدوات مثل المعايير والتقييمات وزيارة التمريض والتدقيق ودوائر الجودة والمقارنة المرجعية والشهادات. وإدارة الأخطاء تعني تعلُّم المؤسسة من الأخطاء دون البحث عن مذنب، ومن أدواتها نظام الإبلاغ CIRS.",
+  "blocks": [
+   {
+    "h": "Instrumente der Qualitätssicherung",
+    "li": [
+     "Expertenstandards des DNQP: evidenzbasierte Vorgaben zu wichtigen Pflegethemen, zum Beispiel Sturzprophylaxe oder Dekubitusprophylaxe.",
+     "Leitlinien und hausinterne Standards, Verfahrensanweisungen und Checklisten.",
+     "Assessmentinstrumente: Skalen wie Braden, Barthel, NRS, MNA, Sturzrisikoskalen.",
+     "Pflegevisite: Pflegefachperson und Patient besprechen gemeinsam Stand, Wirkung und Ziele der Pflege.",
+     "Audits: systematische Überprüfung von Abläufen und Dokumentation, intern oder extern.",
+     "Qualitätszirkel: Mitarbeitende besprechen regelmäßig Probleme und erarbeiten Lösungen.",
+     "Benchmarking: Vergleich von Kennzahlen mit anderen Einrichtungen, um von den Besten zu lernen.",
+     "Zertifizierung und QM-Systeme: zum Beispiel DIN EN ISO 9001, KTQ oder EFQM.",
+     "Beschwerdemanagement, Befragungen und Qualitätsindikatoren."
+    ]
+   },
+   {
+    "h": "PDCA-Zyklus",
+    "li": [
+     "Plan: Problem erkennen, Ziel und Maßnahme planen.",
+     "Do: Maßnahme umsetzen, am besten zuerst im kleinen Rahmen.",
+     "Check: Wirkung prüfen und mit dem Ziel vergleichen.",
+     "Act: Erfolgreiche Lösung verankern oder nachbessern, danach beginnt der Kreis neu."
+    ]
+   },
+   {
+    "h": "Fehlermanagement",
+    "li": [
+     "Fehlerkultur: Fehler gelten als Chance zur Verbesserung. Man sucht Schwachstellen im System, nicht den Schuldigen.",
+     "Fehlerarten: Fehler (tatsächlicher Schaden), Beinahe-Fehler (kein Schaden, aber möglich), kritisches Ereignis, unerwünschtes Ereignis.",
+     "CIRS (Critical Incident Reporting System): anonymes Meldesystem für kritische Ereignisse und Beinahe-Fehler. Ziel ist Lernen aus Meldungen, nicht Strafe.",
+     "Vorgehen: Ereignis melden, Ursachen analysieren (zum Beispiel Fischgräten- oder Ursache-Wirkungs-Diagramm), Maßnahmen ableiten, umsetzen, Wirkung prüfen.",
+     "Ursachen liegen oft in Kommunikation, Zeitdruck, Personalmangel, unklaren Abläufen, nicht in Einzelversagen.",
+     "Bei einem Fehler mit Schaden: Patient versorgen, Arzt und Leitung informieren, offen mit Patient und Angehörigen sprechen, sachlich dokumentieren.",
+     "Typische Beispiele: Medikamentenverwechslung, Sturz, falsche Patientenidentifikation, Hygienefehler. Hilfen: 6-R-Regel, Vier-Augen-Prinzip, Checklisten."
+    ]
+   }
+  ],
+  "diagrams": [
+   {
+    "kind": "cycle",
+    "title": "PDCA-Zyklus",
+    "steps": [
+     {
+      "t": "Plan",
+      "s": "Ziel und Maßnahme",
+      "icon": "PenLine",
+      "tone": "info"
+     },
+     {
+      "t": "Do",
+      "s": "Umsetzen",
+      "icon": "Wrench",
+      "tone": "info"
+     },
+     {
+      "t": "Check",
+      "s": "Wirkung prüfen",
+      "icon": "Search",
+      "tone": "warn"
+     },
+     {
+      "t": "Act",
+      "s": "Verankern oder anpassen",
+      "icon": "RefreshCw",
+      "tone": "ok"
+     }
+    ]
+   },
+   {
+    "kind": "flow",
+    "title": "Wie läuft CIRS?",
+    "steps": [
+     {
+      "t": "Melden",
+      "s": "Anonym, ohne Schuldzuweisung",
+      "icon": "Megaphone",
+      "tone": "info"
+     },
+     {
+      "t": "Analysieren",
+      "s": "Ursachen im System suchen",
+      "icon": "Search",
+      "tone": "info"
+     },
+     {
+      "t": "Maßnahme",
+      "s": "Abläufe verbessern",
+      "icon": "Wrench",
+      "tone": "ok"
+     },
+     {
+      "t": "Prüfen",
+      "s": "Hat es gewirkt?",
+      "icon": "ClipboardCheck",
+      "tone": "ok"
+     }
+    ]
+   }
+  ]
  }
 ];
