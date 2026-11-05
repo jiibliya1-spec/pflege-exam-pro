@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Check, ChevronDown, Flame, RotateCcw, Shuffle, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Check, ChevronDown, Flame, RotateCcw, Shuffle, X } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { useLang } from "@/lib/i18n";
 import { playTone } from "@/lib/sound";
@@ -13,7 +14,7 @@ import { Card, PageHeader, cn } from "./ui";
 
 const BEST_KEY = "pep-quiz-best-v2";
 type Mode = 1 | 2 | 3 | "adaptive";
-interface Item { topic: QuizTopic; level: Level; text: string[]; opts: { t: string[]; ok: boolean }[]; why: string[][] }
+interface Item { topic: QuizTopic; level: Level; lesson?: string; text: string[]; opts: { t: string[]; ok: boolean }[]; why: string[][] }
 
 const split = (s: string) => s.split("|");
 function shuffle<T>(a: T[]): T[] {
@@ -22,8 +23,8 @@ function shuffle<T>(a: T[]): T[] {
   return r;
 }
 function build(topic: QuizTopic, tuple: QTuple): Item {
-  const [level, q, o, c, w] = tuple;
-  return { topic, level, text: split(q), opts: shuffle(o.map((t, i) => ({ t: split(t), ok: i === c }))), why: w.split("\n\n").map(split) };
+  const [level, q, o, c, w, lesson] = tuple;
+  return { topic, level, lesson, text: split(q), opts: shuffle(o.map((t, i) => ({ t: split(t), ok: i === c }))), why: w.split("\n\n").map(split) };
 }
 function readBest(): Record<string, number> {
   try { return JSON.parse(localStorage.getItem(BEST_KEY) || "{}"); } catch { return {}; }
@@ -351,6 +352,11 @@ function TopicQuiz() {
                   </div>
                 ))}
               </div>
+              {cur.lesson && (
+                <Link href={`/learn/view/?id=${cur.lesson}`} className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-teal underline-offset-2 hover:underline">
+                  <BookOpen className="h-4 w-4" /> {ar ? "اقرأ الدرس" : "Zur Lektion"}
+                </Link>
+              )}
               <button type="button" onClick={next} autoFocus className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-navy2 px-4 py-3 font-semibold text-white transition-transform hover:brightness-110 active:scale-[.98] dark:bg-teal dark:text-[#04222a]">
                 {asked >= len ? (ar ? "النتيجة" : "Ergebnis") : (ar ? "التالي" : "Weiter")} <ArrowRight className="h-5 w-5 rtl:rotate-180" />
               </button>
