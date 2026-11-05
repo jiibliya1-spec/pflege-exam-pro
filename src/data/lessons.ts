@@ -26,6 +26,7 @@ import { GAPS6_LESSONS } from "./lessonsGaps6";
 import { GAPS7_LESSONS } from "./lessonsGaps7";
 import { GAPS8_LESSONS } from "./lessonsGaps8";
 import { GAPS9_LESSONS } from "./lessonsGaps9";
+import { GAPS10_LESSONS } from "./lessonsGaps10";
 import { WHO, type Who } from "./lessonsWho";
 import type { Diagram } from "./diagram";
 
@@ -444,7 +445,7 @@ function withExtra(l: Lesson): Lesson {
 /** Doppelte Kurzfassungen, deren Inhalt in den ausführlichen Lektionen steckt. */
 const DROP = new Set(["b-hygiene", "b-prophylaxen", "b-beobachtung-vital"]);
 
-const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2, ...MODELLE_LESSONS, ...RECHT_LESSONS, ...BUCH_KRANK_1, ...BUCH_KRANK_2, ...BUCH_PFLEGE, ...ASSESSMENT_LESSONS, ...BUCH_NEU_1, ...BUCH_NEU_2, ...BUCH_NEU_3, ...GAPS_LESSONS, ...GAPS2_LESSONS, ...GAPS3_LESSONS, ...GAPS4_LESSONS, ...GAPS5_LESSONS, ...GAPS6_LESSONS, ...GAPS7_LESSONS, ...GAPS8_LESSONS, ...GAPS9_LESSONS]
+const ALL = [...BASE_LESSONS.map(withPlus), ...NEW_LESSONS_1, ...NEW_LESSONS_2, ...MODELLE_LESSONS, ...RECHT_LESSONS, ...BUCH_KRANK_1, ...BUCH_KRANK_2, ...BUCH_PFLEGE, ...ASSESSMENT_LESSONS, ...BUCH_NEU_1, ...BUCH_NEU_2, ...BUCH_NEU_3, ...GAPS_LESSONS, ...GAPS2_LESSONS, ...GAPS3_LESSONS, ...GAPS4_LESSONS, ...GAPS5_LESSONS, ...GAPS6_LESSONS, ...GAPS7_LESSONS, ...GAPS8_LESSONS, ...GAPS9_LESSONS, ...GAPS10_LESSONS]
   .filter((l) => !DROP.has(l.id))
   .map(withExtra)
   .map((l) => (WHO[l.id] ? { ...l, who: WHO[l.id] } : l));
