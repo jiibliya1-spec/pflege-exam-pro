@@ -199,3 +199,4 @@ main p, main pre, main li, main h1, main h2, main h3, main td, main th, main lab
 .organ-part { transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s; cursor: pointer; }
 .organ-part:hover { filter: brightness(1.08); }
 @media (prefers-reduced-motion: reduce) { .organ-part { transition: none; } }
+.og-lit .of-beat, .og-lit .of-breathe { animation: none; }

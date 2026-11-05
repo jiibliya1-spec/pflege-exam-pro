@@ -36,50 +36,115 @@ const G = ({ id, a, b }: { id: string; a: string; b: string }) => (
   </linearGradient>
 );
 
+/** Gemeinsame Licht- und Schattenwirkung: gibt den flachen Formen Volumen und feuchten Glanz. */
+export function Shade() {
+  return (
+    <defs>
+      <filter id="og3d" x="-8%" y="-8%" width="116%" height="116%" colorInterpolationFilters="sRGB">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="2.4" result="b" />
+        <feDiffuseLighting in="b" surfaceScale="5" diffuseConstant="1.05" lightingColor="#ffffff" result="diff">
+          <feDistantLight azimuth="235" elevation="58" />
+        </feDiffuseLighting>
+        <feComposite in="SourceGraphic" in2="diff" operator="arithmetic" k1="1.22" k2="0" k3="0" k4="0" result="lit" />
+        <feSpecularLighting in="b" surfaceScale="5" specularConstant="0.8" specularExponent="26" lightingColor="#ffffff" result="spec">
+          <fePointLight x="50" y="-20" z="90" />
+        </feSpecularLighting>
+        <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn" />
+        <feComposite in="lit" in2="specIn" operator="arithmetic" k1="0" k2="1" k3="0.5" k4="0" result="shiny" />
+        <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="7" result="n" />
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.22 0.17" result="grain" />
+        <feComposite in="grain" in2="SourceAlpha" operator="in" result="grainIn" />
+        <feMerge><feMergeNode in="shiny" /><feMergeNode in="grainIn" /></feMerge>
+      </filter>
+    </defs>
+  );
+}
+
 export const FIG: Record<string, ReactNode> = {
   herz: (
     <g>
       <defs>
-        <G id="hz1" a="#e8545f" b="#8e1b2c" />
-        <G id="hz2" a="#f08a8f" b="#b8334a" />
-        <G id="hz3" a="#e04a58" b="#a3202f" />
+        <radialGradient id="hzA" cx="0.35" cy="0.3" r="0.9"><stop offset="0" stopColor="#f3a5a0" /><stop offset="0.6" stopColor="#d9626a" /><stop offset="1" stopColor="#a02a3c" /></radialGradient>
+        <radialGradient id="hzV" cx="0.4" cy="0.3" r="0.9"><stop offset="0" stopColor="#ff7f7f" /><stop offset="0.55" stopColor="#d4262f" /><stop offset="1" stopColor="#7a0c18" /></radialGradient>
+        <linearGradient id="hzB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#8b87c9" /><stop offset="1" stopColor="#4a4a96" /></linearGradient>
+        <linearGradient id="hzBd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#5a5fa8" /><stop offset="1" stopColor="#2c2f6e" /></linearGradient>
+        <linearGradient id="hzW" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#f0a39b" /><stop offset="1" stopColor="#d0636e" /></linearGradient>
+        <linearGradient id="hzAo" x1="0" y1="0" x2="1" y2="0.2"><stop offset="0" stopColor="#f6b0a8" /><stop offset="0.5" stopColor="#e07a80" /><stop offset="1" stopColor="#b9404f" /></linearGradient>
+        <radialGradient id="hzM" cx="0.5" cy="0.4" r="0.8"><stop offset="0" stopColor="#f2c3b4" /><stop offset="1" stopColor="#e07e7a" /></radialGradient>
       </defs>
-      <P i={6}>
-      <path d="M74 62 V22 H92 V62Z" fill="#4f74c2" {...O()} />
-      </P>
       <g className="of-beat" style={{ transformOrigin: "120px 130px" }}>
+        {/* Linke Kammer: dicke Muskelwand außen, dunkler Innenraum */}
         <P i={0}>
-        <path d="M118 70 C150 62 186 88 182 128 C178 164 154 188 134 204 C108 192 72 160 68 124 C65 92 88 74 118 70Z" fill="url(#hz1)" {...O()} />
+          <path d="M138 96 C176 90 206 118 200 158 C194 188 160 206 140 210 C128 190 124 150 130 118Z" fill="url(#hzW)" {...O()} />
+          <path d="M142 112 C172 108 190 132 184 160 C178 184 158 196 146 200 C138 180 136 150 140 124Z" fill="url(#hzV)" {...O(1.2)} />
+          <path d="M160 128 q8 6 4 16 M170 150 q8 4 2 14 M152 160 q6 8 0 16 M178 138 q6 8 0 18" {...L} stroke="#5a0a14" strokeWidth="1.6" opacity="0.55" />
+          <circle cx="190" cy="150" r="2" fill="#f7c4bd" opacity="0.7" /><circle cx="194" cy="166" r="2.4" fill="#f7c4bd" opacity="0.7" /><circle cx="184" cy="180" r="2" fill="#f7c4bd" opacity="0.7" /><circle cx="176" cy="190" r="1.8" fill="#f7c4bd" opacity="0.7" /><circle cx="196" cy="136" r="1.8" fill="#f7c4bd" opacity="0.7" />
         </P>
+        {/* Rechte Kammer: nach links unten, innen blauviolett mit Trabekeln */}
         <P i={1}>
-        <path d="M70 118 C68 92 86 74 112 70 L118 74 C112 110 118 160 134 204 C110 192 74 162 70 118Z" fill="url(#hz2)" {...O()} />
+          <path d="M70 118 C86 104 118 108 130 118 C126 150 132 190 140 210 C112 206 78 184 70 150 C66 138 66 126 70 118Z" fill="url(#hzW)" {...O()} />
+          <path d="M80 126 C94 116 116 120 122 128 C120 156 124 184 130 198 C108 192 88 172 82 152 C80 142 78 134 80 126Z" fill="url(#hzBd)" {...O(1.2)} />
+          <path d="M92 150 q8 -4 14 2 M96 170 q8 -6 14 0 M88 138 q6 -4 10 0 M108 140 q4 8 -2 14 M104 182 q6 -4 10 0" {...L} stroke="#8c8ad0" strokeWidth="2.4" opacity="0.7" />
         </P>
+        {/* Rechter Vorhof */}
         <P i={2}>
-        <path d="M64 86 C56 70 70 56 90 58 C102 60 110 70 106 84 C96 98 72 100 64 86Z" fill="url(#hz3)" {...O()} />
+          <path d="M34 98 C30 128 42 156 62 164 C80 166 86 146 82 126 C80 108 84 92 72 84 C58 76 38 80 34 98Z" fill="url(#hzB)" {...O()} />
+          <path d="M42 104 C42 124 50 142 60 152" {...L} stroke="#fff" strokeWidth="3.4" opacity="0.2" />
+          <path d="M60 150 q8 6 16 2 M64 128 q8 2 12 8" {...L} stroke="#23265e" strokeWidth="1.8" opacity="0.5" />
         </P>
+        {/* Linker Vorhof mit Herzohr */}
         <P i={3}>
-        <path d="M170 70 C186 72 194 86 186 100 C178 96 172 84 170 70Z" fill="#9c2233" {...O()} />
+          <path d="M150 66 C176 60 202 72 204 94 C196 104 172 106 150 100 C140 90 142 74 150 66Z" fill="url(#hzA)" {...O()} />
+          <path d="M184 62 C196 52 214 56 212 68 C210 76 200 78 196 72Z" fill="#c0475a" {...O()} />
+          <path d="M200 86 C214 84 226 90 230 98 M198 76 C212 70 224 72 230 78" {...L} stroke="#d9626a" strokeWidth="6" />
         </P>
+        {/* Aortenbogen mit drei Abgängen */}
         <P i={4}>
-        <path d="M128 72 C122 42 140 22 164 26 C184 30 192 52 190 74 L178 74 C178 56 172 46 160 44 C148 44 142 56 144 74Z" fill="#e0303c" {...O()} />
+          <path d="M130 112 C132 84 124 56 104 42 C92 34 78 38 70 50" {...L} stroke="#c9505e" strokeWidth="21" />
+          <path d="M130 112 C132 84 124 56 104 42 C92 34 78 38 70 50" {...L} stroke="url(#hzAo)" strokeWidth="17" />
+          <path d="M127 104 C128 82 120 60 104 48" {...L} stroke="#fff" strokeWidth="3" opacity="0.28" />
+          <path d="M84 40 L82 14 M98 42 L100 16 M112 48 L122 24" {...L} stroke="#e98a8e" strokeWidth="9" />
+          <path d="M84 40 L82 14 M98 42 L100 16 M112 48 L122 24" {...L} stroke="#fff" strokeWidth="1.6" opacity="0.3" />
         </P>
+        {/* Lungenarterie (Truncus) */}
         <P i={5}>
-        <path d="M106 76 C98 54 110 38 124 40 C134 42 136 56 130 74Z" fill="#6b83cc" {...O()} />
-        <path d="M124 42 C138 34 160 32 170 38" {...L} stroke="#6b83cc" strokeWidth="7" />
+          <path d="M112 122 C106 96 112 70 130 58 C150 48 176 52 198 62" {...L} stroke="#3c3f8a" strokeWidth="20" />
+          <path d="M112 122 C106 96 112 70 130 58 C150 48 176 52 198 62" {...L} stroke="url(#hzB)" strokeWidth="16" />
+          <path d="M110 108 C107 90 114 72 130 62" {...L} stroke="#fff" strokeWidth="3" opacity="0.25" />
         </P>
-        <D>
-        <path d="M114 74 C108 112 116 162 134 204" {...L} stroke="#5a1020" strokeWidth="2" opacity="0.6" />
-        </D>
+        {/* Obere Hohlvene */}
+        <P i={6}>
+          <path d="M56 96 L56 34" {...L} stroke="#2a2d70" strokeWidth="21" />
+          <path d="M56 96 L56 34" {...L} stroke="#7479c4" strokeWidth="17" />
+          <ellipse cx="56" cy="32" rx="9" ry="4.5" fill="#23265e" opacity="0.55" />
+          <path d="M50 44 V88" {...L} stroke="#fff" strokeWidth="3" opacity="0.22" />
+        </P>
+        {/* Klappen: Mitral, Aorten, Pulmonal, Trikuspidal */}
+        <P i={8}>
+          <path d="M146 100 C152 92 164 92 172 100 C168 110 156 114 146 110Z" fill="url(#hzM)" {...O(1.2)} />
+          <path d="M150 108 L148 124 M158 110 L158 128 M166 106 L170 122" {...L} stroke="#f2d2c4" strokeWidth="1.2" />
+        </P>
+        <P i={9}>
+          <path d="M124 104 q4 -10 14 -8 q6 6 0 14 q-8 6 -14 -2Z" fill="url(#hzM)" {...O(1.2)} />
+          <path d="M128 100 q4 4 8 0 M128 108 q5 2 9 -1" {...L} stroke="#fff" strokeWidth="1.4" opacity="0.8" />
+        </P>
+        <P i={10}>
+          <path d="M104 116 q6 -10 22 -6 q2 10 -6 14 q-12 4 -16 -8Z" fill="url(#hzM)" {...O(1.2)} />
+          <path d="M108 114 q6 4 12 -2" {...L} stroke="#fff" strokeWidth="1.4" opacity="0.8" />
+        </P>
+        <P i={11}>
+          <path d="M70 134 C78 126 94 126 104 134 C98 146 80 148 70 142Z" fill="url(#hzM)" {...O(1.2)} />
+          <path d="M76 142 L82 158 M88 144 L96 160 M98 140 L108 152" {...L} stroke="#f2d2c4" strokeWidth="1.2" />
+        </P>
+        {/* Herzkranzgefäße auf der Oberfläche */}
         <P i={7}>
-        <path d="M122 78 C119 112 125 152 134 192" {...L} stroke="#ffb54d" strokeWidth="2.6" />
-        <path d="M100 84 C76 100 70 130 86 152" {...L} stroke="#ffb54d" strokeWidth="2.4" />
-        <path d="M150 84 C166 110 164 150 142 186" {...L} stroke="#5b7fd1" strokeWidth="2" opacity="0.8" />
+          <path d="M132 112 C128 140 132 176 140 204" {...L} stroke="#ffb54d" strokeWidth="2.8" />
+          <path d="M132 114 C112 122 92 118 78 134 C72 142 70 150 72 160" {...L} stroke="#ffb54d" strokeWidth="2.4" />
+          <path d="M146 112 C170 118 184 138 190 158" {...L} stroke="#ffb54d" strokeWidth="2.2" />
+          <path d="M132 150 C146 154 160 168 164 190" {...L} stroke="#ffb54d" strokeWidth="1.8" />
         </P>
-        <D>
-        <ellipse cx="148" cy="108" rx="14" ry="26" fill="#fff" opacity="0.14" transform="rotate(14 148 108)" />
-        </D>
       </g>
-      <path d="M10 212 H62 L70 200 L80 218 L90 204 L96 212 H230" {...L} className="of-draw" stroke="#e8545f" strokeWidth="2" />
+      <path d="M10 214 H62 L70 202 L80 220 L90 206 L96 214 H230" {...L} className="of-draw" stroke="#e8545f" strokeWidth="2" />
     </g>
   ),
   atmung: (
@@ -527,8 +592,9 @@ export function OrganFigure({ id, area }: { id: string; area: string }) {
       <Dialog open={open} onClose={() => setOpen(false)} title={title} wide>
         <div className="rounded-2xl bg-tealsoft p-2 text-teal">
           <PartCtx.Provider value={{ on: true, sel, vec: (i) => (apart ? parts[i]?.v ?? [0, 0] : [0, 0]), pick: (i) => setSel((s) => (s === i ? null : i)) }}>
-            <svg viewBox="-34 -22 308 264" className="mx-auto h-auto w-full max-w-md" role="img" aria-label={title} onClick={() => setSel(null)}>
-              {FIG[k]}
+            <svg viewBox="-34 -22 308 264" className="og-lit mx-auto h-auto w-full max-w-md" role="img" aria-label={title} onClick={() => setSel(null)}>
+              <Shade />
+              <g filter="url(#og3d)">{FIG[k]}</g>
             </svg>
           </PartCtx.Provider>
           <div className="mt-1 flex justify-center">
