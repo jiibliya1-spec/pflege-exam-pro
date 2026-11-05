@@ -6,6 +6,7 @@ import { Q_C } from "./qC";
 import { Q_D } from "./qD";
 import { Q_E } from "./qE";
 import { Q_F } from "./qF";
+import { Q_G } from "./qG";
 export type { QTuple, Level } from "./types";
 
 /** Arabische Namen und Akzentfarben der Themenbereiche (Schlüssel = Lektions-Bereich). */
@@ -45,7 +46,7 @@ const META: Record<string, { ar: string; color: string }> = {
 export interface QuizTopic { id: string; group: LessonGroup; de: string; ar: string; icon: string; color: string; qs: QTuple[] }
 
 const BANK: Record<string, QTuple[]> = {};
-for (const part of [Q_A, Q_B, Q_C, Q_D, Q_E, Q_F]) for (const k of Object.keys(part)) (BANK[k] ??= []).push(...part[k]);
+for (const part of [Q_A, Q_B, Q_C, Q_D, Q_E, Q_F, Q_G]) for (const k of Object.keys(part)) (BANK[k] ??= []).push(...part[k]);
 
 export const QUIZ_TOPICS: QuizTopic[] = (["krank", "ausbildung"] as LessonGroup[]).flatMap((g) =>
   AREAS[g].map((a) => ({ id: a.id, group: g, de: a.label, ar: META[a.id]?.ar ?? a.label, icon: a.icon, color: META[a.id]?.color ?? "#0b8f8f", qs: BANK[a.id] ?? [] })).filter((t) => t.qs.length > 0),
