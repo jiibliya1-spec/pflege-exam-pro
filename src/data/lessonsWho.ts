@@ -15,6 +15,8 @@ const F: Who[] = ["frauen"];
 const M: Who[] = ["maenner"];
 
 export const WHO: Record<string, Who[]> = {
+  // Schmerzmanagement und Kinderkrankheiten
+  "g8-fruehgeborene": K, "g8-kind-atemnot": K, "g8-kind-fieber-viral": K, "g8-kind-bauch": K, "g8-schmerz-kinder": K, "g8-schmerz-alter-demenz": E, "g8-zoster-fibromyalgie": A, "g8-phantom-stumpf": E, "g8-rueckenschmerz": E, "g8-schmerz-grundlagen": A, "g8-schmerz-erfassung": A, "g8-who-stufenschema": A, "g8-opioide": A, "g8-koanalgetika": A, "g8-schmerz-nichtmedikamentoes": A, "g8-akutschmerz-pca": A, "g8-chronischer-schmerz": A, "g8-tumorschmerz-palliativ": A, "g8-kopfschmerz": A, "g8-expertenstandard-schmerz": A,
   // Ergänzende Krankheitslehre
   "g7-obere-atemwege": A, "g7-kinderinfekte-atemweg": A, "g7-lunge-pleura": E, "g7-hormone-neben": E, "g7-herz-weitere": A, "g7-gefaess-gehirn": E, "g7-speiseroehre-magen": E, "g7-darm-leber-pankreas": E, "g7-niere-harnwege-weitere": A, "g7-maenner-weitere": M, "g7-frauen-entzuendung": F, "g7-frauen-tumoren": F, "g7-blut-lymphom": A, "g7-haut-weitere": A, "g7-virus-kinder-weitere": K, "g7-knochen-weitere": E,
   // Herz und Kreislauf
