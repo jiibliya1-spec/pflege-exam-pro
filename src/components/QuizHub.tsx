@@ -87,7 +87,7 @@ function TopicQuiz() {
   const scrollTop = () => topRef.current?.scrollIntoView({ block: "start" });
 
   const choose = (id: string, de: string, arName: string, color: string, topics: QuizTopic[]) => {
-    setSel({ id, de, ar: arName, color, topics }); setPhase("config"); scrollTop();
+    setSel({ id, de, ar: arName, color, topics }); setLen(Math.min(15, topics.reduce((n, t) => n + t.qs.length, 0))); setPhase("config"); scrollTop();
   };
 
   const begin = () => {
@@ -226,7 +226,7 @@ function TopicQuiz() {
       { m: 2, de: "Mittel", ar: "متوسط", dd: `Prüfungsniveau, Anwendung · ${byLevel[1]} Fragen`, da: `مستوى الامتحان والتطبيق · ${byLevel[1]} سؤال`, color: LEVELS[2].color },
       { m: 3, de: "Schwer", ar: "صعب", dd: `Fallbeispiele, Abwägen, Details · ${byLevel[2]} Fragen`, da: `حالات وموازنة وتفاصيل · ${byLevel[2]} سؤال`, color: LEVELS[3].color },
     ];
-    const lens = [8, 15, 25].filter((n) => n <= avail || n === 8);
+    const lens = Array.from(new Set([8, 15, 25].map((n) => Math.min(n, avail))));
     return (
       <div ref={topRef} className="qz-slide mx-auto max-w-2xl">
         <button type="button" onClick={() => setPhase("pick")} className="mb-3 inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg"><ArrowLeft className="h-4 w-4 rtl:rotate-180" /> {ar ? "المجالات" : "Themen"}</button>
