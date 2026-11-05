@@ -16,20 +16,8 @@ interface PageText {
   text: string;
 }
 
-let pagesCache: Promise<PageText[]> | null = null;
 export function loadPageTexts(): Promise<PageText[]> {
-  if (!pagesCache) {
-    pagesCache = fetch(asset("/data/pages.json"))
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json() as Promise<PageText[]>;
-      })
-      .catch(() => {
-        pagesCache = null;
-        return [];
-      });
-  }
-  return pagesCache;
+  return Promise.resolve([]);
 }
 
 export function SourceViewer({ embedded }: { embedded?: boolean }) {

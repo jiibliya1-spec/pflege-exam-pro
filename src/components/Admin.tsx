@@ -176,9 +176,9 @@ export function Admin() {
         ) : (
           <div className="flex flex-wrap gap-1.5">
             {badPages.map((p) => (
-              <Link key={p.pdfPage} href={`/source/?page=${p.pdfPage}`} className="rounded-lg border border-line px-2 py-1 text-xs hover:border-teal" title={`${p.status} · ${Math.round(p.meanConfidence)} %`}>
+              <span key={p.pdfPage} className="rounded-lg border border-line px-2 py-1 text-xs hover:border-teal" title={`${p.status} · ${Math.round(p.meanConfidence)} %`}>
                 S. {p.pdfPage} <span className="text-muted">({p.status === "low-confidence" ? "unsicher" : p.status === "empty" ? "leer" : p.status === "error" ? "Fehler" : p.status})</span>
-              </Link>
+              </span>
             ))}
           </div>
         )}
