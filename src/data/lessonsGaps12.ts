@@ -635,5 +635,70 @@ export const GAPS12_LESSONS: Lesson[] =
     ]
    }
   ]
+ },
+ {
+  "id": "g12-kinder-krankenhaus-charta",
+  "group": "ausbildung",
+  "area": "pflege",
+  "title": "Kinder im Krankenhaus: Rechte und kindgerechte Pflege (EACH-Charta)",
+  "icon": "Baby",
+  "ar": "يجمع الميثاق الأوروبي حقوق الطفل المريض: لا إدخال إلا عند الضرورة، وجود الأهل في كل وقت مع إمكانية المبيت، معلومات تناسب العمر، مشاركة في القرار، رعاية مع أطفال وبيئة للعب والتعلم، وطاقم مدرّب. ليس قانوناً لكنه معيار مهني.",
+  "blocks": [
+   {
+    "h": "Wozu gibt es die Charta?",
+    "li": [
+     "Die europäische Charta für Kinder im Krankenhaus (EACH-Charta) fasst Rechte zusammen, die kranke Kinder und ihre Familien haben. Sie ist kein Gesetz, dient aber als fachlicher Maßstab für kindgerechte Pflege."
+    ]
+   },
+   {
+    "h": "Die zentralen Aussagen",
+    "li": [
+     "Ein Kind soll nur dann stationär aufgenommen werden, wenn die nötige Behandlung zu Hause oder ambulant nicht möglich ist.",
+     "Eltern oder eine Bezugsperson dürfen jederzeit beim Kind sein, und die Klinik soll ihnen eine Übernachtung (Rooming-in) und Teilnahme an der Pflege ermöglichen.",
+     "Kinder und Eltern werden verständlich informiert und wirken an Entscheidungen mit. Das Kind wird vor unnötigen Untersuchungen und Behandlungen geschützt.",
+     "Kinder werden gemeinsam mit Kindern ähnlichen Alters betreut, nicht auf Erwachsenenstationen, und haben Möglichkeiten zum Spielen und Lernen.",
+     "Das Personal ist für die Bedürfnisse von Kindern und Familien geschult, die Betreuung erfolgt möglichst durch ein festes Team, und die Privatsphäre wird respektiert."
+    ]
+   },
+   {
+    "h": "Praxis in der Pflege",
+    "li": [
+     "Vor Eingriffen kindgerecht erklären, zum Beispiel mit Puppen, Bildern oder Spiel. Eltern bei Schmerz, Angst und Trennung einbeziehen und bei Maßnahmen wie Blutentnahme möglichst bei ihnen bleiben lassen.",
+     "Beispiel: Ein Vierjähriger weint vor der Blutentnahme. Richtig ist, ehrlich und einfach zu sagen, dass es kurz piekst, die Mutter dabeizulassen, Ablenkung zu bieten und nach dem Eingriff zu loben."
+    ]
+   }
+  ],
+  "diagrams": [
+   {
+    "kind": "tiles",
+    "title": "Die wichtigsten Rechte kranker Kinder",
+    "items": [
+     {
+      "t": "Eltern dabei",
+      "s": "Eltern oder eine Vertrauensperson dürfen jederzeit bleiben",
+      "icon": "Users",
+      "tone": "ok"
+     },
+     {
+      "t": "Verständlich informiert",
+      "s": "Erklärung passend zu Alter und Verständnis",
+      "icon": "MessageCircle",
+      "tone": "info"
+     },
+     {
+      "t": "Mitbestimmen",
+      "s": "Kind und Eltern entscheiden mit, unnötige Eingriffe vermeiden",
+      "icon": "ShieldCheck",
+      "tone": "ok"
+     },
+     {
+      "t": "Kindgerechte Umgebung",
+      "s": "Spielen, Lernen, Betreuung unter Kindern",
+      "icon": "Baby",
+      "tone": "info"
+     }
+    ]
+   }
+  ]
  }
 ];
