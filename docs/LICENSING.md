@@ -5,7 +5,7 @@ zuerst durch einen Cloudflare-Worker (`worker/index.ts`). Ohne gültigen Code we
 oder Datendateien ausgeliefert (auch nicht die Lerninhalte).
 
 ## So funktioniert es
-1. Kunde zahlt (Stripe) oder du erstellst den Code von Hand.
+1. Kunde zahlt per PayPal (Standard, so steht es in AGB, Datenschutz und auf der Website) und du erstellst den Code von Hand. Optional: automatische Codes über Stripe (siehe unten).
 2. Der Kunde bekommt per E-Mail einen Code: `PEP-XXXX-XXXX-XXXX`.
 3. Er öffnet die App, gibt den Code **einmal** ein. Das Gerät bleibt 30 Tage freigeschaltet (verlängert sich beim Benutzen).
 4. Ein Code gilt standardmäßig für **ein** Gerät (`MAX_DEVICES`=1). Jedes weitere Gerät wird abgelehnt, auch wenn der Code weitergegeben wird.
@@ -23,22 +23,24 @@ Cloudflare Dashboard > Workers & Pages > pflege-exam-pro > Settings > Variables 
 |---|---|---|
 | `SESSION_SECRET` | Secret | lange Zufallszeichenfolge (z. B. `openssl rand -hex 32`) |
 | `ADMIN_TOKEN` | Secret | zweite lange Zufallszeichenfolge, nur für dich |
-| `STRIPE_WEBHOOK_SECRET` | Secret | `whsec_...` aus Stripe (siehe Zahlung) |
+| `STRIPE_WEBHOOK_SECRET` | Secret | nur für die optionale Stripe-Automatik (`whsec_...`), sonst weglassen |
 | `RESEND_API_KEY` | Secret | API-Schlüssel von resend.com (E-Mail-Versand) |
 | `MAIL_FROM` | Variable | z. B. `Pflege Exam Pro <zugang@deine-domain.de>` (Domain bei Resend verifizieren) |
-| `BUY_URL` | Variable | dein Stripe Payment Link (wird auf der Code-Seite als Kauf-Button gezeigt) |
+| `BUY_URL` | Variable | dein PayPal.me-Link (wird auf der Code-Seite als Kauf-Button gezeigt, erst nach Haken bei der Zustimmung zum Widerrufsverlust) |
 
 Der KV-Speicher `LICENSES` wird beim Deploy automatisch angelegt.
 
-## Zahlung (Stripe)
+## Optional: Zahlung über Stripe (automatische Codes)
+Achtung: Wenn du Stripe statt PayPal verwendest, musst du vorher AGB (`src/app/agb`), Datenschutz (`src/app/datenschutz`), die Landingpage (`src/app/landing`) und den Kauf-Button in `worker/index.ts` von PayPal auf Stripe umstellen. Sonst widersprechen sich die Texte. Dasselbe gilt für die Zustimmung zum Widerrufsverlust: Sie muss im Stripe Checkout (Pflichtfeld/Checkbox) stehen.
+
 1. Stripe > Payment Links > Produkt anlegen (Preis nach Wahl). E-Mail-Erfassung bleibt aktiv.
 2. Stripe > Developers > Webhooks > Endpoint `https://DEINE-DOMAIN/api/stripe-webhook`,
    Events: `checkout.session.completed` und `checkout.session.async_payment_succeeded`. Das Signing Secret als `STRIPE_WEBHOOK_SECRET` eintragen.
 3. Nach der Zahlung erzeugt der Worker den Code und schickt ihn per E-Mail (doppelte Webhooks erzeugen keinen zweiten Code).
 
-Zahlung in bar, per Überweisung oder PayPal: Code von Hand erzeugen (nächster Abschnitt) und selbst senden.
+Zahlung in bar oder per Überweisung: Code von Hand erzeugen (nächster Abschnitt) und selbst senden.
 
-## Einfachster Weg: PayPal + Admin-Seite
+## Standardweg: PayPal + Admin-Seite
 1. In `BUY_URL` deinen PayPal.me-Link eintragen (z. B. `https://paypal.me/DEINNAME/29`). Er erscheint auf der Code-Seite.
 2. Kunde zahlt und schickt dir Name/E-Mail (oder du siehst es in PayPal).
 3. Du öffnest `https://DEINE-DOMAIN/admin/`, gibst den Admin-Token ein, tippst "Code erzeugen" und schickst den Code per WhatsApp oder E-Mail-Button.

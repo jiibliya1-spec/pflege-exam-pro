@@ -18,6 +18,29 @@ import { GlossText } from "./Gloss";
 import { TranslateLink } from "./QuestionView";
 import { Icon } from "./Icon";
 import { DiagramView } from "./Diagram";
+import { BUSINESS } from "@/data/business";
+import { CONTENT_STAND, reviewedDate } from "@/data/review";
+
+const META = {
+  de: { stand: "Stand der Inhalte", rev: "Fachlich geprüft", report: "Fehler melden", subj: "Fehler in Lektion" },
+  ar: { stand: "تاريخ المحتوى", rev: "روجع مهنياً", report: "بلّغ عن خطأ", subj: "خطأ في الدرس" },
+  en: { stand: "Content as of", rev: "Reviewed by a professional", report: "Report an error", subj: "Error in lesson" },
+} as const;
+
+/** Stand, Prüfdatum und Link zum Fehler melden (E-Mail an den Anbieter). */
+function LessonMeta({ id, title, lang }: { id: string; title: string; lang: string }) {
+  const m = META[lang === "de" ? "de" : lang === "ar" ? "ar" : "en"];
+  const rev = reviewedDate(id);
+  const mailOk = BUSINESS.email.includes("@") && !BUSINESS.email.startsWith("[");
+  const href = `mailto:${BUSINESS.email}?subject=${encodeURIComponent(`${m.subj}: ${id}`)}&body=${encodeURIComponent(`${title} (${id})\n\n`)}`;
+  return (
+    <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted">
+      <span>{m.stand}: {CONTENT_STAND}</span>
+      {rev && <span>{m.rev}: {rev}</span>}
+      {mailOk && <a href={href} className="font-medium text-teal underline">{m.report}</a>}
+    </div>
+  );
+}
 
 type Tab = LessonGroup | "modelle";
 const GROUPS: { id: Tab; icon: string }[] = [
@@ -226,6 +249,7 @@ export function LearnView() {
           <TranslateLink text={full} />
         </div>
       )}
+      <LessonMeta id={l.id} title={l.title} lang={lang} />
       <p className="mt-4 text-xs text-muted">{t("learn.note")}</p>
       <PrevNext label="Weitere Lektionen" prev={prev && prevLoc ? { title: prevLoc.title, href: `/learn/view/?id=${prev.id}` } : null} next={next && nextLoc ? { title: nextLoc.title, href: `/learn/view/?id=${next.id}` } : null} />
     </>

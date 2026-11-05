@@ -25,7 +25,7 @@ interface Env {
   MAIL_FROM?: string;
   /** Wie viele Geräte pro Code (Standard 1). Mehr Geräte = leichter weiterzugeben. */
   MAX_DEVICES?: string;
-  /** Wohin Interessenten zum Kaufen geschickt werden (z. B. Stripe Payment Link) */
+  /** Wohin Interessenten zum Kaufen geschickt werden (z. B. PayPal.me-Link) */
   BUY_URL?: string;
   /** "1" = Zugangsschranke vorübergehend aus (App offen für alle mit dem Link). Admin und API bleiben erreichbar. */
   FREE_ACCESS?: string;
@@ -78,7 +78,7 @@ async function issue(env: Env, code: string, device: string): Promise<string> {
 
 function activatePage(env: Env, next: string): Response {
   const buy = env.BUY_URL
-    ? `<div class="bx"><label class="ck"><input type="checkbox" id="wv"><span>Ich stimme ausdrücklich zu, dass der Zugang sofort nach Zahlung beginnt. Mir ist bekannt, dass ich dadurch mein <a href="/widerruf/">Widerrufsrecht</a> verliere, sobald ich den Zugangscode erhalten habe. Es gelten die <a href="/agb/">AGB</a>.</span></label><a class="buy" id="bu" href="${env.BUY_URL.replace(/"/g, "")}" aria-disabled="true">Jetzt zahlungspflichtig kaufen (PayPal) &middot; شراء الوصول</a><p class="sm">Nach der Zahlung schickt dir der Anbieter den Zugangscode per E-Mail. Bitte gib bei PayPal im Hinweis deine E-Mail-Adresse an.</p></div>`
+    ? `<div class="bx"><label class="ck"><input type="checkbox" id="wv"><span>Ich stimme ausdrücklich zu, dass der Zugang sofort nach Zahlung beginnt. Mir ist bekannt, dass ich dadurch mein <a href="/widerruf/">Widerrufsrecht</a> verliere, sobald ich den Zugangscode erhalten habe. Es gelten die <a href="/agb/">AGB</a>.</span></label><a class="buy" id="bu" href="#" data-href="${env.BUY_URL.replace(/"/g, "")}" aria-disabled="true" tabindex="-1">Jetzt zahlungspflichtig kaufen (PayPal) &middot; شراء الوصول</a><p class="sm">Nach der Zahlung schickt dir der Anbieter den Zugangscode per E-Mail. Bitte gib bei PayPal im Hinweis deine E-Mail-Adresse an.</p></div>`
     : "";
   const legal = `<p class="lg"><a href="/impressum/">Impressum</a> &middot; <a href="/datenschutz/">Datenschutz</a> &middot; <a href="/agb/">AGB</a> &middot; <a href="/widerruf/">Widerruf</a></p>`;
   const html = `<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -103,7 +103,7 @@ ${legal}
 </main>
 <script>
 var f=document.getElementById("f"),c=document.getElementById("c"),b=document.getElementById("b"),e=document.getElementById("e");
-var next=${JSON.stringify(next)};var wv=document.getElementById("wv"),bu=document.getElementById("bu");if(wv&&bu){wv.addEventListener("change",function(){bu.setAttribute("aria-disabled",wv.checked?"false":"true")})}
+var next=${JSON.stringify(next)};var wv=document.getElementById("wv"),bu=document.getElementById("bu");if(wv&&bu){wv.addEventListener("change",function(){bu.setAttribute("aria-disabled",wv.checked?"false":"true");bu.setAttribute("tabindex",wv.checked?"0":"-1");bu.setAttribute("href",wv.checked?bu.getAttribute("data-href"):"#")})}
 f.addEventListener("submit",function(ev){ev.preventDefault();e.textContent="";b.disabled=true;
 fetch("/api/activate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({code:c.value}),credentials:"same-origin"})
 .then(function(r){return r.json().then(function(j){return[r.status,j]})})
@@ -187,7 +187,7 @@ async function authorize(req: Request, env: Env, checkDb: boolean): Promise<{ ok
 
 async function sendMail(env: Env, to: string, code: string, appUrl: string): Promise<boolean> {
   if (!env.RESEND_API_KEY || !env.MAIL_FROM) return false;
-  const text = `Danke für deinen Kauf von Pflege Exam Pro.\n\nDein persönlicher Zugangscode:\n\n    ${code}\n\nApp öffnen: ${appUrl}/activate/\nDen Code einmal eingeben, danach bleibt dein Gerät freigeschaltet. Der Code ist nur für dich und auf ${env.MAX_DEVICES || 1} Gerät(e) begrenzt. Wenn du den Code weitergibst, wird er gesperrt. Neues Handy? Schreib uns, dann setzen wir ihn zurück.\n\n---\nشكراً لشرائك Pflege Exam Pro.\nرمز الوصول الخاص بك: ${code}\nافتح التطبيق: ${appUrl}/activate/\nأدخل الرمز مرة واحدة فقط. الرمز شخصي ولا يُشارك، ويعمل على جهاز واحد. إذا غيّرت هاتفك راسلنا.`;
+  const text = `Danke für deinen Kauf von Pflege Exam Pro.\n\nDein persönlicher Zugangscode:\n\n    ${code}\n\nApp öffnen: ${appUrl}/activate/\nDen Code einmal eingeben, danach bleibt dein Gerät freigeschaltet. Der Code ist nur für dich und auf ${env.MAX_DEVICES || 1} Gerät(e) begrenzt. Wenn du den Code weitergibst, wird er gesperrt. Neues Handy? Schreib uns, dann setzen wir ihn zurück.\n\nVertragsbestätigung: Du hast vor dem Kauf ausdrücklich zugestimmt, dass der Zugang sofort beginnt, und bestätigt, dass dein Widerrufsrecht erlischt, sobald du diesen Zugangscode erhalten hast (§ 356 Abs. 5 BGB). Widerrufsbelehrung: ${appUrl}/widerruf/ · AGB: ${appUrl}/agb/ · Impressum: ${appUrl}/impressum/\n\n---\nشكراً لشرائك Pflege Exam Pro.\nرمز الوصول الخاص بك: ${code}\nافتح التطبيق: ${appUrl}/activate/\nأدخل الرمز مرة واحدة فقط. الرمز شخصي ولا يُشارك، ويعمل على جهاز واحد. إذا غيّرت هاتفك راسلنا.`;
   const r = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { authorization: `Bearer ${env.RESEND_API_KEY}`, "content-type": "application/json" },
