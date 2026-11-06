@@ -29,7 +29,7 @@ const FAQ = [
   { q: "Wie bekomme ich Zugang?", a: "Du bezahlst per PayPal und bekommst deinen persönlichen Zugangscode per E-Mail, in der Regel innerhalb von 24 Stunden. Den Code gibst du einmal ein, danach bleibt dein Gerät freigeschaltet." },
   { q: "Auf wie vielen Geräten kann ich lernen?", a: "Der Code gilt für ein Gerät. Bei einem Gerätewechsel setzen wir ihn auf Anfrage zurück." },
   { q: "Sind das die echten Prüfungsaufgaben?", a: "Nein. Die Fälle, Fragen und Musterlösungen sind Übungsmaterial im Prüfungsformat und keine amtlichen Originalaufgaben. Sie ersetzen weder Unterricht noch Lehrbuch." },
-  { q: "Gibt es eine Bestehensgarantie?", a: "Nein. Wir können dir den Weg erleichtern, aber das Lernen und die Prüfung bleiben deine Leistung." },
+  { q: "Gibt es eine Bestehensgarantie?", a: "Nein. Die App unterstützt dein Lernen; die Prüfung legst du selbst ab." },
   { q: "Gibt es die Inhalte auch auf Arabisch?", a: "Ja. Lektionen und viele Inhalte sind auf Deutsch und Arabisch verfügbar, damit du Fachbegriffe in beiden Sprachen verstehst." },
 ];
 
@@ -61,9 +61,9 @@ export default function Page() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-0 pt-12 md:grid-cols-2 md:pt-20">
           <div className="pb-10 md:pb-20">
             <p className="mb-4 inline-block rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-teal-200">Für die Prüfung zur Pflegefachfrau / zum Pflegefachmann</p>
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">Bestehe deine Pflegeprüfung. Mit System.</h1>
+            <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">Pflegeprüfung bestehen: lernen mit Plan</h1>
             <p className="mt-5 text-lg text-white/85">
-              Lektionen, Fallbeispiele, Prüfungsfragen mit Erwartungshorizont und Karteikarten. Alles an einem Ort, auf Deutsch und Arabisch.
+              Lektionen, Fallbeispiele, Prüfungsfragen mit Erwartungshorizont und Karteikarten, jeweils auf Deutsch und Arabisch.
             </p>
             <p dir="rtl" lang="ar" className="mt-3 text-base text-teal-100">حضّر لامتحان التمريض بذكاء: دروس، حالات سريرية وأسئلة بالألمانية والعربية.</p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -92,8 +92,8 @@ export default function Page() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 pb-6">
-        <h2 className="text-center text-3xl font-extrabold">Alles, was du zum Lernen brauchst</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">Von der ersten Lektion bis zur Probeprüfung: Du lernst Schritt für Schritt und siehst, wo du stehst.</p>
+        <h2 className="text-center text-3xl font-extrabold">Lernmaterial im Überblick</h2>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">Du arbeitest dich von der ersten Lektion bis zur Probeprüfung vor, und die Fortschrittsanzeige zeigt dir, wo du stehst.</p>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f) => (
             <article key={f.t} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
@@ -110,8 +110,8 @@ export default function Page() {
       <section className="mx-auto max-w-6xl px-5 py-14">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-extrabold">Direkt aus der App</h2>
-            <p className="mt-3 text-slate-600">Klare Oberfläche, große Schrift, bedienbar mit einer Hand. So bleibt dein Kopf beim Lernen und nicht bei der Technik.</p>
+            <h2 className="text-3xl font-extrabold">Die App im Einsatz</h2>
+            <p className="mt-3 text-slate-600">Die Oberfläche hat große Schrift und lässt sich mit einer Hand bedienen.</p>
             <ul className="mt-6 space-y-3 text-[15px]">
               {["Lektionen nach Fachgebiet und Patientengruppe", "Fälle mit Szene, Aufgaben und Musterlösung", "Quiz mit Feedback oder Probeprüfung mit Zeitlimit", "Fortschritt und Fehlertrainer im Überblick"].map((x) => (
                 <li key={x} className="flex gap-3"><span className="mt-1 h-5 w-5 flex-none rounded-full bg-teal-500/15 text-center text-xs font-bold leading-5 text-[#0b8f8f]">✓</span>{x}</li>
@@ -129,8 +129,8 @@ export default function Page() {
       <section className="bg-[#0b2a4a] py-14 text-white">
         <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-extrabold">Deutsch lernen. Arabisch verstehen.</h2>
-            <p className="mt-3 text-white/80">Fachbegriffe sind schwer genug. Deshalb stehen Lektionen und viele Inhalte in zwei Sprachen nebeneinander, damit du Zusammenhänge sicher verstehst und die deutschen Begriffe für die Prüfung lernst.</p>
+            <h2 className="text-3xl font-extrabold">Deutsche Fachbegriffe, arabische Erklärung</h2>
+            <p className="mt-3 text-white/80">Lektionen und viele Inhalte stehen in zwei Sprachen nebeneinander: Auf Arabisch verstehst du den Zusammenhang, auf Deutsch lernst du die Begriffe, die in der Prüfung gefragt sind.</p>
           </div>
           <div className="rounded-2xl bg-white/10 p-6 ring-1 ring-white/15">
             <p className="text-lg font-bold">Gerötete Stellen massieren wir nicht.</p>
@@ -148,8 +148,8 @@ export default function Page() {
             </video>
           </div>
           <div>
-            <h2 className="text-3xl font-extrabold">Erklärvideos zum Mitlernen</h2>
-            <p className="mt-3 text-slate-600">Wichtige Themen als kurze Videos mit Untertiteln auf Deutsch und Arabisch. Folge uns auf Instagram und lerne zwischendurch mit.</p>
+            <h2 className="text-3xl font-extrabold">Erklärvideos</h2>
+            <p className="mt-3 text-slate-600">Kurze Videos zu wichtigen Themen, mit Untertiteln auf Deutsch und Arabisch. Du findest sie auch auf Instagram.</p>
           </div>
         </div>
       </section>
