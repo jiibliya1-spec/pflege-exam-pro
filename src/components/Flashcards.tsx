@@ -4,6 +4,7 @@ import { RichText } from "./RichText";
 import { useMemo, useState } from "react";
 import { Layers, RotateCw } from "lucide-react";
 import { useStore } from "@/lib/store";
+import { useT } from "@/lib/i18n";
 import { useBank } from "@/lib/bank";
 import { useUserContext } from "@/lib/hooks";
 import { nextSrs } from "@/lib/srs";
@@ -16,6 +17,7 @@ import { QuestionMeta } from "./QuestionView";
  */
 export function Flashcards() {
   const bank = useBank();
+  const t = useT();
   const { state, dispatch } = useStore();
   const ctx = useUserContext();
   const [deck, setDeck] = useState("all");
@@ -36,8 +38,8 @@ export function Flashcards() {
   if (bank.status !== "ready" || withAnswer === 0)
     return (
       <>
-        <PageHeader title="Karteikarten" />
-        <EmptyState icon={<Layers className="h-6 w-6" />} title="Keine Karteikarten möglich">Karteikarten entstehen nur aus Aufgaben mit extrahierter Musterlösung. Aktuell gibt es keine.</EmptyState>
+        <PageHeader title={t("fc.title")} />
+        <EmptyState icon={<Layers className="h-6 w-6" />} title={t("fc.none.title")}>{t("fc.none.text")}</EmptyState>
       </>
     );
 
@@ -53,13 +55,13 @@ export function Flashcards() {
 
   return (
     <>
-      <PageHeader title="Karteikarten" subtitle="Vorderseite: Originalaufgabe · Rückseite: Musterlösung aus dem Buch. Es werden keine eigenen Zusammenfassungen erzeugt." crumbs={[{ label: "Start", href: "/" }, { label: "Karteikarten" }]} />
+      <PageHeader title={t("fc.title")} subtitle={t("fc.sub")} crumbs={[{ label: t("fc.home"), href: "/" }, { label: t("fc.title") }]} />
       <div className="mb-4 max-w-sm">
-        <Field label="Stapel" htmlFor="deck">
+        <Field label={t("fc.deck")} htmlFor="deck">
           <Select id="deck" value={deck} onChange={(e) => { setDeck(e.target.value); setI(0); setFlipped(false); }}>
-            <option value="all">Alle ({withAnswer})</option>
-            <option value="due">Fällige Wiederholungen</option>
-            <option value="bookmarks">Lesezeichen</option>
+            <option value="all">{t("fc.deck.all")} ({withAnswer})</option>
+            <option value="due">{t("fc.deck.due")}</option>
+            <option value="bookmarks">{t("fc.deck.bookmarks")}</option>
             {bank.cases.filter((c) => bank.questions.some((q) => q.caseId === c.id && q.modelAnswer?.text?.trim())).map((c) => (
               <option key={c.id} value={`case:${c.id}`}>{c.title}</option>
             ))}
@@ -67,16 +69,16 @@ export function Flashcards() {
         </Field>
       </div>
       {cards.length === 0 || !card ? (
-        <EmptyState title="Dieser Stapel ist leer">Wählen Sie einen anderen Stapel.</EmptyState>
+        <EmptyState title={t("fc.empty.title")}>{t("fc.empty.text")}</EmptyState>
       ) : (
         <div className="mx-auto max-w-2xl">
           <div className="mb-2 flex items-center justify-between text-sm text-muted">
             <span>
-              Karte {Math.min(i, cards.length - 1) + 1} von {cards.length}
+              {t("fc.card", Math.min(i, cards.length - 1) + 1)} {t("fc.of")} {cards.length}
             </span>
-            <span>{seen} bewertet in dieser Runde</span>
+            <span>{t("fc.rated", seen)}</span>
           </div>
-          <Progress value={((Math.min(i, cards.length - 1) + 1) / cards.length) * 100} label="Stapelfortschritt" className="mb-4" />
+          <Progress value={((Math.min(i, cards.length - 1) + 1) / cards.length) * 100} label={t("fc.progress")} className="mb-4" />
           <Card className="min-h-72 space-y-4">
             <QuestionMeta q={card} />
             {!flipped ? (
@@ -87,7 +89,7 @@ export function Flashcards() {
             ) : (
               <div>
                 <div className="mb-2 flex items-center gap-2">
-                  <span className="font-semibold">Musterlösung</span>
+                  <span className="font-semibold">{t("fc.answer")}</span>
                 </div>
                 <RichText text={card.modelAnswer?.text ?? ""} className="text-sm" />
               </div>
@@ -96,16 +98,16 @@ export function Flashcards() {
           <div className="mt-4 flex flex-wrap justify-center gap-3">
             {!flipped ? (
               <Button size="lg" onClick={() => setFlipped(true)}>
-                <RotateCw className="h-4 w-4" aria-hidden /> Antwort zeigen
+                <RotateCw className="h-4 w-4" aria-hidden /> {t("fc.show")}
               </Button>
             ) : (
               <>
-                <Button size="lg" variant="danger" onClick={() => rate(false)}>Nicht gewusst</Button>
-                <Button size="lg" variant="teal" onClick={() => rate(true)}>Gewusst</Button>
+                <Button size="lg" variant="danger" onClick={() => rate(false)}>{t("fc.unknown")}</Button>
+                <Button size="lg" variant="teal" onClick={() => rate(true)}>{t("fc.known")}</Button>
               </>
             )}
           </div>
-          <div className="mt-4"><Notice tone="teal">Ihre Bewertung („Gewusst“ / „Nicht gewusst“) steuert den Wiederholungsplan (Leitner-Boxen).</Notice></div>
+          <div className="mt-4"><Notice tone="teal">{t("fc.hint")}</Notice></div>
         </div>
       )}
     </>
