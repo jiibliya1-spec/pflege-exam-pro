@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
+  ArrowLeft,
   BarChart3,
   BookOpen,
   Box,
@@ -142,6 +143,11 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className="flex min-w-0 flex-1 flex-col">
         {/* Topbar */}
         <div className="no-print sticky top-0 z-30 flex items-center gap-2 border-b border-line bg-surface/90 px-4 pb-2.5 pt-[calc(0.625rem+env(safe-area-inset-top))] backdrop-blur md:px-8">
+          {pathname !== "/" && (
+            <button className="rounded-lg p-2 hover:bg-surface2" aria-label="Zurück" data-testid="nav-back" onClick={() => (window.history.length > 1 ? router.back() : router.push("/"))}>
+              <ArrowLeft className="h-5 w-5 rtl:rotate-180" />
+            </button>
+          )}
           <button className="rounded-lg p-2 hover:bg-surface2 md:hidden" aria-label="Menü öffnen" onClick={() => setMenuOpen(true)}>
             <Menu className="h-5 w-5" />
           </button>

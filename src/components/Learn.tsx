@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { OrganFigure } from "./OrganFigure";
 const Lesson3D = dynamic(() => import("./Lesson3D").then((m) => m.Lesson3D), { ssr: false });
+import { LESSON_ORGANS } from "@/data/lessonOrgans";
 import { DiseaseProfile } from "./DiseaseProfile";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -257,8 +258,7 @@ export function LearnView() {
         </div>
       )}
       <div dir={german ? "ltr" : dir} lang={german ? "de" : lang}>
-        <Lesson3D id={l.id} />
-        {l.group === "krank" && <OrganFigure id={l.id} area={l.area} />}
+        {LESSON_ORGANS[l.id] ? <Lesson3D id={l.id} /> : l.group === "krank" ? <OrganFigure id={l.id} area={l.area} /> : null}
         {l.group === "krank" && <DiseaseProfile id={l.id} />}
         {loc.diagrams?.length ? (
           <div className="mb-4 space-y-4">

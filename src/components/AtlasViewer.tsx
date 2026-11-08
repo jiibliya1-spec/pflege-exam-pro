@@ -66,7 +66,7 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 type VMesh = THREE.Mesh<THREE.BufferGeometry, THREE.MeshStandardMaterial>;
 interface Item { id: string; layer: string; mesh: VMesh; dir: THREE.Vector3; base: number }
 
-export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: { cfg: AtlasConfig; extra?: ReactNode; compact?: boolean; initialSel?: string | null }) {
+export function AtlasViewer({ cfg, extra, compact = false, initialSel = null, only }: { cfg: AtlasConfig; extra?: ReactNode; compact?: boolean; initialSel?: string | null; only?: string[] }) {
   const ITEMS = cfg.items;
   const lang = useLang();
   const T = (r: Row) => tx(r, lang);
@@ -74,7 +74,10 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: 
   const P = (p: [string, string]) => (isAr ? p[1] : p[0]);
   const nm = (i: { de: string; ar: string }) => (isAr ? i.ar : i.de);
   const dirAttr = isAr ? "rtl" : "ltr";
-  const labelRef = useRef<HTMLDivElement>(null);
+  const labelEls = useRef<Record<string, HTMLDivElement | null>>({});
+  const onlyRef = useRef(only);
+  onlyRef.current = only;
+  const labelIds = useMemo(() => (only && only.length <= 6 ? only : []), [only]);
   const host = useRef<HTMLDivElement>(null);
   const items = useRef<Item[]>([]);
   const api = useRef<{ view: (v: string) => void; reset: () => void; focusOn: (ids: string[] | null) => void } | null>(null);
@@ -106,7 +109,8 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: 
   const apply = useCallback(() => {
     const s = state.current;
     for (const it of items.current) {
-      const hidden = (s.hiddenLayers.has(it.layer) && !s.focus?.has(it.id) && s.sel !== it.id) || s.hiddenIds.has(it.id) || (s.isolate && s.sel !== null && s.sel !== it.id);
+      const on = onlyRef.current;
+      const hidden = on ? !on.includes(it.id) || s.hiddenIds.has(it.id) : (s.hiddenLayers.has(it.layer) && !s.focus?.has(it.id) && s.sel !== it.id) || s.hiddenIds.has(it.id) || (s.isolate && s.sel !== null && s.sel !== it.id);
       it.mesh.visible = !hidden;
       const m = it.mesh.material;
       const dim = !s.focus && s.sel !== null && s.sel !== it.id;
@@ -258,10 +262,9 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: 
         if (controls.target.distanceTo(goal.t) < 0.001 && Math.abs(nd - goal.d) < 0.002) goal.on = false;
       }
       controls.update();
-      const lb = labelRef.current;
-      if (lb) {
-        const sid = state.current.sel;
-        const it = sid ? items.current.find((x) => x.id === sid) : null;
+      for (const [lid, lb] of Object.entries(labelEls.current)) {
+        if (!lb) continue;
+        const it = items.current.find((x) => x.id === lid);
         if (it && it.mesh.visible) {
           const c = it.mesh.geometry.boundingBox!.getCenter(new THREE.Vector3()).add(it.mesh.position).project(camera);
           const w = el.clientWidth, h = el.clientHeight;
@@ -298,9 +301,10 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: 
   useEffect(() => {
     if (status !== "ready") return;
     if (sel) api.current?.focusOn([sel]);
+    else if (only?.length) api.current?.focusOn(only);
     else if (prevSel.current) api.current?.focusOn(null);
     prevSel.current = sel;
-  }, [sel, status]);
+  }, [sel, status, only]);
 
   useEffect(() => {
     if (!playing || !path) return;
@@ -311,7 +315,7 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: 
   const toggleLayer = (id: string) => setHiddenLayers((p) => { const n = new Set(p); n.has(id) ? n.delete(id) : n.add(id); return n; });
   const toggleId = (id: string) => setHiddenIds((p) => { const n = new Set(p); n.has(id) ? n.delete(id) : n.add(id); return n; });
   const info = sel ? ITEMS[sel] : null;
-  const grouped = useMemo(() => cfg.layers.map((l) => ({ l, ids: Object.keys(ITEMS).filter((id) => cfg.layerOf(id) === l.id) })), [cfg, ITEMS]);
+  const grouped = useMemo(() => cfg.layers.map((l) => ({ l, ids: Object.keys(ITEMS).filter((id) => cfg.layerOf(id) === l.id && (!only || only.includes(id))) })).filter((g) => g.ids.length > 0), [cfg, ITEMS, only]);
 
   return (
     <div className="grid grid-cols-[minmax(0,1fr)] gap-4 lg:grid-cols-[minmax(0,1fr)_380px]" data-testid={`atlas-${cfg.key}`}>
@@ -321,7 +325,9 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: 
           {status === "loading" && <div role="status" className="absolute inset-0 grid place-items-center text-sm text-white/80">{T(U.loading)}</div>}
           {status === "nowebgl" && <div role="alert" className="absolute inset-0 grid place-items-center p-6 text-center text-sm text-white/90">{T(U.nowebgl)}</div>}
           {status === "error" && <div role="alert" className="absolute inset-0 grid place-items-center p-6 text-center text-sm text-white/90">3D-Modell konnte nicht geladen werden.</div>}
-          <div ref={labelRef} className="pointer-events-none absolute left-0 top-0 hidden whitespace-nowrap rounded-md bg-teal px-2 py-0.5 text-xs font-semibold text-white shadow dark:text-[#04222a]" data-testid="atlas-label">{info ? nm(info) : ""}</div>
+          {[...new Set([...labelIds, ...(sel ? [sel] : [])])].map((lid) => (
+            <div key={lid} ref={(e) => { labelEls.current[lid] = e; }} className="pointer-events-none absolute left-0 top-0 hidden whitespace-nowrap rounded-md bg-teal px-2 py-0.5 text-xs font-semibold text-white shadow dark:text-[#04222a]" data-testid="atlas-label">{ITEMS[lid] ? nm(ITEMS[lid]) : ""}</div>
+          ))}
           {info && sel && (
             <div className="absolute left-3 top-3 max-w-[70%] rounded-lg bg-black/55 px-3 py-1.5 text-white backdrop-blur" data-testid="atlas-chip" dir={dirAttr}>
               <div className="text-sm font-semibold">{nm(info)}</div>
@@ -346,10 +352,10 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: 
             <span className="mb-1 block text-xs font-semibold text-muted">{T(U.explode)}: {Math.round(explode * 100)} %</span>
             <input type="range" min={0} max={1} step={0.01} value={explode} onChange={(e) => setExplode(+e.target.value)} className="w-full" aria-label={T(U.explode)} data-testid="atlas-explode" />
           </label>
-          <div className="space-y-1.5 text-sm">
+          {!only && <div className="space-y-1.5 text-sm">
             <label className="flex min-h-9 items-center gap-2"><input type="checkbox" checked={inner} onChange={(e) => setInner(e.target.checked)} data-testid="atlas-inner" />{T(cfg.innerLabel)}</label>
             <label className="flex min-h-9 items-center gap-2"><input type="checkbox" checked={isolate} onChange={(e) => setIsolate(e.target.checked)} />{T(U.isolate)}</label>
-          </div>
+          </div>}
           <div className="space-y-1.5 text-sm">
             <label className="flex min-h-9 items-center gap-2"><input type="checkbox" checked={clip} onChange={(e) => setClip(e.target.checked)} data-testid="atlas-clip" /><Scissors className="h-4 w-4" />{T(U.section)}</label>
             {clip && (
@@ -365,7 +371,7 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: 
           </div>
         </div>
 
-        <div className="rounded-xl border border-line bg-surface p-3">
+        {!only && <div className="rounded-xl border border-line bg-surface p-3">
           <div className="mb-2 text-xs font-semibold text-muted">{T(U.layers)}</div>
           <div className="flex flex-wrap gap-1.5">
             {cfg.layers.map((l) => (
@@ -374,8 +380,8 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: 
               </button>
             ))}
           </div>
-        </div>
-        {cfg.paths && cfg.paths.length > 0 && (
+        </div>}
+        {!only && cfg.paths && cfg.paths.length > 0 && (
           <div className="rounded-xl border border-line bg-surface p-3" data-testid="atlas-paths">
             <div className="mb-2 text-xs font-semibold text-muted">{T(U.paths)}</div>
             <div className="flex flex-wrap gap-1.5">
@@ -440,7 +446,7 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: 
         </div>
 
         <div className="rounded-xl border border-line bg-surface p-3">
-          <div className="mb-2 text-xs font-semibold text-muted">{T(U.structures)} ({Object.keys(ITEMS).length})</div>
+          <div className="mb-2 text-xs font-semibold text-muted">{T(U.structures)} ({only ? only.length : Object.keys(ITEMS).length})</div>
           <div className="max-h-[360px] space-y-3 overflow-auto pr-1">
             {grouped.map(({ l, ids }) => (
               <div key={l.id}>
