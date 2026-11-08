@@ -50,3 +50,6 @@ Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 18 benannte Str
 
 ## blood.glb (Blut und Immunsystem)
 Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über ashemag/human-atlas. Bearbeitet mit tools/extract-model.mjs (Definition tools/defs/blood.json): Elemente zusammengefasst, Koordinaten verschoben, keine Vertices verändert. Enthalten: Milz, Thymus, große Arterien und Venen, Knochen als Sitz des roten Knochenmarks, Hautkontur. Nicht enthalten: Blutzellen, Knochenmark, Lymphknoten (als beschriftetes Schema dargestellt). Herkunft der Elemente: blood.provenance.json.
+
+## breast.glb
+Eigenes schematisches Lehrmodell (Brust, gesund und mit Karzinom), prozedural aus Grundformen erzeugt mit tools/build-breast.mjs. Nicht aus BodyParts3D, keine Fremdlizenz.

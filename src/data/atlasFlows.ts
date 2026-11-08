@@ -211,5 +211,11 @@ export const DISEASE_STORIES: Record<string, AtlasPath> = {
     S("Zu wenig Sauerstoff", "نقص الأكسجين", "Das Blut transportiert weniger Sauerstoff: Blässe, Müdigkeit, Atemnot bei Belastung, schneller Puls.", "ينقل الدم أكسجيناً أقل: شحوب وتعب وضيق نفس عند الجهد وتسرع النبض.", ["sternum-ribs", "pelvis"]),
     S("Pflege", "التمريض", "Ursache klären, Eisen richtig einnehmen, Belastung dosieren, Sturzprophylaxe.", "معرفة السبب وتناول الحديد بشكل صحيح وتنظيم الجهد ووقاية من السقوط.", ["sternum-ribs", "vertebral-column", "pelvis", "femur-humerus"]),
   ]),
+  mammakarzinom: story("mammakarzinom", "Was passiert beim Brustkrebs?", "ماذا يحدث في سرطان الثدي؟", I0, [
+    S("Entstehung", "النشوء", "Zellen der Milchgänge oder Läppchen vermehren sich unkontrolliert; es entsteht ein Knoten, meist im oberen äußeren Quadranten.", "تتكاثر خلايا القنوات أو الفصيصات دون ضبط فتتكون عقدة، غالباً في الربع العلوي الخارجي.", ["tumor", "lobes"]),
+    S("Wachstum", "النمو", "Der Tumor wächst in Gänge, Fettgewebe und Haut: Einziehung der Haut oder Brustwarze, Orangenhaut; er kann an der Brustwand fixieren.", "ينمو الورم في القنوات والدهن والجلد: انسحاب الجلد أو الحلمة وقشرة البرتقال؛ وقد يثبت على جدار الصدر.", ["tumor", "skin", "nipple"]),
+    S("Lymphknoten", "العقد اللمفاوية", "Über die Lymphe erreichen Krebszellen zuerst die Achsellymphknoten; sie werden vergrößert und derb (Wächterlymphknoten wird bei der Operation untersucht).", "عبر اللمف تصل الخلايا السرطانية أولاً إلى عقد الإبط فتتضخم وتصلب (وتُفحص العقدة الحارسة أثناء العملية).", ["tumor", "metastatic-nodes"]),
+    S("Pflege", "التمريض", "Nach Operation Wunde und Drainage beobachten, Armlymphödem vorbeugen (Verletzungen und Spritzen am Arm vermeiden), psychisch begleiten, zur Früherkennung ermutigen.", "بعد العملية مراقبة الجرح والمصرف والوقاية من الوذمة اللمفية (تجنب الجروح والحقن في الذراع) والدعم النفسي والتشجيع على الكشف المبكر.", ["metastatic-nodes", "axillary-nodes"]),
+  ]),
 };
 function AORTA_IDS() { return ["ascending-aorta", "aortic-arch", "descending-thoracic-aorta"]; }

@@ -2,7 +2,7 @@
  * Welche Organe/Strukturen im 3D-Modell zu einer Krankheits-Lektion gezeigt werden (nur das betroffene Organ, nicht das ganze System).
  * Schlüssel: Lektions-ID. Werte: Atlas-key und Strukturnamen aus dem jeweiligen BodyParts3D-Modell.
  */
-export interface LessonOrgan { atlas: string; ids: string[] }
+export interface LessonOrgan { atlas: string; ids: string[]; /** zusätzlich: gesunde Vergleichsansicht (eigener Viewer vor dem erkrankten Organ) */ healthy?: string[] }
 const BR = ["trachea", "right-main-bronchus", "left-main-bronchus", "ru-bronchi", "rm-bronchi", "rl-bronchi", "lu-bronchi", "ll-bronchi"];
 const KID = ["right-kidney", "left-kidney"];
 const LIVER = ["liver-caudate", "liver-segments-2-3", "liver-segment-4", "liver-segment-5", "liver-segment-6", "liver-segment-8"];
@@ -15,6 +15,7 @@ const BONES_LEG = ["femur", "tibia", "fibula", "patella"];
 const R = (atlas: string, ids: string[]): LessonOrgan => ({ atlas, ids });
 
 export const LESSON_ORGANS: Record<string, LessonOrgan> = {
+  mammakarzinom: { atlas: "breast", ids: ["skin", "fat", "nipple", "lobes", "ducts", "pectoralis-major", "ribs", "axillary-nodes", "tumor", "metastatic-nodes"], healthy: ["skin", "fat", "nipple", "lobes", "ducts", "pectoralis-major", "ribs", "axillary-nodes"] },
   // Herz-Kreislauf
   herzinfarkt: R("heart", ["left-ventricle", ...COR]), khk: R("heart", COR), herzinsuffizienz: R("heart", HEARTCH),
   herzrhythmus: R("heart", ["right-atrium-wall", "left-atrium-wall", "ventricular-wall"]),

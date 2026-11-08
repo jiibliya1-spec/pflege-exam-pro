@@ -9,9 +9,11 @@ import { useLang } from "@/lib/i18n";
 const L = {
   title: ["3D-Modell des betroffenen Organs", "نموذج ثلاثي الأبعاد للعضو المصاب"],
   full: ["Zum vollständigen Atlas", "إلى الأطلس الكامل"],
+  healthy: ["Gesunde Brust", "ثدي سليم"],
+  sick: ["Brust mit Karzinom", "ثدي مصاب بالسرطان"],
   hint: ["Ziehen = drehen, Tippen auf ein Teil = Beschreibung.", "اسحب للتدوير، واضغط على جزء لرؤية الوصف."],
 };
-const SYS: Record<string, string> = { heart: "herz", resp: "atmung", urinary: "niere", digestive: "verdauung", nervous: "nerven", musculoskeletal: "bewegung", endocrine: "stoffwechsel", reproductive: "geschlecht", skin: "haut", blood: "blut" };
+const SYS: Record<string, string> = { heart: "herz", resp: "atmung", urinary: "niere", digestive: "verdauung", nervous: "nerven", musculoskeletal: "bewegung", endocrine: "stoffwechsel", reproductive: "geschlecht", skin: "haut", blood: "blut", breast: "brust" };
 
 /** Zeigt nur das zur Krankheit gehörende Organ in 3D (ersetzt die frühere Zeichnung). Gibt false zurück, wenn kein Modell zugeordnet ist. */
 export function hasLesson3D(id: string) { return !!LESSON_ORGANS[id]; }
@@ -29,6 +31,13 @@ export function Lesson3D({ id }: { id: string }) {
         <Link href={`/atlas/?sys=${SYS[cfg.key]}`} className="text-xs text-teal underline">{T(L.full)}</Link>
       </div>
       <p className="mb-2 text-xs text-muted">{T(L.hint)}</p>
+      {m.healthy && (
+        <div className="mb-3">
+          <h3 className="mb-1 text-xs font-semibold text-muted">{T(L.healthy)}</h3>
+          <AtlasViewer cfg={cfg} compact only={m.healthy} />
+          <h3 className="mb-1 mt-3 text-xs font-semibold text-muted">{T(L.sick)}</h3>
+        </div>
+      )}
       <AtlasViewer cfg={cfg} compact only={m.ids} story={DISEASE_STORIES[id]} initialSel={m.ids.length === 1 ? m.ids[0] : null} />
     </div>
   );
