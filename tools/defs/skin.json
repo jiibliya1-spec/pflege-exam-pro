@@ -1,0 +1,232 @@
+{
+ "centreLayers": [
+  "skin"
+ ],
+ "structures": [
+  {
+   "id": "skin",
+   "layer": "skin",
+   "el": [
+    "FJ2810"
+   ]
+  },
+  {
+   "id": "hair-of-head",
+   "layer": "appendage",
+   "el": [
+    "FJ2813"
+   ]
+  },
+  {
+   "id": "eyebrows",
+   "layer": "appendage",
+   "el": [
+    "FJ2812"
+   ]
+  },
+  {
+   "id": "lips",
+   "layer": "appendage",
+   "el": [
+    "FJ2814"
+   ]
+  },
+  {
+   "id": "pubic-hair",
+   "layer": "appendage",
+   "el": [
+    "FJ2815"
+   ]
+  },
+  {
+   "id": "skull",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "^(Frontal bone|Occipital bone|Ethmoid|Sphenoid bone|Vomer)$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^(Left|Right) (parietal bone|temporal bone|maxilla|nasal bone|palatine bone|zygomatic bone)$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Mandible$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "spine",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "^[A-Za-z]+ (cervical|thoracic|lumbar) vertebra$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Atlas$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Axis$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "thoracic-cage",
+   "layer": "bone",
+   "match": [
+    {
+     "re": " rib$",
+     "system": "skeletal"
+    },
+    {
+     "re": "costal cartilage",
+     "system": "skeletal"
+    },
+    {
+     "re": "^(Manubrium|Body of sternum|Xiphoid process)$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "scapula",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "scapula$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "clavicle",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "clavicle$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "ulna",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "ulna$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "arm-bones",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "humerus$",
+     "system": "skeletal"
+    },
+    {
+     "re": "radius$",
+     "system": "skeletal"
+    },
+    {
+     "re": "(capitate|hamate|lunate|pisiform|scaphoid|trapezium|trapezoid|triquetral)$",
+     "system": "skeletal"
+    },
+    {
+     "re": "metacarpal bone",
+     "system": "skeletal"
+    },
+    {
+     "re": "phalanx of .*(finger|thumb)$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "sacrum",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "^Sacrum$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "hip-bone",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "hip bone$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "femur",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "femur$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "lower-leg-bones",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "patella$",
+     "system": "skeletal"
+    },
+    {
+     "re": "tibia$",
+     "system": "skeletal"
+    },
+    {
+     "re": "fibula$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "calcaneus",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "calcaneus$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "foot-bones",
+   "layer": "bone",
+   "match": [
+    {
+     "re": "(talus|cuboid bone|navicular bone of .* foot|cuneiform bone)$",
+     "system": "skeletal"
+    },
+    {
+     "re": "metatarsal bone",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Sesamoid bone of",
+     "system": "skeletal"
+    },
+    {
+     "re": "phalanx of .*toe$",
+     "system": "skeletal"
+    }
+   ]
+  }
+ ]
+}

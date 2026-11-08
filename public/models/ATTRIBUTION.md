@@ -44,3 +44,6 @@ Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 18 benannte Str
 
 ## reproductive.glb (Fortpflanzungssystem)
 Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 16 benannte Strukturen: NUR männliche Organe (Hoden, Nebenhoden, Samenleiter, Bläschendrüsen, Prostata, Schwellkörper, Eichel), Harnwege, Enddarm, Beckenboden, Becken (Orientierung). Erzeugt mit `tools/extract-model.mjs` und `tools/defs/reproductive.json`. Weibliche Organe fehlen im Quellmodell und werden im Atlas nur als gekennzeichnetes Schema (kein 3D-Modell) gezeigt.
+
+## skin.glb (Haut)
+Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 18 benannte Strukturen: Körperoberfläche, Kopfhaar, Augenbrauen, Lippe, Schamhaar und Skelett (Orientierung für Druckpunkte), erzeugt mit `tools/extract-model.mjs` und `tools/defs/skin.json`; Herkunft in `skin.provenance.json`. Nicht im Quellmodell: Hautschichten, Haarfollikel, Drüsen, Nägel, Rezeptoren (Schema ohne 3D).
