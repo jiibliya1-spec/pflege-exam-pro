@@ -32,3 +32,6 @@ Bearbeitungen (nach CC BY 4.0 kenntlich gemacht): Die OBJ-Elemente wurden von �
 - Bewusst ausgelassen (mehrdeutig oder doppelte Geometrie): Hepatovenous segment VII (FJ2409) und IX (FJ1858), Pankreas-Parenchym und Gangbaum (FJ2629, FJ2630), FJ3082, FJ1846, FJ2013.
 - Nicht im Modell: Mundboden und Rachen, Ohrspeicheldrüse, Sigmoid, Analkanal, Hauptgallengang, Peritoneum, Wandschichten, Zotten. Dafür gibt es ein beschriftetes Schema (keine 3D-Daten).
 - Verarbeitung: `tools/extract-digestive.mjs`; Element-IDs und Prüfsummen in `digestive.provenance.json`.
+
+## nervous.glb (Nervensystem)
+Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 33 benannte Strukturen (Gehirn, Ventrikel, Sehbahn, Hypophyse, Zirbeldrüse, Schädel), gruppiert und zusammengeführt mit `tools/extract-model.mjs` und `tools/defs/nervous.json`; Herkunft je Struktur in `nervous.provenance.json`. Nicht im Quellmodell: Rückenmark, periphere Nerven, Hirnhäute, Hirngefäße.

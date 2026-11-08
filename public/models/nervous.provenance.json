@@ -1,0 +1,654 @@
+{
+ "source": "BodyParts3D 4.0 (DBCLS, CC BY 4.0) via Human Atlas (ashemag/human-atlas, MIT/CC BY 4.0)",
+ "atlasJsonSha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+ "chunkSha256": {
+  "body-6.bin": "1c98dae807210cc51a4abc806134727c9544155cad0cc328cf2e1ae1f954d3ff",
+  "body-7.bin": "06340f48478eb989cec117a558290c0cd54eeead9641b565cbb8aab255b4e56b",
+  "body-5.bin": "32a967198ffed45839968228898f3d246c67f86fb26892c3ae270be30e2f1149",
+  "body-0.bin": "b33b2b5aac20f35fbf6871f916607bf3c4d386321c8c0fdadcca6b5d24e3641e",
+  "body-12.bin": "61a6c8da89bb20df50c575964ac81aa4090eabfc2cb27ad2155aea325f31c6c0",
+  "body-13.bin": "4c51b6be85d5b705d2b52b79b9ad1cdae0b65ad03c9402a2f2673c7633fd94f3"
+ },
+ "centreOffsetMetres": [
+  -0.0007256008684635162,
+  1.6256111860275269,
+  -0.020326148718595505
+ ],
+ "glbSha256": "0f70833d27e09ffc38c8aa942dbc9d94458a8d03998353abce4e730a1d1822bb",
+ "structures": [
+  {
+   "id": "frontal-lobe",
+   "layer": "cortex",
+   "elements": [
+    {
+     "id": "FJ1833",
+     "name": "Left superior frontal gyrus"
+    },
+    {
+     "id": "FJ1834",
+     "name": "Right superior frontal gyrus"
+    },
+    {
+     "id": "FJ1787",
+     "name": "Left middle frontal gyrus"
+    },
+    {
+     "id": "FJ1788",
+     "name": "Right middle frontal gyrus"
+    },
+    {
+     "id": "FJ1744",
+     "name": "Left inferior frontal gyrus"
+    },
+    {
+     "id": "FJ1745",
+     "name": "Right inferior frontal gyrus"
+    },
+    {
+     "id": "FJ1793",
+     "name": "Orbital gyrus"
+    },
+    {
+     "id": "FJ1794",
+     "name": "Orbital gyrus"
+    }
+   ]
+  },
+  {
+   "id": "precentral-gyrus",
+   "layer": "cortex",
+   "elements": [
+    {
+     "id": "FJ1800",
+     "name": "Left precentral gyrus"
+    },
+    {
+     "id": "FJ1801",
+     "name": "Right precentral gyrus"
+    }
+   ]
+  },
+  {
+   "id": "postcentral-gyrus",
+   "layer": "cortex",
+   "elements": [
+    {
+     "id": "FJ1797",
+     "name": "Left postcentral gyrus"
+    },
+    {
+     "id": "FJ1798",
+     "name": "Right postcentral gyrus"
+    }
+   ]
+  },
+  {
+   "id": "parietal-lobe",
+   "layer": "cortex",
+   "elements": [
+    {
+     "id": "FJ1835",
+     "name": "Left superior parietal lobule"
+    },
+    {
+     "id": "FJ1836",
+     "name": "Right superior parietal lobule"
+    },
+    {
+     "id": "FJ1841",
+     "name": "Left supramarginal gyrus"
+    },
+    {
+     "id": "FJ1842",
+     "name": "Right supramarginal gyrus"
+    },
+    {
+     "id": "FJ1732",
+     "name": "Left angular gyrus"
+    },
+    {
+     "id": "FJ1733",
+     "name": "Right angular gyrus"
+    }
+   ]
+  },
+  {
+   "id": "temporal-lobe",
+   "layer": "cortex",
+   "elements": [
+    {
+     "id": "FJ1837",
+     "name": "Anterior part of left superior temporal gyrus"
+    },
+    {
+     "id": "FJ1838",
+     "name": "Anterior part of right superior temporal gyrus"
+    },
+    {
+     "id": "FJ1839",
+     "name": "Posterior part of left superior temporal gyrus"
+    },
+    {
+     "id": "FJ1840",
+     "name": "Posterior part of right superior temporal gyrus"
+    },
+    {
+     "id": "FJ1789",
+     "name": "Left middle temporal gyrus"
+    },
+    {
+     "id": "FJ1790",
+     "name": "Right middle temporal gyrus"
+    },
+    {
+     "id": "FJ1746",
+     "name": "Left inferior temporal gyrus"
+    },
+    {
+     "id": "FJ1747",
+     "name": "Right inferior temporal gyrus"
+    },
+    {
+     "id": "FJ1783",
+     "name": "Left fusiform gyrus"
+    },
+    {
+     "id": "FJ1784",
+     "name": "Right fusiform gyrus"
+    }
+   ]
+  },
+  {
+   "id": "occipital-lobe",
+   "layer": "cortex",
+   "elements": [
+    {
+     "id": "FJ1791",
+     "name": "Left occipital lobe"
+    },
+    {
+     "id": "FJ1792",
+     "name": "Right occipital lobe"
+    }
+   ]
+  },
+  {
+   "id": "insula",
+   "layer": "cortex",
+   "elements": [
+    {
+     "id": "FJ1748",
+     "name": "Left insula"
+    },
+    {
+     "id": "FJ1749",
+     "name": "Right insula"
+    }
+   ]
+  },
+  {
+   "id": "cingulate-gyrus",
+   "layer": "cortex",
+   "elements": [
+    {
+     "id": "FJ1739",
+     "name": "Left cingulate gyrus"
+    },
+    {
+     "id": "FJ1740",
+     "name": "Right cingulate gyrus"
+    }
+   ]
+  },
+  {
+   "id": "cerebral-white-matter",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1758",
+     "name": "White matter of left cerebral hemisphere"
+    },
+    {
+     "id": "FJ1806",
+     "name": "White matter of right cerebral hemisphere"
+    }
+   ]
+  },
+  {
+   "id": "corpus-callosum",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1742",
+     "name": "Corpus callosum"
+    }
+   ]
+  },
+  {
+   "id": "internal-capsule",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1750",
+     "name": "Left internal capsule"
+    },
+    {
+     "id": "FJ1751",
+     "name": "Right internal capsule"
+    }
+   ]
+  },
+  {
+   "id": "caudate-nucleus",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1754",
+     "name": "Left caudate nucleus"
+    },
+    {
+     "id": "FJ1802",
+     "name": "Right caudate nucleus"
+    }
+   ]
+  },
+  {
+   "id": "putamen",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1776",
+     "name": "Left putamen"
+    },
+    {
+     "id": "FJ1823",
+     "name": "Right putamen"
+    }
+   ]
+  },
+  {
+   "id": "globus-pallidus",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1757",
+     "name": "Left globus pallidus"
+    },
+    {
+     "id": "FJ1805",
+     "name": "Right globus pallidus"
+    }
+   ]
+  },
+  {
+   "id": "thalamus",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1782",
+     "name": "Left thalamus"
+    },
+    {
+     "id": "FJ1827",
+     "name": "Right thalamus"
+    }
+   ]
+  },
+  {
+   "id": "hypothalamus",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1760",
+     "name": "Hypothalamus"
+    },
+    {
+     "id": "FJ1808",
+     "name": "Hypothalamus"
+    },
+    {
+     "id": "FJ1768",
+     "name": "Mammillary body"
+    },
+    {
+     "id": "FJ1815",
+     "name": "Mammillary body"
+    },
+    {
+     "id": "FJ1780",
+     "name": "Tuber cinereum"
+    },
+    {
+     "id": "FJ1828",
+     "name": "Tuber cinereum"
+    }
+   ]
+  },
+  {
+   "id": "hippocampus",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1759",
+     "name": "Left hippocampus"
+    },
+    {
+     "id": "FJ1807",
+     "name": "Right hippocampus"
+    },
+    {
+     "id": "FJ1785",
+     "name": "Left parahippocampal gyrus"
+    },
+    {
+     "id": "FJ1786",
+     "name": "Right parahippocampal gyrus"
+    }
+   ]
+  },
+  {
+   "id": "amygdala",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1753",
+     "name": "Left amygdala"
+    },
+    {
+     "id": "FJ1829",
+     "name": "Right amygdala"
+    }
+   ]
+  },
+  {
+   "id": "fornix",
+   "layer": "deep",
+   "elements": [
+    {
+     "id": "FJ1756",
+     "name": "Left fornix of forebrain"
+    },
+    {
+     "id": "FJ1804",
+     "name": "Right fornix of forebrain"
+    },
+    {
+     "id": "FJ1741",
+     "name": "Commissure of fornix of forebrain"
+    }
+   ]
+  },
+  {
+   "id": "midbrain",
+   "layer": "stem",
+   "elements": [
+    {
+     "id": "FJ1770",
+     "name": "Midbrain"
+    },
+    {
+     "id": "FJ1817",
+     "name": "Midbrain"
+    },
+    {
+     "id": "FJ1774",
+     "name": "Peduncle of midbrain"
+    },
+    {
+     "id": "FJ1821",
+     "name": "Peduncle of midbrain"
+    },
+    {
+     "id": "FJ1779",
+     "name": "Left superior colliculus"
+    },
+    {
+     "id": "FJ1826",
+     "name": "Right superior colliculus"
+    },
+    {
+     "id": "FJ1762",
+     "name": "Left inferior colliculus"
+    },
+    {
+     "id": "FJ1810",
+     "name": "Right inferior colliculus"
+    }
+   ]
+  },
+  {
+   "id": "pons",
+   "layer": "stem",
+   "elements": [
+    {
+     "id": "FJ1775",
+     "name": "Pons"
+    },
+    {
+     "id": "FJ1822",
+     "name": "Pons"
+    }
+   ]
+  },
+  {
+   "id": "medulla-oblongata",
+   "layer": "stem",
+   "elements": [
+    {
+     "id": "FJ1769",
+     "name": "Medulla oblongata"
+    },
+    {
+     "id": "FJ1831",
+     "name": "Medulla oblongata"
+    }
+   ]
+  },
+  {
+   "id": "cerebellum",
+   "layer": "stem",
+   "elements": [
+    {
+     "id": "FJ1781",
+     "name": "Cerebellum"
+    },
+    {
+     "id": "FJ1830",
+     "name": "Cerebellum"
+    }
+   ]
+  },
+  {
+   "id": "lateral-ventricles",
+   "layer": "ventricle",
+   "elements": [
+    {
+     "id": "FJ1767",
+     "name": "Left lateral ventricle"
+    },
+    {
+     "id": "FJ1814",
+     "name": "Right lateral ventricle"
+    },
+    {
+     "id": "FJ1752",
+     "name": "Interventricular foramen"
+    }
+   ]
+  },
+  {
+   "id": "third-ventricle",
+   "layer": "ventricle",
+   "elements": [
+    {
+     "id": "FJ1730",
+     "name": "Third ventricle"
+    }
+   ]
+  },
+  {
+   "id": "fourth-ventricle",
+   "layer": "ventricle",
+   "elements": [
+    {
+     "id": "FJ1731",
+     "name": "Fourth ventricle"
+    },
+    {
+     "id": "FJ1738",
+     "name": "Cerebral aqueduct"
+    }
+   ]
+  },
+  {
+   "id": "choroid-plexus",
+   "layer": "ventricle",
+   "elements": [
+    {
+     "id": "FJ1755",
+     "name": "Choroid plexus of cerebral hemisphere"
+    },
+    {
+     "id": "FJ1803",
+     "name": "Choroid plexus of cerebral hemisphere"
+    }
+   ]
+  },
+  {
+   "id": "optic-nerves",
+   "layer": "visual",
+   "elements": [
+    {
+     "id": "FJ1313",
+     "name": "Left optic nerve"
+    },
+    {
+     "id": "FJ1364",
+     "name": "Right optic nerve"
+    },
+    {
+     "id": "FJ1772",
+     "name": "Left optic nerve"
+    },
+    {
+     "id": "FJ1819",
+     "name": "Right optic nerve"
+    }
+   ]
+  },
+  {
+   "id": "optic-chiasm",
+   "layer": "visual",
+   "elements": [
+    {
+     "id": "FJ1771",
+     "name": "Optic chiasm"
+    },
+    {
+     "id": "FJ1818",
+     "name": "Optic chiasm"
+    }
+   ]
+  },
+  {
+   "id": "optic-tracts",
+   "layer": "visual",
+   "elements": [
+    {
+     "id": "FJ1773",
+     "name": "Left optic tract"
+    },
+    {
+     "id": "FJ1820",
+     "name": "Right optic tract"
+    },
+    {
+     "id": "FJ1766",
+     "name": "Left lateral geniculate body"
+    },
+    {
+     "id": "FJ1813",
+     "name": "Right lateral geniculate body"
+    }
+   ]
+  },
+  {
+   "id": "pituitary-gland",
+   "layer": "gland",
+   "elements": [
+    {
+     "id": "FJ1796",
+     "name": "Pituitary gland"
+    }
+   ]
+  },
+  {
+   "id": "pineal-gland",
+   "layer": "gland",
+   "elements": [
+    {
+     "id": "FJ1795",
+     "name": "Pineal body"
+    }
+   ]
+  },
+  {
+   "id": "skull",
+   "layer": "shell",
+   "elements": [
+    {
+     "id": "FJ3200",
+     "name": "Frontal bone"
+    },
+    {
+     "id": "FJ3274",
+     "name": "Left parietal bone"
+    },
+    {
+     "id": "FJ3380",
+     "name": "Right parietal bone"
+    },
+    {
+     "id": "FJ3309",
+     "name": "Occipital bone"
+    },
+    {
+     "id": "FJ3281",
+     "name": "Left temporal bone"
+    },
+    {
+     "id": "FJ3386",
+     "name": "Right temporal bone"
+    },
+    {
+     "id": "FJ3394",
+     "name": "Sphenoid bone"
+    },
+    {
+     "id": "FJ3199",
+     "name": "Ethmoid"
+    },
+    {
+     "id": "FJ3269",
+     "name": "Left maxilla"
+    },
+    {
+     "id": "FJ3375",
+     "name": "Right maxilla"
+    },
+    {
+     "id": "FJ3287",
+     "name": "Left zygomatic bone"
+    },
+    {
+     "id": "FJ3392",
+     "name": "Right zygomatic bone"
+    },
+    {
+     "id": "FJ3289",
+     "name": "Mandible"
+    }
+   ]
+  }
+ ]
+}
