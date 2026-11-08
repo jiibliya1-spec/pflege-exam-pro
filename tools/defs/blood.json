@@ -1,0 +1,183 @@
+{
+ "centreLayers": [
+  "lymphoid",
+  "artery",
+  "vein",
+  "marrow"
+ ],
+ "structures": [
+  {
+   "id": "spleen",
+   "layer": "lymphoid",
+   "el": [
+    "FJ2561"
+   ]
+  },
+  {
+   "id": "thymus",
+   "layer": "lymphoid",
+   "el": [
+    "FJ3150",
+    "FJ3151"
+   ]
+  },
+  {
+   "id": "aorta",
+   "layer": "artery",
+   "el": [
+    "FJ3413",
+    "FJ3411",
+    "FJ1932"
+   ]
+  },
+  {
+   "id": "aortic-branches",
+   "layer": "artery",
+   "el": [
+    "FJ3417",
+    "FJ3483",
+    "FJ3564",
+    "FJ3479",
+    "FJ3579"
+   ]
+  },
+  {
+   "id": "iliac-arteries",
+   "layer": "artery",
+   "el": [
+    "FJ3464",
+    "FJ3565"
+   ]
+  },
+  {
+   "id": "splenic-artery",
+   "layer": "artery",
+   "el": [
+    "FJ3640"
+   ]
+  },
+  {
+   "id": "vena-cava",
+   "layer": "vein",
+   "el": [
+    "FJ3645",
+    "FJ3659"
+   ]
+  },
+  {
+   "id": "brachiocephalic-veins",
+   "layer": "vein",
+   "el": [
+    "FJ3482",
+    "FJ3583"
+   ]
+  },
+  {
+   "id": "portal-vein",
+   "layer": "vein",
+   "el": [
+    "FJ1853"
+   ]
+  },
+  {
+   "id": "splenic-vein",
+   "layer": "vein",
+   "el": [
+    "FJ3641"
+   ]
+  },
+  {
+   "id": "iliac-veins",
+   "layer": "vein",
+   "el": [
+    "FJ3465",
+    "FJ3566"
+   ]
+  },
+  {
+   "id": "sternum-ribs",
+   "layer": "marrow",
+   "match": [
+    {
+     "re": " rib$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^(Manubrium|Body of sternum|Xiphoid process)$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "vertebral-column",
+   "layer": "marrow",
+   "match": [
+    {
+     "re": "^[A-Za-z]+ (cervical|thoracic|lumbar) vertebra$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Atlas$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Axis$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Sacrum$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "pelvis",
+   "layer": "marrow",
+   "match": [
+    {
+     "re": "hip bone$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "skull",
+   "layer": "marrow",
+   "match": [
+    {
+     "re": "^(Frontal bone|Occipital bone|Ethmoid|Sphenoid bone|Vomer)$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^(Left|Right) (parietal bone|temporal bone|maxilla|nasal bone|palatine bone|zygomatic bone)$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Mandible$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "femur-humerus",
+   "layer": "marrow",
+   "match": [
+    {
+     "re": "femur$",
+     "system": "skeletal"
+    },
+    {
+     "re": "humerus$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "skin",
+   "layer": "shell",
+   "el": [
+    "FJ2810"
+   ]
+  }
+ ]
+}

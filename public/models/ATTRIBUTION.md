@@ -47,3 +47,6 @@ Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 16 benannte Str
 
 ## skin.glb (Haut)
 Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 18 benannte Strukturen: Körperoberfläche, Kopfhaar, Augenbrauen, Lippe, Schamhaar und Skelett (Orientierung für Druckpunkte), erzeugt mit `tools/extract-model.mjs` und `tools/defs/skin.json`; Herkunft in `skin.provenance.json`. Nicht im Quellmodell: Hautschichten, Haarfollikel, Drüsen, Nägel, Rezeptoren (Schema ohne 3D).
+
+## blood.glb (Blut und Immunsystem)
+Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über ashemag/human-atlas. Bearbeitet mit tools/extract-model.mjs (Definition tools/defs/blood.json): Elemente zusammengefasst, Koordinaten verschoben, keine Vertices verändert. Enthalten: Milz, Thymus, große Arterien und Venen, Knochen als Sitz des roten Knochenmarks, Hautkontur. Nicht enthalten: Blutzellen, Knochenmark, Lymphknoten (als beschriftetes Schema dargestellt). Herkunft der Elemente: blood.provenance.json.

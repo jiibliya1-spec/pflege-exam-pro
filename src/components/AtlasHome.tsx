@@ -18,6 +18,8 @@ import { REPRO_CFG } from "@/data/atlasRepro";
 import { ReproSchemas } from "./ReproSchemas";
 import { SKIN_CFG } from "@/data/atlasSkin";
 import { SkinSchemas } from "./SkinSchemas";
+import { BLOOD_CFG } from "@/data/atlasBlood";
+import { BloodSchemas } from "./BloodSchemas";
 import { MusculoSchemas } from "./MusculoSchemas";
 import { URINARY_CFG } from "@/data/atlasUrinary";
 import { Card, Notice, PageHeader, cn } from "./ui";
@@ -35,7 +37,7 @@ const SYSTEMS: Sys[] = [
   { id: "stoffwechsel", name: ["Endokrines System", "الجهاز الصماوي", "Endocrine system", "Système endocrinien", "Endokrin sistem"], lesson: "diabetes", d3: true },
   { id: "geschlecht", name: ["Fortpflanzungssystem", "الجهاز التناسلي", "Reproductive system", "Système reproducteur", "Üreme sistemi"], lesson: "mammakarzinom", d3: true },
   { id: "haut", name: ["Haut", "الجلد", "Skin", "Peau", "Deri"], lesson: "verbrennung", d3: true },
-  { id: "blut", name: ["Blut und Immunsystem", "الدم والجهاز المناعي", "Blood and immune system", "Sang et système immunitaire", "Kan ve bağışıklık"], lesson: "g7-blut-lymphom", d3: false },
+  { id: "blut", name: ["Blut und Immunsystem", "الدم والجهاز المناعي", "Blood and immune system", "Sang et système immunitaire", "Kan ve bağışıklık"], lesson: "g7-blut-lymphom", d3: true },
 ];
 const L = {
   title: ["Anatomie-Atlas", "أطلس التشريح", "Anatomy atlas", "Atlas d'anatomie", "Anatomi atlası"],
@@ -53,12 +55,12 @@ export function AtlasHome() {
   const T = (r: Row) => r[Math.max(0, lg.indexOf(lang))];
   const sp = useSearchParams();
   const sys = sp.get("sys");
-  const open = sys === "herz" || sys === "atmung" || sys === "niere" || sys === "verdauung" || sys === "nerven" || sys === "bewegung" || sys === "stoffwechsel" || sys === "geschlecht" || sys === "haut";
+  const open = sys === "herz" || sys === "atmung" || sys === "niere" || sys === "verdauung" || sys === "nerven" || sys === "bewegung" || sys === "stoffwechsel" || sys === "geschlecht" || sys === "haut" || sys === "blut";
   return (
     <div className="space-y-4">
       <PageHeader title={T(L.title as Row)} subtitle={T(L.sub as Row)} actions={open ? <Link href="/atlas/" className="text-sm text-teal underline">{T(L.back as Row)}</Link> : undefined} />
       {open ? (
-        sys === "atmung" ? <AtlasViewer cfg={RESP_CFG} extra={<RespSchemas />} /> : sys === "niere" ? <AtlasViewer cfg={URINARY_CFG} extra={<UrinarySchemas />} /> : sys === "verdauung" ? <AtlasViewer cfg={DIGESTIVE_CFG} extra={<DigestiveSchemas />} /> : sys === "nerven" ? <AtlasViewer cfg={NERVOUS_CFG} extra={<NervousSchemas />} /> : sys === "bewegung" ? <AtlasViewer cfg={MUSCULO_CFG} extra={<MusculoSchemas />} /> : sys === "stoffwechsel" ? <AtlasViewer cfg={ENDO_CFG} extra={<EndocrineSchemas />} /> : sys === "geschlecht" ? <AtlasViewer cfg={REPRO_CFG} extra={<ReproSchemas />} /> : sys === "haut" ? <AtlasViewer cfg={SKIN_CFG} extra={<SkinSchemas />} /> : <Atlas3D />
+        sys === "atmung" ? <AtlasViewer cfg={RESP_CFG} extra={<RespSchemas />} /> : sys === "niere" ? <AtlasViewer cfg={URINARY_CFG} extra={<UrinarySchemas />} /> : sys === "verdauung" ? <AtlasViewer cfg={DIGESTIVE_CFG} extra={<DigestiveSchemas />} /> : sys === "nerven" ? <AtlasViewer cfg={NERVOUS_CFG} extra={<NervousSchemas />} /> : sys === "bewegung" ? <AtlasViewer cfg={MUSCULO_CFG} extra={<MusculoSchemas />} /> : sys === "stoffwechsel" ? <AtlasViewer cfg={ENDO_CFG} extra={<EndocrineSchemas />} /> : sys === "geschlecht" ? <AtlasViewer cfg={REPRO_CFG} extra={<ReproSchemas />} /> : sys === "haut" ? <AtlasViewer cfg={SKIN_CFG} extra={<SkinSchemas />} /> : sys === "blut" ? <AtlasViewer cfg={BLOOD_CFG} extra={<BloodSchemas />} /> : <Atlas3D />
       ) : (
         <>
           <Notice tone="teal"><span className="flex items-start gap-2"><Info className="mt-0.5 h-4 w-4 shrink-0" />{T(L.notice as Row)}</span></Notice>
@@ -68,7 +70,7 @@ export function AtlasHome() {
                 <Card className={cn("flex h-full flex-col gap-2 p-4", s.d3 && "border-teal")}>
                   <div className="flex items-center gap-2 font-semibold"><Box className="h-5 w-5 text-teal" />{T(s.name)}</div>
                   {s.d3 ? (
-                    <Link href={`/atlas/?sys=${s.id === "atmung" ? "atmung" : s.id === "niere" ? "niere" : s.id === "verdauung" ? "verdauung" : s.id === "nerven" ? "nerven" : s.id === "bewegung" ? "bewegung" : s.id === "stoffwechsel" ? "stoffwechsel" : s.id === "geschlecht" ? "geschlecht" : s.id === "haut" ? "haut" : "herz"}`} className="mt-auto inline-flex min-h-10 items-center justify-center rounded-lg bg-teal px-4 text-sm font-semibold text-white dark:text-[#04222a]" data-testid={`atlas-open-${s.id}`}>{T(L.ready as Row)} →</Link>
+                    <Link href={`/atlas/?sys=${s.id === "atmung" ? "atmung" : s.id === "niere" ? "niere" : s.id === "verdauung" ? "verdauung" : s.id === "nerven" ? "nerven" : s.id === "bewegung" ? "bewegung" : s.id === "stoffwechsel" ? "stoffwechsel" : s.id === "geschlecht" ? "geschlecht" : s.id === "haut" ? "haut" : s.id === "blut" ? "blut" : "herz"}`} className="mt-auto inline-flex min-h-10 items-center justify-center rounded-lg bg-teal px-4 text-sm font-semibold text-white dark:text-[#04222a]" data-testid={`atlas-open-${s.id}`}>{T(L.ready as Row)} →</Link>
                   ) : (
                     <>
                       <p className="text-sm text-muted">{T(L.soon as Row)}</p>

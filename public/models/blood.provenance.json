@@ -1,0 +1,519 @@
+{
+ "source": "BodyParts3D 4.0 (DBCLS, CC BY 4.0) via Human Atlas (ashemag/human-atlas, MIT/CC BY 4.0)",
+ "atlasJsonSha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+ "chunkSha256": {
+  "body-9.bin": "0aa8aa09a379a2d759872659a2ef68fc4510ee37e435c4ebc63ee679722a4547",
+  "body-11.bin": "e8c1afe7f30fe710ad164ec9cd2287a32881606e7eb590af47d76b3f84405027",
+  "body-13.bin": "4c51b6be85d5b705d2b52b79b9ad1cdae0b65ad03c9402a2f2673c7633fd94f3",
+  "body-7.bin": "06340f48478eb989cec117a558290c0cd54eeead9641b565cbb8aab255b4e56b",
+  "body-14.bin": "58604526a0cd9e7dca4d8587cd9a42f9dd03ec6c4ebbc22a9bf017b31246f7e7",
+  "body-12.bin": "61a6c8da89bb20df50c575964ac81aa4090eabfc2cb27ad2155aea325f31c6c0",
+  "body-10.bin": "4a959d998acd35cf88518a0f2f8ab99b42d9f69c7ce0d6a814df315eeac807ac"
+ },
+ "centreOffsetMetres": [
+  0.000007502734661102295,
+  1.0802442282438278,
+  -0.002084501087665558
+ ],
+ "glbSha256": "4e742f3f66238734804d6972f42d5043f10e337e92dbd8dd852a1432cd6ca20e",
+ "structures": [
+  {
+   "id": "spleen",
+   "layer": "lymphoid",
+   "elements": [
+    {
+     "id": "FJ2561",
+     "name": "Spleen"
+    }
+   ]
+  },
+  {
+   "id": "thymus",
+   "layer": "lymphoid",
+   "elements": [
+    {
+     "id": "FJ3150",
+     "name": "Left lobe of thymus"
+    },
+    {
+     "id": "FJ3151",
+     "name": "Right lobe of thymus"
+    }
+   ]
+  },
+  {
+   "id": "aorta",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ3413",
+     "name": "Ascending aorta"
+    },
+    {
+     "id": "FJ3411",
+     "name": "Arch of aorta"
+    },
+    {
+     "id": "FJ1932",
+     "name": "Abdominal aorta"
+    }
+   ]
+  },
+  {
+   "id": "aortic-branches",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ3417",
+     "name": "Brachiocephalic artery"
+    },
+    {
+     "id": "FJ3483",
+     "name": "Left common carotid artery"
+    },
+    {
+     "id": "FJ3564",
+     "name": "Right common carotid artery"
+    },
+    {
+     "id": "FJ3479",
+     "name": "Left subclavian artery"
+    },
+    {
+     "id": "FJ3579",
+     "name": "Right subclavian artery"
+    }
+   ]
+  },
+  {
+   "id": "iliac-arteries",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ3464",
+     "name": "Left common iliac artery"
+    },
+    {
+     "id": "FJ3565",
+     "name": "Right common iliac artery"
+    }
+   ]
+  },
+  {
+   "id": "splenic-artery",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ3640",
+     "name": "Splenic artery"
+    }
+   ]
+  },
+  {
+   "id": "vena-cava",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ3645",
+     "name": "Superior vena cava"
+    },
+    {
+     "id": "FJ3659",
+     "name": "Inferior vena cava"
+    }
+   ]
+  },
+  {
+   "id": "brachiocephalic-veins",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ3482",
+     "name": "Left brachiocephalic vein"
+    },
+    {
+     "id": "FJ3583",
+     "name": "Right brachiocephalic vein"
+    }
+   ]
+  },
+  {
+   "id": "portal-vein",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ1853",
+     "name": "Hepatic portal vein"
+    }
+   ]
+  },
+  {
+   "id": "splenic-vein",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ3641",
+     "name": "Splenic vein"
+    }
+   ]
+  },
+  {
+   "id": "iliac-veins",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ3465",
+     "name": "Left common iliac vein"
+    },
+    {
+     "id": "FJ3566",
+     "name": "Right common iliac vein"
+    }
+   ]
+  },
+  {
+   "id": "sternum-ribs",
+   "layer": "marrow",
+   "elements": [
+    {
+     "id": "FJ3225",
+     "name": "Left tenth rib"
+    },
+    {
+     "id": "FJ3226",
+     "name": "Left eleventh rib"
+    },
+    {
+     "id": "FJ3227",
+     "name": "Left twelfth rib"
+    },
+    {
+     "id": "FJ3228",
+     "name": "Left first rib"
+    },
+    {
+     "id": "FJ3229",
+     "name": "Left second rib"
+    },
+    {
+     "id": "FJ3230",
+     "name": "Left third rib"
+    },
+    {
+     "id": "FJ3231",
+     "name": "Left fourth rib"
+    },
+    {
+     "id": "FJ3232",
+     "name": "Left fifth rib"
+    },
+    {
+     "id": "FJ3233",
+     "name": "Left sixth rib"
+    },
+    {
+     "id": "FJ3234",
+     "name": "Left seventh rib"
+    },
+    {
+     "id": "FJ3235",
+     "name": "Left eighth rib"
+    },
+    {
+     "id": "FJ3236",
+     "name": "Left ninth rib"
+    },
+    {
+     "id": "FJ3330",
+     "name": "Right tenth rib"
+    },
+    {
+     "id": "FJ3331",
+     "name": "Right eleventh rib"
+    },
+    {
+     "id": "FJ3332",
+     "name": "Right twelfth rib"
+    },
+    {
+     "id": "FJ3334",
+     "name": "Right first rib"
+    },
+    {
+     "id": "FJ3336",
+     "name": "Right second rib"
+    },
+    {
+     "id": "FJ3338",
+     "name": "Right third rib"
+    },
+    {
+     "id": "FJ3340",
+     "name": "Right fourth rib"
+    },
+    {
+     "id": "FJ3342",
+     "name": "Right fifth rib"
+    },
+    {
+     "id": "FJ3344",
+     "name": "Right sixth rib"
+    },
+    {
+     "id": "FJ3346",
+     "name": "Right seventh rib"
+    },
+    {
+     "id": "FJ3347",
+     "name": "Right eighth rib"
+    },
+    {
+     "id": "FJ3348",
+     "name": "Right ninth rib"
+    },
+    {
+     "id": "FJ3153",
+     "name": "Xiphoid process"
+    },
+    {
+     "id": "FJ3178",
+     "name": "Body of sternum"
+    },
+    {
+     "id": "FJ3290",
+     "name": "Manubrium"
+    }
+   ]
+  },
+  {
+   "id": "vertebral-column",
+   "layer": "marrow",
+   "elements": [
+    {
+     "id": "FJ3154",
+     "name": "Tenth thoracic vertebra"
+    },
+    {
+     "id": "FJ3155",
+     "name": "Eleventh thoracic vertebra"
+    },
+    {
+     "id": "FJ3156",
+     "name": "Twelfth thoracic vertebra"
+    },
+    {
+     "id": "FJ3157",
+     "name": "First lumbar vertebra"
+    },
+    {
+     "id": "FJ3158",
+     "name": "First thoracic vertebra"
+    },
+    {
+     "id": "FJ3159",
+     "name": "Second lumbar vertebra"
+    },
+    {
+     "id": "FJ3160",
+     "name": "Second thoracic vertebra"
+    },
+    {
+     "id": "FJ3161",
+     "name": "Third cervical vertebra"
+    },
+    {
+     "id": "FJ3162",
+     "name": "Third lumbar vertebra"
+    },
+    {
+     "id": "FJ3163",
+     "name": "Third thoracic vertebra"
+    },
+    {
+     "id": "FJ3164",
+     "name": "Fourth cervical vertebra"
+    },
+    {
+     "id": "FJ3165",
+     "name": "Fourth lumbar vertebra"
+    },
+    {
+     "id": "FJ3166",
+     "name": "Fourth thoracic vertebra"
+    },
+    {
+     "id": "FJ3167",
+     "name": "Fifth cervical vertebra"
+    },
+    {
+     "id": "FJ3168",
+     "name": "Fifth lumbar vertebra"
+    },
+    {
+     "id": "FJ3169",
+     "name": "Fifth thoracic vertebra"
+    },
+    {
+     "id": "FJ3170",
+     "name": "Sixth cervical vertebra"
+    },
+    {
+     "id": "FJ3171",
+     "name": "Sixth thoracic vertebra"
+    },
+    {
+     "id": "FJ3172",
+     "name": "Seventh cervical vertebra"
+    },
+    {
+     "id": "FJ3173",
+     "name": "Seventh thoracic vertebra"
+    },
+    {
+     "id": "FJ3174",
+     "name": "Eighth thoracic vertebra"
+    },
+    {
+     "id": "FJ3175",
+     "name": "Ninth thoracic vertebra"
+    },
+    {
+     "id": "FJ3176",
+     "name": "Atlas"
+    },
+    {
+     "id": "FJ3177",
+     "name": "Axis"
+    },
+    {
+     "id": "FJ3393",
+     "name": "Sacrum"
+    }
+   ]
+  },
+  {
+   "id": "pelvis",
+   "layer": "marrow",
+   "elements": [
+    {
+     "id": "FJ3152",
+     "name": "Right hip bone"
+    },
+    {
+     "id": "FJ3288",
+     "name": "Left hip bone"
+    }
+   ]
+  },
+  {
+   "id": "skull",
+   "layer": "marrow",
+   "elements": [
+    {
+     "id": "FJ3199",
+     "name": "Ethmoid"
+    },
+    {
+     "id": "FJ3200",
+     "name": "Frontal bone"
+    },
+    {
+     "id": "FJ3309",
+     "name": "Occipital bone"
+    },
+    {
+     "id": "FJ3394",
+     "name": "Sphenoid bone"
+    },
+    {
+     "id": "FJ3395",
+     "name": "Vomer"
+    },
+    {
+     "id": "FJ3269",
+     "name": "Left maxilla"
+    },
+    {
+     "id": "FJ3272",
+     "name": "Left nasal bone"
+    },
+    {
+     "id": "FJ3273",
+     "name": "Left palatine bone"
+    },
+    {
+     "id": "FJ3274",
+     "name": "Left parietal bone"
+    },
+    {
+     "id": "FJ3281",
+     "name": "Left temporal bone"
+    },
+    {
+     "id": "FJ3287",
+     "name": "Left zygomatic bone"
+    },
+    {
+     "id": "FJ3375",
+     "name": "Right maxilla"
+    },
+    {
+     "id": "FJ3378",
+     "name": "Right nasal bone"
+    },
+    {
+     "id": "FJ3379",
+     "name": "Right palatine bone"
+    },
+    {
+     "id": "FJ3380",
+     "name": "Right parietal bone"
+    },
+    {
+     "id": "FJ3386",
+     "name": "Right temporal bone"
+    },
+    {
+     "id": "FJ3392",
+     "name": "Right zygomatic bone"
+    },
+    {
+     "id": "FJ3289",
+     "name": "Mandible"
+    }
+   ]
+  },
+  {
+   "id": "femur-humerus",
+   "layer": "marrow",
+   "elements": [
+    {
+     "id": "FJ3259",
+     "name": "Left femur"
+    },
+    {
+     "id": "FJ3365",
+     "name": "Right femur"
+    },
+    {
+     "id": "FJ3262",
+     "name": "Left humerus"
+    },
+    {
+     "id": "FJ3368",
+     "name": "Right humerus"
+    }
+   ]
+  },
+  {
+   "id": "skin",
+   "layer": "shell",
+   "elements": [
+    {
+     "id": "FJ2810",
+     "name": "Skin"
+    }
+   ]
+  }
+ ]
+}
