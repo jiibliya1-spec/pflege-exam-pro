@@ -55,6 +55,9 @@ const U = {
   sym: ["Symptome", "الأعراض", "Symptoms", "Symptômes", "Belirtiler"],
   act: ["Pflegerische Maßnahmen", "الإجراءات التمريضية", "Nursing interventions", "Soins infirmiers", "Hemşirelik girişimleri"],
   mon: ["Beobachtung und Monitoring", "المراقبة والمتابعة", "Observation and monitoring", "Observation et surveillance", "Gözlem ve izlem"],
+  parts: ["Bestandteile", "المكونات", "Components", "Composants", "Bileşenler"],
+  partsNote: ["Gliederung als Text; im 3D-Modell ist das Organ nicht in diese Teile getrennt.", "تقسيم نصي؛ العضو في النموذج ثلاثي الأبعاد غير مفصول إلى هذه الأجزاء.", "Outline as text; the organ is not split into these parts in the 3D model.", "Plan en texte ; l’organe n’est pas séparé en ces parties dans le modèle 3D.", "Metin olarak bölümleme; 3B modelde organ bu parçalara ayrılmamıştır."],
+  whole: ["Ganzer Körper", "الجسم كاملاً", "Whole body", "Corps entier", "Tüm vücut"],
   terms: ["Fachbegriffe", "مصطلحات", "Terminology", "Terminologie", "Terimler"],
 } satisfies Record<string, Row>;
 const tx = (r: Row, lang: string) => r[["de", "ar", "en", "fr", "tr"].indexOf(lang) < 0 ? 0 : ["de", "ar", "en", "fr", "tr"].indexOf(lang)];
@@ -63,20 +66,25 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 type VMesh = THREE.Mesh<THREE.BufferGeometry, THREE.MeshStandardMaterial>;
 interface Item { id: string; layer: string; mesh: VMesh; dir: THREE.Vector3; base: number }
 
-export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNode }) {
+export function AtlasViewer({ cfg, extra, compact = false, initialSel = null }: { cfg: AtlasConfig; extra?: ReactNode; compact?: boolean; initialSel?: string | null }) {
   const ITEMS = cfg.items;
   const lang = useLang();
   const T = (r: Row) => tx(r, lang);
+  const isAr = lang === "ar";
+  const P = (p: [string, string]) => (isAr ? p[1] : p[0]);
+  const nm = (i: { de: string; ar: string }) => (isAr ? i.ar : i.de);
+  const dirAttr = isAr ? "rtl" : "ltr";
+  const labelRef = useRef<HTMLDivElement>(null);
   const host = useRef<HTMLDivElement>(null);
   const items = useRef<Item[]>([]);
   const api = useRef<{ view: (v: string) => void; reset: () => void; focusOn: (ids: string[] | null) => void } | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "nowebgl" | "error">("loading");
-  const [sel, setSel] = useState<string | null>(null);
+  const [sel, setSel] = useState<string | null>(initialSel);
   const [hiddenLayers, setHiddenLayers] = useState<Set<string>>(new Set(cfg.hiddenLayers ?? []));
   const [hiddenIds, setHiddenIds] = useState<Set<string>>(new Set());
   const [explode, setExplode] = useState(0);
   const [inner, setInner] = useState(false);
-  const [isolate, setIsolate] = useState(false);
+  const [isolate, setIsolate] = useState(true);
   const [clip, setClip] = useState(false);
   const [axis, setAxis] = useState<"x" | "y" | "z">("x");
   const [clipPos, setClipPos] = useState(0);
@@ -250,6 +258,17 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
         if (controls.target.distanceTo(goal.t) < 0.001 && Math.abs(nd - goal.d) < 0.002) goal.on = false;
       }
       controls.update();
+      const lb = labelRef.current;
+      if (lb) {
+        const sid = state.current.sel;
+        const it = sid ? items.current.find((x) => x.id === sid) : null;
+        if (it && it.mesh.visible) {
+          const c = it.mesh.geometry.boundingBox!.getCenter(new THREE.Vector3()).add(it.mesh.position).project(camera);
+          const w = el.clientWidth, h = el.clientHeight;
+          lb.style.display = "block";
+          lb.style.transform = `translate(${((c.x + 1) / 2) * w}px, ${((1 - c.y) / 2) * h}px) translate(-50%, -140%)`;
+        } else lb.style.display = "none";
+      }
       renderer.render(scene, camera);
     };
     tick();
@@ -274,6 +293,15 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
     api.current?.focusOn(step ? step.ids : null);
   }, [step, status, cfg]);
 
+  /** Auswahl: Organ löst sich vom Körper, steht allein in der Mitte und wird beschriftet. */
+  const prevSel = useRef<string | null>(null);
+  useEffect(() => {
+    if (status !== "ready") return;
+    if (sel) api.current?.focusOn([sel]);
+    else if (prevSel.current) api.current?.focusOn(null);
+    prevSel.current = sel;
+  }, [sel, status]);
+
   useEffect(() => {
     if (!playing || !path) return;
     const t = setInterval(() => setStepI((i) => (i + 1) % path.steps.length), 4200);
@@ -288,15 +316,17 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
   return (
     <div className="grid grid-cols-[minmax(0,1fr)] gap-4 lg:grid-cols-[minmax(0,1fr)_380px]" data-testid={`atlas-${cfg.key}`}>
       <div className="space-y-3">
-        <div className="relative overflow-hidden rounded-xl border border-line bg-gradient-to-b from-[#0f2433] to-[#1c3a4f]" style={{ height: "min(62vh, 560px)", minHeight: 320 }}>
+        <div className="relative overflow-hidden rounded-xl border border-line bg-gradient-to-b from-[#0f2433] to-[#1c3a4f]" style={{ height: compact ? "min(48vh, 420px)" : "min(62vh, 560px)", minHeight: 300 }}>
           <div ref={host} className="absolute inset-0" />
           {status === "loading" && <div role="status" className="absolute inset-0 grid place-items-center text-sm text-white/80">{T(U.loading)}</div>}
           {status === "nowebgl" && <div role="alert" className="absolute inset-0 grid place-items-center p-6 text-center text-sm text-white/90">{T(U.nowebgl)}</div>}
           {status === "error" && <div role="alert" className="absolute inset-0 grid place-items-center p-6 text-center text-sm text-white/90">3D-Modell konnte nicht geladen werden.</div>}
+          <div ref={labelRef} className="pointer-events-none absolute left-0 top-0 hidden whitespace-nowrap rounded-md bg-teal px-2 py-0.5 text-xs font-semibold text-white shadow dark:text-[#04222a]" data-testid="atlas-label">{info ? nm(info) : ""}</div>
           {info && sel && (
-            <div className="pointer-events-none absolute left-3 top-3 max-w-[70%] rounded-lg bg-black/55 px-3 py-1.5 text-white backdrop-blur" data-testid="atlas-chip">
-              <div className="text-sm font-semibold">{info.de}</div>
+            <div className="absolute left-3 top-3 max-w-[70%] rounded-lg bg-black/55 px-3 py-1.5 text-white backdrop-blur" data-testid="atlas-chip" dir={dirAttr}>
+              <div className="text-sm font-semibold">{nm(info)}</div>
               <div className="text-xs italic opacity-80">{info.la}</div>
+              <button onClick={() => setSel(null)} className="pointer-events-auto mt-1 rounded bg-white/20 px-2 py-0.5 text-xs" data-testid="atlas-back">{T(U.whole)}</button>
             </div>
           )}
           <div className="pointer-events-none absolute bottom-2 left-3 right-3 text-[11px] text-white/70">{T(U.hint)}</div>
@@ -355,8 +385,8 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
             </div>
             {path && step && (
               <div className="mt-3 space-y-2" data-testid="atlas-step">
-                <p className="text-sm text-muted">{path.intro[0]}</p>
-                <p dir="rtl" lang="ar" className="text-sm text-muted">{path.intro[1]}</p>
+                <p className="text-sm text-muted" dir={dirAttr}>{P(path.intro)}</p>
+                
                 <ol className="flex flex-wrap gap-1">
                   {path.steps.map((st, i) => (
                     <li key={i}><button onClick={() => { setPlaying(false); setStepI(i); }} aria-current={i === stepI} aria-label={`${T(U.step)} ${i + 1}: ${T(st.title)}`} className={cn("h-8 min-w-8 rounded-full border px-2 text-xs", i === stepI ? "border-teal bg-teal text-white dark:text-[#04222a]" : "border-line hover:bg-surface2")}>{i + 1}</button></li>
@@ -364,9 +394,8 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
                 </ol>
                 <div className="rounded-lg bg-surface2 p-3">
                   <h3 className="font-semibold">{stepI + 1}. {T(step.title)}</h3>
-                  <p className="mt-1 text-sm">{step.text[0]}</p>
-                  <p dir="rtl" lang="ar" className="mt-1 text-sm text-muted">{step.text[1]}</p>
-                  {step.note && <p className="mt-2 rounded bg-surface px-2 py-1 text-xs text-muted">{T(U.nomodel)}: {step.note[0]}<span dir="rtl" lang="ar" className="block">{step.note[1]}</span></p>}
+                  <p className="mt-1 text-sm" dir={dirAttr}>{P(step.text)}</p>
+                  {step.note && <p className="mt-2 rounded bg-surface px-2 py-1 text-xs text-muted">{T(U.nomodel)}: {P(step.note)}</p>}
                 </div>
                 <div className="flex gap-1.5">
                   <button onClick={() => { setPlaying(false); setStepI((i) => (i + path.steps.length - 1) % path.steps.length); }} className="min-h-9 rounded-lg border border-line px-3 text-sm hover:bg-surface2">{T(U.prev)}</button>
@@ -385,21 +414,25 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
           {info && sel ? (
             <div className="space-y-3">
               <div>
-                <h2 className="text-lg font-bold">{info.de}</h2>
+                <h2 className="text-lg font-bold" dir={dirAttr}>{nm(info)}</h2>
                 <p className="text-sm italic text-muted">{info.la}</p>
-                <p dir="rtl" lang="ar" className="mt-1 text-base font-semibold text-teal">{info.ar}</p>
               </div>
               <section>
                 <h3 className="text-xs font-semibold uppercase tracking-wide text-muted">{T(U.fn)}</h3>
-                <p className="mt-1 text-sm">{info.fn[0]}</p>
-                <p dir="rtl" lang="ar" className="mt-1 text-sm text-muted">{info.fn[1]}</p>
+                <p className="mt-1 text-sm" dir={dirAttr}>{P(info.fn)}</p>
               </section>
               <section>
                 <h3 className="text-xs font-semibold uppercase tracking-wide text-muted">{T(U.kl)}</h3>
-                <p className="mt-1 text-sm">{info.kl[0]}</p>
-                <p dir="rtl" lang="ar" className="mt-1 text-sm text-muted">{info.kl[1]}</p>
+                <p className="mt-1 text-sm" dir={dirAttr}>{P(info.kl)}</p>
               </section>
-              {info.note && <p className="rounded-lg bg-surface2 p-2 text-xs text-muted">{info.note[0]}<span dir="rtl" lang="ar" className="mt-1 block">{info.note[1]}</span></p>}
+              {info.parts && info.parts.length > 0 && (
+                <section data-testid="atlas-parts">
+                  <h3 className="text-xs font-semibold uppercase tracking-wide text-muted">{T(U.parts)}</h3>
+                  <ul className="mt-1 list-disc space-y-0.5 pl-5 text-sm" dir={dirAttr}>{info.parts.map((x) => <li key={x[0]}>{P(x)}</li>)}</ul>
+                  <p className="mt-1 text-xs text-muted">{T(U.partsNote)}</p>
+                </section>
+              )}
+              {info.note && <p className="rounded-lg bg-surface2 p-2 text-xs text-muted"><span dir={dirAttr}>{P(info.note)}</span></p>}
             </div>
           ) : (
             <p className="text-sm text-muted">{T(U.pick)}</p>
@@ -415,7 +448,7 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
                 <ul className="mt-1 space-y-0.5">
                   {ids.map((id) => (
                     <li key={id} className="flex items-center gap-1">
-                      <button onClick={() => setSel(sel === id ? null : id)} data-testid={`atlas-item-${id}`} aria-pressed={sel === id} className={cn("min-h-9 flex-1 rounded-lg px-2 text-left text-sm hover:bg-surface2", sel === id && "bg-teal/15 font-semibold")}>{ITEMS[id].de}</button>
+                      <button onClick={() => setSel(sel === id ? null : id)} data-testid={`atlas-item-${id}`} aria-pressed={sel === id} className={cn("min-h-9 flex-1 rounded-lg px-2 text-left text-sm hover:bg-surface2", sel === id && "bg-teal/15 font-semibold")}>{nm(ITEMS[id])}</button>
                       <button onClick={() => toggleId(id)} aria-label={hiddenIds.has(id) ? "einblenden" : "ausblenden"} className="grid h-9 w-9 place-items-center rounded-lg text-muted hover:bg-surface2">{hiddenIds.has(id) ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}</button>
                     </li>
                   ))}
@@ -426,7 +459,7 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
         </div>
       </aside>
 
-      <section className="space-y-3 lg:col-span-2">
+      {!compact && <section className="space-y-3 lg:col-span-2">
         <div className="rounded-xl border border-line bg-surface p-4">
           <button onClick={() => setOpen(open === "care" ? null : "care")} aria-expanded={open === "care"} className="flex w-full items-center justify-between text-left font-semibold">{T(cfg.careTitle)}<span aria-hidden>{open === "care" ? "−" : "+"}</span></button>
           {open === "care" && (
@@ -454,18 +487,17 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
             <ol className="mt-3 space-y-4 text-sm">
               {cfg.quiz.map((q, i) => (
                 <li key={i}>
-                  <p className="font-medium">{q.q[0]}</p>
-                  <p dir="rtl" lang="ar" className="text-muted">{q.q[1]}</p>
+                  <p className="font-medium" dir={dirAttr}>{P(q.q)}</p>
                   <ul className="mt-1 list-[upper-alpha] space-y-0.5 pl-5">{[...q.o.slice(i % 4), ...q.o.slice(0, i % 4)].map((o) => <li key={o}>{o}</li>)}</ul>
                   <button onClick={() => setShown((p) => { const n = new Set(p); n.has(i) ? n.delete(i) : n.add(i); return n; })} className="mt-1 text-teal underline">{T(U.show)}</button>
-                  {shown.has(i) && <p className="mt-1 rounded-lg bg-surface2 p-2"><b>{q.o[0]}</b> — {q.why[0]}<span dir="rtl" lang="ar" className="block text-muted">{q.why[1]}</span></p>}
+                  {shown.has(i) && <p className="mt-1 rounded-lg bg-surface2 p-2"><span dir={dirAttr}><b>{q.o[0]}</b> — {P(q.why)}</span></p>}
                 </li>
               ))}
             </ol>
           )}
         </div>
         {extra}
-      </section>
+      </section>}
     </div>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { OrganFigure } from "./OrganFigure";
+const Lesson3D = dynamic(() => import("./Lesson3D").then((m) => m.Lesson3D), { ssr: false });
 import { DiseaseProfile } from "./DiseaseProfile";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -255,6 +257,7 @@ export function LearnView() {
         </div>
       )}
       <div dir={german ? "ltr" : dir} lang={german ? "de" : lang}>
+        <Lesson3D id={l.id} />
         {l.group === "krank" && <OrganFigure id={l.id} area={l.area} />}
         {l.group === "krank" && <DiseaseProfile id={l.id} />}
         {loc.diagrams?.length ? (

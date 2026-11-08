@@ -9,6 +9,8 @@ export interface AtlasItem {
   kl: [string, string];
   /** Hinweis zum Modell (z. B. nicht separat modelliert) */
   note?: [string, string];
+  /** Bestandteile als Gliederung [de, ar]; nur Text, nicht im Modell getrennt */
+  parts?: [string, string][];
 }
 export type Row = [string, string, string, string, string];
 export interface AtlasLayer { id: string; de: string; ar: string; en: string; fr: string; tr: string }
