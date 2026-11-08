@@ -397,7 +397,7 @@ export const DIGESTIVE_CFG: AtlasConfig = {
   shell: ["shell"],
   innerLabel: ["Zwerchfell und Gekröse durchsichtig", "الحجاب والمساريق شفافان", "Diaphragm and mesenteries transparent", "Diaphragme et mésentères transparents", "Diyafram ve mezenter saydam"],
   careTitle: ["Pflege-Überblick Verdauung", "نظرة تمريضية على الهضم", "Nursing overview: digestion", "Aperçu infirmier : digestion", "Hemşirelik özeti: sindirim"],
-  target: [0, 0.05, 0], shellOpacity: 0.28, stepCamera: true,
+  target: [0, 0.05, 0], shellOpacity: 0.28,
   dist: 0.95, minDist: 0.1, maxDist: 1.8, clipRange: 0.25, explodeScale: 0.7,
   care: DIGESTIVE_CARE,
   quiz: DIGESTIVE_QUIZ,
