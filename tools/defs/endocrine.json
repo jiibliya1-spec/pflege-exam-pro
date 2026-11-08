@@ -1,0 +1,181 @@
+{
+ "centreLayers": [
+  "neuro",
+  "adrenal",
+  "pancreas",
+  "thymus-gonad"
+ ],
+ "structures": [
+  {
+   "id": "hypothalamus",
+   "layer": "neuro",
+   "el": [
+    "FJ1760",
+    "FJ1808",
+    "FJ1768",
+    "FJ1815",
+    "FJ1780",
+    "FJ1828"
+   ]
+  },
+  {
+   "id": "pituitary-gland",
+   "layer": "neuro",
+   "el": [
+    "FJ1796"
+   ]
+  },
+  {
+   "id": "pineal-gland",
+   "layer": "neuro",
+   "el": [
+    "FJ1795"
+   ]
+  },
+  {
+   "id": "adrenal-glands",
+   "layer": "adrenal",
+   "el": [
+    "FJ3129",
+    "FJ3130"
+   ]
+  },
+  {
+   "id": "pancreas",
+   "layer": "pancreas",
+   "el": [
+    "FJ1895"
+   ]
+  },
+  {
+   "id": "pancreatic-duct",
+   "layer": "pancreas",
+   "el": [
+    "FJ1896"
+   ]
+  },
+  {
+   "id": "thymus",
+   "layer": "thymus-gonad",
+   "el": [
+    "FJ3150",
+    "FJ3151"
+   ]
+  },
+  {
+   "id": "testes",
+   "layer": "thymus-gonad",
+   "el": [
+    "FJ3138",
+    "FJ3142"
+   ]
+  },
+  {
+   "id": "kidneys",
+   "layer": "organ",
+   "el": [
+    "FJ3145",
+    "FJ3147"
+   ]
+  },
+  {
+   "id": "stomach",
+   "layer": "organ",
+   "el": [
+    "FJ2564"
+   ]
+  },
+  {
+   "id": "duodenum",
+   "layer": "organ",
+   "el": [
+    "FJ2573"
+   ]
+  },
+  {
+   "id": "gallbladder",
+   "layer": "organ",
+   "el": [
+    "FJ2817"
+   ]
+  },
+  {
+   "id": "trachea",
+   "layer": "organ",
+   "el": [
+    "FJ2541"
+   ]
+  },
+  {
+   "id": "thyroid-cartilage",
+   "layer": "organ",
+   "el": [
+    "FJ2808"
+   ]
+  },
+  {
+   "id": "skull",
+   "layer": "shell",
+   "match": [
+    {
+     "re": "^(Frontal bone|Occipital bone|Ethmoid|Sphenoid bone|Vomer)$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^(Left|Right) (parietal bone|temporal bone|maxilla|nasal bone|palatine bone|zygomatic bone)$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Mandible$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "vertebral-column",
+   "layer": "shell",
+   "match": [
+    {
+     "re": "^[A-Za-z]+ (cervical|thoracic|lumbar) vertebra$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Atlas$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Axis$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Sacrum$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "ribs",
+   "layer": "shell",
+   "match": [
+    {
+     "re": " rib$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^(Manubrium|Body of sternum|Xiphoid process)$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "hip-bone",
+   "layer": "shell",
+   "match": [
+    {
+     "re": "hip bone$",
+     "system": "skeletal"
+    }
+   ]
+  }
+ ]
+}

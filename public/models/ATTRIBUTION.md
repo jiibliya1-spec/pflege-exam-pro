@@ -38,3 +38,6 @@ Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 33 benannte Str
 
 ## musculoskeletal.glb (Bewegungsapparat)
 Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 58 benannte Strukturen (Skelett, Bandscheiben, ausgewählte Muskelgruppen, Hautkontur), rechts und links je Struktur zusammengeführt mit `tools/extract-model.mjs` und `tools/defs/musculoskeletal.json`; Herkunft in `musculoskeletal.provenance.json`. Nicht enthalten: Steißbein, Bänder (außer Tractus iliotibialis und Achillessehne), Gelenkknorpel, Menisken, Latissimus, gerader und innere Bauchmuskeln, Kau- und Mimikmuskeln, Binnenmuskeln von Hand und Fuß, äußerer schräger Bauchmuskel (Dateigröße). Einige Röhrenknochen sind im Quellmodell stark vereinfacht.
+
+## endocrine.glb (Endokrines System)
+Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 18 benannte Strukturen (Hypothalamus, Hypophyse, Zirbeldrüse, Nebennieren, Bauchspeicheldrüse, Thymus, Hoden; Orientierung: Nieren, Magen, Zwölffingerdarm, Gallenblase, Luftröhre, Schildknorpel, Skelett), erzeugt mit `tools/extract-model.mjs` und `tools/defs/endocrine.json`; Herkunft in `endocrine.provenance.json`. Nicht im Quellmodell: Schilddrüse, Nebenschilddrüsen, Eierstöcke.

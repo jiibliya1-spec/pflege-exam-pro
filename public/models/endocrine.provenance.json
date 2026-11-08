@@ -1,0 +1,509 @@
+{
+ "source": "BodyParts3D 4.0 (DBCLS, CC BY 4.0) via Human Atlas (ashemag/human-atlas, MIT/CC BY 4.0)",
+ "atlasJsonSha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+ "chunkSha256": {
+  "body-6.bin": "1c98dae807210cc51a4abc806134727c9544155cad0cc328cf2e1ae1f954d3ff",
+  "body-11.bin": "e8c1afe7f30fe710ad164ec9cd2287a32881606e7eb590af47d76b3f84405027",
+  "body-7.bin": "06340f48478eb989cec117a558290c0cd54eeead9641b565cbb8aab255b4e56b",
+  "body-9.bin": "0aa8aa09a379a2d759872659a2ef68fc4510ee37e435c4ebc63ee679722a4547",
+  "body-10.bin": "4a959d998acd35cf88518a0f2f8ab99b42d9f69c7ce0d6a814df315eeac807ac",
+  "body-12.bin": "61a6c8da89bb20df50c575964ac81aa4090eabfc2cb27ad2155aea325f31c6c0",
+  "body-13.bin": "4c51b6be85d5b705d2b52b79b9ad1cdae0b65ad03c9402a2f2673c7633fd94f3"
+ },
+ "centreOffsetMetres": [
+  0.006471749395132065,
+  1.1990377306938171,
+  0.011340601369738579
+ ],
+ "glbSha256": "f1ba3f18a107fc17a56015823321d7ffb6b1ba2f6a205b21773e40952d93552e",
+ "structures": [
+  {
+   "id": "hypothalamus",
+   "layer": "neuro",
+   "elements": [
+    {
+     "id": "FJ1760",
+     "name": "Hypothalamus"
+    },
+    {
+     "id": "FJ1808",
+     "name": "Hypothalamus"
+    },
+    {
+     "id": "FJ1768",
+     "name": "Mammillary body"
+    },
+    {
+     "id": "FJ1815",
+     "name": "Mammillary body"
+    },
+    {
+     "id": "FJ1780",
+     "name": "Tuber cinereum"
+    },
+    {
+     "id": "FJ1828",
+     "name": "Tuber cinereum"
+    }
+   ]
+  },
+  {
+   "id": "pituitary-gland",
+   "layer": "neuro",
+   "elements": [
+    {
+     "id": "FJ1796",
+     "name": "Pituitary gland"
+    }
+   ]
+  },
+  {
+   "id": "pineal-gland",
+   "layer": "neuro",
+   "elements": [
+    {
+     "id": "FJ1795",
+     "name": "Pineal body"
+    }
+   ]
+  },
+  {
+   "id": "adrenal-glands",
+   "layer": "adrenal",
+   "elements": [
+    {
+     "id": "FJ3129",
+     "name": "Left adrenal gland"
+    },
+    {
+     "id": "FJ3130",
+     "name": "Right adrenal gland"
+    }
+   ]
+  },
+  {
+   "id": "pancreas",
+   "layer": "pancreas",
+   "elements": [
+    {
+     "id": "FJ1895",
+     "name": "Pancreas"
+    }
+   ]
+  },
+  {
+   "id": "pancreatic-duct",
+   "layer": "pancreas",
+   "elements": [
+    {
+     "id": "FJ1896",
+     "name": "Pancreatic duct"
+    }
+   ]
+  },
+  {
+   "id": "thymus",
+   "layer": "thymus-gonad",
+   "elements": [
+    {
+     "id": "FJ3150",
+     "name": "Left lobe of thymus"
+    },
+    {
+     "id": "FJ3151",
+     "name": "Right lobe of thymus"
+    }
+   ]
+  },
+  {
+   "id": "testes",
+   "layer": "thymus-gonad",
+   "elements": [
+    {
+     "id": "FJ3138",
+     "name": "Left testis"
+    },
+    {
+     "id": "FJ3142",
+     "name": "Right testis"
+    }
+   ]
+  },
+  {
+   "id": "kidneys",
+   "layer": "organ",
+   "elements": [
+    {
+     "id": "FJ3145",
+     "name": "Left kidney"
+    },
+    {
+     "id": "FJ3147",
+     "name": "Right kidney"
+    }
+   ]
+  },
+  {
+   "id": "stomach",
+   "layer": "organ",
+   "elements": [
+    {
+     "id": "FJ2564",
+     "name": "Stomach"
+    }
+   ]
+  },
+  {
+   "id": "duodenum",
+   "layer": "organ",
+   "elements": [
+    {
+     "id": "FJ2573",
+     "name": "Duodenum"
+    }
+   ]
+  },
+  {
+   "id": "gallbladder",
+   "layer": "organ",
+   "elements": [
+    {
+     "id": "FJ2817",
+     "name": "Gallbladder"
+    }
+   ]
+  },
+  {
+   "id": "trachea",
+   "layer": "organ",
+   "elements": [
+    {
+     "id": "FJ2541",
+     "name": "Trachea"
+    }
+   ]
+  },
+  {
+   "id": "thyroid-cartilage",
+   "layer": "organ",
+   "elements": [
+    {
+     "id": "FJ2808",
+     "name": "Thyroid cartilage"
+    }
+   ]
+  },
+  {
+   "id": "skull",
+   "layer": "shell",
+   "elements": [
+    {
+     "id": "FJ3199",
+     "name": "Ethmoid"
+    },
+    {
+     "id": "FJ3200",
+     "name": "Frontal bone"
+    },
+    {
+     "id": "FJ3309",
+     "name": "Occipital bone"
+    },
+    {
+     "id": "FJ3394",
+     "name": "Sphenoid bone"
+    },
+    {
+     "id": "FJ3395",
+     "name": "Vomer"
+    },
+    {
+     "id": "FJ3269",
+     "name": "Left maxilla"
+    },
+    {
+     "id": "FJ3272",
+     "name": "Left nasal bone"
+    },
+    {
+     "id": "FJ3273",
+     "name": "Left palatine bone"
+    },
+    {
+     "id": "FJ3274",
+     "name": "Left parietal bone"
+    },
+    {
+     "id": "FJ3281",
+     "name": "Left temporal bone"
+    },
+    {
+     "id": "FJ3287",
+     "name": "Left zygomatic bone"
+    },
+    {
+     "id": "FJ3375",
+     "name": "Right maxilla"
+    },
+    {
+     "id": "FJ3378",
+     "name": "Right nasal bone"
+    },
+    {
+     "id": "FJ3379",
+     "name": "Right palatine bone"
+    },
+    {
+     "id": "FJ3380",
+     "name": "Right parietal bone"
+    },
+    {
+     "id": "FJ3386",
+     "name": "Right temporal bone"
+    },
+    {
+     "id": "FJ3392",
+     "name": "Right zygomatic bone"
+    },
+    {
+     "id": "FJ3289",
+     "name": "Mandible"
+    }
+   ]
+  },
+  {
+   "id": "vertebral-column",
+   "layer": "shell",
+   "elements": [
+    {
+     "id": "FJ3154",
+     "name": "Tenth thoracic vertebra"
+    },
+    {
+     "id": "FJ3155",
+     "name": "Eleventh thoracic vertebra"
+    },
+    {
+     "id": "FJ3156",
+     "name": "Twelfth thoracic vertebra"
+    },
+    {
+     "id": "FJ3157",
+     "name": "First lumbar vertebra"
+    },
+    {
+     "id": "FJ3158",
+     "name": "First thoracic vertebra"
+    },
+    {
+     "id": "FJ3159",
+     "name": "Second lumbar vertebra"
+    },
+    {
+     "id": "FJ3160",
+     "name": "Second thoracic vertebra"
+    },
+    {
+     "id": "FJ3161",
+     "name": "Third cervical vertebra"
+    },
+    {
+     "id": "FJ3162",
+     "name": "Third lumbar vertebra"
+    },
+    {
+     "id": "FJ3163",
+     "name": "Third thoracic vertebra"
+    },
+    {
+     "id": "FJ3164",
+     "name": "Fourth cervical vertebra"
+    },
+    {
+     "id": "FJ3165",
+     "name": "Fourth lumbar vertebra"
+    },
+    {
+     "id": "FJ3166",
+     "name": "Fourth thoracic vertebra"
+    },
+    {
+     "id": "FJ3167",
+     "name": "Fifth cervical vertebra"
+    },
+    {
+     "id": "FJ3168",
+     "name": "Fifth lumbar vertebra"
+    },
+    {
+     "id": "FJ3169",
+     "name": "Fifth thoracic vertebra"
+    },
+    {
+     "id": "FJ3170",
+     "name": "Sixth cervical vertebra"
+    },
+    {
+     "id": "FJ3171",
+     "name": "Sixth thoracic vertebra"
+    },
+    {
+     "id": "FJ3172",
+     "name": "Seventh cervical vertebra"
+    },
+    {
+     "id": "FJ3173",
+     "name": "Seventh thoracic vertebra"
+    },
+    {
+     "id": "FJ3174",
+     "name": "Eighth thoracic vertebra"
+    },
+    {
+     "id": "FJ3175",
+     "name": "Ninth thoracic vertebra"
+    },
+    {
+     "id": "FJ3176",
+     "name": "Atlas"
+    },
+    {
+     "id": "FJ3177",
+     "name": "Axis"
+    },
+    {
+     "id": "FJ3393",
+     "name": "Sacrum"
+    }
+   ]
+  },
+  {
+   "id": "ribs",
+   "layer": "shell",
+   "elements": [
+    {
+     "id": "FJ3225",
+     "name": "Left tenth rib"
+    },
+    {
+     "id": "FJ3226",
+     "name": "Left eleventh rib"
+    },
+    {
+     "id": "FJ3227",
+     "name": "Left twelfth rib"
+    },
+    {
+     "id": "FJ3228",
+     "name": "Left first rib"
+    },
+    {
+     "id": "FJ3229",
+     "name": "Left second rib"
+    },
+    {
+     "id": "FJ3230",
+     "name": "Left third rib"
+    },
+    {
+     "id": "FJ3231",
+     "name": "Left fourth rib"
+    },
+    {
+     "id": "FJ3232",
+     "name": "Left fifth rib"
+    },
+    {
+     "id": "FJ3233",
+     "name": "Left sixth rib"
+    },
+    {
+     "id": "FJ3234",
+     "name": "Left seventh rib"
+    },
+    {
+     "id": "FJ3235",
+     "name": "Left eighth rib"
+    },
+    {
+     "id": "FJ3236",
+     "name": "Left ninth rib"
+    },
+    {
+     "id": "FJ3330",
+     "name": "Right tenth rib"
+    },
+    {
+     "id": "FJ3331",
+     "name": "Right eleventh rib"
+    },
+    {
+     "id": "FJ3332",
+     "name": "Right twelfth rib"
+    },
+    {
+     "id": "FJ3334",
+     "name": "Right first rib"
+    },
+    {
+     "id": "FJ3336",
+     "name": "Right second rib"
+    },
+    {
+     "id": "FJ3338",
+     "name": "Right third rib"
+    },
+    {
+     "id": "FJ3340",
+     "name": "Right fourth rib"
+    },
+    {
+     "id": "FJ3342",
+     "name": "Right fifth rib"
+    },
+    {
+     "id": "FJ3344",
+     "name": "Right sixth rib"
+    },
+    {
+     "id": "FJ3346",
+     "name": "Right seventh rib"
+    },
+    {
+     "id": "FJ3347",
+     "name": "Right eighth rib"
+    },
+    {
+     "id": "FJ3348",
+     "name": "Right ninth rib"
+    },
+    {
+     "id": "FJ3153",
+     "name": "Xiphoid process"
+    },
+    {
+     "id": "FJ3178",
+     "name": "Body of sternum"
+    },
+    {
+     "id": "FJ3290",
+     "name": "Manubrium"
+    }
+   ]
+  },
+  {
+   "id": "hip-bone",
+   "layer": "shell",
+   "elements": [
+    {
+     "id": "FJ3152",
+     "name": "Right hip bone"
+    },
+    {
+     "id": "FJ3288",
+     "name": "Left hip bone"
+    }
+   ]
+  }
+ ]
+}
