@@ -40,6 +40,8 @@ const T: Record<string, Row> = {
   "nav.source": ["Quelle (PDF)", "المصدر", "Source (PDF)", "Source (PDF)", "Kaynak (PDF)"],
   "nav.admin": ["Import & Qualität", "الاستيراد والمراجعة", "Import & quality", "Import et qualité", "İçe aktarma ve kalite"],
   "nav.settings": ["Einstellungen", "الإعدادات", "Settings", "Réglages", "Ayarlar"],
+  "nav.atlas": ["Anatomie-Atlas", "أطلس التشريح", "Anatomy atlas", "Atlas d'anatomie", "Anatomi atlası"],
+  "nav.short.atlas": ["Atlas", "الأطلس", "Atlas", "Atlas", "Atlas"],
   "nav.learn": ["Lernen", "دروس", "Learn", "Apprendre", "Öğren"],
   "learn.search": ["Lektionen durchsuchen: Thema, Krankheit, Stichwort …", "ابحث في الدروس: موضوع، مرض، كلمة …", "Search lessons: topic, disease, keyword …", "Rechercher dans les leçons : thème, maladie, mot-clé …", "Derslerde ara: konu, hastalık, anahtar kelime …"],
   "learn.hits": ["%n Lektionen gefunden", "تم العثور على %n درس", "%n lessons found", "%n leçons trouvées", "%n ders bulundu"],

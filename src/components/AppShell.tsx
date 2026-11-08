@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
   BarChart3,
   BookOpen,
+  Box,
   ClipboardCheck,
   Layers,
   LayoutDashboard,
@@ -38,6 +39,7 @@ interface NavItem {
 export const NAV: NavItem[] = [
   { href: "/", key: "nav.dashboard", de: "Dashboard", ar: "لوحة التحكم", icon: <LayoutDashboard className="h-5 w-5" />, mobile: true },
   { href: "/learn/", key: "nav.learn", de: "Lernen", ar: "دروس", icon: <BookOpen className="h-5 w-5" />, mobile: true },
+  { href: "/atlas/", key: "nav.atlas", de: "Anatomie-Atlas", ar: "أطلس التشريح", icon: <Box className="h-5 w-5" /> },
   { href: "/cases/", key: "nav.cases", de: "Fallbeispiele", ar: "الحالات السريرية", icon: <Stethoscope className="h-5 w-5" />, mobile: true },
   { href: "/oral/", key: "nav.oral", de: "Mündliche Prüfung", ar: "الامتحان الشفوي", icon: <Mic className="h-5 w-5" /> },
   { href: "/quiz/setup/", key: "nav.quiz", de: "Quiz & Prüfung", ar: "اختبار وامتحان", icon: <PlayCircle className="h-5 w-5" />, mobile: true },
