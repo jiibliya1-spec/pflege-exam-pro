@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Theme vor dem ersten Paint setzen (verhindert Aufblitzen) */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var s=JSON.parse(localStorage.getItem('pep:theme')||'null');var d=s==='dark'||((s===null||s==='system')&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',d)}catch(e){}`,
+            __html: `try{var s=null;try{s=JSON.parse(localStorage.getItem('pep:theme')||'null')}catch(e){}if(s===null){var m=document.cookie.match(/(?:^|; )pep_theme=(\\w+)/);if(m)s=m[1]}var d=s==='dark'||((s===null||s==='system')&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',d);document.documentElement.style.colorScheme=d?'dark':'light'}catch(e){}`,
           }}
         />
       </head>

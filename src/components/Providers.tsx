@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { StoreProvider, useStore } from "@/lib/store";
 import { BankProvider } from "@/lib/bank";
@@ -12,18 +12,24 @@ function SettingsEffects({ children }: { children: ReactNode }) {
   const { state, ready } = useStore();
   const { theme, fontScale, reducedMotion, animations, uiLanguage } = state.settings;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!ready) return;
     const root = document.documentElement;
     const apply = () => {
       const dark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
       root.classList.toggle("dark", dark);
+      root.style.colorScheme = dark ? "dark" : "light";
     };
     apply();
     try {
       localStorage.setItem("pep:theme", JSON.stringify(theme));
     } catch {
       /* Speicher evtl. blockiert */
+    }
+    try {
+      document.cookie = `pep_theme=${theme}; path=/; max-age=31536000; SameSite=Lax`;
+    } catch {
+      /* Cookies evtl. blockiert */
     }
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     mq.addEventListener("change", apply);
