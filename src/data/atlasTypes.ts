@@ -32,6 +32,8 @@ export interface AtlasConfig {
   careTitle: Row;
   target?: [number, number, number];
   shellOpacity?: number;
+  /** Kamera fährt bei Schritten der Lernwege auf die hervorgehobenen Strukturen */
+  stepCamera?: boolean;
   dist: number; minDist: number; maxDist: number; clipRange: number; explodeScale: number;
   care: AtlasCare;
   quiz: AtlasQuiz[];

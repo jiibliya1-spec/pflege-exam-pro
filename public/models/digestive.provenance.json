@@ -1,0 +1,835 @@
+{
+ "source": "BodyParts3D 4.0 (DBCLS, CC BY 4.0) via Human Atlas (ashemag/human-atlas, MIT/CC BY 4.0)",
+ "atlasJsonSha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+ "chunkSha256": {
+  "body-10.bin": "4a959d998acd35cf88518a0f2f8ab99b42d9f69c7ce0d6a814df315eeac807ac",
+  "body-9.bin": "0aa8aa09a379a2d759872659a2ef68fc4510ee37e435c4ebc63ee679722a4547",
+  "body-11.bin": "e8c1afe7f30fe710ad164ec9cd2287a32881606e7eb590af47d76b3f84405027",
+  "body-7.bin": "06340f48478eb989cec117a558290c0cd54eeead9641b565cbb8aab255b4e56b",
+  "body-13.bin": "4c51b6be85d5b705d2b52b79b9ad1cdae0b65ad03c9402a2f2673c7633fd94f3",
+  "body-14.bin": "58604526a0cd9e7dca4d8587cd9a42f9dd03ec6c4ebbc22a9bf017b31246f7e7",
+  "body-8.bin": "18beacfdeadc8ad483d692672aae165f4323704cd7a9bfcbebbd703f5e268e25"
+ },
+ "centreOffsetMetres": [
+  -0.00475749745965004,
+  1.151969701051712,
+  0.006823599338531494
+ ],
+ "glbSha256": "59aee3712f5a080ae5d642a2e3157e71558d5a49f511b8448f14dbcfeebdabb5",
+ "structures": [
+  {
+   "id": "tongue",
+   "layer": "oral",
+   "elements": [
+    {
+     "id": "FJ2761",
+     "name": "Tongue"
+    }
+   ]
+  },
+  {
+   "id": "submandibular-glands",
+   "layer": "oral",
+   "elements": [
+    {
+     "id": "FJ2766",
+     "name": "Left submandibular gland"
+    },
+    {
+     "id": "FJ2768",
+     "name": "Right submandibular gland"
+    }
+   ]
+  },
+  {
+   "id": "sublingual-glands",
+   "layer": "oral",
+   "elements": [
+    {
+     "id": "FJ2765",
+     "name": "Left sublingual gland"
+    },
+    {
+     "id": "FJ2767",
+     "name": "Right sublingual gland"
+    }
+   ]
+  },
+  {
+   "id": "esophagus",
+   "layer": "upper",
+   "elements": [
+    {
+     "id": "FJ2563",
+     "name": "Esophagus"
+    }
+   ]
+  },
+  {
+   "id": "stomach",
+   "layer": "upper",
+   "elements": [
+    {
+     "id": "FJ2564",
+     "name": "Stomach"
+    }
+   ]
+  },
+  {
+   "id": "duodenum",
+   "layer": "upper",
+   "elements": [
+    {
+     "id": "FJ2573",
+     "name": "Duodenum"
+    }
+   ]
+  },
+  {
+   "id": "jejunum",
+   "layer": "small",
+   "elements": [
+    {
+     "id": "FJ2606",
+     "name": "Proximal part of jejunum"
+    },
+    {
+     "id": "FJ2607",
+     "name": "Middle part of jejunum"
+    },
+    {
+     "id": "FJ2608",
+     "name": "Middle part of jejunum"
+    },
+    {
+     "id": "FJ2609",
+     "name": "Middle part of jejunum"
+    },
+    {
+     "id": "FJ2610",
+     "name": "Middle part of jejunum"
+    },
+    {
+     "id": "FJ2611",
+     "name": "Distal part of jejunum"
+    },
+    {
+     "id": "FJ2612",
+     "name": "Distal part of jejunum"
+    },
+    {
+     "id": "FJ2613",
+     "name": "Distal part of jejunum"
+    },
+    {
+     "id": "FJ2614",
+     "name": "Distal part of jejunum"
+    },
+    {
+     "id": "FJ2615",
+     "name": "Distal part of jejunum"
+    },
+    {
+     "id": "FJ2616",
+     "name": "Distal part of jejunum"
+    },
+    {
+     "id": "FJ2617",
+     "name": "Proximal part of jejunum"
+    },
+    {
+     "id": "FJ2618",
+     "name": "Distal part of jejunum"
+    },
+    {
+     "id": "FJ2619",
+     "name": "Distal part of jejunum"
+    },
+    {
+     "id": "FJ2620",
+     "name": "Distal part of jejunum"
+    },
+    {
+     "id": "FJ2621",
+     "name": "Distal part of jejunum"
+    },
+    {
+     "id": "FJ2622",
+     "name": "Proximal part of jejunum"
+    },
+    {
+     "id": "FJ2623",
+     "name": "Proximal part of jejunum"
+    },
+    {
+     "id": "FJ2624",
+     "name": "Proximal part of jejunum"
+    },
+    {
+     "id": "FJ2625",
+     "name": "Proximal part of jejunum"
+    },
+    {
+     "id": "FJ2626",
+     "name": "Proximal part of jejunum"
+    },
+    {
+     "id": "FJ2627",
+     "name": "Proximal part of jejunum"
+    },
+    {
+     "id": "FJ2628",
+     "name": "Middle part of jejunum"
+    }
+   ]
+  },
+  {
+   "id": "ileum",
+   "layer": "small",
+   "elements": [
+    {
+     "id": "FJ2574",
+     "name": "Proximal part of ileum"
+    },
+    {
+     "id": "FJ2575",
+     "name": "Proximal part of ileum"
+    },
+    {
+     "id": "FJ2576",
+     "name": "Middle part of ileum"
+    },
+    {
+     "id": "FJ2577",
+     "name": "Middle part of ileum"
+    },
+    {
+     "id": "FJ2578",
+     "name": "Middle part of ileum"
+    },
+    {
+     "id": "FJ2579",
+     "name": "Middle part of ileum"
+    },
+    {
+     "id": "FJ2580",
+     "name": "Middle part of ileum"
+    },
+    {
+     "id": "FJ2581",
+     "name": "Middle part of ileum"
+    },
+    {
+     "id": "FJ2582",
+     "name": "Middle part of ileum"
+    },
+    {
+     "id": "FJ2583",
+     "name": "Middle part of ileum"
+    },
+    {
+     "id": "FJ2584",
+     "name": "Middle part of ileum"
+    },
+    {
+     "id": "FJ2585",
+     "name": "Proximal part of ileum"
+    },
+    {
+     "id": "FJ2586",
+     "name": "Middle part of ileum"
+    },
+    {
+     "id": "FJ2587",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2588",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2589",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2590",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2591",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2592",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2593",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2594",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2595",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2596",
+     "name": "Proximal part of ileum"
+    },
+    {
+     "id": "FJ2597",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2598",
+     "name": "Distal part of ileum"
+    },
+    {
+     "id": "FJ2600",
+     "name": "Proximal part of ileum"
+    },
+    {
+     "id": "FJ2601",
+     "name": "Proximal part of ileum"
+    },
+    {
+     "id": "FJ2602",
+     "name": "Proximal part of ileum"
+    },
+    {
+     "id": "FJ2603",
+     "name": "Proximal part of ileum"
+    },
+    {
+     "id": "FJ2604",
+     "name": "Proximal part of ileum"
+    },
+    {
+     "id": "FJ2605",
+     "name": "Proximal part of ileum"
+    }
+   ]
+  },
+  {
+   "id": "ileocecal-junction",
+   "layer": "small",
+   "elements": [
+    {
+     "id": "FJ2599",
+     "name": "Ileocecal junction"
+    }
+   ]
+  },
+  {
+   "id": "appendix",
+   "layer": "colon",
+   "elements": [
+    {
+     "id": "FJ2565",
+     "name": "Appendix"
+    }
+   ]
+  },
+  {
+   "id": "ascending-colon",
+   "layer": "colon",
+   "elements": [
+    {
+     "id": "FJ2566",
+     "name": "Ascending colon"
+    }
+   ]
+  },
+  {
+   "id": "transverse-colon",
+   "layer": "colon",
+   "elements": [
+    {
+     "id": "FJ2572",
+     "name": "Transverse colon"
+    }
+   ]
+  },
+  {
+   "id": "descending-colon",
+   "layer": "colon",
+   "elements": [
+    {
+     "id": "FJ2567",
+     "name": "Descending colon"
+    }
+   ]
+  },
+  {
+   "id": "rectum",
+   "layer": "colon",
+   "elements": [
+    {
+     "id": "FJ2571",
+     "name": "Rectum"
+    }
+   ]
+  },
+  {
+   "id": "taeniae-coli",
+   "layer": "colon",
+   "elements": [
+    {
+     "id": "FJ2568",
+     "name": "Taenia libera"
+    },
+    {
+     "id": "FJ2569",
+     "name": "Taenia mesocolica"
+    },
+    {
+     "id": "FJ2570",
+     "name": "Taenia omentalis"
+    }
+   ]
+  },
+  {
+   "id": "liver-caudate",
+   "layer": "liver",
+   "elements": [
+    {
+     "id": "FJ2816",
+     "name": "Caudate lobe of liver"
+    }
+   ]
+  },
+  {
+   "id": "liver-segments-2-3",
+   "layer": "liver",
+   "elements": [
+    {
+     "id": "FJ2818",
+     "name": "Hepatovenous segment II"
+    },
+    {
+     "id": "FJ2819",
+     "name": "Hepatovenous segment III"
+    }
+   ]
+  },
+  {
+   "id": "liver-segment-4",
+   "layer": "liver",
+   "elements": [
+    {
+     "id": "FJ2820",
+     "name": "Hepatovenous segment IV"
+    }
+   ]
+  },
+  {
+   "id": "liver-segment-5",
+   "layer": "liver",
+   "elements": [
+    {
+     "id": "FJ2821",
+     "name": "Hepatovenous segment V"
+    }
+   ]
+  },
+  {
+   "id": "liver-segment-6",
+   "layer": "liver",
+   "elements": [
+    {
+     "id": "FJ2822",
+     "name": "Hepatovenous segment VI"
+    }
+   ]
+  },
+  {
+   "id": "liver-segment-8",
+   "layer": "liver",
+   "elements": [
+    {
+     "id": "FJ2823",
+     "name": "Hepatovenous segment VIII"
+    },
+    {
+     "id": "FJ2824",
+     "name": "Hepatovenous segment VIII"
+    }
+   ]
+  },
+  {
+   "id": "gallbladder",
+   "layer": "biliary",
+   "elements": [
+    {
+     "id": "FJ2817",
+     "name": "Gallbladder"
+    }
+   ]
+  },
+  {
+   "id": "extrahepatic-bile-ducts",
+   "layer": "biliary",
+   "elements": [
+    {
+     "id": "FJ3079",
+     "name": "Common hepatic duct"
+    },
+    {
+     "id": "FJ3080",
+     "name": "Cystic duct"
+    },
+    {
+     "id": "FJ3123",
+     "name": "Right hepatic duct"
+    },
+    {
+     "id": "FJ3096",
+     "name": "Left hepatic duct"
+    }
+   ]
+  },
+  {
+   "id": "intrahepatic-bile-ducts",
+   "layer": "biliary",
+   "elements": [
+    {
+     "id": "FJ1883",
+     "name": "Caudate lobe tributary of left hepatic biliary tree"
+    },
+    {
+     "id": "FJ3071",
+     "name": "Anterior superior tributary of right hepatic biliary tree"
+    },
+    {
+     "id": "FJ3072",
+     "name": "Anterior inferior tributary of right hepatic biliary tree"
+    },
+    {
+     "id": "FJ3088",
+     "name": "Lateral superior tributary of left hepatic biliary tree"
+    },
+    {
+     "id": "FJ3089",
+     "name": "Lateral inferior tributary of left hepatic biliary tree"
+    },
+    {
+     "id": "FJ3090",
+     "name": "Lateral superior tributary of left hepatic biliary tree"
+    },
+    {
+     "id": "FJ3103",
+     "name": "Medial inferior tributary of left hepatic biliary tree"
+    },
+    {
+     "id": "FJ3104",
+     "name": "Medial superior tributary of left hepatic biliary tree"
+    },
+    {
+     "id": "FJ3105",
+     "name": "Medial superior tributary of left hepatic biliary tree"
+    },
+    {
+     "id": "FJ3108",
+     "name": "Posterior inferior tributary of right hepatic biliary tree"
+    },
+    {
+     "id": "FJ3109",
+     "name": "Posterior superior tributary of right hepatic biliary tree"
+    },
+    {
+     "id": "FJ3110",
+     "name": "Posterior superior tributary of right hepatic biliary tree"
+    },
+    {
+     "id": "FJ3094",
+     "name": "Left duct of caudate lobe of liver"
+    }
+   ]
+  },
+  {
+   "id": "pancreas",
+   "layer": "pancreas",
+   "elements": [
+    {
+     "id": "FJ1895",
+     "name": "Pancreas"
+    }
+   ]
+  },
+  {
+   "id": "pancreatic-duct",
+   "layer": "pancreas",
+   "elements": [
+    {
+     "id": "FJ1896",
+     "name": "Pancreatic duct"
+    }
+   ]
+  },
+  {
+   "id": "spleen",
+   "layer": "spleen",
+   "elements": [
+    {
+     "id": "FJ2561",
+     "name": "Spleen"
+    }
+   ]
+  },
+  {
+   "id": "celiac-trunk",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ3421",
+     "name": "Celiac trunk"
+    }
+   ]
+  },
+  {
+   "id": "gastric-arteries",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ3499",
+     "name": "Left gastric artery"
+    },
+    {
+     "id": "FJ3594",
+     "name": "Right gastric artery"
+    }
+   ]
+  },
+  {
+   "id": "splenic-artery",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ2562",
+     "name": "Splenic artery"
+    },
+    {
+     "id": "FJ3420",
+     "name": "Splenic artery"
+    },
+    {
+     "id": "FJ3544",
+     "name": "Splenic artery"
+    },
+    {
+     "id": "FJ3640",
+     "name": "Splenic artery"
+    }
+   ]
+  },
+  {
+   "id": "hepatic-arteries",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ3078",
+     "name": "Common hepatic artery"
+    },
+    {
+     "id": "FJ3081",
+     "name": "Hepatic artery proper"
+    },
+    {
+     "id": "FJ3095",
+     "name": "Trunk of left hepatic artery"
+    },
+    {
+     "id": "FJ3117",
+     "name": "Trunk of right hepatic artery"
+    },
+    {
+     "id": "FJ3075",
+     "name": "Anterior inferior segmental hepatic artery"
+    },
+    {
+     "id": "FJ3076",
+     "name": "Anterior superior segmental hepatic artery"
+    },
+    {
+     "id": "FJ3091",
+     "name": "Lateral superior segmental hepatic artery"
+    },
+    {
+     "id": "FJ3092",
+     "name": "Lateral inferior segmental hepatic artery"
+    },
+    {
+     "id": "FJ3093",
+     "name": "Lateral superior segmental hepatic artery"
+    },
+    {
+     "id": "FJ3106",
+     "name": "Medial inferior segmental hepatic artery"
+    },
+    {
+     "id": "FJ3107",
+     "name": "Medial superior segmental hepatic artery"
+    },
+    {
+     "id": "FJ3114",
+     "name": "Posterior inferior segmental hepatic artery"
+    },
+    {
+     "id": "FJ3115",
+     "name": "Posterior superior segmental hepatic artery"
+    },
+    {
+     "id": "FJ3116",
+     "name": "Posterior superior segmental hepatic artery"
+    }
+   ]
+  },
+  {
+   "id": "superior-mesenteric-artery",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ1928",
+     "name": "Superior mesenteric artery"
+    },
+    {
+     "id": "FJ2011",
+     "name": "Superior mesenteric artery"
+    },
+    {
+     "id": "FJ3644",
+     "name": "Trunk of superior mesenteric artery"
+    }
+   ]
+  },
+  {
+   "id": "inferior-mesenteric-artery",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ3442",
+     "name": "Inferior mesenteric artery"
+    }
+   ]
+  },
+  {
+   "id": "portal-vein",
+   "layer": "portal",
+   "elements": [
+    {
+     "id": "FJ1853",
+     "name": "Hepatic portal vein"
+    }
+   ]
+  },
+  {
+   "id": "splenic-vein",
+   "layer": "portal",
+   "elements": [
+    {
+     "id": "FJ3641",
+     "name": "Splenic vein"
+    }
+   ]
+  },
+  {
+   "id": "superior-mesenteric-vein",
+   "layer": "portal",
+   "elements": [
+    {
+     "id": "FJ3647",
+     "name": "Superior mesenteric vein"
+    }
+   ]
+  },
+  {
+   "id": "inferior-mesenteric-vein",
+   "layer": "portal",
+   "elements": [
+    {
+     "id": "FJ3443",
+     "name": "Inferior mesenteric vein"
+    }
+   ]
+  },
+  {
+   "id": "portal-branches",
+   "layer": "portal",
+   "elements": [
+    {
+     "id": "FJ1893",
+     "name": "Left portal vein"
+    },
+    {
+     "id": "FJ1913",
+     "name": "Right portal vein"
+    },
+    {
+     "id": "FJ2404",
+     "name": "Left portal vein"
+    },
+    {
+     "id": "FJ2405",
+     "name": "Right portal vein"
+    },
+    {
+     "id": "FJ3102",
+     "name": "Trunk of left portal vein"
+    },
+    {
+     "id": "FJ3122",
+     "name": "Trunk of right portal vein"
+    }
+   ]
+  },
+  {
+   "id": "hepatic-veins",
+   "layer": "portal",
+   "elements": [
+    {
+     "id": "FJ2414",
+     "name": "Middle hepatic vein"
+    },
+    {
+     "id": "FJ2415",
+     "name": "Left hepatic vein"
+    },
+    {
+     "id": "FJ2416",
+     "name": "Right hepatic vein"
+    }
+   ]
+  },
+  {
+   "id": "mesenteries",
+   "layer": "shell",
+   "elements": [
+    {
+     "id": "FJ3396",
+     "name": "Mesentery of small intestine"
+    },
+    {
+     "id": "FJ3397",
+     "name": "Mesoappendix"
+    },
+    {
+     "id": "FJ3398",
+     "name": "Transverse mesocolon"
+    }
+   ]
+  },
+  {
+   "id": "diaphragm",
+   "layer": "shell",
+   "elements": [
+    {
+     "id": "FJ3131",
+     "name": "Diaphragm"
+    }
+   ]
+  }
+ ]
+}

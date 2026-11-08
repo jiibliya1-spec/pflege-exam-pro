@@ -24,3 +24,11 @@ Bearbeitungen (nach CC BY 4.0 kenntlich gemacht): Die OBJ-Elemente wurden von �
 - Enthalten: Nieren, Nebennieren, Harnleiter (mit Nierenkelchen und Nierenbecken), Harnblase, Harnröhre, Prostata, Nierenarterien und -venen, Bauchaorta, untere Hohlvene, Beckengefäße, Kreuzbein (18 Strukturen). Referenzanatomie eines Mannes.
 - Nicht im Modell: Nierenrinde und -mark, Nephron, Nierenhüllen, Blasenwand-Schichten, Schließmuskeln, weibliche Harnröhre. Dafür gibt es beschriftete Schemazeichnungen (keine 3D-Daten).
 - Verarbeitung: `tools/extract-urinary.mjs`; Element-IDs und Prüfsummen in `urinary.provenance.json`.
+
+## digestive.glb (Verdauungssystem)
+
+- Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0 (https://lifesciencedb.jp/bp3d/), bezogen über Human Atlas (ashemag/human-atlas).
+- Enthalten: Zunge, Unterkiefer- und Unterzungenspeicheldrüsen, Speiseröhre, Magen, Zwölffingerdarm, Leer- und Krummdarm, Ileozäkalklappe, Wurmfortsatz, Dickdarmabschnitte und Dickdarmbänder, Leber (als Segmente II bis VI und VIII sowie Lobus caudatus), Gallenblase und Gallenwege, Bauchspeicheldrüse mit Gang, Milz, Bauchorgan-Arterien, Pfortadersystem und Lebervenen, Gekröse, Zwerchfell (41 Strukturen). Referenzanatomie eines Mannes.
+- Bewusst ausgelassen (mehrdeutig oder doppelte Geometrie): Hepatovenous segment VII (FJ2409) und IX (FJ1858), Pankreas-Parenchym und Gangbaum (FJ2629, FJ2630), FJ3082, FJ1846, FJ2013.
+- Nicht im Modell: Mundboden und Rachen, Ohrspeicheldrüse, Sigmoid, Analkanal, Hauptgallengang, Peritoneum, Wandschichten, Zotten. Dafür gibt es ein beschriftetes Schema (keine 3D-Daten).
+- Verarbeitung: `tools/extract-digestive.mjs`; Element-IDs und Prüfsummen in `digestive.provenance.json`.

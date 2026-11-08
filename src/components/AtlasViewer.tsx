@@ -69,7 +69,7 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
   const T = (r: Row) => tx(r, lang);
   const host = useRef<HTMLDivElement>(null);
   const items = useRef<Item[]>([]);
-  const api = useRef<{ view: (v: string) => void; reset: () => void } | null>(null);
+  const api = useRef<{ view: (v: string) => void; reset: () => void; focusOn: (ids: string[] | null) => void } | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "nowebgl" | "error">("loading");
   const [sel, setSel] = useState<string | null>(null);
   const [hiddenLayers, setHiddenLayers] = useState<Set<string>>(new Set());
@@ -156,7 +156,19 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
       controls.target.set(tg[0], tg[1], tg[2]);
       controls.update();
     };
-    api.current = { view: place, reset: () => place("front") };
+    const goal = { on: false, t: new THREE.Vector3(), d: cfg.dist };
+    const focusOn = (ids: string[] | null) => {
+      const tg = new THREE.Vector3(...(cfg.target ?? [0, 0, 0]));
+      if (!ids || !ids.length) { goal.t.copy(tg); goal.d = cfg.dist; goal.on = true; return; }
+      const box = new THREE.Box3();
+      for (const it of items.current) if (ids.includes(it.id)) { it.mesh.geometry.computeBoundingBox(); box.union(it.mesh.geometry.boundingBox!); }
+      if (box.isEmpty()) return;
+      const size = box.getSize(new THREE.Vector3());
+      goal.t.copy(box.getCenter(new THREE.Vector3()));
+      goal.d = Math.min(cfg.dist, Math.max(cfg.minDist * 1.5, Math.max(size.x, size.y, size.z) * 2.4));
+      goal.on = true;
+    };
+    api.current = { view: (v: string) => { goal.on = false; place(v); }, reset: () => { goal.on = false; place("front"); }, focusOn };
     place("front");
 
     const resize = () => {
@@ -229,6 +241,14 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
         const target = it.dir.clone().multiplyScalar(k * cfg.explodeScale);
         it.mesh.position.lerp(target, 0.18);
       }
+      if (goal.on) {
+        const dir = camera.position.clone().sub(controls.target);
+        const cur = dir.length() || 1;
+        controls.target.lerp(goal.t, 0.08);
+        const nd = cur + (goal.d - cur) * 0.08;
+        camera.position.copy(controls.target).add(dir.normalize().multiplyScalar(nd));
+        if (controls.target.distanceTo(goal.t) < 0.001 && Math.abs(nd - goal.d) < 0.002) goal.on = false;
+      }
       controls.update();
       renderer.render(scene, camera);
     };
@@ -248,6 +268,11 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
       renderer.domElement.remove();
     };
   }, [apply, cfg]);
+
+  useEffect(() => {
+    if (status !== "ready" || !cfg.stepCamera) return;
+    api.current?.focusOn(step ? step.ids : null);
+  }, [step, status, cfg]);
 
   useEffect(() => {
     if (!playing || !path) return;
