@@ -286,7 +286,7 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
   const grouped = useMemo(() => cfg.layers.map((l) => ({ l, ids: Object.keys(ITEMS).filter((id) => cfg.layerOf(id) === l.id) })), [cfg, ITEMS]);
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_380px]" data-testid={`atlas-${cfg.key}`}>
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-4 lg:grid-cols-[minmax(0,1fr)_380px]" data-testid={`atlas-${cfg.key}`}>
       <div className="space-y-3">
         <div className="relative overflow-hidden rounded-xl border border-line bg-gradient-to-b from-[#0f2433] to-[#1c3a4f]" style={{ height: "min(62vh, 560px)", minHeight: 320 }}>
           <div ref={host} className="absolute inset-0" />
