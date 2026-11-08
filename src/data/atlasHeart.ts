@@ -2,17 +2,8 @@
  * Atlas Herz: Beschriftungen zu den 34 benannten Strukturen des BodyParts3D-Herzmodells (public/models/heart.glb).
  * Die Schlüssel entsprechen den Knotennamen im Modell. Namen: Terminologia Anatomica; Texte in eigenen Worten.
  */
-export interface AtlasItem {
-  de: string;
-  la: string;
-  ar: string;
-  /** Funktion und Physiologie */
-  fn: [string, string];
-  /** Klinische Bedeutung und Pflegebezug */
-  kl: [string, string];
-  /** Hinweis zum Modell (z. B. nicht separat modelliert) */
-  note?: [string, string];
-}
+import type { AtlasConfig, AtlasItem } from "./atlasTypes";
+export type { AtlasItem };
 
 export type HeartLayer = "wall" | "chamber" | "valve" | "vessel" | "coronary" | "cardiac-vein";
 
@@ -216,3 +207,43 @@ export const HEART_QUIZ: { q: [string, string]; o: [string, string, string, stri
   { q: ["Warum ist die Wand der linken Kammer dicker als die der rechten?", "لماذا جدار البطين الأيسر أسمك من الأيمن؟"], o: ["Sie pumpt gegen den hohen Druck im Körperkreislauf", "Sie pumpt nur in die Lunge", "Sie enthält die Klappen", "Sie nimmt das venöse Blut auf"], why: ["Der Körperkreislauf hat einen deutlich höheren Widerstand als der Lungenkreislauf.", "مقاومة الدورة الكبرى أعلى بكثير من الدورة الرئوية."] },
   { q: ["Wo entspringen die Herzkranzarterien?", "من أين تنشأ الشرايين التاجية؟"], o: ["Direkt über der Aortenklappe", "Aus dem Truncus pulmonalis", "Aus der oberen Hohlvene", "Aus dem linken Vorhof"], why: ["Sie gehen aus der aufsteigenden Aorta hinter den Taschen der Aortenklappe ab.", "تنشأ من الأبهر الصاعد خلف جيوب الصمام الأبهري."] },
 ];
+
+
+function layerOf(id: string): HeartLayer {
+  if (id.endsWith("-wall")) return "wall";
+  if (/^(right|left)-(atrium|ventricle)$/.test(id)) return "chamber";
+  if (/valve|papillary/.test(id)) return "valve";
+  if (/cardiac-vein|coronary-sinus/.test(id)) return "cardiac-vein";
+  if (/coronary-artery|descending-artery|circumflex/.test(id) || id === "left-anterior-descending-artery") return "coronary";
+  return "vessel";
+}
+const RIGHT_SIDE = /^(right-|tricuspid|superior-vena|inferior-vena|pulmonary-trunk|coronary-sinus)/;
+function colorFor(id: string, layer: string): number {
+  switch (layer as HeartLayer) {
+    case "wall": return 0xb4574a;
+    case "chamber": return RIGHT_SIDE.test(id) ? 0x7b2230 : 0xd23b34;
+    case "valve": return id.includes("papillary") ? 0xc08a62 : 0xeadfc4;
+    case "vessel":
+      if (/vena-cava|pulmonary-vein/.test(id)) return /pulmonary-vein/.test(id) ? 0xc9503f : 0x7a3a52;
+      if (/pulmonary-trunk|pulmonary-artery/.test(id)) return 0x8a5a78;
+      return 0xe0a595;
+    case "coronary": return 0xc43a30;
+    case "cardiac-vein": return 0x5d2c52;
+  }
+}
+
+export const HEART_CFG: AtlasConfig = {
+  key: "heart",
+  modelUrl: "/models/heart.glb",
+  items: HEART_ITEMS,
+  layers: HEART_LAYERS,
+  layerOf,
+  color: colorFor,
+  shell: ["wall"],
+  innerLabel: ["Innenansicht (Herzwand durchsichtig)", "المنظر الداخلي (جدار شفاف)", "Inside view (wall transparent)", "Vue interne (paroi transparente)", "İç görünüm (duvar saydam)"],
+  careTitle: ["Pflege-Überblick Herz", "نظرة تمريضية على القلب", "Nursing overview: heart", "Aperçu infirmier : cœur", "Hemşirelik özeti: kalp"],
+  dist: 0.34, minDist: 0.08, maxDist: 0.9, clipRange: 0.07, explodeScale: 2.2,
+  care: HEART_CARE as AtlasConfig["care"],
+  quiz: HEART_QUIZ,
+  source: ["Quelle: BodyParts3D, © DBCLS, CC BY 4.0 (bearbeitet). Referenzanatomie eines erwachsenen Mannes, nur zum Lernen.", "المصدر: BodyParts3D © DBCLS رخصة CC BY 4.0 (معدَّل). تشريح مرجعي لرجل بالغ، للتعلم فقط.", "Source: BodyParts3D, © DBCLS, CC BY 4.0 (modified). Adult male reference anatomy, for learning only.", "Source : BodyParts3D, © DBCLS, CC BY 4.0 (modifié). Anatomie de référence, pour apprendre.", "Kaynak: BodyParts3D, © DBCLS, CC BY 4.0 (düzenlendi). Yetişkin erkek referans anatomisi, yalnızca öğrenme için."],
+};

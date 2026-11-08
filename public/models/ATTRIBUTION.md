@@ -10,3 +10,10 @@
 - Es handelt sich um die Referenzanatomie eines erwachsenen Mannes, kein klinisches Werkzeug.
 
 Bearbeitungen (nach CC BY 4.0 kenntlich gemacht): Die OBJ-Elemente wurden von „Human Atlas“ (github.com/ashemag/human-atlas, Daten CC BY 4.0, Code MIT) in Meter/Y-oben umgerechnet und vereinfacht. Das Projekt github.com/Niyaz-05/heart-anatomy-lab (MIT) hat daraus 142 Herz- und Gefäßelemente ausgewählt, zu 34 benannten Strukturen zusammengefasst und auf den Mittelpunkt der Herzwand zentriert. Dieses Projekt nutzt die Datei unverändert in der Geometrie; Farben und Beschriftungen kommen aus der App.
+
+## resp.glb (Atmungssystem)
+
+- Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0 (https://lifesciencedb.jp/bp3d/), bezogen über Human Atlas (ashemag/human-atlas).
+- Enthalten: Nasenskelett, Kehlkopfknorpel, Trachea, Haupt- und Lappenbronchien, Pulmonalgefäße, Zwerchfell (30 Strukturen).
+- Nicht im Modell: Lungenoberfläche, Pleura, Alveolen, Rachen. Dafür gibt es beschriftete Schemazeichnungen (keine 3D-Daten).
+- Verarbeitung: `tools/extract-resp.mjs`; Element-IDs und Prüfsummen in `resp.provenance.json`.

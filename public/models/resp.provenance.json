@@ -1,0 +1,1417 @@
+{
+ "source": "BodyParts3D 4.0 (DBCLS, CC BY 4.0) via Human Atlas (ashemag/human-atlas, MIT/CC BY 4.0)",
+ "atlasJsonSha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+ "chunkSha256": {
+  "body-12.bin": "61a6c8da89bb20df50c575964ac81aa4090eabfc2cb27ad2155aea325f31c6c0",
+  "body-13.bin": "4c51b6be85d5b705d2b52b79b9ad1cdae0b65ad03c9402a2f2673c7633fd94f3",
+  "body-9.bin": "0aa8aa09a379a2d759872659a2ef68fc4510ee37e435c4ebc63ee679722a4547",
+  "body-10.bin": "4a959d998acd35cf88518a0f2f8ab99b42d9f69c7ce0d6a814df315eeac807ac",
+  "body-8.bin": "18beacfdeadc8ad483d692672aae165f4323704cd7a9bfcbebbd703f5e268e25",
+  "body-7.bin": "06340f48478eb989cec117a558290c0cd54eeead9641b565cbb8aab255b4e56b",
+  "body-11.bin": "e8c1afe7f30fe710ad164ec9cd2287a32881606e7eb590af47d76b3f84405027"
+ },
+ "centreOffsetMetres": [
+  0.00444599986076355,
+  1.2633761763572693,
+  -0.0009018480777740479
+ ],
+ "glbSha256": "6d1c355008284573b9749112a12b9e40a6aefed51c719ab9c5f2a2c9f4fa8fdd",
+ "structures": [
+  {
+   "id": "nasal-bones",
+   "layer": "upper",
+   "elements": [
+    {
+     "id": "FJ3272",
+     "name": "Left nasal bone"
+    },
+    {
+     "id": "FJ3378",
+     "name": "Right nasal bone"
+    }
+   ]
+  },
+  {
+   "id": "nasal-cartilages",
+   "layer": "upper",
+   "elements": [
+    {
+     "id": "FJ2556",
+     "name": "Left lateral nasal cartilage"
+    },
+    {
+     "id": "FJ2557",
+     "name": "Septal nasal cartilage"
+    },
+    {
+     "id": "FJ2558",
+     "name": "Right lateral nasal cartilage"
+    }
+   ]
+  },
+  {
+   "id": "inferior-nasal-conchae",
+   "layer": "upper",
+   "elements": [
+    {
+     "id": "FJ3263",
+     "name": "Left inferior nasal concha"
+    },
+    {
+     "id": "FJ3369",
+     "name": "Right inferior nasal concha"
+    }
+   ]
+  },
+  {
+   "id": "epiglottis",
+   "layer": "upper",
+   "elements": [
+    {
+     "id": "FJ2770",
+     "name": "Epiglottis"
+    }
+   ]
+  },
+  {
+   "id": "thyroid-cartilage",
+   "layer": "upper",
+   "elements": [
+    {
+     "id": "FJ2808",
+     "name": "Thyroid cartilage"
+    }
+   ]
+  },
+  {
+   "id": "cricoid-cartilage",
+   "layer": "upper",
+   "elements": [
+    {
+     "id": "FJ2440",
+     "name": "Cricoid cartilage"
+    }
+   ]
+  },
+  {
+   "id": "trachea",
+   "layer": "airway",
+   "elements": [
+    {
+     "id": "FJ2541",
+     "name": "Trachea"
+    }
+   ]
+  },
+  {
+   "id": "right-main-bronchus",
+   "layer": "airway",
+   "elements": [
+    {
+     "id": "FJ2539",
+     "name": "Right main bronchus proper"
+    }
+   ]
+  },
+  {
+   "id": "left-main-bronchus",
+   "layer": "airway",
+   "elements": [
+    {
+     "id": "FJ2450",
+     "name": "Left main bronchus"
+    }
+   ]
+  },
+  {
+   "id": "ru-bronchi",
+   "layer": "bronchi",
+   "elements": [
+    {
+     "id": "FJ2453",
+     "name": "Right anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2454",
+     "name": "Right apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2458",
+     "name": "Right posterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2509",
+     "name": "Right anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2510",
+     "name": "Right anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2511",
+     "name": "Right anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2512",
+     "name": "Right anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2513",
+     "name": "Right anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2514",
+     "name": "Right anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2515",
+     "name": "Right posterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2516",
+     "name": "Right posterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2517",
+     "name": "Right posterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2518",
+     "name": "Right posterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2519",
+     "name": "Right posterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2520",
+     "name": "Right apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2521",
+     "name": "Right apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2522",
+     "name": "Right apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2523",
+     "name": "Right apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2524",
+     "name": "Right apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2525",
+     "name": "Right apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2526",
+     "name": "Right apical segmental bronchial tree"
+    }
+   ]
+  },
+  {
+   "id": "ru-arteries",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ2041",
+     "name": "Right anterior segmental artery"
+    },
+    {
+     "id": "FJ2044",
+     "name": "Right anterior segmental artery"
+    },
+    {
+     "id": "FJ2967",
+     "name": "Apical part of right apical segmental artery"
+    },
+    {
+     "id": "FJ2968",
+     "name": "Apical part of right posterior segmental artery"
+    },
+    {
+     "id": "FJ2969",
+     "name": "Apical part of right posterior segmental artery"
+    },
+    {
+     "id": "FJ2970",
+     "name": "Posterior part of right posterior segmental artery"
+    },
+    {
+     "id": "FJ2971",
+     "name": "Posterior part of right posterior segmental artery"
+    },
+    {
+     "id": "FJ2972",
+     "name": "Posterior part of right posterior segmental artery"
+    },
+    {
+     "id": "FJ2973",
+     "name": "Right upper lobar artery"
+    },
+    {
+     "id": "FJ2974",
+     "name": "Posterior branch of right anterior segmental artery"
+    },
+    {
+     "id": "FJ2975",
+     "name": "Anterior branch of right anterior segmental artery"
+    },
+    {
+     "id": "FJ2976",
+     "name": "Anterior branch of right anterior segmental artery"
+    },
+    {
+     "id": "FJ2977",
+     "name": "Anterior branch of right anterior segmental artery"
+    },
+    {
+     "id": "FJ2978",
+     "name": "Anterior part of right apical segmental artery"
+    },
+    {
+     "id": "FJ2979",
+     "name": "Anterior branch of right anterior segmental artery"
+    },
+    {
+     "id": "FJ2980",
+     "name": "Posterior branch of right anterior segmental artery"
+    },
+    {
+     "id": "FJ2981",
+     "name": "Posterior branch of right anterior segmental artery"
+    },
+    {
+     "id": "FJ2989",
+     "name": "Anterior part of right apical segmental artery"
+    },
+    {
+     "id": "FJ3000",
+     "name": "Anterior part of right apical segmental artery"
+    },
+    {
+     "id": "FJ3011",
+     "name": "Anterior part of right apical segmental artery"
+    },
+    {
+     "id": "FJ3015",
+     "name": "Apical part of right apical segmental artery"
+    },
+    {
+     "id": "FJ3016",
+     "name": "Apical part of right apical segmental artery"
+    },
+    {
+     "id": "FJ3017",
+     "name": "Apical part of right apical segmental artery"
+    },
+    {
+     "id": "FJ3018",
+     "name": "Apical part of right posterior segmental artery"
+    }
+   ]
+  },
+  {
+   "id": "ru-veins",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ3021",
+     "name": "Inferior part of right anterior segmental vein"
+    },
+    {
+     "id": "FJ3022",
+     "name": "Right posterior segmental vein"
+    },
+    {
+     "id": "FJ3023",
+     "name": "Right posterior segmental vein"
+    },
+    {
+     "id": "FJ3024",
+     "name": "Right posterior segmental vein"
+    },
+    {
+     "id": "FJ3025",
+     "name": "Right posterior segmental vein"
+    },
+    {
+     "id": "FJ3026",
+     "name": "Right posterior segmental vein"
+    },
+    {
+     "id": "FJ3027",
+     "name": "Superior part of right anterior segmental vein"
+    },
+    {
+     "id": "FJ3028",
+     "name": "Right anterior segmental vein"
+    },
+    {
+     "id": "FJ3029",
+     "name": "Right anterior segmental vein"
+    },
+    {
+     "id": "FJ3031",
+     "name": "Trunk of right apical segmental vein"
+    },
+    {
+     "id": "FJ3042",
+     "name": "Anterior part of right apical segmental vein"
+    },
+    {
+     "id": "FJ3053",
+     "name": "Anterior part of right apical segmental vein"
+    },
+    {
+     "id": "FJ3064",
+     "name": "Apical part of right apical segmental vein"
+    },
+    {
+     "id": "FJ3067",
+     "name": "Apical part of right apical segmental vein"
+    },
+    {
+     "id": "FJ3068",
+     "name": "Apical part of right apical segmental vein"
+    },
+    {
+     "id": "FJ3069",
+     "name": "Right posterior segmental vein"
+    },
+    {
+     "id": "FJ3070",
+     "name": "Right posterior segmental vein"
+    }
+   ]
+  },
+  {
+   "id": "rm-bronchi",
+   "layer": "bronchi",
+   "elements": [
+    {
+     "id": "FJ2449",
+     "name": "Lateral segmental bronchial tree"
+    },
+    {
+     "id": "FJ2451",
+     "name": "Medial segmental bronchial tree"
+    },
+    {
+     "id": "FJ2503",
+     "name": "Lateral segmental bronchial tree"
+    },
+    {
+     "id": "FJ2504",
+     "name": "Lateral segmental bronchial tree"
+    },
+    {
+     "id": "FJ2505",
+     "name": "Lateral segmental bronchial tree"
+    },
+    {
+     "id": "FJ2506",
+     "name": "Medial segmental bronchial tree"
+    },
+    {
+     "id": "FJ2507",
+     "name": "Medial segmental bronchial tree"
+    },
+    {
+     "id": "FJ2508",
+     "name": "Medial segmental bronchial tree"
+    }
+   ]
+  },
+  {
+   "id": "rm-arteries",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ2982",
+     "name": "Anterior branch of lateral segmental artery"
+    },
+    {
+     "id": "FJ2983",
+     "name": "Posterior branch of lateral segmental artery"
+    },
+    {
+     "id": "FJ2984",
+     "name": "Posterior branch of lateral segmental artery"
+    },
+    {
+     "id": "FJ2985",
+     "name": "Anterior branch of lateral segmental artery"
+    },
+    {
+     "id": "FJ2986",
+     "name": "Superior branch of medial segmental artery"
+    },
+    {
+     "id": "FJ2987",
+     "name": "Inferior branch of medial segmental artery"
+    },
+    {
+     "id": "FJ2988",
+     "name": "Inferior branch of medial segmental artery"
+    },
+    {
+     "id": "FJ2990",
+     "name": "Superior branch of medial segmental artery"
+    }
+   ]
+  },
+  {
+   "id": "rm-veins",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ3030",
+     "name": "Superior part of medial segmental vein"
+    },
+    {
+     "id": "FJ3032",
+     "name": "Inferior part of medial segmental vein"
+    },
+    {
+     "id": "FJ3033",
+     "name": "Inferior part of medial segmental vein"
+    },
+    {
+     "id": "FJ3034",
+     "name": "Anterior part of lateral segmental vein"
+    },
+    {
+     "id": "FJ3035",
+     "name": "Anterior part of lateral segmental vein"
+    },
+    {
+     "id": "FJ3036",
+     "name": "Anterior part of lateral segmental vein"
+    },
+    {
+     "id": "FJ3037",
+     "name": "Posterior part of lateral segmental vein"
+    },
+    {
+     "id": "FJ3038",
+     "name": "Posterior part of lateral segmental vein"
+    },
+    {
+     "id": "FJ3039",
+     "name": "Posterior part of lateral segmental vein"
+    }
+   ]
+  },
+  {
+   "id": "rl-bronchi",
+   "layer": "bronchi",
+   "elements": [
+    {
+     "id": "FJ2452",
+     "name": "Right anterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2455",
+     "name": "Right lateral basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2456",
+     "name": "Right medial basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2457",
+     "name": "Right posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2459",
+     "name": "Right superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2470",
+     "name": "Right posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2481",
+     "name": "Right posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2486",
+     "name": "Right posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2487",
+     "name": "Right posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2488",
+     "name": "Right medial basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2489",
+     "name": "Right posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2490",
+     "name": "Right lateral basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2491",
+     "name": "Right lateral basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2492",
+     "name": "Right lateral basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2493",
+     "name": "Right anterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2494",
+     "name": "Right anterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2495",
+     "name": "Right superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2496",
+     "name": "Right superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2497",
+     "name": "Right superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2498",
+     "name": "Right superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2499",
+     "name": "Right superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2500",
+     "name": "Right superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2501",
+     "name": "Right superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2502",
+     "name": "Right superior segmental bronchial tree"
+    }
+   ]
+  },
+  {
+   "id": "rl-arteries",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ2991",
+     "name": "Lateral branch of right superior segmental artery"
+    },
+    {
+     "id": "FJ2992",
+     "name": "Lateral branch of right superior segmental artery"
+    },
+    {
+     "id": "FJ2993",
+     "name": "Lateral branch of right superior segmental artery"
+    },
+    {
+     "id": "FJ2994",
+     "name": "Medial branch of right superior segmental artery"
+    },
+    {
+     "id": "FJ2995",
+     "name": "Medial branch of right superior segmental artery"
+    },
+    {
+     "id": "FJ2996",
+     "name": "Medial branch of right superior segmental artery"
+    },
+    {
+     "id": "FJ2997",
+     "name": "Superior branch of right superior segmental artery"
+    },
+    {
+     "id": "FJ2998",
+     "name": "Superior branch of right superior segmental artery"
+    },
+    {
+     "id": "FJ2999",
+     "name": "Superior branch of right superior segmental artery"
+    },
+    {
+     "id": "FJ3001",
+     "name": "Lateral branch of right anterior basal segmental artery"
+    },
+    {
+     "id": "FJ3002",
+     "name": "Basal branch of right anterior basal segmental artery"
+    },
+    {
+     "id": "FJ3003",
+     "name": "Basal branch of right anterior basal segmental artery"
+    },
+    {
+     "id": "FJ3004",
+     "name": "Lateral branch of right lateral basal segmental artery"
+    },
+    {
+     "id": "FJ3005",
+     "name": "Lateral branch of right lateral basal segmental artery"
+    },
+    {
+     "id": "FJ3006",
+     "name": "Lateral branch of right lateral basal segmental artery"
+    },
+    {
+     "id": "FJ3007",
+     "name": "Lateral branch of right lateral basal segmental artery"
+    },
+    {
+     "id": "FJ3008",
+     "name": "Mediobasal branch of right posterior basal segmental artery"
+    },
+    {
+     "id": "FJ3009",
+     "name": "Accessory subsuperior branch of right posterior basal segmental artery"
+    },
+    {
+     "id": "FJ3010",
+     "name": "Accessory subsuperior branch of right posterior basal segmental artery"
+    },
+    {
+     "id": "FJ3012",
+     "name": "Mediobasal branch of right posterior basal segmental artery"
+    },
+    {
+     "id": "FJ3013",
+     "name": "Laterobasal branch of right posterior basal segmental artery"
+    },
+    {
+     "id": "FJ3014",
+     "name": "Laterobasal branch of right posterior basal segmental artery"
+    }
+   ]
+  },
+  {
+   "id": "rl-veins",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ3041",
+     "name": "Right posterior basal segmental vein"
+    },
+    {
+     "id": "FJ3043",
+     "name": "Right posterior basal segmental vein"
+    },
+    {
+     "id": "FJ3044",
+     "name": "Right posterior basal segmental vein"
+    },
+    {
+     "id": "FJ3045",
+     "name": "Right posterior basal segmental vein"
+    },
+    {
+     "id": "FJ3046",
+     "name": "Right posterior basal segmental vein"
+    },
+    {
+     "id": "FJ3047",
+     "name": "Right posterior basal segmental vein"
+    },
+    {
+     "id": "FJ3048",
+     "name": "Right posterior basal segmental vein"
+    },
+    {
+     "id": "FJ3049",
+     "name": "Right anterior basal segmental vein"
+    },
+    {
+     "id": "FJ3050",
+     "name": "Right superior segmental vein"
+    },
+    {
+     "id": "FJ3051",
+     "name": "Right superior segmental vein"
+    },
+    {
+     "id": "FJ3052",
+     "name": "Right superior segmental vein"
+    },
+    {
+     "id": "FJ3054",
+     "name": "Right medial basal segmental vein"
+    },
+    {
+     "id": "FJ3055",
+     "name": "Right medial basal segmental vein"
+    },
+    {
+     "id": "FJ3056",
+     "name": "Right anterior basal segmental vein"
+    },
+    {
+     "id": "FJ3057",
+     "name": "Right posterior basal segmental vein"
+    },
+    {
+     "id": "FJ3058",
+     "name": "Right posterior basal segmental vein"
+    },
+    {
+     "id": "FJ3059",
+     "name": "Right lateral basal segmental vein"
+    },
+    {
+     "id": "FJ3060",
+     "name": "Right lateral basal segmental vein"
+    },
+    {
+     "id": "FJ3061",
+     "name": "Right lateral basal segmental vein"
+    },
+    {
+     "id": "FJ3062",
+     "name": "Right lateral basal segmental vein"
+    },
+    {
+     "id": "FJ3063",
+     "name": "Right superior segmental vein"
+    },
+    {
+     "id": "FJ3065",
+     "name": "Right superior segmental vein"
+    },
+    {
+     "id": "FJ3066",
+     "name": "Right superior segmental vein"
+    }
+   ]
+  },
+  {
+   "id": "lu-bronchi",
+   "layer": "bronchi",
+   "elements": [
+    {
+     "id": "FJ2441",
+     "name": "Inferior lingular bronchial tree"
+    },
+    {
+     "id": "FJ2443",
+     "name": "Left anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2444",
+     "name": "Left apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2447",
+     "name": "Left posterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2460",
+     "name": "Left apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2461",
+     "name": "Left apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2462",
+     "name": "Left apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2463",
+     "name": "Left apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2464",
+     "name": "Left apical segmental bronchial tree"
+    },
+    {
+     "id": "FJ2465",
+     "name": "Left posterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2466",
+     "name": "Left posterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2467",
+     "name": "Left anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2468",
+     "name": "Left anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2469",
+     "name": "Left anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2471",
+     "name": "Left anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2472",
+     "name": "Left anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2473",
+     "name": "Left anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2474",
+     "name": "Left anterior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2475",
+     "name": "Inferior lingular bronchial tree"
+    },
+    {
+     "id": "FJ2476",
+     "name": "Superior lingular bronchial tree"
+    },
+    {
+     "id": "FJ2477",
+     "name": "Superior lingular bronchial tree"
+    },
+    {
+     "id": "FJ2478",
+     "name": "Superior lingular bronchial tree"
+    },
+    {
+     "id": "FJ2540",
+     "name": "Superior lingular bronchial tree"
+    }
+   ]
+  },
+  {
+   "id": "lu-arteries",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ2896",
+     "name": "Inferior lingular artery"
+    },
+    {
+     "id": "FJ2897",
+     "name": "Inferior lingular artery"
+    },
+    {
+     "id": "FJ2898",
+     "name": "Superior lingular artery"
+    },
+    {
+     "id": "FJ2899",
+     "name": "Superior lingular artery"
+    },
+    {
+     "id": "FJ2900",
+     "name": "Superior lingular artery"
+    },
+    {
+     "id": "FJ2901",
+     "name": "Superior lingular artery"
+    },
+    {
+     "id": "FJ2902",
+     "name": "Left anterior segmental artery"
+    },
+    {
+     "id": "FJ2904",
+     "name": "Left anterior segmental artery"
+    },
+    {
+     "id": "FJ2905",
+     "name": "Left anterior segmental artery"
+    },
+    {
+     "id": "FJ2906",
+     "name": "Left anterior segmental artery"
+    },
+    {
+     "id": "FJ2907",
+     "name": "Left anterior segmental artery"
+    },
+    {
+     "id": "FJ2908",
+     "name": "Left anterior segmental artery"
+    },
+    {
+     "id": "FJ2909",
+     "name": "Left anterior segmental artery"
+    },
+    {
+     "id": "FJ2910",
+     "name": "Left anterior segmental artery"
+    },
+    {
+     "id": "FJ2911",
+     "name": "Left posterior segmental artery"
+    },
+    {
+     "id": "FJ2912",
+     "name": "Left posterior segmental artery"
+    },
+    {
+     "id": "FJ2913",
+     "name": "Left posterior segmental artery"
+    },
+    {
+     "id": "FJ2915",
+     "name": "Left apical segmental artery"
+    },
+    {
+     "id": "FJ2916",
+     "name": "Left apical segmental artery"
+    },
+    {
+     "id": "FJ2917",
+     "name": "Left apical segmental artery"
+    },
+    {
+     "id": "FJ2918",
+     "name": "Left apical segmental artery"
+    }
+   ]
+  },
+  {
+   "id": "lu-veins",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ2926",
+     "name": "Left posterior segmental vein"
+    },
+    {
+     "id": "FJ2927",
+     "name": "Left posterior segmental vein"
+    },
+    {
+     "id": "FJ2928",
+     "name": "Left posterior segmental vein"
+    },
+    {
+     "id": "FJ2929",
+     "name": "Left posterior segmental vein"
+    },
+    {
+     "id": "FJ2930",
+     "name": "Left anterior segmental vein"
+    },
+    {
+     "id": "FJ2931",
+     "name": "Left anterior segmental vein"
+    },
+    {
+     "id": "FJ2932",
+     "name": "Left anterior segmental vein"
+    },
+    {
+     "id": "FJ2934",
+     "name": "Inferior lingular vein"
+    },
+    {
+     "id": "FJ2935",
+     "name": "Inferior lingular vein"
+    },
+    {
+     "id": "FJ2936",
+     "name": "Left apical segmental vein"
+    },
+    {
+     "id": "FJ2937",
+     "name": "Superior lingular vein"
+    },
+    {
+     "id": "FJ2938",
+     "name": "Superior lingular vein"
+    },
+    {
+     "id": "FJ2939",
+     "name": "Left posterior segmental vein"
+    },
+    {
+     "id": "FJ2940",
+     "name": "Left posterior segmental vein"
+    },
+    {
+     "id": "FJ2941",
+     "name": "Left posterior segmental vein"
+    },
+    {
+     "id": "FJ2942",
+     "name": "Left posterior segmental vein"
+    },
+    {
+     "id": "FJ2943",
+     "name": "Left posterior segmental vein"
+    },
+    {
+     "id": "FJ2947",
+     "name": "Left apical segmental vein"
+    },
+    {
+     "id": "FJ2958",
+     "name": "Left apical segmental vein"
+    },
+    {
+     "id": "FJ2961",
+     "name": "Left apical segmental vein"
+    },
+    {
+     "id": "FJ2962",
+     "name": "Left apical segmental vein"
+    },
+    {
+     "id": "FJ2963",
+     "name": "Left apical segmental vein"
+    },
+    {
+     "id": "FJ2964",
+     "name": "Left apical segmental vein"
+    },
+    {
+     "id": "FJ2965",
+     "name": "Left posterior segmental vein"
+    }
+   ]
+  },
+  {
+   "id": "ll-bronchi",
+   "layer": "bronchi",
+   "elements": [
+    {
+     "id": "FJ2442",
+     "name": "Left medial basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2445",
+     "name": "Left lateral basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2446",
+     "name": "Left posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2448",
+     "name": "Left superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2479",
+     "name": "Left superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2480",
+     "name": "Left superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2482",
+     "name": "Left superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2483",
+     "name": "Left superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2484",
+     "name": "Left superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2485",
+     "name": "Left superior segmental bronchial tree"
+    },
+    {
+     "id": "FJ2527",
+     "name": "Left posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2528",
+     "name": "Left posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2529",
+     "name": "Left posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2530",
+     "name": "Left posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2531",
+     "name": "Left posterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2532",
+     "name": "Left lateral basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2533",
+     "name": "Left lateral basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2534",
+     "name": "Left lateral basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2535",
+     "name": "Left anterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2536",
+     "name": "Left anterior basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2537",
+     "name": "Left medial basal segmental bronchial tree"
+    },
+    {
+     "id": "FJ2538",
+     "name": "Left anterior basal segmental bronchial tree"
+    }
+   ]
+  },
+  {
+   "id": "ll-arteries",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ2881",
+     "name": "Left posterior basal segmental artery"
+    },
+    {
+     "id": "FJ2882",
+     "name": "Left lateral basal segmental artery"
+    },
+    {
+     "id": "FJ2883",
+     "name": "Left anterior basal segmental artery"
+    },
+    {
+     "id": "FJ2884",
+     "name": "Left medial basal segmental artery"
+    },
+    {
+     "id": "FJ2885",
+     "name": "Left medial basal segmental artery"
+    },
+    {
+     "id": "FJ2886",
+     "name": "Left anterior basal segmental artery"
+    },
+    {
+     "id": "FJ2887",
+     "name": "Left anterior basal segmental artery"
+    },
+    {
+     "id": "FJ2888",
+     "name": "Left superior segmental artery"
+    },
+    {
+     "id": "FJ2889",
+     "name": "Left superior segmental artery"
+    },
+    {
+     "id": "FJ2890",
+     "name": "Left superior segmental artery"
+    },
+    {
+     "id": "FJ2891",
+     "name": "Left superior segmental artery"
+    },
+    {
+     "id": "FJ2892",
+     "name": "Left posterior basal segmental artery"
+    },
+    {
+     "id": "FJ2893",
+     "name": "Left superior segmental artery"
+    },
+    {
+     "id": "FJ2894",
+     "name": "Left superior segmental artery"
+    },
+    {
+     "id": "FJ2895",
+     "name": "Left superior segmental artery"
+    },
+    {
+     "id": "FJ2903",
+     "name": "Left posterior basal segmental artery"
+    },
+    {
+     "id": "FJ2914",
+     "name": "Left posterior basal segmental artery"
+    },
+    {
+     "id": "FJ2919",
+     "name": "Left posterior basal segmental artery"
+    },
+    {
+     "id": "FJ2920",
+     "name": "Left posterior basal segmental artery"
+    },
+    {
+     "id": "FJ2921",
+     "name": "Left lateral basal segmental artery"
+    },
+    {
+     "id": "FJ2922",
+     "name": "Left lateral basal segmental artery"
+    },
+    {
+     "id": "FJ2923",
+     "name": "Left lateral basal segmental artery"
+    }
+   ]
+  },
+  {
+   "id": "ll-veins",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ2945",
+     "name": "Left posterior basal segmental vein"
+    },
+    {
+     "id": "FJ2946",
+     "name": "Left posterior basal segmental vein"
+    },
+    {
+     "id": "FJ2948",
+     "name": "Left posterior basal segmental vein"
+    },
+    {
+     "id": "FJ2949",
+     "name": "Left posterior basal segmental vein"
+    },
+    {
+     "id": "FJ2951",
+     "name": "Left lateral basal segmental vein"
+    },
+    {
+     "id": "FJ2952",
+     "name": "Left lateral basal segmental vein"
+    },
+    {
+     "id": "FJ2953",
+     "name": "Left lateral basal segmental vein"
+    },
+    {
+     "id": "FJ2954",
+     "name": "Left lateral basal segmental vein"
+    },
+    {
+     "id": "FJ2956",
+     "name": "Left anterior basal segmental vein"
+    },
+    {
+     "id": "FJ2957",
+     "name": "Left anterior basal segmental vein"
+    },
+    {
+     "id": "FJ2959",
+     "name": "Left anterior basal segmental vein"
+    },
+    {
+     "id": "FJ2960",
+     "name": "Left anterior basal segmental vein"
+    }
+   ]
+  },
+  {
+   "id": "pulmonary-trunk",
+   "layer": "artery-main",
+   "elements": [
+    {
+     "id": "FJ2966",
+     "name": "Pulmonary trunk"
+    }
+   ]
+  },
+  {
+   "id": "right-pulmonary-artery",
+   "layer": "artery-main",
+   "elements": [
+    {
+     "id": "FJ3019",
+     "name": "Right pulmonary artery"
+    }
+   ]
+  },
+  {
+   "id": "left-pulmonary-artery",
+   "layer": "artery-main",
+   "elements": [
+    {
+     "id": "FJ2924",
+     "name": "Left pulmonary artery"
+    }
+   ]
+  },
+  {
+   "id": "right-pulmonary-veins",
+   "layer": "vein-main",
+   "elements": [
+    {
+     "id": "FJ3020",
+     "name": "Right superior pulmonary vein"
+    },
+    {
+     "id": "FJ3040",
+     "name": "Right inferior pulmonary vein"
+    }
+   ]
+  },
+  {
+   "id": "left-pulmonary-veins",
+   "layer": "vein-main",
+   "elements": [
+    {
+     "id": "FJ2925",
+     "name": "Left superior pulmonary vein"
+    },
+    {
+     "id": "FJ2933",
+     "name": "Left superior pulmonary vein"
+    },
+    {
+     "id": "FJ2944",
+     "name": "Left inferior pulmonary vein"
+    },
+    {
+     "id": "FJ2950",
+     "name": "Left inferior pulmonary vein"
+    },
+    {
+     "id": "FJ2955",
+     "name": "Left inferior pulmonary vein"
+    }
+   ]
+  },
+  {
+   "id": "diaphragm",
+   "layer": "diaphragm",
+   "elements": [
+    {
+     "id": "FJ3131",
+     "name": "Diaphragm"
+    }
+   ]
+  }
+ ]
+}
