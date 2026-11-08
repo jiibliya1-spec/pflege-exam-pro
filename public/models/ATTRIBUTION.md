@@ -41,3 +41,6 @@ Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 58 benannte Str
 
 ## endocrine.glb (Endokrines System)
 Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 18 benannte Strukturen (Hypothalamus, Hypophyse, Zirbeldrüse, Nebennieren, Bauchspeicheldrüse, Thymus, Hoden; Orientierung: Nieren, Magen, Zwölffingerdarm, Gallenblase, Luftröhre, Schildknorpel, Skelett), erzeugt mit `tools/extract-model.mjs` und `tools/defs/endocrine.json`; Herkunft in `endocrine.provenance.json`. Nicht im Quellmodell: Schilddrüse, Nebenschilddrüsen, Eierstöcke.
+
+## reproductive.glb (Fortpflanzungssystem)
+Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 16 benannte Strukturen: NUR männliche Organe (Hoden, Nebenhoden, Samenleiter, Bläschendrüsen, Prostata, Schwellkörper, Eichel), Harnwege, Enddarm, Beckenboden, Becken (Orientierung). Erzeugt mit `tools/extract-model.mjs` und `tools/defs/reproductive.json`. Weibliche Organe fehlen im Quellmodell und werden im Atlas nur als gekennzeichnetes Schema (kein 3D-Modell) gezeigt.

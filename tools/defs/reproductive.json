@@ -1,0 +1,144 @@
+{
+ "centreLayers": [
+  "gonad",
+  "duct",
+  "gland",
+  "penis",
+  "urinary"
+ ],
+ "structures": [
+  {
+   "id": "testes",
+   "layer": "gonad",
+   "el": [
+    "FJ3138",
+    "FJ3142"
+   ]
+  },
+  {
+   "id": "epididymis",
+   "layer": "gonad",
+   "el": [
+    "FJ3136",
+    "FJ3141"
+   ]
+  },
+  {
+   "id": "deferent-ducts",
+   "layer": "duct",
+   "el": [
+    "FJ3135",
+    "FJ3140"
+   ]
+  },
+  {
+   "id": "seminal-vesicles",
+   "layer": "gland",
+   "el": [
+    "FJ3137",
+    "FJ3143"
+   ]
+  },
+  {
+   "id": "prostate",
+   "layer": "gland",
+   "el": [
+    "FJ3139"
+   ]
+  },
+  {
+   "id": "corpora-cavernosa",
+   "layer": "penis",
+   "el": [
+    "FJ3132"
+   ]
+  },
+  {
+   "id": "corpus-spongiosum",
+   "layer": "penis",
+   "el": [
+    "FJ3133"
+   ]
+  },
+  {
+   "id": "glans-penis",
+   "layer": "penis",
+   "el": [
+    "FJ3134"
+   ]
+  },
+  {
+   "id": "urethra",
+   "layer": "urinary",
+   "el": [
+    "FJ3148"
+   ]
+  },
+  {
+   "id": "urinary-bladder",
+   "layer": "urinary",
+   "el": [
+    "FJ3149"
+   ]
+  },
+  {
+   "id": "ureters",
+   "layer": "urinary",
+   "el": [
+    "FJ3144",
+    "FJ3146"
+   ]
+  },
+  {
+   "id": "rectum",
+   "layer": "context",
+   "el": [
+    "FJ2571"
+   ]
+  },
+  {
+   "id": "levator-ani",
+   "layer": "context",
+   "el": [
+    "FJ2547",
+    "FJ2549",
+    "FJ2550",
+    "FJ2551"
+   ]
+  },
+  {
+   "id": "hip-bone",
+   "layer": "shell",
+   "match": [
+    {
+     "re": "hip bone$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "sacrum",
+   "layer": "shell",
+   "match": [
+    {
+     "re": "^Sacrum$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "lumbar-spine",
+   "layer": "shell",
+   "match": [
+    {
+     "re": "^[A-Za-z]+ lumbar vertebra$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Intervertebral disk of (fourth|fifth) lumbar vertebra$",
+     "system": "skeletal"
+    }
+   ]
+  }
+ ]
+}
