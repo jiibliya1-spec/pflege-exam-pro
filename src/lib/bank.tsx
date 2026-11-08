@@ -32,7 +32,7 @@ export function BankProvider({ children }: { children: ReactNode }) {
     let cancelled = false;
     (async () => {
       try {
-        const r = await fetch(asset("/data/bank.json"), { cache: "no-cache" });
+        const r = await fetch(asset("/data/bank.json"));
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         const json = await r.json();
         const res = parseBank(json);

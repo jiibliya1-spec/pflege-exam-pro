@@ -10,7 +10,7 @@ import { useBank } from "@/lib/bank";
 import { newId, useUserContext } from "@/lib/hooks";
 import { chapterStats, formatDuration, latestAttempts, overallStats, weakestTopics } from "@/lib/stats";
 import { defaultConfig, eligibleQuestions, sessionFromIds } from "@/lib/exam";
-import { Badge, Button, EmptyState, LinkButton, PageHeader, Progress, Spinner, StatCard } from "./ui";
+import { Badge, Button, EmptyState, LinkButton, PageHeader, Progress, StatCard } from "./ui";
 import { useT } from "@/lib/i18n";
 import { Icon } from "./Icon";
 
@@ -27,9 +27,8 @@ export function Dashboard() {
   const weak = useMemo(() => weakestTopics(chStats), [chStats]);
   const latest = useMemo(() => latestAttempts(state.attempts), [state.attempts]);
 
-  if (bank.status === "loading") return <Spinner label="Fragenbank wird geladen …" />;
-
-  if (bank.status !== "ready")
+  // Kein Warten auf die Fragenbank: Startseite erscheint sofort, Zahlen füllen sich nach dem Laden.
+  if (bank.status !== "ready" && bank.status !== "loading")
     return (
       <>
         <PageHeader title="Willkommen bei Pflege Exam Pro" />

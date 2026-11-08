@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { useBank } from "@/lib/bank";
-import { searchLessons } from "@/lib/lessonSearch";
 import { useT } from "@/lib/i18n";
 import { cn, Dialog, Input, Notice } from "./ui";
 
@@ -240,6 +239,9 @@ function SearchBody({ onClose }: { onClose: () => void }) {
     return () => clearTimeout(t);
   }, []);
 
+  const [searchLessons, setSearchLessons] = useState<typeof import("@/lib/lessonSearch").searchLessons | null>(null);
+  useEffect(() => { void import("@/lib/lessonSearch").then((m) => setSearchLessons(() => m.searchLessons)); }, []);
+
   const results = useMemo(() => {
     const term = q.trim().toLowerCase();
     if (term.length < 2) return null;
@@ -248,13 +250,13 @@ function SearchBody({ onClose }: { onClose: () => void }) {
       .filter((c) => c.title.toLowerCase().includes(term) || c.narrative.toLowerCase().includes(term))
       .slice(0, 5)
       .map((c) => ({ kind: "Fallbeispiel", title: c.title, href: `/cases/view/?id=${c.id}` }));
-    const ls = searchLessons(q, 6).map((h) => ({ kind: "Lektion", title: h.lesson.title, href: `/learn/view/?id=${h.lesson.id}` }));
+    const ls = (searchLessons ? searchLessons(q, 6) : []).map((h) => ({ kind: "Lektion", title: h.lesson.title, href: `/learn/view/?id=${h.lesson.id}` }));
     const qs = questions
       .filter((x) => x.text.toLowerCase().includes(term) || (x.stem ?? "").toLowerCase().includes(term))
       .slice(0, 12)
       .map((x) => ({ kind: `Frage ${x.label}`, title: x.text.replace(/\s+/g, " ").slice(0, 110), href: `/question/?id=${x.id}` }));
     return [...pages, ...ls, ...cs, ...qs];
-  }, [q, questions, cases]);
+  }, [q, questions, cases, searchLessons]);
 
   return (
     <>
