@@ -150,8 +150,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         if (cancelled) return;
         rawDispatch({ type: "load", state: loaded });
         setWarnings(w);
+        setReady(true); // sofort anzeigen; persist() kann auf iOS lange hängen und darf den Start nicht blockieren
         try {
-          await navigator.storage?.persist?.();
+          void navigator.storage?.persist?.()?.catch?.(() => undefined);
         } catch {
           /* optional */
         }
