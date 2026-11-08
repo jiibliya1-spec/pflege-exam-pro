@@ -1,0 +1,338 @@
+{
+ "source": "BodyParts3D 4.0 (DBCLS, CC BY 4.0) via Human Atlas (ashemag/human-atlas, MIT/CC BY 4.0)",
+ "atlasJsonSha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+ "chunkSha256": {
+  "body-11.bin": "e8c1afe7f30fe710ad164ec9cd2287a32881606e7eb590af47d76b3f84405027",
+  "body-14.bin": "58604526a0cd9e7dca4d8587cd9a42f9dd03ec6c4ebbc22a9bf017b31246f7e7",
+  "body-7.bin": "06340f48478eb989cec117a558290c0cd54eeead9641b565cbb8aab255b4e56b",
+  "body-13.bin": "4c51b6be85d5b705d2b52b79b9ad1cdae0b65ad03c9402a2f2673c7633fd94f3"
+ },
+ "centreOffsetMetres": [
+  0.001403801143169403,
+  0.9776157140731812,
+  0.02034665085375309
+ ],
+ "glbSha256": "250c56473ad21ccefa0dabf505d2ea5a682d021bfeef3244d6871d3eda4a5276",
+ "structures": [
+  {
+   "id": "right-kidney",
+   "layer": "kidney",
+   "elements": [
+    {
+     "id": "FJ3147",
+     "name": "Right kidney"
+    }
+   ]
+  },
+  {
+   "id": "left-kidney",
+   "layer": "kidney",
+   "elements": [
+    {
+     "id": "FJ3145",
+     "name": "Left kidney"
+    }
+   ]
+  },
+  {
+   "id": "right-adrenal",
+   "layer": "adrenal",
+   "elements": [
+    {
+     "id": "FJ3130",
+     "name": "Right adrenal gland"
+    }
+   ]
+  },
+  {
+   "id": "left-adrenal",
+   "layer": "adrenal",
+   "elements": [
+    {
+     "id": "FJ3129",
+     "name": "Left adrenal gland"
+    }
+   ]
+  },
+  {
+   "id": "right-ureter",
+   "layer": "ducts",
+   "elements": [
+    {
+     "id": "FJ3146",
+     "name": "Right ureter"
+    }
+   ]
+  },
+  {
+   "id": "left-ureter",
+   "layer": "ducts",
+   "elements": [
+    {
+     "id": "FJ3144",
+     "name": "Left ureter"
+    }
+   ]
+  },
+  {
+   "id": "bladder",
+   "layer": "ducts",
+   "elements": [
+    {
+     "id": "FJ3149",
+     "name": "Urinary bladder"
+    }
+   ]
+  },
+  {
+   "id": "urethra",
+   "layer": "ducts",
+   "elements": [
+    {
+     "id": "FJ3148",
+     "name": "Urethra"
+    }
+   ]
+  },
+  {
+   "id": "prostate",
+   "layer": "prostate",
+   "elements": [
+    {
+     "id": "FJ3139",
+     "name": "Prostate"
+    }
+   ]
+  },
+  {
+   "id": "right-renal-artery",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ3576",
+     "name": "Trunk of right renal artery"
+    },
+    {
+     "id": "FJ3558",
+     "name": "Anterior division of right renal artery"
+    },
+    {
+     "id": "FJ3559",
+     "name": "Anterior division of right renal artery"
+    },
+    {
+     "id": "FJ3560",
+     "name": "Anterior division of right renal artery"
+    },
+    {
+     "id": "FJ3561",
+     "name": "Anterior division of right renal artery"
+    },
+    {
+     "id": "FJ3562",
+     "name": "Anterior division of right renal artery"
+    },
+    {
+     "id": "FJ3563",
+     "name": "Anterior division of right renal artery"
+    },
+    {
+     "id": "FJ3573",
+     "name": "Posterior division of right renal artery"
+    },
+    {
+     "id": "FJ3574",
+     "name": "Posterior division of right renal artery"
+    },
+    {
+     "id": "FJ3575",
+     "name": "Posterior division of right renal artery"
+    },
+    {
+     "id": "FJ3581",
+     "name": "Ureteric segment of right renal artery"
+    },
+    {
+     "id": "FJ3582",
+     "name": "Ureteric segment of right renal artery"
+    },
+    {
+     "id": "FJ2038",
+     "name": "Right renal artery"
+    },
+    {
+     "id": "FJ2042",
+     "name": "Superior segmental branch of right renal artery"
+    },
+    {
+     "id": "FJ2043",
+     "name": "Inferior segmental branch of right renal artery"
+    },
+    {
+     "id": "FJ2045",
+     "name": "Posterior segmental branch of right renal artery"
+    }
+   ]
+  },
+  {
+   "id": "left-renal-artery",
+   "layer": "artery",
+   "elements": [
+    {
+     "id": "FJ3476",
+     "name": "Trunk of left renal artery"
+    },
+    {
+     "id": "FJ3458",
+     "name": "Anterior division of left renal artery"
+    },
+    {
+     "id": "FJ3459",
+     "name": "Anterior division of left renal artery"
+    },
+    {
+     "id": "FJ3460",
+     "name": "Anterior division of left renal artery"
+    },
+    {
+     "id": "FJ3461",
+     "name": "Anterior division of left renal artery"
+    },
+    {
+     "id": "FJ3462",
+     "name": "Anterior division of left renal artery"
+    },
+    {
+     "id": "FJ3463",
+     "name": "Anterior division of left renal artery"
+    },
+    {
+     "id": "FJ3473",
+     "name": "Posterior division of left renal artery"
+    },
+    {
+     "id": "FJ3474",
+     "name": "Posterior division of left renal artery"
+    },
+    {
+     "id": "FJ3475",
+     "name": "Posterior division of left renal artery"
+    },
+    {
+     "id": "FJ3481",
+     "name": "Ureteric segment of left renal artery"
+    },
+    {
+     "id": "FJ2046",
+     "name": "Left renal artery"
+    },
+    {
+     "id": "FJ2049",
+     "name": "Inferior segmental branch of left renal artery"
+    },
+    {
+     "id": "FJ2052",
+     "name": "Superior segmental branch of left renal artery"
+    },
+    {
+     "id": "FJ2053",
+     "name": "Posterior segmental branch of left renal artery"
+    },
+    {
+     "id": "FJ2054",
+     "name": "Posterior segmental branch of left renal artery"
+    }
+   ]
+  },
+  {
+   "id": "right-renal-vein",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ3577",
+     "name": "Right renal vein"
+    },
+    {
+     "id": "FJ3578",
+     "name": "Right renal vein"
+    }
+   ]
+  },
+  {
+   "id": "left-renal-vein",
+   "layer": "vein",
+   "elements": [
+    {
+     "id": "FJ3477",
+     "name": "Left renal vein"
+    },
+    {
+     "id": "FJ3478",
+     "name": "Left renal vein"
+    }
+   ]
+  },
+  {
+   "id": "abdominal-aorta",
+   "layer": "great",
+   "elements": [
+    {
+     "id": "FJ1932",
+     "name": "Abdominal aorta"
+    }
+   ]
+  },
+  {
+   "id": "inferior-vena-cava",
+   "layer": "great",
+   "elements": [
+    {
+     "id": "FJ3441",
+     "name": "Inferior vena cava"
+    },
+    {
+     "id": "FJ3659",
+     "name": "Inferior vena cava"
+    }
+   ]
+  },
+  {
+   "id": "common-iliac-arteries",
+   "layer": "great",
+   "elements": [
+    {
+     "id": "FJ3464",
+     "name": "Left common iliac artery"
+    },
+    {
+     "id": "FJ3565",
+     "name": "Right common iliac artery"
+    }
+   ]
+  },
+  {
+   "id": "common-iliac-veins",
+   "layer": "great",
+   "elements": [
+    {
+     "id": "FJ3465",
+     "name": "Left common iliac vein"
+    },
+    {
+     "id": "FJ3566",
+     "name": "Right common iliac vein"
+    }
+   ]
+  },
+  {
+   "id": "sacrum",
+   "layer": "shell",
+   "elements": [
+    {
+     "id": "FJ3393",
+     "name": "Sacrum"
+    }
+   ]
+  }
+ ]
+}

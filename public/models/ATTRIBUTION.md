@@ -17,3 +17,10 @@ Bearbeitungen (nach CC BY 4.0 kenntlich gemacht): Die OBJ-Elemente wurden von �
 - Enthalten: Nasenskelett, Kehlkopfknorpel, Trachea, Haupt- und Lappenbronchien, Pulmonalgefäße, Zwerchfell (30 Strukturen).
 - Nicht im Modell: Lungenoberfläche, Pleura, Alveolen, Rachen. Dafür gibt es beschriftete Schemazeichnungen (keine 3D-Daten).
 - Verarbeitung: `tools/extract-resp.mjs`; Element-IDs und Prüfsummen in `resp.provenance.json`.
+
+## urinary.glb (Harnsystem)
+
+- Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0 (https://lifesciencedb.jp/bp3d/), bezogen über Human Atlas (ashemag/human-atlas).
+- Enthalten: Nieren, Nebennieren, Harnleiter (mit Nierenkelchen und Nierenbecken), Harnblase, Harnröhre, Prostata, Nierenarterien und -venen, Bauchaorta, untere Hohlvene, Beckengefäße, Kreuzbein (18 Strukturen). Referenzanatomie eines Mannes.
+- Nicht im Modell: Nierenrinde und -mark, Nephron, Nierenhüllen, Blasenwand-Schichten, Schließmuskeln, weibliche Harnröhre. Dafür gibt es beschriftete Schemazeichnungen (keine 3D-Daten).
+- Verarbeitung: `tools/extract-urinary.mjs`; Element-IDs und Prüfsummen in `urinary.provenance.json`.
