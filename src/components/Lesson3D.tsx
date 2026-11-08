@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AtlasViewer } from "./AtlasViewer";
 import { ATLAS_CFGS } from "@/data/atlasRegistry";
 import { LESSON_ORGANS } from "@/data/lessonOrgans";
+import { DISEASE_STORIES } from "@/data/atlasFlows";
 import { useLang } from "@/lib/i18n";
 
 const L = {
@@ -28,7 +29,7 @@ export function Lesson3D({ id }: { id: string }) {
         <Link href={`/atlas/?sys=${SYS[cfg.key]}`} className="text-xs text-teal underline">{T(L.full)}</Link>
       </div>
       <p className="mb-2 text-xs text-muted">{T(L.hint)}</p>
-      <AtlasViewer cfg={cfg} compact only={m.ids} initialSel={m.ids.length === 1 ? m.ids[0] : null} />
+      <AtlasViewer cfg={cfg} compact only={m.ids} story={DISEASE_STORIES[id]} initialSel={m.ids.length === 1 ? m.ids[0] : null} />
     </div>
   );
 }

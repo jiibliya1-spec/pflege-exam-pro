@@ -14,8 +14,11 @@ export interface AtlasItem {
 }
 export type Row = [string, string, string, string, string];
 export interface AtlasLayer { id: string; de: string; ar: string; en: string; fr: string; tr: string }
-export interface AtlasStep { title: Row; text: [string, string]; ids: string[]; note?: [string, string] }
-export interface AtlasPath { id: string; title: Row; intro: [string, string]; steps: AtlasStep[] }
+export type FlowTone = "blue" | "red" | "amber" | "violet";
+/** tone: Farbe der Fließpunkte bzw. des Pulsierens in diesem Schritt */
+export interface AtlasStep { title: Row; text: [string, string]; ids: string[]; note?: [string, string]; tone?: FlowTone }
+/** flow: Punkte laufen in Reihenfolge durch die Strukturen des Schritts (Fließrichtung, schematisch zwischen den Strukturmitten); pulse: Strukturen pulsieren (Krankheitsgeschehen) */
+export interface AtlasPath { id: string; title: Row; intro: [string, string]; steps: AtlasStep[]; flow?: boolean; pulse?: boolean }
 export interface AtlasCare {
   diseases: string[]; symptoms: string[]; diagnostics?: string[]; actions: string[]; monitoring: string[];
   terms: [string, string][]; lessons: string[];

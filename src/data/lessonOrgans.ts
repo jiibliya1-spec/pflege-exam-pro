@@ -30,7 +30,7 @@ export const LESSON_ORGANS: Record<string, LessonOrgan> = {
   // Verdauung
   appendizitis: R("digestive", ["appendix", "ileocecal-junction", "ascending-colon"]), crohn: R("digestive", ["ileum", "ileocecal-junction", "ascending-colon"]),
   darmkrebs: R("digestive", ["ascending-colon", "transverse-colon", "descending-colon", "rectum"]), divertikel: R("digestive", ["descending-colon"]),
-  galle: R("digestive", ["gallbladder", "extrahepatic-bile-ducts", "intrahepatic-bile-ducts"]), "gastritis-ulkus": R("digestive", ["stomach", "duodenum"]),
+  galle: R("digestive", ["gallbladder", "extrahepatic-bile-ducts", "intrahepatic-bile-ducts", "duodenum"]), "gastritis-ulkus": R("digestive", ["stomach", "duodenum"]),
   "reflux-gerd": R("digestive", ["esophagus", "stomach"]), hepatitis: R("digestive", LIVER), leberzirrhose: R("digestive", [...LIVER, "portal-vein"]),
   ileus: R("digestive", ["jejunum", "ileum", "ascending-colon", "transverse-colon", "descending-colon"]), pankreatitis: R("digestive", ["pancreas", "pancreatic-duct", "duodenum"]),
   peritonitis: R("digestive", ["mesenteries", "jejunum", "ileum"]), "akutes-abdomen": R("digestive", ["stomach", "gallbladder", "pancreas", "appendix", "jejunum", "ileum"]),

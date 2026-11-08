@@ -13,3 +13,21 @@ describe("Lektion zu 3D-Organ", () => {
     }
   });
 });
+
+import { DISEASE_STORIES, FLOW_PATHS } from "@/data/atlasFlows";
+describe("Animationen", () => {
+  it("Krankheitsgeschehen: Lektion, Organ-Zuordnung und Strukturen stimmen", () => {
+    for (const [lid, st] of Object.entries(DISEASE_STORIES)) {
+      const o = LESSON_ORGANS[lid];
+      expect(o, lid).toBeTruthy();
+      const cfg = ATLAS_CFGS.find((c) => c.key === o.atlas)!;
+      for (const s of st.steps) for (const id of s.ids) { expect(cfg.items[id], `${lid}:${id}`).toBeTruthy(); expect(o.ids.includes(id), `${lid}:${id} nicht in der Organauswahl`).toBe(true); }
+    }
+  });
+  it("Fließwege: Strukturen vorhanden", () => {
+    for (const [key, paths] of Object.entries(FLOW_PATHS)) {
+      const cfg = ATLAS_CFGS.find((c) => c.key === key)!;
+      for (const p of paths) for (const s of p.steps) for (const id of s.ids) expect(cfg.items[id], `${key}:${id}`).toBeTruthy();
+    }
+  });
+});

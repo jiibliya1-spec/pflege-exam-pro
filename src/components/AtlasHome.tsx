@@ -1,4 +1,5 @@
 "use client";
+import "@/data/atlasRegistry";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Box, Info } from "lucide-react";

@@ -5,7 +5,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import Link from "next/link";
 import { Eye, EyeOff, RotateCcw, Scissors, Move3d } from "lucide-react";
-import type { AtlasConfig } from "@/data/atlasTypes";
+import type { AtlasConfig, AtlasPath } from "@/data/atlasTypes";
 import { useLang } from "@/lib/i18n";
 import { cn } from "./ui";
 
@@ -66,7 +66,9 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 type VMesh = THREE.Mesh<THREE.BufferGeometry, THREE.MeshStandardMaterial>;
 interface Item { id: string; layer: string; mesh: VMesh; dir: THREE.Vector3; base: number }
 
-export function AtlasViewer({ cfg, extra, compact = false, initialSel = null, only }: { cfg: AtlasConfig; extra?: ReactNode; compact?: boolean; initialSel?: string | null; only?: string[] }) {
+const TONES: Record<string, number> = { blue: 0x3f86ff, red: 0xff3b30, amber: 0xffc233, violet: 0xb07aff };
+
+export function AtlasViewer({ cfg, extra, compact = false, initialSel = null, only, story }: { cfg: AtlasConfig; extra?: ReactNode; compact?: boolean; initialSel?: string | null; only?: string[]; story?: AtlasPath }) {
   const ITEMS = cfg.items;
   const lang = useLang();
   const T = (r: Row) => tx(r, lang);
@@ -77,7 +79,7 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null, on
   const labelEls = useRef<Record<string, HTMLDivElement | null>>({});
   const onlyRef = useRef(only);
   onlyRef.current = only;
-  const labelIds = useMemo(() => (only && only.length <= 6 ? only : []), [only]);
+
   const host = useRef<HTMLDivElement>(null);
   const items = useRef<Item[]>([]);
   const api = useRef<{ view: (v: string) => void; reset: () => void; focusOn: (ids: string[] | null) => void } | null>(null);
@@ -93,14 +95,19 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null, on
   const [clipPos, setClipPos] = useState(0);
   const [open, setOpen] = useState<string | null>(null);
   const [shown, setShown] = useState<Set<number>>(new Set());
-  const [pathId, setPathId] = useState<string | null>(null);
+  const [pathId, setPathId] = useState<string | null>(story?.id ?? null);
   const [stepI, setStepI] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const path = cfg.paths?.find((x) => x.id === pathId) ?? null;
+  const path = story ?? cfg.paths?.find((x) => x.id === pathId) ?? null;
   const step = path ? path.steps[Math.min(stepI, path.steps.length - 1)] : null;
   const focus = useMemo(() => (step ? new Set(step.ids) : null), [step]);
-  const state = useRef({ sel, hiddenLayers, hiddenIds, explode, inner, isolate, clip, axis, clipPos, focus });
-  state.current = { sel, hiddenLayers, hiddenIds, explode, inner, isolate, clip, axis, clipPos, focus };
+  const labelIds = useMemo(() => (story ? (step && step.ids.length <= 3 ? step.ids : []) : only && only.length <= 6 ? only : []), [only, story, step]);
+  const tone = step?.tone ?? "blue";
+  const pulse = !!path?.pulse;
+  const state = useRef({ sel, hiddenLayers, hiddenIds, explode, inner, isolate, clip, axis, clipPos, focus, pulse, tone });
+  state.current = { sel, hiddenLayers, hiddenIds, explode, inner, isolate, clip, axis, clipPos, focus, pulse, tone };
+  const flowRef = useRef<{ pts: THREE.Vector3[]; on: boolean }>({ pts: [], on: false });
+  const dotsRef = useRef<THREE.InstancedMesh | null>(null);
   const plane = useRef(new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0));
   const selRef = useRef<(id: string | null) => void>(() => {});
   selRef.current = setSel;
@@ -182,6 +189,9 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null, on
     };
     api.current = { view: (v: string) => { goal.on = false; place(v); }, reset: () => { goal.on = false; place("front"); }, focusOn };
     place("front");
+    const dots = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 10, 8), new THREE.MeshBasicMaterial({ color: 0x2f6fe0 }), 16);
+    dots.visible = false; dots.frustumCulled = false; scene.add(dots);
+    dotsRef.current = dots;
 
     const resize = () => {
       const w = el.clientWidth || 600, h = el.clientHeight || 480;
@@ -262,6 +272,27 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null, on
         if (controls.target.distanceTo(goal.t) < 0.001 && Math.abs(nd - goal.d) < 0.002) goal.on = false;
       }
       controls.update();
+      const st = state.current;
+      const now = performance.now() / 1000;
+      if (st.pulse && st.focus) {
+        const k = 0.5 + 0.5 * Math.sin(now * 3.2);
+        for (const it of items.current) if (st.focus.has(it.id)) it.mesh.material.emissive.setRGB(0.15 + 0.55 * k, 0.02, 0.02);
+      }
+      const fl = flowRef.current, dm = dotsRef.current;
+      if (dm) {
+        if (fl.on && fl.pts.length >= 2) {
+          dm.visible = true;
+          (dm.material as THREE.MeshBasicMaterial).color.setHex(TONES[st.tone]);
+          const curve = new THREE.CatmullRomCurve3(fl.pts);
+          const m4 = new THREE.Matrix4(), rad = (cfg.dist * 0.011);
+          for (let i = 0; i < 16; i++) {
+            const u = (now * 0.22 + i / 16) % 1;
+            m4.compose(curve.getPoint(u), new THREE.Quaternion(), new THREE.Vector3(rad, rad, rad));
+            dm.setMatrixAt(i, m4);
+          }
+          dm.instanceMatrix.needsUpdate = true;
+        } else dm.visible = false;
+      }
       for (const [lid, lb] of Object.entries(labelEls.current)) {
         if (!lb) continue;
         const it = items.current.find((x) => x.id === lid);
@@ -295,6 +326,30 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null, on
     if (status !== "ready" || !cfg.stepCamera) return;
     api.current?.focusOn(step ? step.ids : null);
   }, [step, status, cfg]);
+
+  /** Fließrichtung: Punkte laufen durch die Mitten der Strukturen dieses Schritts (schematisch, in der Reihenfolge der Liste). */
+  const prevCentre = useRef<THREE.Vector3 | null>(null);
+  useEffect(() => {
+    if (status !== "ready" || !path?.flow || !step) { flowRef.current = { pts: [], on: false }; prevCentre.current = null; return; }
+    const centre = (id: string) => {
+      const it = items.current.find((x) => x.id === id);
+      if (!it) return null;
+      it.mesh.geometry.computeBoundingBox();
+      return it.mesh.geometry.boundingBox!.getCenter(new THREE.Vector3());
+    };
+    let pts = step.ids.map(centre).filter((v): v is THREE.Vector3 => !!v);
+    if (pts.length === 1) {
+      const it = items.current.find((x) => x.id === step.ids[0])!;
+      const b = it.mesh.geometry.boundingBox!, sz = b.getSize(new THREE.Vector3());
+      const ax = sz.x >= sz.y && sz.x >= sz.z ? "x" : sz.y >= sz.z ? "y" : "z";
+      const a = pts[0].clone(), c = pts[0].clone();
+      a[ax] = b.min[ax] + sz[ax] * 0.1; c[ax] = b.max[ax] - sz[ax] * 0.1;
+      pts = [a, c];
+    } else if (prevCentre.current && pts.length >= 1) pts = [prevCentre.current, ...pts];
+    prevCentre.current = pts.length ? pts[pts.length - 1].clone() : null;
+    flowRef.current = { pts, on: pts.length >= 2 };
+  }, [step, path, status]);
+  useEffect(() => { if (story) setPlaying(true); }, [story]);
 
   /** Auswahl: Organ löst sich vom Körper, steht allein in der Mitte und wird beschriftet. */
   const prevSel = useRef<string | null>(null);
@@ -381,14 +436,14 @@ export function AtlasViewer({ cfg, extra, compact = false, initialSel = null, on
             ))}
           </div>
         </div>}
-        {!only && cfg.paths && cfg.paths.length > 0 && (
+        {(!only || story) && (story || (cfg.paths && cfg.paths.length > 0)) && (
           <div className="rounded-xl border border-line bg-surface p-3" data-testid="atlas-paths">
-            <div className="mb-2 text-xs font-semibold text-muted">{T(U.paths)}</div>
-            <div className="flex flex-wrap gap-1.5">
-              {cfg.paths.map((pa) => (
+            <div className="mb-2 text-xs font-semibold text-muted">{story ? T(story.title) : T(U.paths)}</div>
+            {!story && <div className="flex flex-wrap gap-1.5">
+              {(cfg.paths ?? []).map((pa) => (
                 <button key={pa.id} data-testid={`atlas-path-${pa.id}`} onClick={() => { setSel(null); setPlaying(false); setStepI(0); setPathId(pathId === pa.id ? null : pa.id); }} aria-pressed={pathId === pa.id} className={cn("min-h-9 rounded-lg border px-3 text-sm", pathId === pa.id ? "border-teal bg-teal/15 font-semibold" : "border-line hover:bg-surface2")}>{T(pa.title)}</button>
               ))}
-            </div>
+            </div>}
             {path && step && (
               <div className="mt-3 space-y-2" data-testid="atlas-step">
                 <p className="text-sm text-muted" dir={dirAttr}>{P(path.intro)}</p>
