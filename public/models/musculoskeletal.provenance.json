@@ -1,0 +1,2134 @@
+{
+ "source": "BodyParts3D 4.0 (DBCLS, CC BY 4.0) via Human Atlas (ashemag/human-atlas, MIT/CC BY 4.0)",
+ "atlasJsonSha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+ "chunkSha256": {
+  "body-12.bin": "61a6c8da89bb20df50c575964ac81aa4090eabfc2cb27ad2155aea325f31c6c0",
+  "body-13.bin": "4c51b6be85d5b705d2b52b79b9ad1cdae0b65ad03c9402a2f2673c7633fd94f3",
+  "body-11.bin": "e8c1afe7f30fe710ad164ec9cd2287a32881606e7eb590af47d76b3f84405027",
+  "body-4.bin": "0509e6c996fe5b935ace770a5dbf2d83a474330b7e541a844052a080bbf814bb",
+  "body-5.bin": "32a967198ffed45839968228898f3d246c67f86fb26892c3ae270be30e2f1149",
+  "body-3.bin": "6febb76b50423331f66802a63bb43f04f99ce08129837015910eed43d0719268",
+  "body-1.bin": "aa077a4675f0d0dd3c9b0af39dc8cf6bcb348c3bf7d283478d4206ce30a5a0de",
+  "body-10.bin": "4a959d998acd35cf88518a0f2f8ab99b42d9f69c7ce0d6a814df315eeac807ac"
+ },
+ "centreOffsetMetres": [
+  0.000010505318641662598,
+  0.8609762778505683,
+  0.009021498262882233
+ ],
+ "glbSha256": "642e6862941cafdc97d1ad6194d633dcf4907ca56633c51a15782cd88ec3f6a3",
+ "structures": [
+  {
+   "id": "skull",
+   "layer": "bone-axial",
+   "elements": [
+    {
+     "id": "FJ3199",
+     "name": "Ethmoid"
+    },
+    {
+     "id": "FJ3200",
+     "name": "Frontal bone"
+    },
+    {
+     "id": "FJ3309",
+     "name": "Occipital bone"
+    },
+    {
+     "id": "FJ3394",
+     "name": "Sphenoid bone"
+    },
+    {
+     "id": "FJ3395",
+     "name": "Vomer"
+    },
+    {
+     "id": "FJ3269",
+     "name": "Left maxilla"
+    },
+    {
+     "id": "FJ3272",
+     "name": "Left nasal bone"
+    },
+    {
+     "id": "FJ3273",
+     "name": "Left palatine bone"
+    },
+    {
+     "id": "FJ3274",
+     "name": "Left parietal bone"
+    },
+    {
+     "id": "FJ3281",
+     "name": "Left temporal bone"
+    },
+    {
+     "id": "FJ3287",
+     "name": "Left zygomatic bone"
+    },
+    {
+     "id": "FJ3375",
+     "name": "Right maxilla"
+    },
+    {
+     "id": "FJ3378",
+     "name": "Right nasal bone"
+    },
+    {
+     "id": "FJ3379",
+     "name": "Right palatine bone"
+    },
+    {
+     "id": "FJ3380",
+     "name": "Right parietal bone"
+    },
+    {
+     "id": "FJ3386",
+     "name": "Right temporal bone"
+    },
+    {
+     "id": "FJ3392",
+     "name": "Right zygomatic bone"
+    }
+   ]
+  },
+  {
+   "id": "mandible",
+   "layer": "bone-axial",
+   "elements": [
+    {
+     "id": "FJ3289",
+     "name": "Mandible"
+    }
+   ]
+  },
+  {
+   "id": "cervical-spine",
+   "layer": "bone-axial",
+   "elements": [
+    {
+     "id": "FJ3161",
+     "name": "Third cervical vertebra"
+    },
+    {
+     "id": "FJ3164",
+     "name": "Fourth cervical vertebra"
+    },
+    {
+     "id": "FJ3167",
+     "name": "Fifth cervical vertebra"
+    },
+    {
+     "id": "FJ3170",
+     "name": "Sixth cervical vertebra"
+    },
+    {
+     "id": "FJ3172",
+     "name": "Seventh cervical vertebra"
+    },
+    {
+     "id": "FJ3176",
+     "name": "Atlas"
+    },
+    {
+     "id": "FJ3177",
+     "name": "Axis"
+    }
+   ]
+  },
+  {
+   "id": "thoracic-spine",
+   "layer": "bone-axial",
+   "elements": [
+    {
+     "id": "FJ3154",
+     "name": "Tenth thoracic vertebra"
+    },
+    {
+     "id": "FJ3155",
+     "name": "Eleventh thoracic vertebra"
+    },
+    {
+     "id": "FJ3156",
+     "name": "Twelfth thoracic vertebra"
+    },
+    {
+     "id": "FJ3158",
+     "name": "First thoracic vertebra"
+    },
+    {
+     "id": "FJ3160",
+     "name": "Second thoracic vertebra"
+    },
+    {
+     "id": "FJ3163",
+     "name": "Third thoracic vertebra"
+    },
+    {
+     "id": "FJ3166",
+     "name": "Fourth thoracic vertebra"
+    },
+    {
+     "id": "FJ3169",
+     "name": "Fifth thoracic vertebra"
+    },
+    {
+     "id": "FJ3171",
+     "name": "Sixth thoracic vertebra"
+    },
+    {
+     "id": "FJ3173",
+     "name": "Seventh thoracic vertebra"
+    },
+    {
+     "id": "FJ3174",
+     "name": "Eighth thoracic vertebra"
+    },
+    {
+     "id": "FJ3175",
+     "name": "Ninth thoracic vertebra"
+    }
+   ]
+  },
+  {
+   "id": "lumbar-spine",
+   "layer": "bone-axial",
+   "elements": [
+    {
+     "id": "FJ3157",
+     "name": "First lumbar vertebra"
+    },
+    {
+     "id": "FJ3159",
+     "name": "Second lumbar vertebra"
+    },
+    {
+     "id": "FJ3162",
+     "name": "Third lumbar vertebra"
+    },
+    {
+     "id": "FJ3165",
+     "name": "Fourth lumbar vertebra"
+    },
+    {
+     "id": "FJ3168",
+     "name": "Fifth lumbar vertebra"
+    }
+   ]
+  },
+  {
+   "id": "sacrum",
+   "layer": "bone-axial",
+   "elements": [
+    {
+     "id": "FJ3393",
+     "name": "Sacrum"
+    }
+   ]
+  },
+  {
+   "id": "ribs",
+   "layer": "bone-axial",
+   "elements": [
+    {
+     "id": "FJ3225",
+     "name": "Left tenth rib"
+    },
+    {
+     "id": "FJ3226",
+     "name": "Left eleventh rib"
+    },
+    {
+     "id": "FJ3227",
+     "name": "Left twelfth rib"
+    },
+    {
+     "id": "FJ3228",
+     "name": "Left first rib"
+    },
+    {
+     "id": "FJ3229",
+     "name": "Left second rib"
+    },
+    {
+     "id": "FJ3230",
+     "name": "Left third rib"
+    },
+    {
+     "id": "FJ3231",
+     "name": "Left fourth rib"
+    },
+    {
+     "id": "FJ3232",
+     "name": "Left fifth rib"
+    },
+    {
+     "id": "FJ3233",
+     "name": "Left sixth rib"
+    },
+    {
+     "id": "FJ3234",
+     "name": "Left seventh rib"
+    },
+    {
+     "id": "FJ3235",
+     "name": "Left eighth rib"
+    },
+    {
+     "id": "FJ3236",
+     "name": "Left ninth rib"
+    },
+    {
+     "id": "FJ3330",
+     "name": "Right tenth rib"
+    },
+    {
+     "id": "FJ3331",
+     "name": "Right eleventh rib"
+    },
+    {
+     "id": "FJ3332",
+     "name": "Right twelfth rib"
+    },
+    {
+     "id": "FJ3334",
+     "name": "Right first rib"
+    },
+    {
+     "id": "FJ3336",
+     "name": "Right second rib"
+    },
+    {
+     "id": "FJ3338",
+     "name": "Right third rib"
+    },
+    {
+     "id": "FJ3340",
+     "name": "Right fourth rib"
+    },
+    {
+     "id": "FJ3342",
+     "name": "Right fifth rib"
+    },
+    {
+     "id": "FJ3344",
+     "name": "Right sixth rib"
+    },
+    {
+     "id": "FJ3346",
+     "name": "Right seventh rib"
+    },
+    {
+     "id": "FJ3347",
+     "name": "Right eighth rib"
+    },
+    {
+     "id": "FJ3348",
+     "name": "Right ninth rib"
+    }
+   ]
+  },
+  {
+   "id": "costal-cartilages",
+   "layer": "bone-axial",
+   "elements": [
+    {
+     "id": "FJ3239",
+     "name": "Left first costal cartilage"
+    },
+    {
+     "id": "FJ3242",
+     "name": "Left second costal cartilage"
+    },
+    {
+     "id": "FJ3245",
+     "name": "Left third costal cartilage"
+    },
+    {
+     "id": "FJ3248",
+     "name": "Left fourth costal cartilage"
+    },
+    {
+     "id": "FJ3251",
+     "name": "Left fifth costal cartilage"
+    },
+    {
+     "id": "FJ3254",
+     "name": "Left sixth costal cartilage"
+    },
+    {
+     "id": "FJ3255",
+     "name": "Left seventh costal cartilage"
+    },
+    {
+     "id": "FJ3333",
+     "name": "Right first costal cartilage"
+    },
+    {
+     "id": "FJ3335",
+     "name": "Right second costal cartilage"
+    },
+    {
+     "id": "FJ3337",
+     "name": "Right third costal cartilage"
+    },
+    {
+     "id": "FJ3339",
+     "name": "Right fourth costal cartilage"
+    },
+    {
+     "id": "FJ3341",
+     "name": "Right fifth costal cartilage"
+    },
+    {
+     "id": "FJ3343",
+     "name": "Right sixth costal cartilage"
+    },
+    {
+     "id": "FJ3345",
+     "name": "Right seventh costal cartilage"
+    }
+   ]
+  },
+  {
+   "id": "sternum",
+   "layer": "bone-axial",
+   "elements": [
+    {
+     "id": "FJ3153",
+     "name": "Xiphoid process"
+    },
+    {
+     "id": "FJ3178",
+     "name": "Body of sternum"
+    },
+    {
+     "id": "FJ3290",
+     "name": "Manubrium"
+    }
+   ]
+  },
+  {
+   "id": "intervertebral-discs",
+   "layer": "disc",
+   "elements": [
+    {
+     "id": "FJ3202",
+     "name": "Intervertebral disk of axis"
+    },
+    {
+     "id": "FJ3203",
+     "name": "Intervertebral disk of fourth thoracic vertebra"
+    },
+    {
+     "id": "FJ3204",
+     "name": "Intervertebral disk of fifth thoracic vertebra"
+    },
+    {
+     "id": "FJ3205",
+     "name": "Intervertebral disk of sixth thoracic vertebra"
+    },
+    {
+     "id": "FJ3206",
+     "name": "Intervertebral disk of seventh thoracic vertebra"
+    },
+    {
+     "id": "FJ3207",
+     "name": "Intervertebral disk of eighth thoracic vertebra"
+    },
+    {
+     "id": "FJ3208",
+     "name": "Intervertebral disk of ninth thoracic vertebra"
+    },
+    {
+     "id": "FJ3209",
+     "name": "Intervertebral disk of tenth thoracic vertebra"
+    },
+    {
+     "id": "FJ3210",
+     "name": "Intervertebral disk of eleventh thoracic vertebra"
+    },
+    {
+     "id": "FJ3211",
+     "name": "Intervertebral disk"
+    },
+    {
+     "id": "FJ3212",
+     "name": "Intervertebral disk of first lumbar vertebra"
+    },
+    {
+     "id": "FJ3213",
+     "name": "Intervertebral disk of third cervical vertebra"
+    },
+    {
+     "id": "FJ3214",
+     "name": "Intervertebral disk of second lumbar vertebra"
+    },
+    {
+     "id": "FJ3215",
+     "name": "Intervertebral disk of third lumbar vertebra"
+    },
+    {
+     "id": "FJ3216",
+     "name": "Intervertebral disk of fourth lumbar vertebra"
+    },
+    {
+     "id": "FJ3217",
+     "name": "Intervertebral disk of fifth lumbar vertebra"
+    },
+    {
+     "id": "FJ3218",
+     "name": "Intervertebral disk of fourth cervical vertebra"
+    },
+    {
+     "id": "FJ3219",
+     "name": "Intervertebral disk of fifth cervical vertebra"
+    },
+    {
+     "id": "FJ3220",
+     "name": "Intervertebral disk of sixth cervical vertebra"
+    },
+    {
+     "id": "FJ3221",
+     "name": "Intervertebral disk of seventh cervical vertebra"
+    },
+    {
+     "id": "FJ3222",
+     "name": "Intervertebral disk of first thoracic vertebra"
+    },
+    {
+     "id": "FJ3223",
+     "name": "Intervertebral disk of second thoracic vertebra"
+    },
+    {
+     "id": "FJ3224",
+     "name": "Intervertebral disk of third thoracic vertebra"
+    }
+   ]
+  },
+  {
+   "id": "clavicle",
+   "layer": "bone-arm",
+   "elements": [
+    {
+     "id": "FJ3237",
+     "name": "Left clavicle"
+    },
+    {
+     "id": "FJ3362",
+     "name": "Right clavicle"
+    }
+   ]
+  },
+  {
+   "id": "scapula",
+   "layer": "bone-arm",
+   "elements": [
+    {
+     "id": "FJ3279",
+     "name": "Left scapula"
+    },
+    {
+     "id": "FJ3384",
+     "name": "Right scapula"
+    }
+   ]
+  },
+  {
+   "id": "humerus",
+   "layer": "bone-arm",
+   "elements": [
+    {
+     "id": "FJ3262",
+     "name": "Left humerus"
+    },
+    {
+     "id": "FJ3368",
+     "name": "Right humerus"
+    }
+   ]
+  },
+  {
+   "id": "radius",
+   "layer": "bone-arm",
+   "elements": [
+    {
+     "id": "FJ3277",
+     "name": "Left radius"
+    },
+    {
+     "id": "FJ3349",
+     "name": "Right radius"
+    }
+   ]
+  },
+  {
+   "id": "ulna",
+   "layer": "bone-arm",
+   "elements": [
+    {
+     "id": "FJ3286",
+     "name": "Left ulna"
+    },
+    {
+     "id": "FJ3391",
+     "name": "Right ulna"
+    }
+   ]
+  },
+  {
+   "id": "carpals",
+   "layer": "bone-arm",
+   "elements": [
+    {
+     "id": "FJ3257",
+     "name": "Left capitate"
+    },
+    {
+     "id": "FJ3261",
+     "name": "Left hamate"
+    },
+    {
+     "id": "FJ3268",
+     "name": "Left lunate"
+    },
+    {
+     "id": "FJ3276",
+     "name": "Left pisiform"
+    },
+    {
+     "id": "FJ3278",
+     "name": "Left scaphoid"
+    },
+    {
+     "id": "FJ3283",
+     "name": "Left trapezium"
+    },
+    {
+     "id": "FJ3284",
+     "name": "Left trapezoid"
+    },
+    {
+     "id": "FJ3285",
+     "name": "Left triquetral"
+    },
+    {
+     "id": "FJ3361",
+     "name": "Right capitate"
+    },
+    {
+     "id": "FJ3367",
+     "name": "Right hamate"
+    },
+    {
+     "id": "FJ3374",
+     "name": "Right lunate"
+    },
+    {
+     "id": "FJ3382",
+     "name": "Right pisiform"
+    },
+    {
+     "id": "FJ3383",
+     "name": "Right scaphoid"
+    },
+    {
+     "id": "FJ3388",
+     "name": "Right trapezium"
+    },
+    {
+     "id": "FJ3389",
+     "name": "Right trapezoid"
+    },
+    {
+     "id": "FJ3390",
+     "name": "Right triquetral"
+    }
+   ]
+  },
+  {
+   "id": "metacarpals",
+   "layer": "bone-arm",
+   "elements": [
+    {
+     "id": "FJ3240",
+     "name": "Left first metacarpal bone"
+    },
+    {
+     "id": "FJ3243",
+     "name": "Left second metacarpal bone"
+    },
+    {
+     "id": "FJ3246",
+     "name": "Left third metacarpal bone"
+    },
+    {
+     "id": "FJ3249",
+     "name": "Left fourth metacarpal bone"
+    },
+    {
+     "id": "FJ3252",
+     "name": "Left fifth metacarpal bone"
+    },
+    {
+     "id": "FJ3350",
+     "name": "Right first metacarpal bone"
+    },
+    {
+     "id": "FJ3352",
+     "name": "Right second metacarpal bone"
+    },
+    {
+     "id": "FJ3354",
+     "name": "Right third metacarpal bone"
+    },
+    {
+     "id": "FJ3356",
+     "name": "Right fourth metacarpal bone"
+    },
+    {
+     "id": "FJ3358",
+     "name": "Right fifth metacarpal bone"
+    }
+   ]
+  },
+  {
+   "id": "hand-phalanges",
+   "layer": "bone-arm",
+   "elements": [
+    {
+     "id": "FJ3183",
+     "name": "Distal phalanx of left index finger"
+    },
+    {
+     "id": "FJ3184",
+     "name": "Distal phalanx of left little finger"
+    },
+    {
+     "id": "FJ3186",
+     "name": "Distal phalanx of left middle finger"
+    },
+    {
+     "id": "FJ3187",
+     "name": "Distal phalanx of left ring finger"
+    },
+    {
+     "id": "FJ3188",
+     "name": "Distal phalanx of left thumb"
+    },
+    {
+     "id": "FJ3193",
+     "name": "Distal phalanx of right index finger"
+    },
+    {
+     "id": "FJ3194",
+     "name": "Distal phalanx of right little finger"
+    },
+    {
+     "id": "FJ3196",
+     "name": "Distal phalanx of right middle finger"
+    },
+    {
+     "id": "FJ3197",
+     "name": "Distal phalanx of right ring finger"
+    },
+    {
+     "id": "FJ3198",
+     "name": "Distal phalanx of right thumb"
+    },
+    {
+     "id": "FJ3291",
+     "name": "Middle phalanx of left ring finger"
+    },
+    {
+     "id": "FJ3292",
+     "name": "Middle phalanx of right ring finger"
+    },
+    {
+     "id": "FJ3296",
+     "name": "Middle phalanx of left index finger"
+    },
+    {
+     "id": "FJ3297",
+     "name": "Middle phalanx of left little finger"
+    },
+    {
+     "id": "FJ3299",
+     "name": "Middle phalanx of left middle finger"
+    },
+    {
+     "id": "FJ3303",
+     "name": "Middle phalanx of right index finger"
+    },
+    {
+     "id": "FJ3304",
+     "name": "Middle phalanx of right little finger"
+    },
+    {
+     "id": "FJ3306",
+     "name": "Middle phalanx of right middle finger"
+    },
+    {
+     "id": "FJ3313",
+     "name": "Proximal phalanx of left index finger"
+    },
+    {
+     "id": "FJ3314",
+     "name": "Proximal phalanx of left little finger"
+    },
+    {
+     "id": "FJ3316",
+     "name": "Proximal phalanx of left middle finger"
+    },
+    {
+     "id": "FJ3317",
+     "name": "Proximal phalanx of left ring finger"
+    },
+    {
+     "id": "FJ3318",
+     "name": "Proximal phalanx of left thumb"
+    },
+    {
+     "id": "FJ3322",
+     "name": "Proximal phalanx of right index finger"
+    },
+    {
+     "id": "FJ3323",
+     "name": "Proximal phalanx of right little finger"
+    },
+    {
+     "id": "FJ3325",
+     "name": "Proximal phalanx of right middle finger"
+    },
+    {
+     "id": "FJ3326",
+     "name": "Proximal phalanx of right ring finger"
+    },
+    {
+     "id": "FJ3327",
+     "name": "Proximal phalanx of right thumb"
+    }
+   ]
+  },
+  {
+   "id": "hip-bone",
+   "layer": "bone-leg",
+   "elements": [
+    {
+     "id": "FJ3152",
+     "name": "Right hip bone"
+    },
+    {
+     "id": "FJ3288",
+     "name": "Left hip bone"
+    }
+   ]
+  },
+  {
+   "id": "femur",
+   "layer": "bone-leg",
+   "elements": [
+    {
+     "id": "FJ3259",
+     "name": "Left femur"
+    },
+    {
+     "id": "FJ3365",
+     "name": "Right femur"
+    }
+   ]
+  },
+  {
+   "id": "patella",
+   "layer": "bone-leg",
+   "elements": [
+    {
+     "id": "FJ3275",
+     "name": "Left patella"
+    },
+    {
+     "id": "FJ3381",
+     "name": "Right patella"
+    }
+   ]
+  },
+  {
+   "id": "tibia",
+   "layer": "bone-leg",
+   "elements": [
+    {
+     "id": "FJ3282",
+     "name": "Left tibia"
+    },
+    {
+     "id": "FJ3387",
+     "name": "Right tibia"
+    }
+   ]
+  },
+  {
+   "id": "fibula",
+   "layer": "bone-leg",
+   "elements": [
+    {
+     "id": "FJ3260",
+     "name": "Left fibula"
+    },
+    {
+     "id": "FJ3366",
+     "name": "Right fibula"
+    }
+   ]
+  },
+  {
+   "id": "tarsals",
+   "layer": "bone-leg",
+   "elements": [
+    {
+     "id": "FJ3256",
+     "name": "Left calcaneus"
+    },
+    {
+     "id": "FJ3258",
+     "name": "Left cuboid bone"
+    },
+    {
+     "id": "FJ3264",
+     "name": "Left intermediate cuneiform bone"
+    },
+    {
+     "id": "FJ3267",
+     "name": "Left lateral cuneiform bone"
+    },
+    {
+     "id": "FJ3271",
+     "name": "Left medial cuneiform bone"
+    },
+    {
+     "id": "FJ3280",
+     "name": "Left talus"
+    },
+    {
+     "id": "FJ3360",
+     "name": "Right calcaneus"
+    },
+    {
+     "id": "FJ3364",
+     "name": "Right cuboid bone"
+    },
+    {
+     "id": "FJ3370",
+     "name": "Right intermediate cuneiform bone"
+    },
+    {
+     "id": "FJ3373",
+     "name": "Right lateral cuneiform bone"
+    },
+    {
+     "id": "FJ3377",
+     "name": "Right medial cuneiform bone"
+    },
+    {
+     "id": "FJ3385",
+     "name": "Right talus"
+    }
+   ]
+  },
+  {
+   "id": "metatarsals",
+   "layer": "bone-leg",
+   "elements": [
+    {
+     "id": "FJ3241",
+     "name": "Left first metatarsal bone"
+    },
+    {
+     "id": "FJ3244",
+     "name": "Left second metatarsal bone"
+    },
+    {
+     "id": "FJ3247",
+     "name": "Left third metatarsal bone"
+    },
+    {
+     "id": "FJ3250",
+     "name": "Left fourth metatarsal bone"
+    },
+    {
+     "id": "FJ3253",
+     "name": "Left fifth metatarsal bone"
+    },
+    {
+     "id": "FJ3351",
+     "name": "Right first metatarsal bone"
+    },
+    {
+     "id": "FJ3353",
+     "name": "Right second metatarsal bone"
+    },
+    {
+     "id": "FJ3355",
+     "name": "Right third metatarsal bone"
+    },
+    {
+     "id": "FJ3357",
+     "name": "Right fourth metatarsal bone"
+    },
+    {
+     "id": "FJ3359",
+     "name": "Right fifth metatarsal bone"
+    },
+    {
+     "id": "FJ3266",
+     "name": "Sesamoid bone of left foot"
+    },
+    {
+     "id": "FJ3270",
+     "name": "Sesamoid bone of left foot"
+    },
+    {
+     "id": "FJ3372",
+     "name": "Sesamoid bone of right foot"
+    },
+    {
+     "id": "FJ3376",
+     "name": "Sesamoid bone of right foot"
+    }
+   ]
+  },
+  {
+   "id": "toe-phalanges",
+   "layer": "bone-leg",
+   "elements": [
+    {
+     "id": "FJ3179",
+     "name": "Distal phalanx of left second toe"
+    },
+    {
+     "id": "FJ3180",
+     "name": "Distal phalanx of left third toe"
+    },
+    {
+     "id": "FJ3181",
+     "name": "Distal phalanx of left fourth toe"
+    },
+    {
+     "id": "FJ3182",
+     "name": "Distal phalanx of left big toe"
+    },
+    {
+     "id": "FJ3185",
+     "name": "Distal phalanx of left little toe"
+    },
+    {
+     "id": "FJ3189",
+     "name": "Distal phalanx of right second toe"
+    },
+    {
+     "id": "FJ3190",
+     "name": "Distal phalanx of right third toe"
+    },
+    {
+     "id": "FJ3191",
+     "name": "Distal phalanx of right fourth toe"
+    },
+    {
+     "id": "FJ3192",
+     "name": "Distal phalanx of right big toe"
+    },
+    {
+     "id": "FJ3195",
+     "name": "Distal phalanx of right little toe"
+    },
+    {
+     "id": "FJ3293",
+     "name": "Middle phalanx of left second toe"
+    },
+    {
+     "id": "FJ3294",
+     "name": "Middle phalanx of left third toe"
+    },
+    {
+     "id": "FJ3295",
+     "name": "Middle phalanx of left fourth toe"
+    },
+    {
+     "id": "FJ3298",
+     "name": "Middle phalanx of left little toe"
+    },
+    {
+     "id": "FJ3300",
+     "name": "Middle phalanx of right second toe"
+    },
+    {
+     "id": "FJ3301",
+     "name": "Middle phalanx of right third toe"
+    },
+    {
+     "id": "FJ3302",
+     "name": "Middle phalanx of right fourth toe"
+    },
+    {
+     "id": "FJ3305",
+     "name": "Middle phalanx of right little toe"
+    },
+    {
+     "id": "FJ3310",
+     "name": "Proximal phalanx of right big toe"
+    },
+    {
+     "id": "FJ3311",
+     "name": "Proximal phalanx of left third toe"
+    },
+    {
+     "id": "FJ3312",
+     "name": "Proximal phalanx of left fourth toe"
+    },
+    {
+     "id": "FJ3315",
+     "name": "Proximal phalanx of left little toe"
+    },
+    {
+     "id": "FJ3319",
+     "name": "Proximal phalanx of right second toe"
+    },
+    {
+     "id": "FJ3320",
+     "name": "Proximal phalanx of right third toe"
+    },
+    {
+     "id": "FJ3321",
+     "name": "Proximal phalanx of right fourth toe"
+    },
+    {
+     "id": "FJ3324",
+     "name": "Proximal phalanx of right little toe"
+    },
+    {
+     "id": "FJ3328",
+     "name": "Proximal phalanx of left second toe"
+    },
+    {
+     "id": "FJ3329",
+     "name": "Proximal phalanx of left big toe"
+    }
+   ]
+  },
+  {
+   "id": "trapezius",
+   "layer": "muscle-trunk",
+   "elements": [
+    {
+     "id": "FJ1520",
+     "name": "Ascending part of right trapezius"
+    },
+    {
+     "id": "FJ1520M",
+     "name": "Ascending part of left trapezius"
+    },
+    {
+     "id": "FJ1521",
+     "name": "Descending part of right trapezius"
+    },
+    {
+     "id": "FJ1521M",
+     "name": "Descending part of left trapezius"
+    },
+    {
+     "id": "FJ1554",
+     "name": "Transverse part of right trapezius"
+    },
+    {
+     "id": "FJ1554M",
+     "name": "Transverse part of left trapezius"
+    }
+   ]
+  },
+  {
+   "id": "rhomboids",
+   "layer": "muscle-trunk",
+   "elements": [
+    {
+     "id": "FJ1536",
+     "name": "Right rhomboid major"
+    },
+    {
+     "id": "FJ1536M",
+     "name": "Left rhomboid major"
+    },
+    {
+     "id": "FJ1537",
+     "name": "Right rhomboid minor"
+    },
+    {
+     "id": "FJ1537M",
+     "name": "Left rhomboid minor"
+    }
+   ]
+  },
+  {
+   "id": "serratus-anterior",
+   "layer": "muscle-trunk",
+   "elements": [
+    {
+     "id": "FJ1459",
+     "name": "Right serratus anterior"
+    },
+    {
+     "id": "FJ1459M",
+     "name": "Left serratus anterior"
+    }
+   ]
+  },
+  {
+   "id": "pectoralis-major",
+   "layer": "muscle-trunk",
+   "elements": [
+    {
+     "id": "FJ1446",
+     "name": "Abdominal part of right pectoralis major"
+    },
+    {
+     "id": "FJ1446M",
+     "name": "Abdominal part of left pectoralis major"
+    },
+    {
+     "id": "FJ1447",
+     "name": "Clavicular part of right pectoralis major"
+    },
+    {
+     "id": "FJ1447M",
+     "name": "Clavicular part of left pectoralis major"
+    },
+    {
+     "id": "FJ1464",
+     "name": "Sternocostal part of right pectoralis major"
+    },
+    {
+     "id": "FJ1464M",
+     "name": "Sternocostal part of left pectoralis major"
+    }
+   ]
+  },
+  {
+   "id": "pectoralis-minor",
+   "layer": "muscle-trunk",
+   "elements": [
+    {
+     "id": "FJ1456",
+     "name": "Right pectoralis minor"
+    },
+    {
+     "id": "FJ1456M",
+     "name": "Left pectoralis minor"
+    }
+   ]
+  },
+  {
+   "id": "erector-spinae",
+   "layer": "muscle-trunk",
+   "elements": [
+    {
+     "id": "FJ1526",
+     "name": "Right iliocostalis cervicis"
+    },
+    {
+     "id": "FJ1526M",
+     "name": "Left iliocostalis cervicis"
+    },
+    {
+     "id": "FJ1527",
+     "name": "Right iliocostalis lumborum"
+    },
+    {
+     "id": "FJ1527M",
+     "name": "Left iliocostalis lumborum"
+    },
+    {
+     "id": "FJ1528",
+     "name": "Right iliocostalis thoracis"
+    },
+    {
+     "id": "FJ1528M",
+     "name": "Left iliocostalis thoracis"
+    },
+    {
+     "id": "FJ1533",
+     "name": "Right longissimus capitis"
+    },
+    {
+     "id": "FJ1533M",
+     "name": "Left longissimus capitis"
+    },
+    {
+     "id": "FJ1534",
+     "name": "Right longissimus cervicis"
+    },
+    {
+     "id": "FJ1534M",
+     "name": "Left longissimus cervicis"
+    },
+    {
+     "id": "FJ1535",
+     "name": "Right longissimus thoracis"
+    },
+    {
+     "id": "FJ1535M",
+     "name": "Left longissimus thoracis"
+    },
+    {
+     "id": "FJ1543",
+     "name": "spinalis"
+    },
+    {
+     "id": "FJ1543M",
+     "name": "Spinalis"
+    }
+   ]
+  },
+  {
+   "id": "diaphragm",
+   "layer": "muscle-trunk",
+   "elements": [
+    {
+     "id": "FJ3131",
+     "name": "Diaphragm"
+    }
+   ]
+  },
+  {
+   "id": "psoas-iliacus",
+   "layer": "muscle-trunk",
+   "elements": [
+    {
+     "id": "FJ1431",
+     "name": "Right psoas major"
+    },
+    {
+     "id": "FJ1431M",
+     "name": "Left psoas major"
+    },
+    {
+     "id": "FJ1422",
+     "name": "Right iliacus"
+    },
+    {
+     "id": "FJ1422M",
+     "name": "Left iliacus"
+    }
+   ]
+  },
+  {
+   "id": "sternocleidomastoid",
+   "layer": "muscle-trunk",
+   "elements": [
+    {
+     "id": "FJ1573",
+     "name": "Left sternocleidomastoid"
+    },
+    {
+     "id": "FJ1595",
+     "name": "Right sternocleidomastoid"
+    }
+   ]
+  },
+  {
+   "id": "scalenes",
+   "layer": "muscle-trunk",
+   "elements": [
+    {
+     "id": "FJ1570",
+     "name": "Left scalenus anterior"
+    },
+    {
+     "id": "FJ1571",
+     "name": "Left scalenus medius"
+    },
+    {
+     "id": "FJ1572",
+     "name": "Left scalenus posterior"
+    },
+    {
+     "id": "FJ1592",
+     "name": "Right scalenus anterior"
+    },
+    {
+     "id": "FJ1593",
+     "name": "Right scalenus medius"
+    },
+    {
+     "id": "FJ1594",
+     "name": "Right scalenus posterior"
+    }
+   ]
+  },
+  {
+   "id": "deltoid",
+   "layer": "muscle-arm",
+   "elements": [
+    {
+     "id": "FJ1467",
+     "name": "Acromial part of right deltoid"
+    },
+    {
+     "id": "FJ1467M",
+     "name": "Acromial part of left deltoid"
+    },
+    {
+     "id": "FJ1468",
+     "name": "Clavicular part of right deltoid"
+    },
+    {
+     "id": "FJ1468M",
+     "name": "Clavicular part of left deltoid"
+    },
+    {
+     "id": "FJ1513",
+     "name": "Spinal part of right deltoid"
+    },
+    {
+     "id": "FJ1513M",
+     "name": "Spinal part of left deltoid"
+    }
+   ]
+  },
+  {
+   "id": "biceps-brachii",
+   "layer": "muscle-arm",
+   "elements": [
+    {
+     "id": "FJ1478",
+     "name": "Long head of right biceps brachii"
+    },
+    {
+     "id": "FJ1478M",
+     "name": "Long head of left biceps brachii"
+    },
+    {
+     "id": "FJ1512",
+     "name": "Short head of right biceps brachii"
+    },
+    {
+     "id": "FJ1512M",
+     "name": "Short head of left biceps brachii"
+    }
+   ]
+  },
+  {
+   "id": "triceps-brachii",
+   "layer": "muscle-arm",
+   "elements": [
+    {
+     "id": "FJ1477",
+     "name": "Lateral head of right triceps brachii"
+    },
+    {
+     "id": "FJ1477M",
+     "name": "Lateral head of left triceps brachii"
+    },
+    {
+     "id": "FJ1479",
+     "name": "Long head of right triceps brachii"
+    },
+    {
+     "id": "FJ1479M",
+     "name": "Long head of left triceps brachii"
+    },
+    {
+     "id": "FJ1480",
+     "name": "Medial head of right triceps brachii"
+    },
+    {
+     "id": "FJ1480M",
+     "name": "Medial head of left triceps brachii"
+    }
+   ]
+  },
+  {
+   "id": "brachialis",
+   "layer": "muscle-arm",
+   "elements": [
+    {
+     "id": "FJ1486",
+     "name": "Right brachialis"
+    },
+    {
+     "id": "FJ1486M",
+     "name": "Left brachialis"
+    }
+   ]
+  },
+  {
+   "id": "rotator-cuff",
+   "layer": "muscle-arm",
+   "elements": [
+    {
+     "id": "FJ1506",
+     "name": "Right supraspinatus"
+    },
+    {
+     "id": "FJ1506M",
+     "name": "Left supraspinatus"
+    },
+    {
+     "id": "FJ1500",
+     "name": "Right infraspinatus muscle"
+    },
+    {
+     "id": "FJ1500M",
+     "name": "Left infraspinatus muscle"
+    },
+    {
+     "id": "FJ1508",
+     "name": "Right teres minor"
+    },
+    {
+     "id": "FJ1508M",
+     "name": "Left teres minor"
+    },
+    {
+     "id": "FJ1504",
+     "name": "Right subscapularis"
+    },
+    {
+     "id": "FJ1504M",
+     "name": "Left subscapularis"
+    }
+   ]
+  },
+  {
+   "id": "teres-major",
+   "layer": "muscle-arm",
+   "elements": [
+    {
+     "id": "FJ1507",
+     "name": "Right teres major"
+    },
+    {
+     "id": "FJ1507M",
+     "name": "Left teres major"
+    }
+   ]
+  },
+  {
+   "id": "forearm-flexors",
+   "layer": "muscle-arm",
+   "elements": [
+    {
+     "id": "FJ1496",
+     "name": "Right flexor carpi radialis"
+    },
+    {
+     "id": "FJ1496M",
+     "name": "Left flexor carpi radialis"
+    },
+    {
+     "id": "FJ1473",
+     "name": "Humeral head of right flexor carpi ulnaris"
+    },
+    {
+     "id": "FJ1473M",
+     "name": "Humeral head of left flexor carpi ulnaris"
+    },
+    {
+     "id": "FJ1518",
+     "name": "Ulnar head of right flexor carpi ulnaris"
+    },
+    {
+     "id": "FJ1518M",
+     "name": "Ulnar head of left flexor carpi ulnaris"
+    },
+    {
+     "id": "FJ1475",
+     "name": "Right flexor digitorum superficialis"
+    },
+    {
+     "id": "FJ1475M",
+     "name": "Left flexor digitorum superficialis"
+    },
+    {
+     "id": "FJ1499",
+     "name": "Right flexor digitorum superficialis"
+    },
+    {
+     "id": "FJ1499M",
+     "name": "Left flexor digitorum superficialis"
+    },
+    {
+     "id": "FJ1497",
+     "name": "Right flexor digitorum profundus"
+    },
+    {
+     "id": "FJ1497M",
+     "name": "Left flexor digitorum profundus"
+    },
+    {
+     "id": "FJ1498",
+     "name": "Right flexor pollicis longus"
+    },
+    {
+     "id": "FJ1498M",
+     "name": "Left flexor pollicis longus"
+    },
+    {
+     "id": "FJ1502",
+     "name": "Right palmaris longus"
+    },
+    {
+     "id": "FJ1502M",
+     "name": "Left palmaris longus"
+    },
+    {
+     "id": "FJ1474",
+     "name": "Humeral head of right pronator teres"
+    },
+    {
+     "id": "FJ1474M",
+     "name": "Humeral head of left pronator teres"
+    },
+    {
+     "id": "FJ1503",
+     "name": "Right pronator quadratus"
+    },
+    {
+     "id": "FJ1503M",
+     "name": "Left pronator quadratus"
+    },
+    {
+     "id": "FJ1516",
+     "name": "Ulnar head of right pronator teres"
+    },
+    {
+     "id": "FJ1516M",
+     "name": "Ulnar head of left pronator teres"
+    }
+   ]
+  },
+  {
+   "id": "forearm-extensors",
+   "layer": "muscle-arm",
+   "elements": [
+    {
+     "id": "FJ1472",
+     "name": "Right extensor carpi ulnaris"
+    },
+    {
+     "id": "FJ1472M",
+     "name": "Left extensor carpi ulnaris"
+    },
+    {
+     "id": "FJ1489",
+     "name": "Right extensor carpi radialis brevis"
+    },
+    {
+     "id": "FJ1489M",
+     "name": "Left extensor carpi radialis brevis"
+    },
+    {
+     "id": "FJ1490",
+     "name": "Right extensor carpi radialis longus"
+    },
+    {
+     "id": "FJ1490M",
+     "name": "Left extensor carpi radialis longus"
+    },
+    {
+     "id": "FJ1517",
+     "name": "Right extensor carpi ulnaris"
+    },
+    {
+     "id": "FJ1517M",
+     "name": "Left extensor carpi ulnaris"
+    },
+    {
+     "id": "FJ1492",
+     "name": "Right extensor digitorum"
+    },
+    {
+     "id": "FJ1492M",
+     "name": "Left extensor digitorum"
+    },
+    {
+     "id": "FJ1491",
+     "name": "Right extensor digiti minimi"
+    },
+    {
+     "id": "FJ1491M",
+     "name": "Left extensor digiti minimi"
+    },
+    {
+     "id": "FJ1493",
+     "name": "Right extensor indicis"
+    },
+    {
+     "id": "FJ1493M",
+     "name": "Left extensor indicis"
+    },
+    {
+     "id": "FJ1494",
+     "name": "Right extensor pollicis brevis"
+    },
+    {
+     "id": "FJ1494M",
+     "name": "Left extensor pollicis brevis"
+    },
+    {
+     "id": "FJ1495",
+     "name": "Right extensor pollicis longus"
+    },
+    {
+     "id": "FJ1495M",
+     "name": "Left extensor pollicis longus"
+    },
+    {
+     "id": "FJ1484",
+     "name": "Right abductor pollicis longus"
+    },
+    {
+     "id": "FJ1484M",
+     "name": "Left abductor pollicis longus"
+    },
+    {
+     "id": "FJ1505",
+     "name": "Right supinator"
+    },
+    {
+     "id": "FJ1505M",
+     "name": "Left supinator"
+    },
+    {
+     "id": "FJ1485",
+     "name": "Right anconeus"
+    },
+    {
+     "id": "FJ1485M",
+     "name": "Left anconeus"
+    },
+    {
+     "id": "FJ1487",
+     "name": "Right brachioradialis"
+    },
+    {
+     "id": "FJ1487M",
+     "name": "Left brachioradialis"
+    }
+   ]
+  },
+  {
+   "id": "gluteus-maximus",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1418",
+     "name": "Right gluteus maximus"
+    },
+    {
+     "id": "FJ1418M",
+     "name": "Left gluteus maximus"
+    }
+   ]
+  },
+  {
+   "id": "gluteus-medius-minimus",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1419",
+     "name": "Right gluteus medius"
+    },
+    {
+     "id": "FJ1419M",
+     "name": "Left gluteus medius"
+    },
+    {
+     "id": "FJ1420",
+     "name": "Right gluteus minimus"
+    },
+    {
+     "id": "FJ1420M",
+     "name": "Left gluteus minimus"
+    }
+   ]
+  },
+  {
+   "id": "deep-hip-rotators",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1428",
+     "name": "Right piriformis"
+    },
+    {
+     "id": "FJ1428M",
+     "name": "Left piriformis"
+    },
+    {
+     "id": "FJ1416",
+     "name": "Right gemellus inferior"
+    },
+    {
+     "id": "FJ1416M",
+     "name": "Left gemellus inferior"
+    },
+    {
+     "id": "FJ1417",
+     "name": "Right gemellus superior"
+    },
+    {
+     "id": "FJ1417M",
+     "name": "Left gemellus superior"
+    },
+    {
+     "id": "FJ1425",
+     "name": "Right obturator externus"
+    },
+    {
+     "id": "FJ1425M",
+     "name": "Left obturator externus"
+    },
+    {
+     "id": "FJ1426",
+     "name": "Right obturator internus"
+    },
+    {
+     "id": "FJ1426M",
+     "name": "Left obturator internus"
+    },
+    {
+     "id": "FJ1432",
+     "name": "Right quadratus femoris"
+    },
+    {
+     "id": "FJ1432M",
+     "name": "Left quadratus femoris"
+    }
+   ]
+  },
+  {
+   "id": "tensor-fasciae-latae",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1438",
+     "name": "Right tensor fasciae latae"
+    },
+    {
+     "id": "FJ1438M",
+     "name": "Left tensor fasciae latae"
+    },
+    {
+     "id": "FJ1423",
+     "name": "Right iliotibial tract"
+    },
+    {
+     "id": "FJ1423M",
+     "name": "Left iliotibial tract"
+    }
+   ]
+  },
+  {
+   "id": "quadriceps",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1433",
+     "name": "Right rectus femoris"
+    },
+    {
+     "id": "FJ1433M",
+     "name": "Left rectus femoris"
+    },
+    {
+     "id": "FJ1441",
+     "name": "Right vastus intermedius"
+    },
+    {
+     "id": "FJ1441M",
+     "name": "Left vastus intermedius"
+    },
+    {
+     "id": "FJ1442",
+     "name": "Right vastus lateralis"
+    },
+    {
+     "id": "FJ1442M",
+     "name": "Left vastus lateralis"
+    },
+    {
+     "id": "FJ1443",
+     "name": "Right vastus medialis"
+    },
+    {
+     "id": "FJ1443M",
+     "name": "Left vastus medialis"
+    }
+   ]
+  },
+  {
+   "id": "sartorius",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1434",
+     "name": "Right sartorius"
+    },
+    {
+     "id": "FJ1434M",
+     "name": "Left sartorius"
+    }
+   ]
+  },
+  {
+   "id": "hamstrings",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1395",
+     "name": "Long head of right biceps femoris"
+    },
+    {
+     "id": "FJ1395M",
+     "name": "Long head of left biceps femoris"
+    },
+    {
+     "id": "FJ1444",
+     "name": "Short head of right biceps femoris"
+    },
+    {
+     "id": "FJ1444M",
+     "name": "Short head of left biceps femoris"
+    },
+    {
+     "id": "FJ1435",
+     "name": "Right semimembranosus"
+    },
+    {
+     "id": "FJ1435M",
+     "name": "Left semimembranosus"
+    },
+    {
+     "id": "FJ1436",
+     "name": "Right semitendinosus"
+    },
+    {
+     "id": "FJ1436M",
+     "name": "Left semitendinosus"
+    }
+   ]
+  },
+  {
+   "id": "adductors",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1401",
+     "name": "Right adductor brevis"
+    },
+    {
+     "id": "FJ1401M",
+     "name": "Left adductor brevis"
+    },
+    {
+     "id": "FJ1402",
+     "name": "Right adductor longus"
+    },
+    {
+     "id": "FJ1402M",
+     "name": "Left adductor longus"
+    },
+    {
+     "id": "FJ1403",
+     "name": "Right adductor magnus"
+    },
+    {
+     "id": "FJ1403M",
+     "name": "Left adductor magnus"
+    },
+    {
+     "id": "FJ1404",
+     "name": "Right adductor minimus"
+    },
+    {
+     "id": "FJ1404M",
+     "name": "Left adductor minimus"
+    },
+    {
+     "id": "FJ1421",
+     "name": "Right gracilis"
+    },
+    {
+     "id": "FJ1421M",
+     "name": "Left gracilis"
+    },
+    {
+     "id": "FJ1427",
+     "name": "Right pectineus"
+    },
+    {
+     "id": "FJ1427M",
+     "name": "Left pectineus"
+    }
+   ]
+  },
+  {
+   "id": "triceps-surae",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1394",
+     "name": "Lateral head of right gastrocnemius"
+    },
+    {
+     "id": "FJ1394M",
+     "name": "Lateral head of left gastrocnemius"
+    },
+    {
+     "id": "FJ1397",
+     "name": "Medial head of right gastrocnemius"
+    },
+    {
+     "id": "FJ1397M",
+     "name": "Medial head of left gastrocnemius"
+    },
+    {
+     "id": "FJ1437",
+     "name": "Right soleus"
+    },
+    {
+     "id": "FJ1437M",
+     "name": "Left soleus"
+    },
+    {
+     "id": "FJ1429",
+     "name": "Right plantaris"
+    },
+    {
+     "id": "FJ1429M",
+     "name": "Left plantaris"
+    }
+   ]
+  },
+  {
+   "id": "calcaneal-tendon",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1405",
+     "name": "Right calcaneal tendon"
+    },
+    {
+     "id": "FJ1405M",
+     "name": "Left calcaneal tendon"
+    }
+   ]
+  },
+  {
+   "id": "tibialis-anterior",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1439",
+     "name": "Right tibialis anterior"
+    },
+    {
+     "id": "FJ1439M",
+     "name": "Left tibialis anterior"
+    }
+   ]
+  },
+  {
+   "id": "fibularis-group",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1409",
+     "name": "Right fibularis brevis"
+    },
+    {
+     "id": "FJ1409M",
+     "name": "Left fibularis brevis"
+    },
+    {
+     "id": "FJ1410",
+     "name": "Right fibularis longus"
+    },
+    {
+     "id": "FJ1410M",
+     "name": "Left fibularis longus"
+    },
+    {
+     "id": "FJ1411",
+     "name": "Right fibularis tertius"
+    },
+    {
+     "id": "FJ1411M",
+     "name": "Left fibularis tertius"
+    }
+   ]
+  },
+  {
+   "id": "deep-lower-leg",
+   "layer": "muscle-leg",
+   "elements": [
+    {
+     "id": "FJ1440",
+     "name": "Right tibialis posterior"
+    },
+    {
+     "id": "FJ1440M",
+     "name": "Left tibialis posterior"
+    },
+    {
+     "id": "FJ1414",
+     "name": "Right flexor digitorum longus"
+    },
+    {
+     "id": "FJ1414M",
+     "name": "Left flexor digitorum longus"
+    },
+    {
+     "id": "FJ1415",
+     "name": "Right flexor hallucis longus"
+    },
+    {
+     "id": "FJ1415M",
+     "name": "Left flexor hallucis longus"
+    },
+    {
+     "id": "FJ1406",
+     "name": "Right extensor digitorum longus"
+    },
+    {
+     "id": "FJ1406M",
+     "name": "Left extensor digitorum longus"
+    },
+    {
+     "id": "FJ1408",
+     "name": "Right extensor hallucis longus"
+    },
+    {
+     "id": "FJ1408M",
+     "name": "Left extensor hallucis longus"
+    },
+    {
+     "id": "FJ1430",
+     "name": "Right popliteus"
+    },
+    {
+     "id": "FJ1430M",
+     "name": "Left popliteus"
+    }
+   ]
+  },
+  {
+   "id": "skin",
+   "layer": "skin",
+   "elements": [
+    {
+     "id": "FJ2810",
+     "name": "Skin"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,681 @@
+{
+ "centreLayers": [
+  "bone-axial",
+  "bone-arm",
+  "bone-leg"
+ ],
+ "structures": [
+  {
+   "id": "skull",
+   "layer": "bone-axial",
+   "match": [
+    {
+     "re": "^(Frontal bone|Occipital bone|Ethmoid|Sphenoid bone|Vomer)$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^(Left|Right) (parietal bone|temporal bone|maxilla|nasal bone|palatine bone|zygomatic bone)$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "mandible",
+   "layer": "bone-axial",
+   "match": [
+    {
+     "re": "^Mandible$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "cervical-spine",
+   "layer": "bone-axial",
+   "match": [
+    {
+     "re": "^[A-Za-z]+ cervical vertebra$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Atlas$",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Axis$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "thoracic-spine",
+   "layer": "bone-axial",
+   "match": [
+    {
+     "re": "^[A-Za-z]+ thoracic vertebra$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "lumbar-spine",
+   "layer": "bone-axial",
+   "match": [
+    {
+     "re": "^[A-Za-z]+ lumbar vertebra$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "sacrum",
+   "layer": "bone-axial",
+   "match": [
+    {
+     "re": "^Sacrum$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "ribs",
+   "layer": "bone-axial",
+   "match": [
+    {
+     "re": " rib$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "costal-cartilages",
+   "layer": "bone-axial",
+   "match": [
+    {
+     "re": "costal cartilage",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "sternum",
+   "layer": "bone-axial",
+   "match": [
+    {
+     "re": "^(Manubrium|Body of sternum|Xiphoid process)$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "intervertebral-discs",
+   "layer": "disc",
+   "match": [
+    {
+     "re": "^Intervertebral disk",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "clavicle",
+   "layer": "bone-arm",
+   "match": [
+    {
+     "re": "clavicle$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "scapula",
+   "layer": "bone-arm",
+   "match": [
+    {
+     "re": "scapula$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "humerus",
+   "layer": "bone-arm",
+   "match": [
+    {
+     "re": "humerus$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "radius",
+   "layer": "bone-arm",
+   "match": [
+    {
+     "re": "radius$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "ulna",
+   "layer": "bone-arm",
+   "match": [
+    {
+     "re": "ulna$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "carpals",
+   "layer": "bone-arm",
+   "match": [
+    {
+     "re": "(capitate|hamate|lunate|pisiform|scaphoid|trapezium|trapezoid|triquetral)$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "metacarpals",
+   "layer": "bone-arm",
+   "match": [
+    {
+     "re": "metacarpal bone",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "hand-phalanges",
+   "layer": "bone-arm",
+   "match": [
+    {
+     "re": "phalanx of .*(finger|thumb)$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "hip-bone",
+   "layer": "bone-leg",
+   "match": [
+    {
+     "re": "hip bone$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "femur",
+   "layer": "bone-leg",
+   "match": [
+    {
+     "re": "femur$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "patella",
+   "layer": "bone-leg",
+   "match": [
+    {
+     "re": "patella$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "tibia",
+   "layer": "bone-leg",
+   "match": [
+    {
+     "re": "tibia$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "fibula",
+   "layer": "bone-leg",
+   "match": [
+    {
+     "re": "fibula$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "tarsals",
+   "layer": "bone-leg",
+   "match": [
+    {
+     "re": "(calcaneus|talus|cuboid bone|navicular bone of .* foot|cuneiform bone)$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "metatarsals",
+   "layer": "bone-leg",
+   "match": [
+    {
+     "re": "metatarsal bone",
+     "system": "skeletal"
+    },
+    {
+     "re": "^Sesamoid bone of",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "toe-phalanges",
+   "layer": "bone-leg",
+   "match": [
+    {
+     "re": "phalanx of .*toe$",
+     "system": "skeletal"
+    }
+   ]
+  },
+  {
+   "id": "trapezius",
+   "layer": "muscle-trunk",
+   "match": [
+    {
+     "re": "trapezius$"
+    }
+   ]
+  },
+  {
+   "id": "rhomboids",
+   "layer": "muscle-trunk",
+   "match": [
+    {
+     "re": "rhomboid (major|minor)"
+    }
+   ]
+  },
+  {
+   "id": "serratus-anterior",
+   "layer": "muscle-trunk",
+   "match": [
+    {
+     "re": "serratus anterior"
+    }
+   ]
+  },
+  {
+   "id": "pectoralis-major",
+   "layer": "muscle-trunk",
+   "match": [
+    {
+     "re": "pectoralis major"
+    }
+   ]
+  },
+  {
+   "id": "pectoralis-minor",
+   "layer": "muscle-trunk",
+   "match": [
+    {
+     "re": "pectoralis minor"
+    }
+   ]
+  },
+  {
+   "id": "erector-spinae",
+   "layer": "muscle-trunk",
+   "match": [
+    {
+     "re": "iliocostalis"
+    },
+    {
+     "re": "longissimus"
+    },
+    {
+     "re": "^[Ss]pinalis"
+    }
+   ]
+  },
+  {
+   "id": "diaphragm",
+   "layer": "muscle-trunk",
+   "match": [
+    {
+     "re": "^Diaphragm$"
+    }
+   ]
+  },
+  {
+   "id": "psoas-iliacus",
+   "layer": "muscle-trunk",
+   "match": [
+    {
+     "re": "psoas major"
+    },
+    {
+     "re": "iliacus$"
+    }
+   ]
+  },
+  {
+   "id": "sternocleidomastoid",
+   "layer": "muscle-trunk",
+   "match": [
+    {
+     "re": "sternocleidomastoid"
+    }
+   ]
+  },
+  {
+   "id": "scalenes",
+   "layer": "muscle-trunk",
+   "match": [
+    {
+     "re": "scalenus"
+    }
+   ]
+  },
+  {
+   "id": "deltoid",
+   "layer": "muscle-arm",
+   "match": [
+    {
+     "re": "deltoid"
+    }
+   ]
+  },
+  {
+   "id": "biceps-brachii",
+   "layer": "muscle-arm",
+   "match": [
+    {
+     "re": "biceps brachii"
+    }
+   ]
+  },
+  {
+   "id": "triceps-brachii",
+   "layer": "muscle-arm",
+   "match": [
+    {
+     "re": "triceps brachii"
+    }
+   ]
+  },
+  {
+   "id": "brachialis",
+   "layer": "muscle-arm",
+   "match": [
+    {
+     "re": " brachialis$"
+    }
+   ]
+  },
+  {
+   "id": "rotator-cuff",
+   "layer": "muscle-arm",
+   "match": [
+    {
+     "re": "supraspinatus"
+    },
+    {
+     "re": "infraspinatus"
+    },
+    {
+     "re": "teres minor"
+    },
+    {
+     "re": "subscapularis"
+    }
+   ]
+  },
+  {
+   "id": "teres-major",
+   "layer": "muscle-arm",
+   "match": [
+    {
+     "re": "teres major"
+    }
+   ]
+  },
+  {
+   "id": "forearm-flexors",
+   "layer": "muscle-arm",
+   "match": [
+    {
+     "re": "flexor carpi radialis"
+    },
+    {
+     "re": "flexor carpi ulnaris"
+    },
+    {
+     "re": "flexor digitorum superficialis"
+    },
+    {
+     "re": "flexor digitorum profundus"
+    },
+    {
+     "re": "flexor pollicis longus"
+    },
+    {
+     "re": "palmaris longus"
+    },
+    {
+     "re": "pronator (teres|quadratus)"
+    }
+   ]
+  },
+  {
+   "id": "forearm-extensors",
+   "layer": "muscle-arm",
+   "match": [
+    {
+     "re": "extensor carpi (radialis|ulnaris)"
+    },
+    {
+     "re": "extensor digitorum$"
+    },
+    {
+     "re": "extensor digiti minimi"
+    },
+    {
+     "re": "extensor indicis"
+    },
+    {
+     "re": "extensor pollicis"
+    },
+    {
+     "re": "abductor pollicis longus"
+    },
+    {
+     "re": "supinator"
+    },
+    {
+     "re": "anconeus"
+    },
+    {
+     "re": "brachioradialis"
+    }
+   ]
+  },
+  {
+   "id": "gluteus-maximus",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "gluteus maximus"
+    }
+   ]
+  },
+  {
+   "id": "gluteus-medius-minimus",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "gluteus (medius|minimus)"
+    }
+   ]
+  },
+  {
+   "id": "deep-hip-rotators",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "piriformis"
+    },
+    {
+     "re": "gemellus"
+    },
+    {
+     "re": "obturator (externus|internus)"
+    },
+    {
+     "re": "quadratus femoris"
+    }
+   ]
+  },
+  {
+   "id": "tensor-fasciae-latae",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "tensor fasciae latae"
+    },
+    {
+     "re": "iliotibial tract"
+    }
+   ]
+  },
+  {
+   "id": "quadriceps",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "rectus femoris"
+    },
+    {
+     "re": "vastus"
+    }
+   ]
+  },
+  {
+   "id": "sartorius",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "sartorius"
+    }
+   ]
+  },
+  {
+   "id": "hamstrings",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "biceps femoris"
+    },
+    {
+     "re": "semimembranosus"
+    },
+    {
+     "re": "semitendinosus"
+    }
+   ]
+  },
+  {
+   "id": "adductors",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "adductor (magnus|longus|brevis|minimus)"
+    },
+    {
+     "re": "gracilis"
+    },
+    {
+     "re": "pectineus"
+    }
+   ]
+  },
+  {
+   "id": "triceps-surae",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "gastrocnemius"
+    },
+    {
+     "re": "soleus"
+    },
+    {
+     "re": "plantaris"
+    }
+   ]
+  },
+  {
+   "id": "calcaneal-tendon",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "calcaneal tendon"
+    }
+   ]
+  },
+  {
+   "id": "tibialis-anterior",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "tibialis anterior"
+    }
+   ]
+  },
+  {
+   "id": "fibularis-group",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "fibularis"
+    }
+   ]
+  },
+  {
+   "id": "deep-lower-leg",
+   "layer": "muscle-leg",
+   "match": [
+    {
+     "re": "tibialis posterior"
+    },
+    {
+     "re": "flexor digitorum longus"
+    },
+    {
+     "re": "flexor hallucis longus"
+    },
+    {
+     "re": "extensor digitorum longus"
+    },
+    {
+     "re": "extensor hallucis longus"
+    },
+    {
+     "re": "popliteus"
+    }
+   ]
+  },
+  {
+   "id": "skin",
+   "layer": "skin",
+   "match": [
+    {
+     "re": "^Skin$"
+    }
+   ]
+  }
+ ]
+}

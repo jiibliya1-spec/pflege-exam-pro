@@ -47,7 +47,7 @@ for (const s of S) if (!s.el.length) throw new Error("empty " + s.id);
 const meshes = S.map((s) => {
   const els = s.el.map(read);
   const vc = els.reduce((n, e) => n + e.pos.length / 3, 0), ic = els.reduce((n, e) => n + e.idx.length, 0);
-  const pos = new Float32Array(vc * 3), nor = new Float32Array(vc * 3), idx = new Uint32Array(ic);
+  const pos = new Float32Array(vc * 3), nor = new Float32Array(vc * 3), idx = vc < 65536 ? new Uint16Array(ic) : new Uint32Array(ic);
   let vo = 0, io = 0;
   for (const e of els) { pos.set(e.pos, vo * 3); nor.set(e.nor, vo * 3); for (let k = 0; k < e.idx.length; k++) idx[io + k] = e.idx[k] + vo; vo += e.pos.length / 3; io += e.idx.length; }
   return { s, pos, nor, idx, els: els.map((e) => ({ id: e.id, name: e.name })) };
@@ -68,7 +68,7 @@ meshes.forEach((m, i) => {
   const vp = push(m.pos, 34962), vn = push(m.nor, 34962), vi = push(m.idx, 34963);
   acc.push({ bufferView: vp, componentType: 5126, count: m.pos.length / 3, type: "VEC3", min: mn, max: mx });
   acc.push({ bufferView: vn, componentType: 5126, count: m.nor.length / 3, type: "VEC3" });
-  acc.push({ bufferView: vi, componentType: 5125, count: m.idx.length, type: "SCALAR" });
+  acc.push({ bufferView: vi, componentType: m.idx instanceof Uint16Array ? 5123 : 5125, count: m.idx.length, type: "SCALAR" });
   gm.push({ primitives: [{ attributes: { POSITION: i * 3, NORMAL: i * 3 + 1 }, indices: i * 3 + 2, mode: 4 }] });
   nodes.push({ name: m.s.id, mesh: i, extras: { layer: m.s.layer, elements: m.s.el } });
 });

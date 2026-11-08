@@ -34,6 +34,8 @@ export interface AtlasConfig {
   shellOpacity?: number;
   /** Kamera fährt bei Schritten der Lernwege auf die hervorgehobenen Strukturen */
   stepCamera?: boolean;
+  /** Schichten, die beim Öffnen zunächst ausgeblendet sind */
+  hiddenLayers?: string[];
   dist: number; minDist: number; maxDist: number; clipRange: number; explodeScale: number;
   care: AtlasCare;
   quiz: AtlasQuiz[];

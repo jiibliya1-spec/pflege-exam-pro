@@ -35,3 +35,6 @@ Bearbeitungen (nach CC BY 4.0 kenntlich gemacht): Die OBJ-Elemente wurden von �
 
 ## nervous.glb (Nervensystem)
 Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 33 benannte Strukturen (Gehirn, Ventrikel, Sehbahn, Hypophyse, Zirbeldrüse, Schädel), gruppiert und zusammengeführt mit `tools/extract-model.mjs` und `tools/defs/nervous.json`; Herkunft je Struktur in `nervous.provenance.json`. Nicht im Quellmodell: Rückenmark, periphere Nerven, Hirnhäute, Hirngefäße.
+
+## musculoskeletal.glb (Bewegungsapparat)
+Quelle: BodyParts3D 4.0, © DBCLS, CC BY 4.0, über Human Atlas. 58 benannte Strukturen (Skelett, Bandscheiben, ausgewählte Muskelgruppen, Hautkontur), rechts und links je Struktur zusammengeführt mit `tools/extract-model.mjs` und `tools/defs/musculoskeletal.json`; Herkunft in `musculoskeletal.provenance.json`. Nicht enthalten: Steißbein, Bänder (außer Tractus iliotibialis und Achillessehne), Gelenkknorpel, Menisken, Latissimus, gerader und innere Bauchmuskeln, Kau- und Mimikmuskeln, Binnenmuskeln von Hand und Fuß, äußerer schräger Bauchmuskel (Dateigröße). Einige Röhrenknochen sind im Quellmodell stark vereinfacht.

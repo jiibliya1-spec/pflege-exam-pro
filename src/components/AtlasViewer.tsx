@@ -72,7 +72,7 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
   const api = useRef<{ view: (v: string) => void; reset: () => void; focusOn: (ids: string[] | null) => void } | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "nowebgl" | "error">("loading");
   const [sel, setSel] = useState<string | null>(null);
-  const [hiddenLayers, setHiddenLayers] = useState<Set<string>>(new Set());
+  const [hiddenLayers, setHiddenLayers] = useState<Set<string>>(new Set(cfg.hiddenLayers ?? []));
   const [hiddenIds, setHiddenIds] = useState<Set<string>>(new Set());
   const [explode, setExplode] = useState(0);
   const [inner, setInner] = useState(false);
@@ -98,7 +98,7 @@ export function AtlasViewer({ cfg, extra }: { cfg: AtlasConfig; extra?: ReactNod
   const apply = useCallback(() => {
     const s = state.current;
     for (const it of items.current) {
-      const hidden = s.hiddenLayers.has(it.layer) || s.hiddenIds.has(it.id) || (s.isolate && s.sel !== null && s.sel !== it.id);
+      const hidden = (s.hiddenLayers.has(it.layer) && !s.focus?.has(it.id) && s.sel !== it.id) || s.hiddenIds.has(it.id) || (s.isolate && s.sel !== null && s.sel !== it.id);
       it.mesh.visible = !hidden;
       const m = it.mesh.material;
       const dim = !s.focus && s.sel !== null && s.sel !== it.id;
